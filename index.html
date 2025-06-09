@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talevo - Choose Your Own Adventure</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <svg class="logo-svg" viewBox="0 0 200 60">
+          <path d="M10,15 Q30,5 60,10 T100,10 T140,10 T190,15 Q200,30 190,45 T140,50 T100,50 T60,50 Q30,55 10,45 Q0,30 10,15" 
+            fill="none" stroke="currentColor" stroke-width="2">
+          </path>
+          <text fill="currentColor" font-size="26" font-weight="bold" x="50" y="36" letter-spacing="2">
+            Talevo
+          </text>
+          <circle class="star star1" cx="25" cy="25" fill="currentColor" r="3"></circle>
+          <circle class="star star2" cx="175" cy="20" fill="currentColor" r="2.5"></circle>
+          <circle class="star star3" cx="155" cy="40" fill="currentColor" r="2"></circle>
+          <circle class="star star4" cx="40" cy="45" fill="currentColor" r="1.5"></circle>
+          <circle class="star star5" cx="130" cy="15" fill="currentColor" r="2"></circle>
+        </svg>
+      </div>
+      
+      <div class="nav-links">
+        <a href="#featured">Featured</a>
+        <a href="#trending">Trending</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+      </div>
+      
+      <div class="user-actions">
+        <div class="welcome-msg">
+          <i class="fas fa-user-circle"></i>
+          <span id="username-display">Welcome!</span>
+        </div>
+        
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search stories...">
+          <div id="search-results" class="search-results hidden"></div>
+        </div>
+        
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <button class="btn login-btn">Sign In</button>
+
+<div class="account-wrapper hidden">
+  <button class="account-button" id="accountToggle">
+    <i class="fas fa-user-circle"></i>
+    <span id="account-name">Username</span>
+    <i class="fas fa-chevron-down dropdown-arrow"></i>
+  </button>
+  <div class="account-menu hidden">
+    <a href="library.html"><i class="fas fa-book-open"></i> Your Library</a>
+    <a href="#" id="signout-link"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+  </div>
+</div>
+
+
+
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-background"></div>
+    
+    <div class="hero-content">
+      <div class="hero-content-inner">
+        <div class="hero-badge">TRENDING</div>
+        <h1 class="hero-story-title">Space Explorer</h1>
+        <p class="hero-story-desc">Navigate the unknown cosmos and discover alien civilizations. Make choices that will determine the fate of humanity's first deep space mission.</p>
+        
+        <div class="hero-meta">
+          <div class="genre">
+            <i class="fas fa-rocket"></i>
+            <span>Sci-Fi</span>
+          </div>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <span>4.8</span>
+          </div>
+        </div>
+        
+        <div class="hero-actions">
+          <button class="btn read-btn">
+            <i class="fas fa-book-open"></i> Start Reading
+          </button>
+          <button class="btn add-btn">
+            <i class="fas fa-plus"></i> Add to Library
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation arrows -->
+    <button class="hero-nav hero-prev">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="hero-nav hero-next">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="slide-indicators">
+      <!-- Indicators will be added dynamically via JavaScript -->
+    </div>
+  </section>
+
+  <main>
+    <!-- Featured Stories -->
+    <section id="featured" class="featured">
+      <div class="container">
+        <h2 class="section-title">Featured Stories</h2>
+        
+        <div class="stories-carousel">
+          <div class="carousel-container">
+            <!-- Story cards will be added dynamically -->
+          </div>
+          
+          <div class="carousel-buttons">
+            <button class="carousel-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <!-- Added missing next button -->
+            <button class="carousel-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Trending Now -->
+    <section id="trending" class="trending">
+      <div class="container">
+        <h2 class="section-title">Trending Now</h2>
+        
+        <div class="trending-container">
+          <div class="trending-scroll">
+            <!-- Trending stories will be added dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Categories -->
+    <section id="categories" class="categories">
+      <div class="container">
+        <h2 class="section-title">Browse Categories</h2>
+        
+        <div class="categories-grid">
+          <div class="category-card" data-category="sci-fi">
+            <i class="fas fa-rocket category-icon"></i>
+            <span class="category-name">Sci-Fi</span>
+          </div>
+          <div class="category-card" data-category="horror">
+            <i class="fas fa-ghost category-icon"></i>
+            <span class="category-name">Horror</span>
+          </div>
+          <div class="category-card" data-category="fantasy">
+            <i class="fas fa-hat-wizard category-icon"></i>
+            <span class="category-name">Fantasy</span>
+          </div>
+          <div class="category-card" data-category="romance">
+            <i class="fas fa-heart category-icon"></i>
+            <span class="category-name">Romance</span>
+          </div>
+          <div class="category-card" data-category="mystery">
+            <i class="fas fa-search category-icon"></i>
+            <span class="category-name">Mystery</span>
+          </div>
+          <div class="category-card" data-category="adventure">
+            <i class="fas fa-map-marked-alt category-icon"></i>
+            <span class="category-name">Adventure</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- No Results Message -->
+    <div class="no-results container">
+      <p>No stories found matching your search criteria.</p>
+      <button class="btn reset-search">Show All Stories</button>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-container" id="about">
+      <div class="footer-col">
+        <h3>About Talevo</h3>
+        <p>Talevo is a platform for interactive storytelling where readers can make choices that influence the direction of the story.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul class="footer-links">
+          <li><a href="#featured">Featured Stories</a></li>
+          <li><a href="#trending">Trending Now</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#">New Releases</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <ul class="footer-links">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Writer Guidelines</a></li>
+          <li><a href="#">Submission Rules</a></li>
+          <li><a href="#">Get Started</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <ul class="footer-links">
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Copyright</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom container">
+      <p>&copy; 2025 Talevo - Interactive Stories by Vaibhav Bhagat. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Modal -->
+  <div class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Welcome to Talevo</h3>
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+      </div>
+      
+      <div class="modal-tabs">
+        <div class="modal-tab active" data-tab="signin">Sign In</div>
+        <div class="modal-tab" data-tab="signup">Sign Up</div>
+      </div>
+      
+      <div class="modal-body">
+        <form class="modal-form signin-form active" id="signin-form">
+          <div class="form-group">
+            <label for="signin-email" class="form-label">Email</label>
+            <input type="email" id="signin-email" class="form-input" placeholder="Your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="signin-password" class="form-label">Password</label>
+            <input type="password" id="signin-password" class="form-input" placeholder="Your password" required>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+          
+          <button type="submit" class="btn form-submit">Sign In</button>
+        </form>
+        
+        <form class="modal-form signup-form" id="signup-form">
+          <div class="form-group">
+            <label for="signup-username" class="form-label">Username</label>
+            <input type="text" id="signup-username" class="form-input" placeholder="Choose a username" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="signup-email" class="form-label">Email</label>
+            <input type="email" id="signup-email" class="form-input" placeholder="Your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="signup-password" class="form-label">Password</label>
+            <input type="password" id="signup-password" class="form-input" placeholder="Create a password" required>
+          </div>
+          
+          <button type="submit" class="btn form-submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Firebase Configuration -->
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="firebase-auth.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Explorer | Talevo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="space.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .story-controls {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .story-controls button {
+      padding: 10px 20px;
+      border: none;
+      background: #1e293b;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .story-controls button:hover {
+      background: #3b82f6;
+      transform: translateY(-2px);
+    }
+    .loading-indicator {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body class="dark-mode story-page">
+  <main class="container ghost-theme">
+    <img src="space-bg.webp" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;" />
+    <header class="story-header">
+      <div class="logo-container">
+        <a href="https://talevo.netlify.app/" class="logo">
+          <svg class="logo-svg" viewBox="0 0 200 60">
+            <path d="M10,15 Q30,5 60,10 T100,10 T140,10 T190,15 Q200,30 190,45 T140,50 T100,50 T60,50 Q30,55 10,45 Q0,30 10,15" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <text fill="currentColor" font-size="26" font-weight="bold" x="50" y="36" letter-spacing="2">Talevo</text>
+            <circle class="star star1" cx="25" cy="25" fill="currentColor" r="3"></circle>
+            <circle class="star star2" cx="175" cy="20" fill="currentColor" r="2.5"></circle>
+            <circle class="star star3" cx="155" cy="40" fill="currentColor" r="2"></circle>
+            <circle class="star star4" cx="40" cy="45" fill="currentColor" r="1.5"></circle>
+            <circle class="star star5" cx="130" cy="15" fill="currentColor" r="2"></circle>
+            <circle class="star star6" cx="100" cy="48" fill="currentColor" r="1"></circle>
+            <circle class="star star7" cx="180" cy="35" fill="currentColor" r="1"></circle>
+          </svg>
+        </a>
+      </div>
+      <div class="story-nav">
+        <a href="https://talevo.netlify.app/" class="back">
+          <button class="btn btn-icon" id="backBtn"><i class="fas fa-arrow-left"></i></button>
+        </a>
+        <div class="story-title">Space Explorer</div>
+        <div class="story-controls">
+          <button class="btn btn-icon" id="bookmarkBtn"><i class="far fa-bookmark"></i></button>
+          <button class="btn btn-icon" id="shareBtn"><i class="fas fa-share-alt"></i></button>
+        </div>
+      </div>
+    </header>
+    <main class="container">
+      <div id="loader" class="loading-indicator">Loading story...</div>
+      <div class="story-container" id="story-container" style="display: none;"></div>
+
+      <!-- Ending chapters (HTML only) -->
+      <div class="story-chapter hidden" id="ending-1">
+  <h2 class="chapter-title">Ending 1: The Rift Sealed</h2>
+  <div class="chapter-text">
+    <p>You deploy the quantum stabilizers just in time. The dimensional fissure collapses, and Earth is safe. History will remember you as a hero of peace.</p>
+  </div>
+  <button class="restart-btn">Start Over</button>
+</div>
+
+<div class="story-chapter hidden" id="ending-2">
+  <h2 class="chapter-title">Ending 2: Into the Anomaly</h2>
+  <div class="chapter-text">
+    <p>You lead the ship into the unknown. A new universe awaits, but no messages are ever received. A legend is born, lost among the stars.</p>
+  </div>
+  <button class="restart-btn">Start Over</button>
+</div>
+
+<div class="story-chapter hidden" id="ending-3">
+  <h2 class="chapter-title">Ending 3: Earth in Peril</h2>
+  <div class="chapter-text">
+    <p>You retreat and report, but help arrives too late. The anomaly expands. Earth prepares for war. Your warning might be humanity’s last hope.</p>
+  </div>
+  <button class="restart-btn">Start Over</button>
+</div>
+
+<div class="story-chapter hidden" id="ending-4">
+  <h2 class="chapter-title">Ending 4: Unity Beyond</h2>
+  <div class="chapter-text">
+    <p>You join forces with the Aetherii. Together, you build a stable gateway between realms, unlocking peaceful coexistence with beings beyond space and time.</p>
+  </div>
+  <button class="restart-btn">Start Over</button>
+</div>
+            <div class="story-chapter hidden" id="ending-5">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Nullifier Activation">
+  </div>
+  <h2 class="chapter-title">Ending: Pulse of Prevention</h2>
+  <div class="chapter-text">
+    <p>You launch the Harmonic Nullifier into the anomaly. It activates mid-drift, releasing synchronized energy pulses that echo across dimensions.</p>
+    
+    <p>The anomaly pulses wildly, then begins to contract. Space groans under the weight of correction. Then — silence. It's over. For now.</p>
+    
+    <p>Your crew breaks into exhausted cheers. The breach has been sealed without loss of life. The Artemis becomes legend.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-6">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Decoding the Unknown">
+  </div>
+  <h2 class="chapter-title">Ending: Knowledge Unleashed</h2>
+  <div class="chapter-text">
+    <p>You delay deploying the nullifier. Hours pass as ARIA continues analyzing alien data. Suddenly, your ship shudders.</p>
+    
+    <p>The anomaly surges. You've waited too long. The breach expands beyond control. All you can do is broadcast your findings before the Artemis is engulfed.</p>
+    
+    <p>Your sacrifice helps Earth prepare. But your name becomes a warning, not a monument.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-7">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Anomaly Explosion">
+  </div>
+  <h2 class="chapter-title">Ending: Backfire</h2>
+  <div class="chapter-text">
+    <p>The alien weapon fires. Its beam punches through the fabric of space and hits the core of the anomaly.</p>
+    
+    <p>For a second, everything halts. Then — rupture. The weapon destabilizes local time fields. Your crew experiences thousands of years in a blink.</p>
+    
+    <p>You've hurt the anomaly, yes. But it hurt you back. And now the stars will remember the Artemis as a myth twisted by temporal scars.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-8">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Weapon Secured">
+  </div>
+  <h2 class="chapter-title">Ending: Unused Power</h2>
+  <div class="chapter-text">
+    <p>You lock down the alien weapon. Earth Command insists on studying it first. You agree.</p>
+    
+    <p>Weeks pass. The anomaly grows unstable. Before a decision is made, it collapses in on itself — but not before broadcasting coordinates to others like it.</p>
+    
+    <p>Earth is safe. But the stars are no longer quiet. You've started a countdown across the galaxy.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-9">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Seal Stabilized">
+  </div>
+  <h2 class="chapter-title">Ending: Balance Restored</h2>
+  <div class="chapter-text">
+    <p>All stabilizers in place. The anomaly hums, then folds inward. Reality stabilizes.</p>
+    
+    <p>The Aetherii vanish with a final chorus. ARIA confirms: no anomalies detected across all known sectors.</p>
+    
+    <p>Your name is etched into the Council of Stars. You are no longer just a captain — you're a guardian of existence.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-10">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Silent Observer">
+  </div>
+  <h2 class="chapter-title">Ending: Hidden Truth</h2>
+  <div class="chapter-text">
+    <p>You deactivate one stabilizer on purpose, letting the anomaly breathe.</p>
+    
+    <p>Inside the flow, ARIA picks up a voice — not Aetherii, but something older. "Watcher. Recorder. You've proven worthy of contact."</p>
+    
+    <p>They show you a glimpse of a war between primordial forces. You will return, but never truly be the same.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-11">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Signal Cut">
+  </div>
+  <h2 class="chapter-title">Ending: Severed Threads</h2>
+  <div class="chapter-text">
+    <p>You sever all contact with the Aetherii. ARIA purges their links from your systems. Instantly, the ship feels colder.</p>
+    
+    <p>Without their knowledge, you struggle to hold the anomaly at bay. Eventually, you succeed—but barely.</p>
+    
+    <p>Earth survives, but the price was knowledge lost. Perhaps forever. You wonder if your mistrust saved you—or doomed the next.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-12">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Failsafe Armed">
+  </div>
+  <h2 class="chapter-title">Ending: Double Game</h2>
+  <div class="chapter-text">
+    <p>You nod to the Aetherii, smiling as if loyal. But deep inside the Artemis, your engineers install a failsafe program — the Leviathan Lock.</p>
+    
+    <p>When the Aetherii overstep, it triggers. Their control shatters. The breach collapses around them.</p>
+    
+    <p>Your gambit works. But now Earth knows you're willing to play gods against gods. And next time… they may not trust you either.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+      
+    </main>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    async function loadStoryFromJSON() {
+      const response = await fetch("space-explorer-complete.json");
+      const storyData = await response.json();
+      const container = document.getElementById("story-container");
+      const loader = document.getElementById("loader");
+
+      storyData.forEach((chapter) => {
+        if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+
+        const chapterDiv = document.createElement("div");
+        chapterDiv.classList.add("story-chapter");
+        chapterDiv.id = chapter.id;
+        if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+
+        chapterDiv.innerHTML = `
+          <div class="chapter-image">
+            <img src="${chapter.image}" alt="Chapter image" />
+          </div>
+          <h2 class="chapter-title">${chapter.title}</h2>
+          <div class="chapter-text">
+            ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
+          </div>
+          <div class="story-choices">
+            <h3>What will you do?</h3>
+            <div class="choice-options">
+              ${chapter.choices
+                .map(
+                  (choice) => `
+                <button class="choice-btn" data-next="${choice.next}">
+                  ${choice.text}
+                </button>`
+                )
+                .join("")}
+            </div>
+          </div>
+        `;
+        container.appendChild(chapterDiv);
+      });
+
+      loader.style.display = "none";
+      container.style.display = "block";
+
+      initStoryChoiceButtons();
+      updateStoryStats();
+
+      const savedChapter = localStorage.getItem("currentChapter");
+      if (savedChapter && document.getElementById(savedChapter)) {
+        document.querySelectorAll(".story-chapter").forEach((ch) =>
+          ch.classList.add("hidden")
+        );
+        document.getElementById(savedChapter).classList.remove("hidden");
+        window.scrollTo({ top: 0 });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("restart-btn")) {
+        localStorage.removeItem("currentChapter");
+        document.querySelectorAll(".story-chapter").forEach((el) =>
+          el.classList.add("hidden")
+        );
+        const first = document.getElementById("chapter-1");
+        if (first) {
+          first.classList.remove("hidden");
+          window.scrollTo({ top: 0 });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

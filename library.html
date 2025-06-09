@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <h1 style="text-align:center;">📚 Your Library</h1>
+  <div class="library-container container"></div>
+  <script src="script.js"></script>
+  <script>
+    const container = document.querySelector('.library-container');
+    const library = JSON.parse(localStorage.getItem('library') || '[]');
+    const stories = library.map(id => storyData.find(s => s.id === id)).filter(Boolean);
+    if (stories.length === 0) {
+      container.innerHTML = '<p>You have no saved stories.</p>';
+    } else {
+      stories.forEach(story => {
+        const card = createStoryCard(story);
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* Ghost Town Horror Theme Stylesheet (Scoped under .ghost-theme) */
+
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+.ghost-theme {
+  --bg-color: #0b0c10;
+  --text-color: #f0f0f0;
+  --accent-color: #6c3cff;
+  --danger-color: #c91b1b;
+  --ghost-white: #e6e6e6;
+  --shadow: 0 0 20px rgba(108, 60, 255, 0.3);
+  --glow: 0 0 10px rgba(255, 255, 255, 0.2); 
+
+  font-family: 'Share Tech Mono', monospace;
+/*   background: linear-gradient(to bottom, #0b0c10, #1a1a1d); */
+  color: var(--text-color);
+  background-blend-mode: overlay;
+}
+
+.ghost-theme .story-header {
+  background-color: #1f1f23;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid #2a2a2e;
+}
+
+.ghost-theme .story-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ghost-theme .story-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ghost-white);
+  text-shadow: var(--shadow);
+  text-align: center;
+  width: 100%;
+}
+
+.ghost-theme .story-chapter {
+  padding: 3rem 2rem;
+  width: 100%;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 1000px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fadeIn 1.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  box-shadow: var(--glow);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.ghost-theme .chapter-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  text-shadow: var(--shadow);
+}
+
+.ghost-theme .chapter-text p {
+  margin: 1rem 0;
+  color: var(--ghost-white);
+}
+
+.ghost-theme .chapter-image img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.ghost-theme .story-choices h3 {
+  font-size: 1.3rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.ghost-theme .choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ghost-theme .choice-btn {
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #1a1a1d;
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0 0 0 rgba(0,0,0,0.2);
+}
+
+.ghost-theme .choice-btn:hover {
+  background: var(--accent-color);
+  color: black;
+  box-shadow: var(--shadow);
+  transform: scale(1.03);
+}
+
+.ghost-theme .restart-btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.ghost-theme .restart-btn:hover {
+  background: #ff4d4d;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ghost-theme .hidden {
+  display: none;
+}
+
+.ghost-theme ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.ghost-theme ::-webkit-scrollbar-thumb {
+  background-color: #6c3cff;
+  border-radius: 10px;
+}
+
+.ghost-theme ::-webkit-scrollbar-track {
+  background: #1a1a1d;
+}
+
+.ghost-theme .nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+.ghost-theme #prev-btn,
+.ghost-theme #next-btn {
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #1a1a1d;
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.ghost-theme #prev-btn:hover,
+.ghost-theme #next-btn:hover {
+  background: var(--accent-color);
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .ghost-theme .chapter-title {
+    font-size: 1.5rem;
+  }
+  .ghost-theme .story-title {
+    font-size: 1.5rem;
+  }
+  .ghost-theme .container {
+    flex-direction: column;
+    width: 110%; /* Reduced from 120% to 110% */
+    margin-left: -5%; /* Adjusted margin to match the new width */
+    padding: 0.75rem;
+  }
+  /* Fix text to prevent stretching */
+  .ghost-theme .container * {
+    transform: none; /* Ensure text isn't stretched */
+  }
+  /* Add appropriate padding for the story-chapter */
+  .ghost-theme .story-chapter {
+    padding: 1rem 0.75rem;
+  }
+}

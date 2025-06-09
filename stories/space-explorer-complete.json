@@ -1,0 +1,511 @@
+[
+  {
+    "id": "chapter-1",
+    "title": "Chapter 1: The Quantum Anomaly",
+    "image": "space-ch1.webp",
+    "text": [
+      "The warning klaxons on your exploration vessel, the Artemis, blare as the ship's quantum sensors detect something unprecedented.",
+      "Through the viewscreen, you observe a strange phenomenon\u2014a tear in the fabric of space itself, shimmering with colors beyond the normal spectrum.",
+      "\"Captain,\" your AI companion ARIA speaks through the ship's comm system, \"analysis indicates this is a quantum fissure linking to another dimension. The energy readings are off the charts. Recommend extreme caution.\"",
+      "As you consider your options, a faint transmission crackles through the communication array\u2014fragments of what sounds like a distress call emanating from beyond the anomaly."
+    ],
+    "choices": [
+      {
+        "text": "Investigate the derelict ships in the debris field",
+        "next": "chapter-2a"
+      },
+      {
+        "text": "Move closer to the anomaly to analyze the transmission",
+        "next": "chapter-2b"
+      }
+    ]
+  },
+  {
+    "id": "chapter-2a",
+    "title": "Chapter 2: Ancient Voyagers",
+    "image": "space-ch2a.webp",
+    "text": [
+      "\"ARIA, bring us alongside the largest vessel in the debris field,\" you command. The Artemis's engines hum as the ship navigates carefully through the scattered remains of what must have been a mighty fleet.",
+      "Up close, the alien craft is even more impressive\u2014a massive circular structure with intricate geometric patterns etched into its hull. Most astonishing is its apparent age; carbon dating scans suggest it's been drifting here for over fifty thousand years.",
+      "\"The vessel appears to maintain minimal power reserves,\" ARIA reports. \"Internal atmosphere is within human tolerance limits. Detecting no signs of active lifeforms, but there are unusual energy signatures at the core of the vessel.\"",
+      "Your scanner reveals a possible entry point\u2014an airlock that seems designed to accommodate various species. Beside it, strange symbols pulse with a soft blue light, almost as if responding to your presence."
+    ],
+    "choices": [
+      {
+        "text": "Board the alien vessel with a spacesuit and exploration kit",
+        "next": "chapter-3a"
+      },
+      {
+        "text": "Send in drones to explore remotely before risking direct contact",
+        "next": "chapter-3b"
+      }
+    ]
+  },
+  {
+    "id": "chapter-2b",
+    "title": "Chapter 2: Echoes Across Dimensions",
+    "image": "space-ch2b.webp",
+    "text": [
+      "\"Approaching the anomaly at one-quarter impulse,\" you announce as the Artemis edges closer to the quantum fissure.",
+      "The transmission becomes clearer\u2014a voice speaking in multiple languages. Yet somehow, you understand the meaning: \"The breach cannot hold. Reality fractures. Help us contain what we unleashed.\"",
+      "\"Captain,\" ARIA's voice holds an unusual note of concern, \"I'm detecting temporal distortions around the ship. Our chronometers are experiencing fluctuations.\"",
+      "A beam of coherent energy scans your vessel from the anomaly. Vast amounts of data are exchanged\u2014as if something is rapidly learning everything about your ship."
+    ],
+    "choices": [
+      {
+        "text": "Activate the experimental quantum shield to stabilize the local space-time and attempt communication",
+        "next": "chapter-3c"
+      },
+      {
+        "text": "Withdraw to a safer distance and launch a scientific probe into the anomaly",
+        "next": "chapter-3d"
+      }
+    ]
+  },
+  {
+    "id": "chapter-3a",
+    "title": "Chapter 3: Corridors of Time",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The alien airlock cycles with surprising efficiency, admitting you to the vessel's interior.",
+      "The corridors inside are vast and circular, with walls that seem to shift subtly as you move past them.",
+      "\"ARIA, are you receiving my feed?\" you ask, your voice echoing strangely in the alien hallways.",
+      "\"Affirmative, Captain,\" the AI responds. \"The internal geometry of the vessel appears to be... inconsistent with three-dimensional space.\"",
+      "You reach a chamber that must be the control center. A crystalline structure pulses with a red warning light."
+    ],
+    "choices": [
+      {
+        "text": "Attempt to access the ship's database to learn about the anomaly",
+        "next": "chapter-4a"
+      },
+      {
+        "text": "Investigate the energy signature coming from deeper within the ship",
+        "next": "chapter-4b"
+      }
+    ]
+  },
+  {
+    "id": "chapter-3b",
+    "title": "Chapter 3: Mechanical Scouts",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "\"Let's play it safe, ARIA. Deploy reconnaissance drones Alpha and Beta,\" you command.",
+      "The drones breach the alien vessel's airlock, transmitting real-time footage to your command console.",
+      "\"Captain, the drones are detecting data storage systems and a stasis chamber with biological preservation,\" ARIA reports.",
+      "Suddenly, the drones' feeds begin to distort. \"Something aboard the vessel is scanning our technology... and possibly reprogramming it.\""
+    ],
+    "choices": [
+      {
+        "text": "Immediately recall the drones before they can be compromised",
+        "next": "chapter-4c"
+      },
+      {
+        "text": "Override the drones' safeguards to quickly download as much data as possible",
+        "next": "chapter-4d"
+      }
+    ]
+  },
+  {
+    "id": "chapter-3c",
+    "title": "Chapter 3: Shields of Reality",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "\"Activate the quantum shield,\" you order, initiating the experimental technology.",
+      "The ship hums as specialized emitters create a bubble of stabilized reality around the Artemis.",
+      "You receive a mental response\u2014images of beings of pure energy, the Aetherii, and a terrible truth.",
+      "The anomaly is a prison for a creature called the Void Leviathan."
+    ],
+    "choices": [
+      {
+        "text": "Offer to help the Aetherii reinforce their dimensional prison",
+        "next": "chapter-4e"
+      },
+      {
+        "text": "Break the connection and retreat\u2014this is far beyond your mission parameters",
+        "next": "chapter-4f"
+      }
+    ]
+  },
+  {
+    "id": "chapter-3d",
+    "title": "Chapter 3: Data Collection",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "\"Helm, pull us back to a safe observational distance,\" you command.",
+      "You launch the Mark VII probe into the anomaly, collecting unprecedented readings.",
+      "Before signal is lost, it sends back one final image: a massive artificial structure surrounded by alien crafts."
+    ],
+    "choices": [
+      {
+        "text": "Follow the probe's path into the anomaly",
+        "next": "chapter-4g"
+      },
+      {
+        "text": "Send the data back to Earth Command and request instructions",
+        "next": "chapter-4h"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4a",
+    "title": "Chapter 4: Ancient Knowledge",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You approach the crystalline control interface, noting how it illuminates in response to your proximity.",
+      "The neural interface activates, flooding your mind with translated alien knowledge.",
+      "You learn the Xeltorian Collective discovered the quantum fissure millennia ago, created by beings called the Architects of Void.",
+      "The anomaly operates on a cycle\u2014currently nearing its maximum expansion, which would break the dimensional barrier."
+    ],
+    "choices": [
+      {
+        "text": "Use the ship's technology to try contacting the trapped Xeltorian crew",
+        "next": "chapter-5a"
+      },
+      {
+        "text": "Download the containment protocols to attempt to stabilize the anomaly",
+        "next": "chapter-5b"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4b",
+    "title": "Chapter 4: Power Source",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to follow the energy readings deeper into the vessel.",
+      "You discover a chamber containing a miniature quantum star suspended in a containment field.",
+      "Nearby lies a preserved alien body holding a strange key-like device."
+    ],
+    "choices": [
+      {
+        "text": "Take the key device from the alien's remains",
+        "next": "chapter-5c"
+      },
+      {
+        "text": "Leave everything untouched and return to the bridge with this new information",
+        "next": "chapter-5d"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4c",
+    "title": "Chapter 4: Digital Retreat",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "\"ARIA, emergency protocol Omega\u2014recall all drones immediately,\" you command.",
+      "Drone Alpha returns safely, but Drone Beta is lost.",
+      "Recovered data contains coordinates and the message: 'The dimension-key is hidden in the seventh sector...'"
+    ],
+    "choices": [
+      {
+        "text": "Head to the coordinates indicated in the message",
+        "next": "chapter-5e"
+      },
+      {
+        "text": "Report findings to Earth Command and request backup before proceeding",
+        "next": "chapter-5f"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4d",
+    "title": "Chapter 4: Knowledge at Any Cost",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You override safety protocols and maximize data acquisition.",
+      "The drones begin downloading alien data at an accelerating rate.",
+      "Right before being lost, the drones transmit alien ship logs and partial dimensional mapping."
+    ],
+    "choices": [
+      {
+        "text": "Analyze the data to find a way to close the anomaly",
+        "next": "chapter-5g"
+      },
+      {
+        "text": "Examine the technology blueprints for potential weapons or defenses",
+        "next": "chapter-5h"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4e",
+    "title": "Chapter 4: Allies Across Dimensions",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Through the mental link, you agree to help the Aetherii.",
+      "They explain how to construct quantum stabilizers to reinforce the dimensional prison.",
+      "You see visions of the Void Leviathan and the devastation it could cause."
+    ],
+    "choices": [
+      {
+        "text": "Begin fabricating the quantum stabilizers according to Aetherii specifications",
+        "next": "chapter-5e"
+      },
+      {
+        "text": "Ask for assurances that this isn't a deception by the imprisoned entity",
+        "next": "chapter-5f"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4f",
+    "title": "Chapter 4: Strategic Retreat",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to flee and report to Earth.",
+      "Dark tendrils emerge from the anomaly, reaching toward your ship.",
+      "The Aetherii warn you: 'If you leave, it will follow. It knows about Earth now.'"
+    ],
+    "choices": [
+      {
+        "text": "Continue retreat\u2014you need Earth's combined military might to face this threat",
+        "next": "chapter-5i"
+      },
+      {
+        "text": "Abort jump and reengage the quantum shield to buy time for a new plan",
+        "next": "chapter-5j"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4g",
+    "title": "Chapter 4: Beyond the Veil",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You follow the probe's path into the anomaly, entering a pocket universe.",
+      "Inside is a colossal structure surrounded by non-corporeal energy signatures.",
+      "A coherent energy beam scans your ship, and you're hailed in a perfectly compatible transmission."
+    ],
+    "choices": [
+      {
+        "text": "Accept the transmission and establish contact",
+        "next": "chapter-5g"
+      },
+      {
+        "text": "Maintain silence and approach the structure cautiously",
+        "next": "chapter-5h"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4h",
+    "title": "Chapter 4: Awaiting Orders",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You transmit data to Earth Command and wait for a response.",
+      "Admiral Chen authorizes extraordinary measures and delivery of a Nova package if containment fails.",
+      "The anomaly is accelerating in expansion, and Earth could be the first casualty."
+    ],
+    "choices": [
+      {
+        "text": "Wait for fleet reinforcements before taking further action",
+        "next": "chapter-5i"
+      },
+      {
+        "text": "Conduct further investigation while awaiting backup",
+        "next": "chapter-5j"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5a",
+    "title": "Chapter 5: Voices Across Dimensions",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You activate a communication protocol through the alien systems.",
+      "A shimmering portal opens and crystalline beings\u2014the Xeltorians\u2014appear.",
+      "They share grave concerns about the anomaly and offer guidance to use the Nexus Core.",
+      "You must decide whether to carry out their plan to deploy the dimensional inhibitor."
+    ],
+    "choices": [
+      {
+        "text": "Accept the Xeltorian guidance and attempt to deploy the inhibitor",
+        "next": "ending-1"
+      },
+      {
+        "text": "Ask the Xeltorians to return and handle the crisis themselves",
+        "next": "ending-2"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5b",
+    "title": "Chapter 5: Last Line of Defense",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You download containment protocols, including a quantum singularity generator.",
+      "The anomaly is nearing complete breach within six hours.",
+      "A containment core must be manually deployed\u2014whoever does so will not return."
+    ],
+    "choices": [
+      {
+        "text": "Take the containment core and deploy it yourself",
+        "next": "ending-3"
+      },
+      {
+        "text": "Return to the Artemis to find an alternative solution",
+        "next": "ending-4"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5c",
+    "title": "Chapter 5: The Legacy Key",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You retrieve the key device from the preserved alien.",
+      "ARIA confirms it is a dimensional override mechanism compatible with the anomaly.",
+      "It could be the key to stabilizing the breach\u2014or unleashing something worse."
+    ],
+    "choices": [
+      {
+        "text": "Use the key to activate the Nexus device",
+        "next": "ending-5"
+      },
+      {
+        "text": "Store the key securely for analysis by Earth scientists",
+        "next": "ending-6"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5d",
+    "title": "Chapter 5: Reverent Return",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You choose not to disturb the alien relics.",
+      "Returning to the bridge, you share your findings with ARIA.",
+      "She identifies similarities between the quantum core and the Leviathan prison matrix."
+    ],
+    "choices": [
+      {
+        "text": "Proceed with indirect study and simulation",
+        "next": "ending-7"
+      },
+      {
+        "text": "Alert Earth Command with full data dump for remote analysis",
+        "next": "ending-8"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5e",
+    "title": "Chapter 5: Stabilizer Network",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "With Aetherii guidance, you fabricate and deploy the stabilizers.",
+      "Each device reinforces reality, shrinking the anomaly's expansion.",
+      "The Void Leviathan resists, lashing out with energy tendrils."
+    ],
+    "choices": [
+      {
+        "text": "Use all ship power to finish stabilizer deployment",
+        "next": "ending-9"
+      },
+      {
+        "text": "Hold position and await reinforcements",
+        "next": "ending-10"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5f",
+    "title": "Chapter 5: Uncertainty Protocol",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You question the Aetherii's motives and request further verification.",
+      "They understand your concern, offering memories as proof of their past failures.",
+      "Meanwhile, the anomaly begins showing signs of destabilization."
+    ],
+    "choices": [
+      {
+        "text": "Accept their guidance after reviewing the shared visions",
+        "next": "ending-11"
+      },
+      {
+        "text": "Retreat and prepare Earth's defenses instead",
+        "next": "ending-12"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5g",
+    "title": "Chapter 5: The Architect's Signal",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You analyze the retrieved data\u2014an incomplete signal from the 'Architects of Void'.",
+      "It contains mathematical instructions that could permanently seal the rift.",
+      "ARIA begins computing simulations with your team."
+    ],
+    "choices": [
+      {
+        "text": "Attempt to transmit the signal into the anomaly",
+        "next": "ending-13"
+      },
+      {
+        "text": "Use the signal as a lure to bait the Leviathan away",
+        "next": "ending-14"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5h",
+    "title": "Chapter 5: Weapons of Reality",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You examine the alien blueprints and discover reality-slicing weaponry.",
+      "These weapons might sever parts of the anomaly or the entity within.",
+      "Using them may cause unpredictable damage to the surrounding space-time."
+    ],
+    "choices": [
+      {
+        "text": "Authorize experimental use of alien weaponry",
+        "next": "ending-15"
+      },
+      {
+        "text": "Deploy the weapons only as a last resort",
+        "next": "ending-16"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5i",
+    "title": "Chapter 5: Eclipse Protocol",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You retreat and prepare Earth\u2019s military might.",
+      "The entity follows your ship\u2019s quantum signature.",
+      "War preparations on Earth begin, but time may already be running out."
+    ],
+    "choices": [
+      {
+        "text": "Initiate preemptive defense measures with EarthFleet",
+        "next": "ending-17"
+      },
+      {
+        "text": "Evacuate critical planets and distribute data galaxy-wide",
+        "next": "ending-18"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5j",
+    "title": "Chapter 5: Brave Delay",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You abort the FTL jump and reengage the quantum shield.",
+      "The Leviathan's tendrils collide with your ship but bounce off the shield.",
+      "You have moments to act before the anomaly fully opens."
+    ],
+    "choices": [
+      {
+        "text": "Use remaining energy to seal the anomaly with your ship as the anchor",
+        "next": "ending-19"
+      },
+      {
+        "text": "Transmit your findings in real-time before impact",
+        "next": "ending-20"
+      }
+    ]
+  }
+]
