@@ -1,5 +1,3 @@
-import './firebase-config.js';
-import './firebase-auth.js';
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -1150,42 +1148,14 @@ if (prefersDark === null) {
  
     
     // Account toggle functionality - only add if element exists
-    const accountToggle = document.getElementById("accountToggle");
-    if (accountToggle) {
-        accountToggle.addEventListener("click", (e) => {
-          e.stopPropagation();
-            const menu = document.querySelector(".account-menu");
-            const button = document.querySelector(".account-button");
-            if (menu) menu.classList.toggle("hidden");
-            if (button) button.classList.toggle("active");
-        });
-    }
+    
     
     // Close dropdown on outside click
-    document.addEventListener("click", function (e) {
-  const toggle = document.getElementById("accountToggle");
-  const menu = document.querySelector(".account-menu");
-
-  if (toggle && menu) {
-    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.add("hidden");
-      toggle.classList.remove("active");
-    }
-  }
-});
+   
 
     
     // Sign out functionality
-    const signoutLink = document.getElementById("signout-link");
-    if (signoutLink) {
-        signoutLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  localStorage.removeItem('username');
-  localStorage.removeItem('userEmail');
-  localStorage.removeItem('isAuthenticated');
-  location.reload();
-});
-    }
+    
   // Enhanced JS Features for Talevo
 
 // Smooth scroll to section
@@ -1845,57 +1815,27 @@ function setupCategoryFilter() {
 
 
 // Separate function to setup account toggle
-function setupAccountToggle() {
-    const accountToggle = document.getElementById("accountToggle");
-    if (!accountToggle) return;
+// function setupAccountToggle() {
+//     const accountToggle = document.getElementById("accountToggle");
+//     if (!accountToggle) return;
     
-    // Remove existing listeners to prevent duplicates
-    const newToggle = accountToggle.cloneNode(true);
-    accountToggle.parentNode.replaceChild(newToggle, accountToggle);
+//     // Remove existing listeners to prevent duplicates
+//     const newToggle = accountToggle.cloneNode(true);
+//     accountToggle.parentNode.replaceChild(newToggle, accountToggle);
     
-    // Add fresh event listener
-    newToggle.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const menu = document.querySelector(".account-menu");
-        const button = document.querySelector(".account-button");
-        if (menu) menu.classList.toggle("hidden");
-        if (button) button.classList.toggle("active");
-    });
-}
+//     // Add fresh event listener
+//     newToggle.addEventListener("click", (e) => {
+//         e.preventDefault();
+//         e.stopPropagation();
+//         const menu = document.querySelector(".account-menu");
+//         const button = document.querySelector(".account-button");
+//         if (menu) menu.classList.toggle("hidden");
+//         if (button) button.classList.toggle("active");
+//     });
+// }
 
 // Setup sign out functionality
-function setupSignOut() {
-    const signoutLink = document.getElementById("signout-link");
-    if (!signoutLink) return;
-    
-    // Remove existing listeners to prevent duplicates
-    const newSignoutLink = signoutLink.cloneNode(true);
-    signoutLink.parentNode.replaceChild(newSignoutLink, signoutLink);
-    
-    newSignoutLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        
-        // Clear authentication data
-        localStorage.removeItem('username');
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('isAuthenticated');
-        
-        // Hide account elements
-        const accountWrapper = document.querySelector(".account-wrapper");
-        const accountMenu = document.querySelector(".account-menu");
-        const accountButton = document.querySelector(".account-button");
-        const loginBtn = document.querySelector(".login-btn");
-        
-        if (accountMenu) accountMenu.classList.add("hidden");
-        if (accountWrapper) accountWrapper.classList.add("hidden");
-        if (accountButton) accountButton.classList.remove("active");
-        if (loginBtn) loginBtn.style.display = "inline-block";
-        
-        // Refresh the display
-        // displayWelcomeUsername();
-    });
-}
+
 
 // Global click handler for closing dropdown
 function setupGlobalClickHandler() {

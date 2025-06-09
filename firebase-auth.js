@@ -117,12 +117,13 @@ export class FirebaseAuthManager {
     }
   }
 
-  // Update UI based on auth state
+  // Update UI based on auth state - FIXED VERSION
   async updateUI(user) {
     const loginBtn = document.querySelector(".login-btn");
     const accountWrapper = document.querySelector(".account-wrapper");
     const accountName = document.getElementById("account-name");
     const accountMenu = document.querySelector(".account-menu");
+    const usernameDisplay = document.getElementById("username-display");
 
     if (user) {
       // User is signed in - get username properly
@@ -140,17 +141,28 @@ export class FirebaseAuthManager {
         }
       }
       
+      // Show account UI, hide login button
       if (loginBtn) loginBtn.style.display = "none";
       if (accountWrapper) accountWrapper.classList.remove("hidden");
       if (accountName) accountName.textContent = username;
+      if (usernameDisplay) usernameDisplay.textContent = `Welcome, ${username}!`;
       
       // Sync reading progress
       this.syncReadingProgress();
     } else {
-      // User is not signed in
-      if (loginBtn) loginBtn.style.display = "inline-block";
-      if (accountWrapper) accountWrapper.classList.add("hidden");
-      if (accountMenu) accountMenu.classList.add("hidden");
+      // User is not signed in - FIXED: Properly reset UI
+      if (loginBtn) {
+        loginBtn.style.display = "inline-block";
+      }
+      if (accountWrapper) {
+        accountWrapper.classList.add("hidden");
+      }
+      if (accountMenu) {
+        accountMenu.classList.add("hidden");
+      }
+      if (usernameDisplay) {
+        usernameDisplay.textContent = "Welcome!";
+      }
       
       // Clear any stored auth data
       localStorage.removeItem('username');
@@ -259,68 +271,88 @@ function showNotification(message, type = 'info') {
   }, 3000);
 }
 
-// Setup account menu functionality
+// FIXED: Setup account menu functionality with correct selectors
 function setupAccountMenu() {
-  const accountWrapper = document.querySelector('.account-wrapper');
+  const accountToggle = document.getElementById('accountToggle');
   const accountMenu = document.querySelector('.account-menu');
-  const signOutBtn = document.querySelector('.sign-out-btn');
+  const signOutLink = document.getElementById('signout-link'); // Fixed selector
   
-  if (!accountWrapper || !accountMenu) return;
+  if (!accountToggle || !accountMenu) {
+    console.log('Account menu elements not found');
+    return;
+  }
   
   // Toggle account menu on click
-  accountWrapper.addEventListener('click', (e) => {
+  accountToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     accountMenu.classList.toggle('hidden');
-  });
-  
-  // Close menu when clicking outside
-  document.addEventListener('click', () => {
-    if (accountMenu && !accountMenu.classList.contains('hidden')) {
-      accountMenu.classList.add('hidden');
+    
+    // Rotate the dropdown arrow
+    const arrow = accountToggle.querySelector('.dropdown-arrow');
+    if (arrow) {
+      arrow.style.transform = accountMenu.classList.contains('hidden') 
+        ? 'rotate(0deg)' 
+        : 'rotate(180deg)';
     }
   });
   
-  // Sign out button handler
-  if (signOutBtn) {
-    signOutBtn.addEventListener('click', async (e) => {
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!accountToggle.contains(e.target) && !accountMenu.contains(e.target)) {
+      if (!accountMenu.classList.contains('hidden')) {
+        accountMenu.classList.add('hidden');
+        const arrow = accountToggle.querySelector('.dropdown-arrow');
+        if (arrow) {
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      }
+    }
+  });
+  
+  // FIXED: Sign out link handler with correct selector
+  if (signOutLink) {
+    signOutLink.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
       
       try {
         // Show loading state
-        const originalText = signOutBtn.textContent;
-        signOutBtn.textContent = 'Signing out...';
-        signOutBtn.disabled = true;
+        const originalHTML = signOutLink.innerHTML;
+        signOutLink.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing out...';
+        signOutLink.style.pointerEvents = 'none';
         
         const result = await window.authManager.signOut();
         
         if (result.success) {
-          // Hide the menu
+          // Hide the menu immediately
           accountMenu.classList.add('hidden');
-          
-          // Clear any local storage if needed
-          localStorage.removeItem('username');
-          localStorage.removeItem('isAuthenticated');
+          const arrow = accountToggle.querySelector('.dropdown-arrow');
+          if (arrow) {
+            arrow.style.transform = 'rotate(0deg)';
+          }
           
           // Show success message
           showNotification('Signed out successfully', 'success');
+          
+          // UI will be updated automatically by the auth state change listener
         } else {
           showNotification('Error signing out. Please try again.', 'error');
+          // Reset link state
+          signOutLink.innerHTML = originalHTML;
+          signOutLink.style.pointerEvents = 'auto';
         }
-        
-        // Reset button state
-        signOutBtn.textContent = originalText;
-        signOutBtn.disabled = false;
         
       } catch (error) {
         console.error('Sign out error:', error);
         showNotification('Error signing out. Please try again.', 'error');
         
-        // Reset button state
-        signOutBtn.textContent = 'Sign Out';
-        signOutBtn.disabled = false;
+        // Reset link state
+        signOutLink.innerHTML = '<i class="fas fa-sign-out-alt"></i> Sign Out';
+        signOutLink.style.pointerEvents = 'auto';
       }
     });
+  } else {
+    console.log('Sign out link not found');
   }
 }
 
