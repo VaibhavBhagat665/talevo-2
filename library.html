@@ -10,782 +10,145 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .library-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 2rem 0;
-      color: white;
-      margin-bottom: 2rem;
-    }
-    
-    .library-header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    
-    .library-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .library-title h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0;
-      background: linear-gradient(45deg, #fff, #f0f8ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .library-icon {
-      font-size: 3rem;
-      opacity: 0.9;
-    }
-    
-    .back-btn {
-      background: rgba(255, 255, 255, 0.2);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-2px);
-    }
-    
-    .library-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto 3rem;
-      padding: 0 2rem;
-    }
-    
-    .stat-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-    }
-    
-    .stat-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .stat-label {
-      color: #666;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-    }
-    
-    .stat-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      opacity: 0.7;
-    }
-    
-    .library-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    
-    .library-filters {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .filter-btn {
-      padding: 0.5rem 1rem;
-      border: 2px solid #ddd;
-      background: white;
-      border-radius: 25px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      color: white;
-      border-color: transparent;
-    }
-    
-    .stories-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    
-    .library-story-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      position: relative;
-    }
-    
-    .library-story-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-    
-    .library-story-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: white;
-      position: relative;
-    }
-    
-    .library-story-content {
-      padding: 1.5rem;
-    }
-    
-    .library-story-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-    
-    .library-story-author {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-    
-    .library-story-description {
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    
-    .library-story-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #eee;
-    }
-    
-    .library-story-genre {
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-    
-    .library-story-rating {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: #ffd700;
-    }
-    
-    .library-story-actions {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .continue-btn {
-      flex: 1;
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      color: white;
-      border: none;
-      padding: 0.75rem;
-      border-radius: 8px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .continue-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-    }
-    
-    .remove-btn {
-      background: #ff4757;
-      color: white;
-      border: none;
-      padding: 0.75rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 45px;
-    }
-    
-    .remove-btn:hover {
-      background: #ff3742;
-      transform: translateY(-2px);
-    }
-    
-    .empty-library {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-    
-    .empty-library-icon {
-      font-size: 4rem;
-      color: #ddd;
-      margin-bottom: 1rem;
-    }
-    
-    .empty-library h3 {
-      color: #333;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    
-    .empty-library p {
-      color: #666;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-    
-    .browse-btn {
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 25px;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .browse-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-    }
-    
-    .loading-spinner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 200px;
-    }
-    
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid #667eea;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .added-date {
-      font-size: 0.8rem;
-      color: #999;
-      margin-top: 0.5rem;
-    }
-    
-    .progress-bar {
-      width: 100%;
-      height: 4px;
-      background: #eee;
-      border-radius: 2px;
-      margin-top: 1rem;
-      overflow: hidden;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-      border-radius: 2px;
-      transition: width 0.3s ease;
-    }
-    
-    .progress-text {
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 0.5rem;
-    }
-    
-    /* Dark theme adjustments */
-    .dark-theme .stat-card,
-    .dark-theme .library-story-card,
-    .dark-theme .empty-library {
-      background: #2a2a2a;
-      color: #fff;
-    }
-    
-    .dark-theme .library-story-title,
-    .dark-theme .stat-number {
-      color: #fff;
-    }
-    
-    .dark-theme .library-story-author,
-    .dark-theme .library-story-description,
-    .dark-theme .stat-label {
-      color: #ccc;
-    }
-    
-    .dark-theme .filter-btn {
-      background: #3a3a3a;
-      border-color: #555;
-      color: #fff;
-    }
-    
-    @media (max-width: 768px) {
-      .library-header-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .library-title h1 {
-        font-size: 2rem;
-      }
-      
-      .library-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .stories-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .library-filters {
-        justify-content: center;
-      }
-    }
-  </style>
 </head>
 <body>
-  <div class="library-header">
-    <div class="library-header-content">
-      <div class="library-title">
-        <i class="fas fa-books library-icon"></i>
-        <div>
-          <h1>Your Library</h1>
-          <p id="user-greeting">Welcome back!</p>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <svg class="logo-svg" viewBox="0 0 200 60">
+          <path d="M10,15 Q30,5 60,10 T100,10 T140,10 T190,15 Q200,30 190,45 T140,50 T100,50 T60,50 Q30,55 10,45 Q0,30 10,15" 
+            fill="none" stroke="currentColor" stroke-width="2">
+          </path>
+          <text fill="currentColor" font-size="26" font-weight="bold" x="50" y="36" letter-spacing="2">
+            Talevo
+          </text>
+          <circle class="star star1" cx="25" cy="25" fill="currentColor" r="3"></circle>
+          <circle class="star star2" cx="175" cy="20" fill="currentColor" r="2.5"></circle>
+          <circle class="star star3" cx="155" cy="40" fill="currentColor" r="2"></circle>
+          <circle class="star star4" cx="40" cy="45" fill="currentColor" r="1.5"></circle>
+          <circle class="star star5" cx="130" cy="15" fill="currentColor" r="2"></circle>
+        </svg>
+      </div>
+      
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#" class="active">Library</a>
+      </div>
+      
+      <div class="user-actions">
+        <div class="welcome-msg">
+          <i class="fas fa-user-circle"></i>
+          <span id="username-display">Welcome!</span>
+        </div>
+        
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <div class="account-wrapper">
+          <button class="account-button" id="accountToggle">
+            <i class="fas fa-user-circle"></i>
+            <span id="account-name">Username</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </button>
+          <div class="account-menu hidden">
+            <a href="library.html" class="active"><i class="fas fa-book-open"></i> Your Library</a>
+            <a href="#" id="signout-link"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+          </div>
         </div>
       </div>
-      <a href="index.html" class="back-btn">
-        <i class="fas fa-arrow-left"></i> Back to Home
-      </a>
     </div>
-  </div>
-  
-  <div class="library-stats">
-    <div class="stat-card">
-      <i class="fas fa-book stat-icon"></i>
-      <div class="stat-number" id="total-stories">0</div>
-      <div class="stat-label">Total Stories</div>
+  </header>
+
+  <main class="library-main">
+    <div class="container">
+      <!-- Library Header -->
+      <div class="library-header">
+        <div class="library-title-section">
+          <button class="back-btn" onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+          </button>
+          <h1 class="library-title">
+            <i class="fas fa-book-open"></i>
+            Your Library
+          </h1>
+          <p class="library-subtitle" id="library-username">Welcome to your personal story collection</p>
+        </div>
+        
+        <div class="library-stats">
+          <div class="stat-card">
+            <div class="stat-number" id="total-stories">0</div>
+            <div class="stat-label">Stories Saved</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stories-in-progress">0</div>
+            <div class="stat-label">In Progress</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stories-completed">0</div>
+            <div class="stat-label">Completed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Library Content -->
+      <div class="library-content">
+        <!-- Loading State -->
+        <div class="library-loading" id="library-loading">
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+          </div>
+          <p>Loading your library...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div class="library-empty hidden" id="library-empty">
+          <div class="empty-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h2>Your library is empty</h2>
+          <p>Start building your collection by adding stories from our featured selection.</p>
+          <button class="btn" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i>
+            Browse Stories
+          </button>
+        </div>
+
+        <!-- Stories Grid -->
+        <div class="library-stories" id="library-stories">
+          <!-- Story cards will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>About Talevo</h3>
+        <p>Talevo is a platform for interactive storytelling where readers can make choices that influence the direction of the story.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="library.html">Your Library</a></li>
+          <li><a href="index.html#featured">Featured Stories</a></li>
+          <li><a href="index.html#categories">Categories</a></li>
+        </ul>
+      </div>
     </div>
     
-    <div class="stat-card">
-      <i class="fas fa-book-open stat-icon"></i>
-      <div class="stat-number" id="reading-stories">0</div>
-      <div class="stat-label">Currently Reading</div>
+    <div class="footer-bottom container">
+      <p>&copy; 2025 Talevo - Interactive Stories by Vaibhav Bhagat. All rights reserved.</p>
     </div>
-    
-    <div class="stat-card">
-      <i class="fas fa-check-circle stat-icon"></i>
-      <div class="stat-number" id="completed-stories">0</div>
-      <div class="stat-label">Completed</div>
-    </div>
-    
-    <div class="stat-card">
-      <i class="fas fa-heart stat-icon"></i>
-      <div class="stat-number" id="favorite-genre">Sci-Fi</div>
-      <div class="stat-label">Favorite Genre</div>
-    </div>
-  </div>
-  
-  <div class="library-content">
-    <div class="library-filters">
-      <button class="filter-btn active" data-filter="all">All Stories</button>
-      <button class="filter-btn" data-filter="reading">Currently Reading</button>
-      <button class="filter-btn" data-filter="completed">Completed</button>
-      <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
-      <button class="filter-btn" data-filter="fantasy">Fantasy</button>
-      <button class="filter-btn" data-filter="horror">Horror</button>
-      <button class="filter-btn" data-filter="mystery">Mystery</button>
-      <button class="filter-btn" data-filter="romance">Romance</button>
-      <button class="filter-btn" data-filter="adventure">Adventure</button>
-    </div>
-    
-    <div id="loading" class="loading-spinner">
-      <div class="spinner"></div>
-    </div>
-    
-    <div id="stories-container" class="stories-grid" style="display: none;">
-      <!-- Stories will be loaded here dynamically -->
-    </div>
-    
-    <div id="empty-library" class="empty-library" style="display: none;">
-      <i class="fas fa-book-open empty-library-icon"></i>
-      <h3>Your Library is Empty</h3>
-      <p>Start building your personal collection of interactive stories. Discover amazing adventures, mysteries, and fantasies waiting to be explored.</p>
-      <a href="index.html" class="browse-btn">
-        <i class="fas fa-search"></i> Browse Stories
-      </a>
-    </div>
-  </div>
-  
+  </footer>
+
   <!-- Firebase Configuration -->
   <script type="module" src="firebase-config.js"></script>
   <script type="module" src="firebase-auth.js"></script>
-  <script type="module">
-    // Library Page Functionality
-    import { app } from './firebase-config.js';
-    
-    let userLibrary = [];
-    let filteredStories = [];
-    let readingProgress = {};
-    
-    // Genre icons mapping
-    const genreIcons = {
-      'sci-fi': 'fas fa-rocket',
-      'fantasy': 'fas fa-hat-wizard',
-      'horror': 'fas fa-ghost',
-      'mystery': 'fas fa-search',
-      'romance': 'fas fa-heart',
-      'adventure': 'fas fa-map-marked-alt',
-      'thriller': 'fas fa-bolt',
-      'drama': 'fas fa-theater-masks'
-    };
-    
-    // Wait for auth manager to be ready
-    function waitForAuthManager() {
-      return new Promise((resolve) => {
-        if (window.authManager) {
-          resolve();
-        } else {
-          const interval = setInterval(() => {
-            if (window.authManager) {
-              clearInterval(interval);
-              resolve();
-            }
-          }, 100);
-        }
-      });
-    }
-    
-    // Initialize library page
-    async function initLibrary() {
-      await waitForAuthManager();
-      
-      const user = window.authManager.getCurrentUser();
-      if (!user) {
-        // Redirect to home if not logged in
-        window.location.href = 'index.html';
-        return;
-      }
-      
-      // Update user greeting
-      const userGreeting = document.getElementById('user-greeting');
-      const username = user.displayName || user.email.split('@')[0];
-      userGreeting.textContent = `Welcome back, ${username}!`;
-      
-      // Load user's library and reading progress
-      await loadLibraryData();
-      
-      // Setup event listeners
-      setupEventListeners();
-    }
-    
-    // Load library data from Firebase
-    async function loadLibraryData() {
-      try {
-        // Show loading
-        document.getElementById('loading').style.display = 'flex';
-        document.getElementById('stories-container').style.display = 'none';
-        document.getElementById('empty-library').style.display = 'none';
-        
-        // Get user's library and reading progress
-        userLibrary = await window.authManager.getUserLibrary();
-        readingProgress = await window.authManager.getReadingProgress();
-        
-        // Hide loading
-        document.getElementById('loading').style.display = 'none';
-        
-        if (userLibrary.length === 0) {
-          document.getElementById('empty-library').style.display = 'block';
-        } else {
-          document.getElementById('stories-container').style.display = 'grid';
-          displayStories(userLibrary);
-        }
-        
-        // Update statistics
-        updateStatistics();
-        
-      } catch (error) {
-        console.error('Error loading library data:', error);
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('empty-library').style.display = 'block';
-      }
-    }
-    
-    // Display stories in the grid
-    function displayStories(stories) {
-      const container = document.getElementById('stories-container');
-      container.innerHTML = '';
-      
-      stories.forEach(story => {
-        const storyCard = createStoryCard(story);
-        container.appendChild(storyCard);
-      });
-      
-      filteredStories = stories;
-    }
-    
-    // Create individual story card
-    function createStoryCard(story) {
-      const card = document.createElement('div');
-      card.className = 'library-story-card';
-      card.setAttribute('data-genre', story.genre?.toLowerCase());
-      
-      const progress = readingProgress[story.id] || 0;
-      const isReading = progress > 0 && progress < 100;
-      const isCompleted = progress >= 100;
-      
-      const genreIcon = genreIcons[story.genre?.toLowerCase()] || 'fas fa-book';
-      const addedDate = story.addedAt ? new Date(story.addedAt).toLocaleDateString() : 'Unknown';
-      
-      card.innerHTML = `
-        <div class="library-story-image">
-          <i class="${genreIcon}"></i>
-        </div>
-        <div class="library-story-content">
-          <h3 class="library-story-title">${story.title}</h3>
-          <p class="library-story-author">by ${story.author || 'Unknown Author'}</p>
-          <p class="library-story-description">${story.description || 'An interactive story waiting to be explored.'}</p>
-          
-          <div class="library-story-meta">
-            <span class="library-story-genre">${story.genre || 'Adventure'}</span>
-            <div class="library-story-rating">
-              <i class="fas fa-star"></i>
-              <span>${story.rating || '4.5'}</span>
-            </div>
-          </div>
-          
-          ${progress > 0 ? `
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: ${progress}%"></div>
-            </div>
-            <div class="progress-text">${progress}% complete</div>
-          ` : ''}
-          
-          <div class="library-story-actions">
-            <button class="continue-btn" onclick="openStory('${story.id}')">
-              <i class="fas fa-${isCompleted ? 'redo' : isReading ? 'book-open' : 'play'}"></i>
-              ${isCompleted ? 'Read Again' : isReading ? 'Continue' : 'Start Reading'}
-            </button>
-            <button class="remove-btn" onclick="removeFromLibrary('${story.id}')">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-          
-          <div class="added-date">Added ${addedDate}</div>
-        </div>
-      `;
-      
-      return card;
-    }
-    
-    // Open story (navigate to story page)
-    window.openStory = function(storyId) {
-      // Convert story ID to filename (assuming stories are in stories/ folder)
-      const storyFile = `stories/${storyId}.html`;
-      window.location.href = storyFile;
-    };
-    
-    // Remove story from library
-    window.removeFromLibrary = async function(storyId) {
-      if (confirm('Are you sure you want to remove this story from your library?')) {
-        try {
-          const result = await window.authManager.removeFromLibrary(storyId);
-          if (result.success) {
-            // Reload library data
-            await loadLibraryData();
-          }
-        } catch (error) {
-          console.error('Error removing story:', error);
-          window.showNotification('Failed to remove story from library', 'error');
-        }
-      }
-    };
-    
-    // Update statistics
-    function updateStatistics() {
-      const totalStories = userLibrary.length;
-      let readingCount = 0;
-      let completedCount = 0;
-      const genreCount = {};
-      
-      userLibrary.forEach(story => {
-        const progress = readingProgress[story.id] || 0;
-        
-        if (progress > 0 && progress < 100) {
-          readingCount++;
-        } else if (progress >= 100) {
-          completedCount++;
-        }
-        
-        const genre = story.genre || 'Unknown';
-        genreCount[genre] = (genreCount[genre] || 0) + 1;
-      });
-      
-      // Find most popular genre
-      let favoriteGenre = 'None';
-      let maxCount = 0;
-      for (const [genre, count] of Object.entries(genreCount)) {
-        if (count > maxCount) {
-          maxCount = count;
-          favoriteGenre = genre;
-        }
-      }
-      
-      // Update DOM
-      document.getElementById('total-stories').textContent = totalStories;
-      document.getElementById('reading-stories').textContent = readingCount;
-      document.getElementById('completed-stories').textContent = completedCount;
-      document.getElementById('favorite-genre').textContent = favoriteGenre;
-    }
-    
-    // Setup event listeners
-    function setupEventListeners() {
-      // Filter buttons
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const filter = btn.getAttribute('data-filter');
-          
-          // Update active button
-          filterButtons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          
-          // Filter stories
-          filterStories(filter);
-        });
-      });
-    }
-    
-    // Filter stories based on selected filter
-    function filterStories(filter) {
-      let filtered = userLibrary;
-      
-      if (filter === 'reading') {
-        filtered = userLibrary.filter(story => {
-          const progress = readingProgress[story.id] || 0;
-          return progress > 0 && progress < 100;
-        });
-      } else if (filter === 'completed') {
-        filtered = userLibrary.filter(story => {
-          const progress = readingProgress[story.id] || 0;
-          return progress >= 100;
-        });
-      } else if (filter !== 'all') {
-        filtered = userLibrary.filter(story => 
-          story.genre?.toLowerCase() === filter
-        );
-      }
-      
-      displayStories(filtered);
-      
-      // Show/hide empty state
-      const container = document.getElementById('stories-container');
-      const emptyState = document.getElementById('empty-library');
-      
-      if (filtered.length === 0) {
-        container.style.display = 'none';
-        emptyState.style.display = 'block';
-        emptyState.querySelector('h3').textContent = `No ${filter === 'all' ? '' : filter} stories found`;
-        emptyState.querySelector('p').textContent = filter === 'all' 
-          ? 'Start building your personal collection of interactive stories.'
-          : `You don't have any ${filter} stories in your library yet.`;
-      } else {
-        container.style.display = 'grid';
-        emptyState.style.display = 'none';
-      }
-    }
-    
-    // Check authentication state and initialize
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initLibrary);
-    } else {
-      initLibrary();
-    }
-    
-    // Re-sync library data when page becomes visible (in case data changed)
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && window.authManager?.getCurrentUser()) {
-        loadLibraryData();
-      }
-    });
-  </script>
+  <script type="module" src="library.js"></script>
 </body>
 </html>
