@@ -1,4 +1,4 @@
-// Fixed Firebase Authentication Functions
+// Enhanced Firebase Authentication Functions with Library Support
 import { app } from './firebase-config.js';
 
 export class FirebaseAuthManager {
@@ -32,7 +32,8 @@ export class FirebaseAuthManager {
         username: username,
         email: email,
         createdAt: new Date().toISOString(),
-        readingProgress: {}
+        readingProgress: {},
+        library: [] // Initialize empty library
       });
 
       // Wait a moment for profile update to propagate
@@ -62,6 +63,9 @@ export class FirebaseAuthManager {
         });
       }
       
+      // Sync library after successful login
+      await this.syncLibrary();
+      
       return { success: true, user: user, userData: userData };
     } catch (error) {
       console.error('Sign in error:', error);
@@ -77,6 +81,165 @@ export class FirebaseAuthManager {
     } catch (error) {
       console.error('Sign out error:', error);
       return { success: false, error: error.message };
+    }
+  }
+
+  // Add story to user's library
+  async addToLibrary(storyData) {
+    if (!this.currentUser) {
+      showNotification('Please sign in to add stories to your library', 'warning');
+      return { success: false, error: 'User not authenticated' };
+    }
+    
+    try {
+      const userRef = this.utils.doc(this.db, 'users', this.currentUser.uid);
+      const userDoc = await this.utils.getDoc(userRef);
+      const userData = userDoc.data() || {};
+      
+      // Get current library or initialize empty array
+      const currentLibrary = userData.library || [];
+      
+      // Check if story is already in library
+      const existingStory = currentLibrary.find(story => story.id === storyData.id);
+      if (existingStory) {
+        showNotification('Story is already in your library', 'info');
+        return { success: false, error: 'Story already in library' };
+      }
+      
+      // Add timestamp to story data
+      const storyWithTimestamp = {
+        ...storyData,
+        addedAt: new Date().toISOString()
+      };
+      
+      // Add story to library
+      const updatedLibrary = [...currentLibrary, storyWithTimestamp];
+      
+      // Update Firestore
+      await this.utils.setDoc(userRef, {
+        ...userData,
+        library: updatedLibrary
+      }, { merge: true });
+      
+      // Update localStorage for immediate sync
+      localStorage.setItem('userLibrary', JSON.stringify(updatedLibrary));
+      
+      showNotification('Story added to your library!', 'success');
+      return { success: true, library: updatedLibrary };
+      
+    } catch (error) {
+      console.error('Error adding to library:', error);
+      showNotification('Failed to add story to library', 'error');
+      return { success: false, error: error.message };
+    }
+  }
+
+  // Remove story from user's library
+  async removeFromLibrary(storyId) {
+    if (!this.currentUser) {
+      return { success: false, error: 'User not authenticated' };
+    }
+    
+    try {
+      const userRef = this.utils.doc(this.db, 'users', this.currentUser.uid);
+      const userDoc = await this.utils.getDoc(userRef);
+      const userData = userDoc.data() || {};
+      
+      // Get current library
+      const currentLibrary = userData.library || [];
+      
+      // Remove story from library
+      const updatedLibrary = currentLibrary.filter(story => story.id !== storyId);
+      
+      // Update Firestore
+      await this.utils.setDoc(userRef, {
+        ...userData,
+        library: updatedLibrary
+      }, { merge: true });
+      
+      // Update localStorage
+      localStorage.setItem('userLibrary', JSON.stringify(updatedLibrary));
+      
+      showNotification('Story removed from library', 'success');
+      return { success: true, library: updatedLibrary };
+      
+    } catch (error) {
+      console.error('Error removing from library:', error);
+      showNotification('Failed to remove story from library', 'error');
+      return { success: false, error: error.message };
+    }
+  }
+
+  // Get user's library
+  async getUserLibrary() {
+    if (!this.currentUser) {
+      return [];
+    }
+    
+    try {
+      const userDoc = await this.utils.getDoc(this.utils.doc(this.db, 'users', this.currentUser.uid));
+      const userData = userDoc.data();
+      return userData?.library || [];
+    } catch (error) {
+      console.error('Error getting user library:', error);
+      return [];
+    }
+  }
+
+  // Check if story is in user's library
+  async isInLibrary(storyId) {
+    if (!this.currentUser) {
+      return false;
+    }
+    
+    try {
+      const library = await this.getUserLibrary();
+      return library.some(story => story.id === storyId);
+    } catch (error) {
+      console.error('Error checking library:', error);
+      return false;
+    }
+  }
+
+  // Sync library between localStorage and Firebase
+  async syncLibrary() {
+    if (!this.currentUser) return;
+    
+    try {
+      // Get library from localStorage
+      const localLibrary = JSON.parse(localStorage.getItem('userLibrary') || '[]');
+      
+      // Get library from Firebase
+      const firebaseLibrary = await this.getUserLibrary();
+      
+      // Merge libraries (Firebase takes precedence, but we keep local additions)
+      const mergedLibrary = [...firebaseLibrary];
+      
+      // Add any local stories that aren't in Firebase
+      localLibrary.forEach(localStory => {
+        const existsInFirebase = mergedLibrary.some(fbStory => fbStory.id === localStory.id);
+        if (!existsInFirebase) {
+          mergedLibrary.push(localStory);
+        }
+      });
+      
+      // Update localStorage
+      localStorage.setItem('userLibrary', JSON.stringify(mergedLibrary));
+      
+      // Update Firebase if there were local additions
+      if (mergedLibrary.length > firebaseLibrary.length) {
+        const userRef = this.utils.doc(this.db, 'users', this.currentUser.uid);
+        const userDoc = await this.utils.getDoc(userRef);
+        const userData = userDoc.data() || {};
+        
+        await this.utils.setDoc(userRef, {
+          ...userData,
+          library: mergedLibrary
+        }, { merge: true });
+      }
+      
+    } catch (error) {
+      console.error('Error syncing library:', error);
     }
   }
 
@@ -147,8 +310,9 @@ export class FirebaseAuthManager {
       if (accountName) accountName.textContent = username;
       if (usernameDisplay) usernameDisplay.textContent = `Welcome, ${username}!`;
       
-      // Sync reading progress
+      // Sync reading progress and library
       this.syncReadingProgress();
+      this.syncLibrary();
     } else {
       // User is not signed in - FIXED: Properly reset UI
       if (loginBtn) {
@@ -167,6 +331,7 @@ export class FirebaseAuthManager {
       // Clear any stored auth data
       localStorage.removeItem('username');
       localStorage.removeItem('isAuthenticated');
+      localStorage.removeItem('userLibrary');
     }
   }
 
@@ -227,6 +392,88 @@ export class FirebaseAuthManager {
   getCurrentUser() {
     return this.currentUser;
   }
+}
+
+// Enhanced utility function to create story data object
+function createStoryData(storyElement) {
+  // Extract story data from the story card element
+  const title = storyElement.querySelector('.story-title')?.textContent || '';
+  const author = storyElement.querySelector('.story-author')?.textContent || '';
+  const description = storyElement.querySelector('.story-description')?.textContent || '';
+  const genre = storyElement.querySelector('.story-genre')?.textContent || '';
+  const rating = storyElement.querySelector('.story-rating')?.textContent || '';
+  const image = storyElement.querySelector('.story-image')?.src || '';
+  const storyId = storyElement.getAttribute('data-story-id') || title.toLowerCase().replace(/\s+/g, '-');
+  
+  return {
+    id: storyId,
+    title: title,
+    author: author,
+    description: description,
+    genre: genre,
+    rating: rating,
+    image: image,
+    html: storyElement.outerHTML // Store the complete HTML for library display
+  };
+}
+
+// Function to setup "Add to Library" buttons
+function setupLibraryButtons() {
+  // Setup for existing story cards
+  document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
+    button.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (!window.authManager.isSignedIn()) {
+        showNotification('Please sign in to add stories to your library', 'warning');
+        // Optionally trigger login modal
+        const loginBtn = document.querySelector('.login-btn');
+        if (loginBtn) loginBtn.click();
+        return;
+      }
+      
+      // Find the story card element
+      const storyCard = button.closest('.story-card, .hero-content');
+      if (!storyCard) {
+        showNotification('Could not find story information', 'error');
+        return;
+      }
+      
+      // Extract story data
+      const storyData = createStoryData(storyCard);
+      
+      // Show loading state
+      const originalHTML = button.innerHTML;
+      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+      button.style.pointerEvents = 'none';
+      
+      try {
+        const result = await window.authManager.addToLibrary(storyData);
+        
+        if (result.success) {
+          // Update button to show it's added
+          button.innerHTML = '<i class="fas fa-check"></i> Added';
+          button.classList.add('added');
+          
+          // Reset after 2 seconds
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.style.pointerEvents = 'auto';
+          }, 2000);
+        } else {
+          // Reset button on error
+          button.innerHTML = originalHTML;
+          button.style.pointerEvents = 'auto';
+        }
+      } catch (error) {
+        console.error('Error adding to library:', error);
+        showNotification('Failed to add story to library', 'error');
+        button.innerHTML = originalHTML;
+        button.style.pointerEvents = 'auto';
+      }
+    });
+  });
 }
 
 // Utility function to show notifications
@@ -534,15 +781,32 @@ function setupLoginModal() {
 // Initialize Firebase Auth Manager
 window.authManager = new FirebaseAuthManager();
 
-// Make showNotification available globally
+// Make functions available globally
 window.showNotification = showNotification;
+window.createStoryData = createStoryData;
+window.setupLibraryButtons = setupLibraryButtons;
 
 // Export the setup functions
 window.setupLoginModal = setupLoginModal;
 window.setupAccountMenu = setupAccountMenu;
 
-// Initialize both when DOM is ready
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   setupLoginModal();
   setupAccountMenu();
+  setupLibraryButtons();
+  
+  // Re-setup library buttons when new content is loaded dynamically
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList') {
+        setupLibraryButtons();
+      }
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 });
