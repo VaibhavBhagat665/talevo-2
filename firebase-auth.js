@@ -64,11 +64,15 @@ export class FirebaseAuthManager {
       }
       
       // FIXED: Clear localStorage before syncing to prevent old data
-      localStorage.removeItem('userLibrary');
-      localStorage.removeItem('progress');
+      // localStorage.removeItem('userLibrary');
+      // localStorage.removeItem('progress');
       
       // Sync library after successful login
       await this.syncLibrary();
+
+      setTimeout(() => {
+  this.updateAddToLibraryButtons();
+}, 500);
       
       return { success: true, user: user, userData: userData };
     } catch (error) {
@@ -100,26 +104,26 @@ export class FirebaseAuthManager {
 
   // FIXED: Reset all library buttons to default state
   resetAllLibraryButtons() {
-    document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
-      // Reset to original state
-      button.innerHTML = '<i class="fas fa-plus"></i> Add to Library';
-      button.className = button.className.replace(/\s*(added|in-library|error)\s*/g, ' ').trim();
-      button.disabled = false;
-      button.style.pointerEvents = 'auto';
-      
-      // Remove any existing click handlers and re-setup
-      const newButton = button.cloneNode(true);
-      button.parentNode.replaceChild(newButton, button);
-    });
+  document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
+    // Reset to original state
+    button.innerHTML = '<i class="fas fa-plus"></i> Add to Library';
+    button.className = button.className.replace(/\s*(added|in-library|error)\s*/g, ' ').trim();
+    button.disabled = false;
+    button.style.pointerEvents = 'auto';
     
-    // Re-setup the buttons with fresh event listeners
-    setTimeout(() => {
-      setupLibraryButtons();
-    }, 100);
-  }
+    // Remove the data attribute to allow re-setup
+    button.removeAttribute('data-library-setup');
+  });
+  
+  // Re-setup the buttons immediately
+  setupLibraryButtons();
+}
 
   // FIXED: Add story to user's library with individual button state management
   async addToLibrary(storyData, buttonElement = null) {
+    console.log('addToLibrary called with:', storyData);
+console.log('Current user:', this.currentUser?.email);
+console.log('Button element:', buttonElement);
   if (!this.currentUser) {
     showNotification('Please sign in to add stories to your library', 'warning');
     return { success: false, error: 'User not authenticated' };
@@ -360,6 +364,40 @@ export class FirebaseAuthManager {
     }
   }
 
+  async updateAddToLibraryButtons() {
+  if (!this.currentUser) return;
+  
+  try {
+    const userLibrary = await this.getUserLibrary();
+    const libraryIds = userLibrary.map(story => story.id);
+    
+    document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
+      const storyCard = button.closest('.story-card, .hero-content');
+      if (storyCard) {
+        const storyData = createStoryData(storyCard);
+        
+        if (libraryIds.includes(storyData.id)) {
+          // Story is already in library
+          button.innerHTML = '<i class="fas fa-book-open"></i> View in Library';
+          button.classList.add('in-library');
+          button.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = 'library.html';
+          };
+        } else {
+          // Story is not in library - reset to default
+          button.innerHTML = '<i class="fas fa-plus"></i> Add to Library';
+          button.classList.remove('added', 'in-library', 'error');
+          button.onclick = null; // Will be handled by event listener
+        }
+      }
+    });
+  } catch (error) {
+    console.error('Error updating library button states:', error);
+  }
+}
+
   // Update reading progress in Firebase
   async updateReadingProgress(storyId, progress) {
     if (!this.currentUser) return;
@@ -516,27 +554,49 @@ function createStoryData(storyElement) {
   const image = storyElement.querySelector('.story-image')?.src || 'https://via.placeholder.com/300x200?text=Story';
   
   // FIXED: Ensure we always have a valid unique ID
-  let storyId = storyElement.getAttribute('data-story-id');
+  // Get story ID from data attribute first
+let storyId = storyElement.getAttribute('data-story-id');
+
+// If no data-story-id attribute, try to get from URL or other sources
+if (!storyId || storyId.trim() === '') {
+  // Try to get from href or onclick attributes
+  const readBtn = storyElement.querySelector('.read-story-btn, .continue-reading-btn');
+  if (readBtn) {
+    const href = readBtn.getAttribute('href');
+    const onclick = readBtn.getAttribute('onclick');
+    
+    if (href && href.includes('id=')) {
+      storyId = href.split('id=')[1].split('&')[0];
+    } else if (onclick && onclick.includes("'")) {
+      const matches = onclick.match(/'([^']+)'/);
+      if (matches) {
+        storyId = matches[1];
+      }
+    }
+  }
   
-  // If no data-story-id attribute or it's empty, generate one
+  // If still no ID, generate one from title
   if (!storyId || storyId.trim() === '') {
     if (title && title.trim() !== '') {
-      // Generate ID from title
       storyId = title.toLowerCase()
-        .replace(/[^a-z0-9\s]/g, '') // Remove special characters except spaces
-        .replace(/\s+/g, '-') // Replace spaces with hyphens
-        .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
-        .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+        
+      // Add timestamp for uniqueness
+      if (storyId.length > 0) {
+        storyId = storyId + '-' + Date.now();
+      }
     }
     
-    // If still no valid ID or ID is too short, create a fallback
+    // Final fallback
     if (!storyId || storyId.length < 2) {
-      storyId = 'story-' + Date.now();
+      storyId = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
     }
-    
-    // Add timestamp to ensure uniqueness
-    storyId = storyId + '-' + Date.now();
   }
+}
+
   
   // FIXED: Ensure the ID is always valid and not empty
   if (!storyId || storyId.trim() === '') {
@@ -561,12 +621,10 @@ function setupLibraryButtons() {
   // Setup for existing story cards
   document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
     // Skip if already has event listener
-    if (button.hasAttribute('data-library-setup')) {
-      return;
-    }
+    button.removeEventListener('click', handleLibraryClick);
     
-    // Mark as setup to prevent duplicate listeners
-    button.setAttribute('data-library-setup', 'true');
+    // Add fresh event listener
+    button.addEventListener('click', handleLibraryClick);
     
     button.addEventListener('click', async (e) => {
       e.preventDefault();
@@ -594,6 +652,32 @@ function setupLibraryButtons() {
       await window.authManager.addToLibrary(storyData, button);
     });
   });
+}
+
+async function handleLibraryClick(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  if (!window.authManager.isSignedIn()) {
+    showNotification('Please sign in to add stories to your library', 'warning');
+    // Trigger login modal
+    const loginBtn = document.querySelector('.login-btn');
+    if (loginBtn) loginBtn.click();
+    return;
+  }
+  
+  // Find the story card element
+  const storyCard = this.closest('.story-card, .hero-content');
+  if (!storyCard) {
+    showNotification('Could not find story information', 'error');
+    return;
+  }
+  
+  // Extract story data
+  const storyData = createStoryData(storyCard);
+  
+  // Pass the specific button element to addToLibrary
+  await window.authManager.addToLibrary(storyData, this);
 }
 
 // Utility function to show notifications
@@ -922,15 +1006,30 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // FIXED: Re-setup library buttons when new content is loaded dynamically
   const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'childList') {
-        // Only setup buttons that haven't been setup yet
-        setTimeout(() => {
-          setupLibraryButtons();
-        }, 100);
-      }
-    });
+  let shouldResetup = false;
+  
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'childList') {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) { // Element node
+          const hasLibraryButtons = node.querySelector && 
+            node.querySelector('.add-btn, .add-to-library-btn');
+          if (hasLibraryButtons || node.classList?.contains('add-btn') || 
+              node.classList?.contains('add-to-library-btn')) {
+            shouldResetup = true;
+          }
+        }
+      });
+    }
   });
+  
+  if (shouldResetup) {
+    setTimeout(() => {
+      setupLibraryButtons();
+    }, 100);
+  }
+});
+
   
   observer.observe(document.body, {
     childList: true,
