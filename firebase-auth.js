@@ -84,8 +84,8 @@ export class FirebaseAuthManager {
     }
   }
 
-  // FIXED: Add story to user's library with proper button state management
-  async addToLibrary(storyData, buttonElement = null) {
+  // Add story to user's library
+  async addToLibrary(storyData) {
     if (!this.currentUser) {
       showNotification('Please sign in to add stories to your library', 'warning');
       return { success: false, error: 'User not authenticated' };
@@ -102,12 +102,8 @@ export class FirebaseAuthManager {
       // Check if story is already in library
       const existingStory = currentLibrary.find(story => story.id === storyData.id);
       if (existingStory) {
-        // Story already exists - redirect to library
         showNotification('Story is already in your library', 'info');
-        setTimeout(() => {
-          window.location.href = 'library.html';
-        }, 1000);
-        return { success: false, error: 'Story already in library', inLibrary: true };
+        return { success: false, error: 'Story already in library' };
       }
       
       // Add timestamp to story data
@@ -164,10 +160,12 @@ export class FirebaseAuthManager {
       // Update localStorage
       localStorage.setItem('userLibrary', JSON.stringify(updatedLibrary));
       
+      showNotification('Story removed from library', 'success');
       return { success: true, library: updatedLibrary };
       
     } catch (error) {
       console.error('Error removing from library:', error);
+      showNotification('Failed to remove story from library', 'error');
       return { success: false, error: error.message };
     }
   }
@@ -282,7 +280,7 @@ export class FirebaseAuthManager {
     }
   }
 
-  // Update UI based on auth state
+  // Update UI based on auth state - FIXED VERSION
   async updateUI(user) {
     const loginBtn = document.querySelector(".login-btn");
     const accountWrapper = document.querySelector(".account-wrapper");
@@ -316,7 +314,7 @@ export class FirebaseAuthManager {
       this.syncReadingProgress();
       this.syncLibrary();
     } else {
-      // User is not signed in - reset UI
+      // User is not signed in - FIXED: Properly reset UI
       if (loginBtn) {
         loginBtn.style.display = "inline-block";
       }
@@ -396,19 +394,16 @@ export class FirebaseAuthManager {
   }
 }
 
-// FIXED: Enhanced utility function to create story data object
+// Enhanced utility function to create story data object
 function createStoryData(storyElement) {
   // Extract story data from the story card element
-  const title = storyElement.querySelector('.story-title')?.textContent?.trim() || '';
-  const author = storyElement.querySelector('.story-author')?.textContent?.replace('by ', '').trim() || 'Unknown Author';
-  const description = storyElement.querySelector('.story-description')?.textContent?.trim() || 'No description available.';
-  const genre = storyElement.querySelector('.story-genre')?.textContent?.trim() || 'General';
-  const rating = storyElement.querySelector('.story-rating')?.textContent?.trim() || 'N/A';
-  const image = storyElement.querySelector('.story-image')?.src || 'https://via.placeholder.com/300x200?text=Story';
-  
-  // Create a unique ID based on title
-  const storyId = storyElement.getAttribute('data-story-id') || 
-                  title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  const title = storyElement.querySelector('.story-title')?.textContent || '';
+  const author = storyElement.querySelector('.story-author')?.textContent || '';
+  const description = storyElement.querySelector('.story-description')?.textContent || '';
+  const genre = storyElement.querySelector('.story-genre')?.textContent || '';
+  const rating = storyElement.querySelector('.story-rating')?.textContent || '';
+  const image = storyElement.querySelector('.story-image')?.src || '';
+  const storyId = storyElement.getAttribute('data-story-id') || title.toLowerCase().replace(/\s+/g, '-');
   
   return {
     id: storyId,
@@ -417,32 +412,29 @@ function createStoryData(storyElement) {
     description: description,
     genre: genre,
     rating: rating,
-    image: image
+    image: image,
+    html: storyElement.outerHTML // Store the complete HTML for library display
   };
 }
 
-// FIXED: Function to setup "Add to Library" buttons with proper state management
+// Function to setup "Add to Library" buttons
 function setupLibraryButtons() {
   // Setup for existing story cards
   document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
-    // Remove existing listeners to prevent duplicates
-    const newButton = button.cloneNode(true);
-    button.parentNode.replaceChild(newButton, button);
-    
-    newButton.addEventListener('click', async (e) => {
+    button.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
       
       if (!window.authManager.isSignedIn()) {
         showNotification('Please sign in to add stories to your library', 'warning');
-        // Trigger login modal
+        // Optionally trigger login modal
         const loginBtn = document.querySelector('.login-btn');
         if (loginBtn) loginBtn.click();
         return;
       }
       
       // Find the story card element
-      const storyCard = newButton.closest('.story-card, .hero-content');
+      const storyCard = button.closest('.story-card, .hero-content');
       if (!storyCard) {
         showNotification('Could not find story information', 'error');
         return;
@@ -452,72 +444,33 @@ function setupLibraryButtons() {
       const storyData = createStoryData(storyCard);
       
       // Show loading state
-      const originalHTML = newButton.innerHTML;
-      const originalClass = newButton.className;
-      newButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
-      newButton.disabled = true;
-      newButton.style.pointerEvents = 'none';
+      const originalHTML = button.innerHTML;
+      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+      button.style.pointerEvents = 'none';
       
       try {
-        const result = await window.authManager.addToLibrary(storyData, newButton);
+        const result = await window.authManager.addToLibrary(storyData);
         
         if (result.success) {
-          // Success - show "Added to Library" and change functionality
-          newButton.innerHTML = '<i class="fas fa-check"></i> Added to Library';
-          newButton.classList.add('added');
-          newButton.disabled = false;
-          newButton.style.pointerEvents = 'auto';
+          // Update button to show it's added
+          button.innerHTML = '<i class="fas fa-check"></i> Added';
+          button.classList.add('added');
           
-          // Change click behavior to redirect to library
+          // Reset after 2 seconds
           setTimeout(() => {
-            newButton.onclick = (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              window.location.href = 'library.html';
-            };
-          }, 100);
-          
-        } else if (result.inLibrary) {
-          // Already in library - change to "View in Library"
-          newButton.innerHTML = '<i class="fas fa-book-open"></i> View in Library';
-          newButton.classList.add('in-library');
-          newButton.disabled = false;
-          newButton.style.pointerEvents = 'auto';
-          newButton.onclick = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = 'library.html';
-          };
-          
+            button.innerHTML = originalHTML;
+            button.style.pointerEvents = 'auto';
+          }, 2000);
         } else {
-          // Error occurred
-          newButton.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to add';
-          newButton.classList.add('error');
-          
-          // Reset after 3 seconds
-          setTimeout(() => {
-            newButton.innerHTML = originalHTML;
-            newButton.className = originalClass;
-            newButton.disabled = false;
-            newButton.style.pointerEvents = 'auto';
-          }, 3000);
+          // Reset button on error
+          button.innerHTML = originalHTML;
+          button.style.pointerEvents = 'auto';
         }
-        
       } catch (error) {
         console.error('Error adding to library:', error);
         showNotification('Failed to add story to library', 'error');
-        
-        // Show error state
-        newButton.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
-        newButton.classList.add('error');
-        
-        // Reset after 3 seconds
-        setTimeout(() => {
-          newButton.innerHTML = originalHTML;
-          newButton.className = originalClass;
-          newButton.disabled = false;
-          newButton.style.pointerEvents = 'auto';
-        }, 3000);
+        button.innerHTML = originalHTML;
+        button.style.pointerEvents = 'auto';
       }
     });
   });
@@ -565,13 +518,14 @@ function showNotification(message, type = 'info') {
   }, 3000);
 }
 
-// Setup account menu functionality
+// FIXED: Setup account menu functionality with correct selectors
 function setupAccountMenu() {
   const accountToggle = document.getElementById('accountToggle');
   const accountMenu = document.querySelector('.account-menu');
-  const signOutLink = document.getElementById('signout-link');
+  const signOutLink = document.getElementById('signout-link'); // Fixed selector
   
   if (!accountToggle || !accountMenu) {
+    console.log('Account menu elements not found');
     return;
   }
   
@@ -602,7 +556,7 @@ function setupAccountMenu() {
     }
   });
   
-  // Sign out link handler
+  // FIXED: Sign out link handler with correct selector
   if (signOutLink) {
     signOutLink.addEventListener('click', async (e) => {
       e.preventDefault();
@@ -644,10 +598,12 @@ function setupAccountMenu() {
         signOutLink.style.pointerEvents = 'auto';
       }
     });
+  } else {
+    console.log('Sign out link not found');
   }
 }
 
-// Login modal setup function
+// Fixed login modal setup function
 function setupLoginModal() {
   const loginBtn = document.querySelector('.login-btn');
   const modalOverlay = document.querySelector('.modal-overlay');
