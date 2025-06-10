@@ -120,115 +120,162 @@ export class FirebaseAuthManager {
 
   // FIXED: Add story to user's library with individual button state management
   async addToLibrary(storyData, buttonElement = null) {
-    if (!this.currentUser) {
-      showNotification('Please sign in to add stories to your library', 'warning');
-      return { success: false, error: 'User not authenticated' };
+  if (!this.currentUser) {
+    showNotification('Please sign in to add stories to your library', 'warning');
+    return { success: false, error: 'User not authenticated' };
+  }
+  
+  // FIXED: Validate and ensure story has a proper ID before proceeding
+  if (!storyData.id || storyData.id.trim() === '') {
+    console.warn('Story data missing ID, generating one...');
+    
+    // Generate a unique ID if missing
+    let newId = '';
+    if (storyData.title && storyData.title.trim() !== '') {
+      newId = storyData.title.toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
     }
     
-    // FIXED: Only manage the specific button that was clicked
-    let originalHTML = '';
-    let originalClass = '';
-    
-    if (buttonElement) {
-      originalHTML = buttonElement.innerHTML;
-      originalClass = buttonElement.className;
-      
-      // Set loading state for this specific button only
-      buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
-      buttonElement.disabled = true;
-      buttonElement.style.pointerEvents = 'none';
+    if (!newId || newId.length < 2) {
+      newId = 'story-' + Date.now();
     }
     
-    try {
-      const userRef = this.utils.doc(this.db, 'users', this.currentUser.uid);
-      const userDoc = await this.utils.getDoc(userRef);
-      const userData = userDoc.data() || {};
-      
-      // Get current library or initialize empty array
-      const currentLibrary = userData.library || [];
-      
-      // Check if story is already in library
-      const existingStory = currentLibrary.find(story => story.id === storyData.id);
-      if (existingStory) {
-        // Story already exists - update button and redirect to library
-        if (buttonElement) {
-          buttonElement.innerHTML = '<i class="fas fa-book-open"></i> View in Library';
-          buttonElement.classList.add('in-library');
-          buttonElement.disabled = false;
-          buttonElement.style.pointerEvents = 'auto';
-          buttonElement.onclick = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = 'library.html';
-          };
-        }
-        
-        showNotification('Story is already in your library', 'info');
-        setTimeout(() => {
-          window.location.href = 'library.html';
-        }, 1000);
-        return { success: false, error: 'Story already in library', inLibrary: true };
-      }
-      
-      // Add timestamp to story data
-      const storyWithTimestamp = {
-        ...storyData,
-        addedAt: new Date().toISOString()
-      };
-      
-      // Add story to library
-      const updatedLibrary = [...currentLibrary, storyWithTimestamp];
-      
-      // Update Firestore
-      await this.utils.setDoc(userRef, {
-        ...userData,
-        library: updatedLibrary
-      }, { merge: true });
-      
-      // Update localStorage for immediate sync
-      localStorage.setItem('userLibrary', JSON.stringify(updatedLibrary));
-      
-      // FIXED: Update button state for success
+    // Add timestamp for uniqueness
+    storyData.id = newId + '-' + Date.now();
+    console.log('Generated new story ID:', storyData.id);
+  }
+  
+  // FIXED: Additional validation to ensure ID is always valid
+  if (!storyData.id || typeof storyData.id !== 'string' || storyData.id.trim() === '') {
+    storyData.id = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+    console.log('Used fallback story ID:', storyData.id);
+  }
+  
+  // Only manage the specific button that was clicked
+  let originalHTML = '';
+  let originalClass = '';
+  
+  if (buttonElement) {
+    originalHTML = buttonElement.innerHTML;
+    originalClass = buttonElement.className;
+    
+    // Set loading state for this specific button only
+    buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+    buttonElement.disabled = true;
+    buttonElement.style.pointerEvents = 'none';
+  }
+  
+  try {
+    const userRef = this.utils.doc(this.db, 'users', this.currentUser.uid);
+    const userDoc = await this.utils.getDoc(userRef);
+    const userData = userDoc.data() || {};
+    
+    // Get current library or initialize empty array
+    const currentLibrary = userData.library || [];
+    
+    // FIXED: Check for existing story by ID more robustly
+    const existingStory = currentLibrary.find(story => 
+      story.id === storyData.id || 
+      (story.title === storyData.title && story.author === storyData.author)
+    );
+    
+    if (existingStory) {
+      // Story already exists - update button and redirect to library
       if (buttonElement) {
-        buttonElement.innerHTML = '<i class="fas fa-check"></i> Added to Library';
-        buttonElement.classList.add('added');
+        buttonElement.innerHTML = '<i class="fas fa-book-open"></i> View in Library';
+        buttonElement.classList.add('in-library');
         buttonElement.disabled = false;
         buttonElement.style.pointerEvents = 'auto';
-        
-        // Change click behavior to redirect to library
-        setTimeout(() => {
-          buttonElement.onclick = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = 'library.html';
-          };
-        }, 100);
+        buttonElement.onclick = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.href = 'library.html';
+        };
       }
       
-      showNotification('Story added to your library!', 'success');
-      return { success: true, library: updatedLibrary };
-      
-    } catch (error) {
-      console.error('Error adding to library:', error);
-      
-      // FIXED: Reset button state on error
-      if (buttonElement) {
-        buttonElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to add';
-        buttonElement.classList.add('error');
-        
-        // Reset after 3 seconds
-        setTimeout(() => {
-          buttonElement.innerHTML = originalHTML;
-          buttonElement.className = originalClass;
-          buttonElement.disabled = false;
-          buttonElement.style.pointerEvents = 'auto';
-        }, 3000);
-      }
-      
-      showNotification('Failed to add story to library', 'error');
-      return { success: false, error: error.message };
+      showNotification('Story is already in your library', 'info');
+      setTimeout(() => {
+        window.location.href = 'library.html';
+      }, 1000);
+      return { success: false, error: 'Story already in library', inLibrary: true };
     }
+    
+    // FIXED: Add timestamp and ensure all required fields are present
+    const storyWithTimestamp = {
+      id: storyData.id, // Ensure ID is always included
+      title: storyData.title || 'Untitled Story',
+      author: storyData.author || 'Unknown Author',
+      description: storyData.description || 'No description available.',
+      genre: storyData.genre || 'General',
+      rating: storyData.rating || 'N/A',
+      image: storyData.image || 'https://via.placeholder.com/300x200?text=Story',
+      addedAt: new Date().toISOString()
+    };
+    
+    // FIXED: Final validation before adding to library
+    if (!storyWithTimestamp.id || storyWithTimestamp.id.trim() === '') {
+      throw new Error('Story ID validation failed');
+    }
+    
+    console.log('Adding story to library with ID:', storyWithTimestamp.id);
+    
+    // Add story to library
+    const updatedLibrary = [...currentLibrary, storyWithTimestamp];
+    
+    // Update Firestore
+    await this.utils.setDoc(userRef, {
+      ...userData,
+      library: updatedLibrary
+    }, { merge: true });
+    
+    // Update localStorage for immediate sync
+    localStorage.setItem('userLibrary', JSON.stringify(updatedLibrary));
+    
+    // Update button state for success
+    if (buttonElement) {
+      buttonElement.innerHTML = '<i class="fas fa-check"></i> Added to Library';
+      buttonElement.classList.add('added');
+      buttonElement.disabled = false;
+      buttonElement.style.pointerEvents = 'auto';
+      
+      // Change click behavior to redirect to library
+      setTimeout(() => {
+        buttonElement.onclick = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.href = 'library.html';
+        };
+      }, 100);
+    }
+    
+    showNotification('Story added to your library!', 'success');
+    console.log('Story successfully added to library');
+    return { success: true, library: updatedLibrary };
+    
+  } catch (error) {
+    console.error('Error adding to library:', error);
+    
+    // Reset button state on error
+    if (buttonElement) {
+      buttonElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to add';
+      buttonElement.classList.add('error');
+      
+      // Reset after 3 seconds
+      setTimeout(() => {
+        buttonElement.innerHTML = originalHTML;
+        buttonElement.className = originalClass;
+        buttonElement.disabled = false;
+        buttonElement.style.pointerEvents = 'auto';
+      }, 3000);
+    }
+    
+    showNotification('Failed to add story to library', 'error');
+    return { success: false, error: error.message };
   }
+}
 
   // Remove story from user's library
   async removeFromLibrary(storyId) {
@@ -468,9 +515,35 @@ function createStoryData(storyElement) {
   const rating = storyElement.querySelector('.story-rating')?.textContent?.trim() || 'N/A';
   const image = storyElement.querySelector('.story-image')?.src || 'https://via.placeholder.com/300x200?text=Story';
   
-  // Create a unique ID based on title
-  const storyId = storyElement.getAttribute('data-story-id') || 
-                  title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  // FIXED: Ensure we always have a valid unique ID
+  let storyId = storyElement.getAttribute('data-story-id');
+  
+  // If no data-story-id attribute or it's empty, generate one
+  if (!storyId || storyId.trim() === '') {
+    if (title && title.trim() !== '') {
+      // Generate ID from title
+      storyId = title.toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '') // Remove special characters except spaces
+        .replace(/\s+/g, '-') // Replace spaces with hyphens
+        .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+        .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+    }
+    
+    // If still no valid ID or ID is too short, create a fallback
+    if (!storyId || storyId.length < 2) {
+      storyId = 'story-' + Date.now();
+    }
+    
+    // Add timestamp to ensure uniqueness
+    storyId = storyId + '-' + Date.now();
+  }
+  
+  // FIXED: Ensure the ID is always valid and not empty
+  if (!storyId || storyId.trim() === '') {
+    storyId = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+  }
+  
+  console.log('Generated story ID:', storyId, 'for title:', title);
   
   return {
     id: storyId,
