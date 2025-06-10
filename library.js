@@ -9,29 +9,53 @@ class LibraryManager {
     this.currentUser = null;
     this.userLibrary = [];
     this.isLoading = true;
+    this.authInitialized = false;
     
     // Initialize when auth state changes
     this.utils.onAuthStateChanged(this.auth, (user) => {
       this.currentUser = user;
+      this.authInitialized = true;
       this.handleAuthStateChange(user);
     });
+
+    // Load saved theme
+    this.loadSavedTheme();
+  }
+
+  // Load saved theme from localStorage
+  loadSavedTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+      const themeToggle = document.querySelector('.theme-toggle i');
+      if (themeToggle) {
+        themeToggle.classList.remove('fa-sun');
+        themeToggle.classList.add('fa-moon');
+      }
+    }
   }
 
   // Handle authentication state changes
   async handleAuthStateChange(user) {
+    console.log('Auth state changed:', user ? 'signed in' : 'signed out');
+    
     if (user) {
       // User is signed in - load their library
+      console.log('User signed in, loading library...');
+      await this.updateUserInfo(user);
       await this.loadUserLibrary();
       this.updateLibraryUI();
-      this.updateUserInfo(user);
     } else {
       // User is not signed in - redirect to home
+      console.log('User not signed in, redirecting...');
       this.redirectToHome();
     }
   }
 
   // Update user information in the UI
   async updateUserInfo(user) {
+    console.log('Updating user info for:', user.email);
+    
     const libraryUsername = document.getElementById('library-username');
     const usernameDisplay = document.getElementById('username-display');
     const accountName = document.getElementById('account-name');
@@ -50,6 +74,8 @@ class LibraryManager {
       }
     }
     
+    console.log('Username resolved to:', username);
+    
     // Update UI elements
     if (libraryUsername) libraryUsername.textContent = username + "'s";
     if (usernameDisplay) usernameDisplay.textContent = `Welcome, ${username}!`;
@@ -66,29 +92,47 @@ class LibraryManager {
   // Load user's library from Firebase and localStorage
   async loadUserLibrary() {
     if (!this.currentUser) {
+      console.log('No current user, empty library');
       this.userLibrary = [];
+      this.isLoading = false;
       return;
     }
     
+    console.log('Loading library for user:', this.currentUser.uid);
     this.isLoading = true;
     this.showLoadingState();
     
     try {
       // Get library from Firebase
       const userDoc = await this.utils.getDoc(this.utils.doc(this.db, 'users', this.currentUser.uid));
-      const userData = userDoc.data();
-      const firebaseLibrary = userData?.library || [];
       
-      // Get library from localStorage for offline support
-      const localLibrary = JSON.parse(localStorage.getItem('userLibrary') || '[]');
-      
-      // Merge libraries (Firebase takes precedence)
-      this.userLibrary = this.mergeLibraries(firebaseLibrary, localLibrary);
-      
-      // Update localStorage
-      localStorage.setItem('userLibrary', JSON.stringify(this.userLibrary));
-      
-      console.log('Loaded library:', this.userLibrary);
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        const firebaseLibrary = userData?.library || [];
+        console.log('Firebase library loaded:', firebaseLibrary.length, 'stories');
+        
+        // Get library from localStorage for offline support
+        const localLibrary = JSON.parse(localStorage.getItem('userLibrary') || '[]');
+        console.log('Local library found:', localLibrary.length, 'stories');
+        
+        // Merge libraries (Firebase takes precedence)
+        this.userLibrary = this.mergeLibraries(firebaseLibrary, localLibrary);
+        
+        // Update localStorage
+        localStorage.setItem('userLibrary', JSON.stringify(this.userLibrary));
+        
+        console.log('Final merged library:', this.userLibrary.length, 'stories');
+      } else {
+        console.log('User document does not exist, creating empty library');
+        this.userLibrary = [];
+        
+        // Create user document with empty library
+        await this.utils.setDoc(this.utils.doc(this.db, 'users', this.currentUser.uid), {
+          library: [],
+          readingProgress: {},
+          createdAt: new Date().toISOString()
+        }, { merge: true });
+      }
       
     } catch (error) {
       console.error('Error loading user library:', error);
@@ -98,6 +142,7 @@ class LibraryManager {
     } finally {
       this.isLoading = false;
       this.hideLoadingState();
+      console.log('Library loading complete');
     }
   }
 
@@ -114,7 +159,11 @@ class LibraryManager {
     });
     
     // Sort by date added (newest first)
-    return merged.sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
+    return merged.sort((a, b) => {
+      const dateA = new Date(a.addedAt || 0);
+      const dateB = new Date(b.addedAt || 0);
+      return dateB - dateA;
+    });
   }
 
   // Remove story from library
@@ -124,12 +173,14 @@ class LibraryManager {
       return;
     }
     
+    console.log('Removing story from library:', storyId);
+    
     try {
       // Show loading state on the remove button
       const removeBtn = document.querySelector(`[data-story-id="${storyId}"] .remove-btn`);
       if (removeBtn) {
         const originalHTML = removeBtn.innerHTML;
-        removeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Removing...';
+        removeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
         removeBtn.disabled = true;
       }
       
@@ -142,10 +193,13 @@ class LibraryManager {
       // Remove from DOM immediately for better UX
       const storyCard = document.querySelector(`[data-story-id="${storyId}"]`);
       if (storyCard) {
+        storyCard.style.transition = 'all 0.3s ease';
         storyCard.style.transform = 'scale(0.8)';
         storyCard.style.opacity = '0';
         setTimeout(() => {
-          storyCard.remove();
+          if (storyCard.parentNode) {
+            storyCard.remove();
+          }
           this.updateLibraryStats();
           this.checkEmptyState();
         }, 300);
@@ -162,6 +216,7 @@ class LibraryManager {
       }, { merge: true });
       
       this.showNotification('Story removed from library', 'success');
+      console.log('Story removed successfully');
       
     } catch (error) {
       console.error('Error removing from library:', error);
@@ -175,6 +230,7 @@ class LibraryManager {
 
   // Update the entire library UI
   updateLibraryUI() {
+    console.log('Updating library UI with', this.userLibrary.length, 'stories');
     this.updateLibraryStats();
     this.renderLibraryStories();
     this.checkEmptyState();
@@ -192,7 +248,12 @@ class LibraryManager {
   // Render library stories in the grid
   renderLibraryStories() {
     const storiesGrid = document.getElementById('stories-grid');
-    if (!storiesGrid) return;
+    if (!storiesGrid) {
+      console.error('Stories grid element not found');
+      return;
+    }
+    
+    console.log('Rendering', this.userLibrary.length, 'stories');
     
     // Clear existing content
     storiesGrid.innerHTML = '';
@@ -220,16 +281,18 @@ class LibraryManager {
     card.setAttribute('data-story-id', story.id);
     
     // Format the date added
-    const dateAdded = new Date(story.addedAt).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
+    const dateAdded = story.addedAt ? 
+      new Date(story.addedAt).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      }) : 'Unknown date';
     
     card.innerHTML = `
       <div class="story-image-container">
         <img src="${story.image || 'https://via.placeholder.com/300x200?text=Story'}" 
-             alt="${story.title}" class="story-image" loading="lazy">
+             alt="${story.title}" class="story-image" loading="lazy"
+             onerror="this.src='https://via.placeholder.com/300x200?text=Story'">
         <div class="story-overlay">
           <button class="btn read-story-btn" onclick="readStory('${story.id}')">
             <i class="fas fa-book-open"></i> Continue Reading
@@ -239,7 +302,7 @@ class LibraryManager {
       
       <div class="story-content">
         <div class="story-header">
-          <h3 class="story-title">${story.title}</h3>
+          <h3 class="story-title">${story.title || 'Untitled Story'}</h3>
           <button class="remove-btn" onclick="libraryManager.removeFromLibrary('${story.id}')" 
                   title="Remove from library">
             <i class="fas fa-trash-alt"></i>
@@ -272,6 +335,7 @@ class LibraryManager {
 
   // Show/hide empty state
   showEmptyState() {
+    console.log('Showing empty state');
     const emptyState = document.getElementById('empty-state');
     const storiesGrid = document.getElementById('stories-grid');
     
@@ -294,6 +358,7 @@ class LibraryManager {
 
   // Show/hide loading state
   showLoadingState() {
+    console.log('Showing loading state');
     const loadingState = document.getElementById('loading-state');
     const storiesGrid = document.getElementById('stories-grid');
     const emptyState = document.getElementById('empty-state');
@@ -304,6 +369,7 @@ class LibraryManager {
   }
 
   hideLoadingState() {
+    console.log('Hiding loading state');
     const loadingState = document.getElementById('loading-state');
     if (loadingState) loadingState.classList.add('hidden');
   }
@@ -374,8 +440,12 @@ class LibraryManager {
         `;
         emptyState.classList.remove('hidden');
       }
-    } else {
+      const storiesGrid = document.getElementById('stories-grid');
+      if (storiesGrid) storiesGrid.classList.add('hidden');
+    } else if (visibleCount > 0) {
       this.hideEmptyState();
+      const storiesGrid = document.getElementById('stories-grid');
+      if (storiesGrid) storiesGrid.classList.remove('hidden');
     }
   }
 
@@ -397,6 +467,36 @@ class LibraryManager {
     } else {
       // Fallback if notification function isn't available
       console.log(`${type.toUpperCase()}: ${message}`);
+      
+      // Create a simple notification if the main one isn't available
+      let notification = document.getElementById('simple-notification');
+      if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'simple-notification';
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 15px 20px;
+          border-radius: 8px;
+          color: white;
+          font-weight: 500;
+          z-index: 10000;
+          transform: translateX(400px);
+          transition: transform 0.3s ease;
+          max-width: 300px;
+          word-wrap: break-word;
+          background-color: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : type === 'warning' ? '#f59e0b' : '#3b82f6'};
+        `;
+        document.body.appendChild(notification);
+      }
+      
+      notification.textContent = message;
+      notification.style.transform = 'translateX(0)';
+      
+      setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+      }, 3000);
     }
   }
 
@@ -414,6 +514,7 @@ class LibraryManager {
 // Global functions for HTML onclick handlers
 window.readStory = function(storyId) {
   // Navigate to story reading page
+  console.log('Reading story:', storyId);
   window.location.href = `story.html?id=${storyId}`;
 };
 
@@ -433,6 +534,8 @@ window.libraryManager = libraryManager;
 
 // Setup theme toggle and other UI interactions
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded, setting up library page');
+  
   // Theme toggle functionality
   const themeToggle = document.querySelector('.theme-toggle');
   if (themeToggle) {
@@ -449,15 +552,91 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', 'light');
       }
     });
+  }
+
+  // Setup account menu functionality (reuse from firebase-auth.js logic)
+  const accountToggle = document.getElementById('accountToggle');
+  const accountMenu = document.querySelector('.account-menu');
+  const signOutLink = document.getElementById('signout-link');
+  
+  if (accountToggle && accountMenu) {
+    // Toggle account menu on click
+    accountToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      accountMenu.classList.toggle('hidden');
+      
+      // Rotate the dropdown arrow
+      const arrow = accountToggle.querySelector('.dropdown-arrow');
+      if (arrow) {
+        arrow.style.transform = accountMenu.classList.contains('hidden') 
+          ? 'rotate(0deg)' 
+          : 'rotate(180deg)';
+      }
+    });
     
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark-theme');
-      const icon = themeToggle.querySelector('i');
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-    }
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!accountToggle.contains(e.target) && !accountMenu.contains(e.target)) {
+        if (!accountMenu.classList.contains('hidden')) {
+          accountMenu.classList.add('hidden');
+          const arrow = accountToggle.querySelector('.dropdown-arrow');
+          if (arrow) {
+            arrow.style.transform = 'rotate(0deg)';
+          }
+        }
+      }
+    });
+  }
+  
+  // Sign out link handler
+  if (signOutLink) {
+    signOutLink.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      try {
+        // Show loading state
+        const originalHTML = signOutLink.innerHTML;
+        signOutLink.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing out...';
+        signOutLink.style.pointerEvents = 'none';
+        
+        // Use the auth manager from firebase-auth.js if available
+        if (window.authManager && window.authManager.signOut) {
+          const result = await window.authManager.signOut();
+          
+          if (result.success) {
+            // Hide the menu immediately
+            accountMenu.classList.add('hidden');
+            const arrow = accountToggle.querySelector('.dropdown-arrow');
+            if (arrow) {
+              arrow.style.transform = 'rotate(0deg)';
+            }
+            
+            // Show success message and redirect
+            libraryManager.showNotification('Signed out successfully', 'success');
+            
+            // UI will be updated automatically by the auth state change listener
+          } else {
+            libraryManager.showNotification('Error signing out. Please try again.', 'error');
+            // Reset link state
+            signOutLink.innerHTML = originalHTML;
+            signOutLink.style.pointerEvents = 'auto';
+          }
+        } else {
+          // Fallback if auth manager not available
+          await window.firebaseAuth.signOut();
+          libraryManager.showNotification('Signed out successfully', 'success');
+        }
+        
+      } catch (error) {
+        console.error('Sign out error:', error);
+        libraryManager.showNotification('Error signing out. Please try again.', 'error');
+        
+        // Reset link state
+        signOutLink.innerHTML = '<i class="fas fa-sign-out-alt"></i> Sign Out';
+        signOutLink.style.pointerEvents = 'auto';
+      }
+    });
   }
 });
 
