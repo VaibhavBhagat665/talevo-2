@@ -148,30 +148,45 @@ class LibraryManager {
 
   // Merge Firebase and local libraries
   mergeLibraries(firebaseLibrary, localLibrary) {
-    const merged = [...firebaseLibrary];
+  const merged = [...firebaseLibrary];
+  
+  // Add local stories that aren't in Firebase (with better ID checking)
+  localLibrary.forEach(localStory => {
+    // Skip if story doesn't have a valid ID
+    if (!localStory.id || localStory.id.trim() === '') {
+      console.warn('Skipping local story without valid ID:', localStory.title);
+      return;
+    }
     
-    // Add local stories that aren't in Firebase
-    localLibrary.forEach(localStory => {
-      const existsInFirebase = merged.some(fbStory => fbStory.id === localStory.id);
-      if (!existsInFirebase) {
-        merged.push(localStory);
-      }
-    });
+    const existsInFirebase = merged.some(fbStory => 
+      fbStory.id === localStory.id ||
+      (fbStory.title === localStory.title && fbStory.author === localStory.author)
+    );
     
-    // Sort by date added (newest first)
-    return merged.sort((a, b) => {
-      const dateA = new Date(a.addedAt || 0);
-      const dateB = new Date(b.addedAt || 0);
-      return dateB - dateA;
-    });
-  }
-
+    if (!existsInFirebase) {
+      merged.push(localStory);
+    }
+  });
+  
+  // Sort by date added (newest first)
+  return merged.sort((a, b) => {
+    const dateA = new Date(a.addedAt || 0);
+    const dateB = new Date(b.addedAt || 0);
+    return dateB - dateA;
+  });
+}
   // Remove story from library
   async removeFromLibrary(storyId) {
+    if (!storyId || storyId.trim() === '') {
+    console.error('Cannot remove story: invalid ID');
+    this.showNotification('Cannot remove story: invalid ID', 'error');
+    return;
+  }
     if (!this.currentUser) {
       this.showNotification('Please sign in to manage your library', 'warning');
       return;
     }
+    
     
     console.log('Removing story from library:', storyId);
     
@@ -276,6 +291,10 @@ class LibraryManager {
 
   // Create a story card for the library
   createLibraryStoryCard(story) {
+    if (!story.id || story.id.trim() === '') {
+    console.error('Cannot create story card without valid ID:', story);
+    return document.createElement('div'); // Return empty div to prevent errors
+  }
     const card = document.createElement('div');
     card.className = 'story-card library-story-card';
     card.setAttribute('data-story-id', story.id);
