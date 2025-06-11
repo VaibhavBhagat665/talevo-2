@@ -545,75 +545,179 @@ console.log('Button element:', buttonElement);
 
 // FIXED: Enhanced utility function to create story data object
 function createStoryData(storyElement) {
-  // Extract story data from the story card element
-  const title = storyElement.querySelector('.story-title')?.textContent?.trim() || '';
-  const author = storyElement.querySelector('.story-author')?.textContent?.replace('by ', '').trim() || 'Unknown Author';
-  const description = storyElement.querySelector('.story-description')?.textContent?.trim() || 'No description available.';
-  const genre = storyElement.querySelector('.story-genre')?.textContent?.trim() || 'General';
-  const rating = storyElement.querySelector('.story-rating')?.textContent?.trim() || 'N/A';
-  const image = storyElement.querySelector('.story-image')?.src || 'https://via.placeholder.com/300x200?text=Story';
+  console.log('Creating story data for element:', storyElement);
   
-  // FIXED: Ensure we always have a valid unique ID
+  // Try multiple selectors to find story information
+  let title = '';
+  let author = '';
+  let description = '';
+  let genre = '';
+  let rating = '';
+  let image = '';
+  
+  // Try different title selectors
+  const titleSelectors = [
+    '.story-title',
+    '.hero-story-title', 
+    '.story-card-title',
+    'h1',
+    'h2',
+    'h3'
+  ];
+  
+  for (const selector of titleSelectors) {
+    const element = storyElement.querySelector(selector);
+    if (element && element.textContent.trim()) {
+      title = element.textContent.trim();
+      break;
+    }
+  }
+  
+  // Try different author selectors
+  const authorSelectors = [
+    '.story-author',
+    '.hero-story-author',
+    '.story-card-author',
+    '[data-author]'
+  ];
+  
+  for (const selector of authorSelectors) {
+    const element = storyElement.querySelector(selector);
+    if (element && element.textContent.trim()) {
+      author = element.textContent.replace('by ', '').trim();
+      break;
+    }
+  }
+  
+  // Try different description selectors
+  const descriptionSelectors = [
+    '.story-description',
+    '.hero-story-desc',
+    '.story-card-desc',
+    '.story-desc',
+    'p'
+  ];
+  
+  for (const selector of descriptionSelectors) {
+    const element = storyElement.querySelector(selector);
+    if (element && element.textContent.trim()) {
+      description = element.textContent.trim();
+      break;
+    }
+  }
+  
+  // Try different genre selectors
+  const genreSelectors = [
+    '.story-genre',
+    '.genre span',
+    '.genre',
+    '.story-card-meta .genre',
+    '[data-genre]'
+  ];
+  
+  for (const selector of genreSelectors) {
+    const element = storyElement.querySelector(selector);
+    if (element && element.textContent.trim()) {
+      genre = element.textContent.trim();
+      break;
+    }
+  }
+  
+  // Try different rating selectors
+  const ratingSelectors = [
+    '.story-rating',
+    '.rating span',
+    '.rating',
+    '.story-card-meta .rating span',
+    '[data-rating]'
+  ];
+  
+  for (const selector of ratingSelectors) {
+    const element = storyElement.querySelector(selector);
+    if (element && element.textContent.trim()) {
+      rating = element.textContent.trim();
+      break;
+    }
+  }
+  
+  // Try different image selectors
+  const imageSelectors = [
+    '.story-image',
+    '.hero-image img',
+    '.story-card-img',
+    'img'
+  ];
+  
+  for (const selector of imageSelectors) {
+    const element = storyElement.querySelector(selector);
+    if (element && element.src) {
+      image = element.src;
+      break;
+    }
+  }
+  
   // Get story ID from data attribute first
-let storyId = storyElement.getAttribute('data-story-id');
-
-// If no data-story-id attribute, try to get from URL or other sources
-if (!storyId || storyId.trim() === '') {
-  // Try to get from href or onclick attributes
-  const readBtn = storyElement.querySelector('.read-story-btn, .continue-reading-btn');
-  if (readBtn) {
-    const href = readBtn.getAttribute('href');
-    const onclick = readBtn.getAttribute('onclick');
-    
-    if (href && href.includes('id=')) {
-      storyId = href.split('id=')[1].split('&')[0];
-    } else if (onclick && onclick.includes("'")) {
-      const matches = onclick.match(/'([^']+)'/);
-      if (matches) {
-        storyId = matches[1];
-      }
-    }
-  }
+  let storyId = storyElement.getAttribute('data-story-id');
   
-  // If still no ID, generate one from title
+  // If no data-story-id attribute, try to get from URL or other sources
   if (!storyId || storyId.trim() === '') {
-    if (title && title.trim() !== '') {
-      storyId = title.toLowerCase()
-        .replace(/[^a-z0-9\s]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, '');
-        
-      // Add timestamp for uniqueness
-      if (storyId.length > 0) {
-        storyId = storyId + '-' + Date.now();
+    // Try to get from href or onclick attributes
+    const readBtn = storyElement.querySelector('.read-story-btn, .continue-reading-btn, .read-btn');
+    if (readBtn) {
+      const href = readBtn.getAttribute('href');
+      const onclick = readBtn.getAttribute('onclick');
+      
+      if (href && href.includes('id=')) {
+        storyId = href.split('id=')[1].split('&')[0];
+      } else if (onclick && onclick.includes("'")) {
+        const matches = onclick.match(/'([^']+)'/);
+        if (matches) {
+          storyId = matches[1];
+        }
       }
     }
     
-    // Final fallback
-    if (!storyId || storyId.length < 2) {
-      storyId = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+    // If still no ID, generate one from title
+    if (!storyId || storyId.trim() === '') {
+      if (title && title.trim() !== '') {
+        storyId = title.toLowerCase()
+          .replace(/[^a-z0-9\s]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .replace(/^-|-$/g, '');
+          
+        // Add timestamp for uniqueness
+        if (storyId.length > 0) {
+          storyId = storyId + '-' + Date.now();
+        }
+      }
+      
+      // Final fallback
+      if (!storyId || storyId.length < 2) {
+        storyId = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+      }
     }
   }
-}
-
   
-  // FIXED: Ensure the ID is always valid and not empty
+  // Ensure the ID is always valid and not empty
   if (!storyId || storyId.trim() === '') {
     storyId = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
   }
   
-  console.log('Generated story ID:', storyId, 'for title:', title);
-  
-  return {
+  // Set default values if not found
+  const storyData = {
     id: storyId,
-    title: title,
-    author: author,
-    description: description,
-    genre: genre,
-    rating: rating,
-    image: image
+    title: title || 'Untitled Story',
+    author: author || 'Unknown Author',
+    description: description || 'No description available.',
+    genre: genre || 'General',
+    rating: rating || 'N/A',
+    image: image || `https://via.placeholder.com/300x200?text=${encodeURIComponent(title || 'Story')}`
   };
+  
+  console.log('Generated story data:', storyData);
+  
+  return storyData;
 }
 
 // FIXED: Function to setup "Add to Library" buttons with individual state management
