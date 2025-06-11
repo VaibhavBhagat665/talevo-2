@@ -795,23 +795,23 @@ if (hero) {
 }
 
 
-  function setupAddToLibraryButtons() {
-  const buttons = document.querySelectorAll('.add-btn');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const card = btn.closest('.story-card') || document.querySelector('.hero');
-      const id = card?.getAttribute('data-id') || storyData[currentHeroIndex].id;
-      let library = JSON.parse(localStorage.getItem('library') || '[]');
-      if (!library.includes(id)) {
-        library.push(id);
-        localStorage.setItem('library', JSON.stringify(library));
-        showToast("Story added to your library!");
+//   function setupAddToLibraryButtons() {
+//   const buttons = document.querySelectorAll('.add-btn');
+//   buttons.forEach(btn => {
+//     btn.addEventListener('click', (e) => {
+//       e.stopPropagation();
+//       const card = btn.closest('.story-card') || document.querySelector('.hero');
+//       const id = card?.getAttribute('data-id') || storyData[currentHeroIndex].id;
+//       let library = JSON.parse(localStorage.getItem('library') || '[]');
+//       if (!library.includes(id)) {
+//         library.push(id);
+//         localStorage.setItem('library', JSON.stringify(library));
+//         showToast("Story added to your library!");
 
-      }
-    });
-  });
-}
+//       }
+//     });
+//   });
+// }
 
 
   function setupTrendingSection() {
