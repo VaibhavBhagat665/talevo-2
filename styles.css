@@ -207,6 +207,12 @@ body.dark-theme .search-input {
   box-shadow: 0 4px 15px var(--glow);
 }
 
+.btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: gold;
+  border: 2px solid gold;
+}
+
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--glow);
