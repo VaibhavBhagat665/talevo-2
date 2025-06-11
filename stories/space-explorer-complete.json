@@ -509,6 +509,258 @@
     ]
   },
   {
+    "id": "chapter-5k",
+    "title": "Chapter 5: Direct Communication",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You accept the transmission from within the pocket universe.",
+      "\"Greetings, traveler from the primary dimension,\" the voice resonates directly in your mind. \"We are the Architects of Void, creators of the quantum prison you discovered.\"",
+      "The energy beings explain that the Void Leviathan was their greatest mistake—a creation that consumed entire realities before they could contain it.",
+      "\"The prison weakens with each cosmic cycle. We have been seeking a species capable of reinforcing our work. Your quantum technology shows promise.\""
+    ],
+    "choices": [
+      {
+        "text": "Offer humanity's assistance in reinforcing the prison",
+        "next": "chapter-6a"
+      },
+      {
+        "text": "Ask about the true nature of the Void Leviathan",
+        "next": "chapter-6b"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5l",
+    "title": "Chapter 5: Silent Approach",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You maintain communications silence as you approach the massive structure.",
+      "The construct appears to be a fusion of organic and technological elements, pulsing with the rhythm of a cosmic heartbeat.",
+      "ARIA detects multiple energy signatures—some hostile, others seemingly protective.",
+      "\"Captain, I'm reading what appears to be a conflict within the structure. Some entities are fighting to contain others.\""
+    ],
+    "choices": [
+      {
+        "text": "Attempt to assist the entities trying to maintain containment",
+        "next": "chapter-6c"
+      },
+      {
+        "text": "Observe and gather intelligence before taking any action",
+        "next": "chapter-6d"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5m",
+    "title": "Chapter 5: Fleet Standby",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You maintain position as Earth's fastest ships race toward your coordinates.",
+      "Admiral Chen's flagship, the Endeavor, arrives with a full scientific and military complement.",
+      "\"Captain, your discovery has changed everything,\" the Admiral announces. \"We're authorizing first contact protocols and preparing for potential hostile action.\"",
+      "The anomaly continues to fluctuate, and your sensors detect increasing instability."
+    ],
+    "choices": [
+      {
+        "text": "Brief the Admiral on all your findings and recommend immediate containment",
+        "next": "chapter-6e"
+      },
+      {
+        "text": "Suggest establishing a research station to study the phenomenon long-term",
+        "next": "chapter-6f"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5n",
+    "title": "Chapter 5: Active Investigation",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "While awaiting backup, you continue your investigation of the anomaly.",
+      "You discover that the quantum signatures follow a mathematical pattern—almost like a countdown.",
+      "ARIA calculates that full dimensional breach will occur in approximately 72 hours.",
+      "\"Captain, I've also detected what appears to be a response signal from within the anomaly—something is aware of our presence.\""
+    ],
+    "choices": [
+      {
+        "text": "Attempt to establish communication with the intelligence inside the anomaly",
+        "next": "chapter-6g"
+      },
+      {
+        "text": "Focus on finding a way to disrupt the countdown sequence",
+        "next": "chapter-6h"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6a",
+    "title": "Chapter 6: The Architects' Alliance",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The Architects accept your offer and begin transferring advanced containment technologies to the Artemis.",
+      "\"Your species shows wisdom in recognizing cosmic responsibility,\" they communicate. \"We will guide you in creating permanent barriers.\"",
+      "However, they warn that becoming a prison-keeper species will change humanity forever.",
+      "\"Those who guard the Void must sometimes walk close to it. Are your people prepared for such darkness?\""
+    ],
+    "choices": [
+      {
+        "text": "Accept the responsibility and begin the transformation process",
+        "next": "ending-21"
+      },
+      {
+        "text": "Request time to consult with Earth before making such a momentous decision",
+        "next": "ending-22"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6b",
+    "title": "Chapter 6: The Void's Origin",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The Architects share the terrible truth: the Void Leviathan was once like them, a creator-being who consumed too much negative energy.",
+      "\"It feeds on entropy, chaos, and the spaces between realities. Each universe it devours makes it stronger.\"",
+      "They reveal that the Leviathan has been slowly corrupting the prison from within, turning containment energy into food.",
+      "\"The only way to truly stop it is to starve it—or to sacrifice a reality to trap it permanently.\""
+    ],
+    "choices": [
+      {
+        "text": "Volunteer to sacrifice the pocket universe to permanently trap the Leviathan",
+        "next": "ending-23"
+      },
+      {
+        "text": "Search for an alternative solution that doesn't require sacrificing an entire reality",
+        "next": "ending-24"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6c",
+    "title": "Chapter 6: Allies in the Dark",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You target the hostile energy signatures, providing support to the entities trying to maintain containment.",
+      "Your quantum weapons prove surprisingly effective against the chaotic forces threatening the prison structure.",
+      "\"Unknown vessel, you have our gratitude,\" a powerful mental voice reaches you. \"We are the Keepers—the last guardians of this prison.\"",
+      "They explain that the structure is failing and ask for your help in one final reinforcement effort."
+    ],
+    "choices": [
+      {
+        "text": "Commit all your ship's power to help the Keepers reinforce the prison",
+        "next": "ending-25"
+      },
+      {
+        "text": "Offer to evacuate the Keepers and find them a new sanctuary",
+        "next": "ending-26"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6d",
+    "title": "Chapter 6: The Watcher's Patience",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You maintain observation distance, carefully recording the conflict within the structure.",
+      "Your patience is rewarded with crucial intelligence: the hostile entities are actually escape attempts by the imprisoned Void Leviathan.",
+      "The defensive entities are automated systems left by an ancient civilization to maintain the prison.",
+      "ARIA calculates that the automated defenses will fail within hours without intervention."
+    ],
+    "choices": [
+      {
+        "text": "Intervene to support the automated defenses",
+        "next": "ending-27"
+      },
+      {
+        "text": "Return to Earth with the intelligence and recommend a massive intervention fleet",
+        "next": "ending-28"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6e",
+    "title": "Chapter 6: Command Decision",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Admiral Chen reviews your findings with grim determination.",
+      "\"This is beyond our current capabilities, but we can't let it threaten Earth,\" she decides. \"We're going to attempt a controlled nuclear destabilization of the anomaly.\"",
+      "The plan is risky—it might seal the breach or it might make things catastrophically worse.",
+      "\"Captain, you know this phenomenon better than anyone. Do we proceed?\""
+    ],
+    "choices": [
+      {
+        "text": "Support the Admiral's nuclear option as the best chance for success",
+        "next": "ending-29"
+      },
+      {
+        "text": "Argue for a more cautious approach using the alien technologies you've discovered",
+        "next": "ending-30"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6f",
+    "title": "Chapter 6: The Long Study",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Admiral Chen approves the establishment of Research Station Alpha at a safe distance from the anomaly.",
+      "Over the following months, humanity's greatest scientists work to understand the dimensional breach.",
+      "However, the anomaly's expansion accelerates, suggesting that observation itself might be affecting its stability.",
+      "\"Captain, we may have triggered something by studying it so intensively,\" Dr. Sarah Kim reports with concern."
+    ],
+    "choices": [
+      {
+        "text": "Evacuate the research station and implement immediate containment measures",
+        "next": "ending-31"
+      },
+      {
+        "text": "Continue the research despite the risks—the knowledge might be worth the danger",
+        "next": "ending-32"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6g",
+    "title": "Chapter 6: Voice from the Void",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You establish a communication link with the intelligence within the anomaly.",
+      "The response is overwhelming—a consciousness vast and alien, speaking in mathematical concepts beyond human comprehension.",
+      "ARIA helps translate: \"It claims to be a refugee from a dimension that was consumed by the Void Leviathan.\"",
+      "\"This entity has been fighting to keep the prison sealed from the inside, but it's losing the battle.\""
+    ],
+    "choices": [
+      {
+        "text": "Offer to help the entity escape to your dimension before the prison fails",
+        "next": "ending-33"
+      },
+      {
+        "text": "Ask the entity to teach you how to permanently seal the prison from the outside",
+        "next": "ending-34"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6h",
+    "title": "Chapter 6: Breaking the Code",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You and ARIA work frantically to decode and disrupt the countdown sequence.",
+      "The mathematical pattern appears to be a dimensional lock—and you realize it's not counting down to a breach, but to a permanent sealing.",
+      "\"Captain, I believe the anomaly is actually trying to seal itself permanently, but it needs a specific quantum resonance to complete the process.\"",
+      "You have the power to provide that resonance, but doing so will drain the Artemis completely."
+    ],
+    "choices": [
+      {
+        "text": "Provide the quantum resonance and help the anomaly seal itself permanently",
+        "next": "ending-35"
+      },
+      {
+        "text": "Wait for the fleet to arrive so multiple ships can share the power requirement",
+        "next": "ending-36"
+      }
+    ]
+  },
+  {
     "id": "ending-1",
     "title": "Ending 1: The Dimensional Shepherds",
     "image": "/api/placeholder/400/250",
@@ -769,258 +1021,6 @@
     "choices": []
   },
   
-  {
-    "id": "chapter-5k",
-    "title": "Chapter 5: Direct Communication",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "You accept the transmission from within the pocket universe.",
-      "\"Greetings, traveler from the primary dimension,\" the voice resonates directly in your mind. \"We are the Architects of Void, creators of the quantum prison you discovered.\"",
-      "The energy beings explain that the Void Leviathan was their greatest mistake—a creation that consumed entire realities before they could contain it.",
-      "\"The prison weakens with each cosmic cycle. We have been seeking a species capable of reinforcing our work. Your quantum technology shows promise.\""
-    ],
-    "choices": [
-      {
-        "text": "Offer humanity's assistance in reinforcing the prison",
-        "next": "chapter-6a"
-      },
-      {
-        "text": "Ask about the true nature of the Void Leviathan",
-        "next": "chapter-6b"
-      }
-    ]
-  },
-  {
-    "id": "chapter-5l",
-    "title": "Chapter 5: Silent Approach",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "You maintain communications silence as you approach the massive structure.",
-      "The construct appears to be a fusion of organic and technological elements, pulsing with the rhythm of a cosmic heartbeat.",
-      "ARIA detects multiple energy signatures—some hostile, others seemingly protective.",
-      "\"Captain, I'm reading what appears to be a conflict within the structure. Some entities are fighting to contain others.\""
-    ],
-    "choices": [
-      {
-        "text": "Attempt to assist the entities trying to maintain containment",
-        "next": "chapter-6c"
-      },
-      {
-        "text": "Observe and gather intelligence before taking any action",
-        "next": "chapter-6d"
-      }
-    ]
-  },
-  {
-    "id": "chapter-5m",
-    "title": "Chapter 5: Fleet Standby",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "You maintain position as Earth's fastest ships race toward your coordinates.",
-      "Admiral Chen's flagship, the Endeavor, arrives with a full scientific and military complement.",
-      "\"Captain, your discovery has changed everything,\" the Admiral announces. \"We're authorizing first contact protocols and preparing for potential hostile action.\"",
-      "The anomaly continues to fluctuate, and your sensors detect increasing instability."
-    ],
-    "choices": [
-      {
-        "text": "Brief the Admiral on all your findings and recommend immediate containment",
-        "next": "chapter-6e"
-      },
-      {
-        "text": "Suggest establishing a research station to study the phenomenon long-term",
-        "next": "chapter-6f"
-      }
-    ]
-  },
-  {
-    "id": "chapter-5n",
-    "title": "Chapter 5: Active Investigation",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "While awaiting backup, you continue your investigation of the anomaly.",
-      "You discover that the quantum signatures follow a mathematical pattern—almost like a countdown.",
-      "ARIA calculates that full dimensional breach will occur in approximately 72 hours.",
-      "\"Captain, I've also detected what appears to be a response signal from within the anomaly—something is aware of our presence.\""
-    ],
-    "choices": [
-      {
-        "text": "Attempt to establish communication with the intelligence inside the anomaly",
-        "next": "chapter-6g"
-      },
-      {
-        "text": "Focus on finding a way to disrupt the countdown sequence",
-        "next": "chapter-6h"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6a",
-    "title": "Chapter 6: The Architects' Alliance",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "The Architects accept your offer and begin transferring advanced containment technologies to the Artemis.",
-      "\"Your species shows wisdom in recognizing cosmic responsibility,\" they communicate. \"We will guide you in creating permanent barriers.\"",
-      "However, they warn that becoming a prison-keeper species will change humanity forever.",
-      "\"Those who guard the Void must sometimes walk close to it. Are your people prepared for such darkness?\""
-    ],
-    "choices": [
-      {
-        "text": "Accept the responsibility and begin the transformation process",
-        "next": "ending-21"
-      },
-      {
-        "text": "Request time to consult with Earth before making such a momentous decision",
-        "next": "ending-22"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6b",
-    "title": "Chapter 6: The Void's Origin",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "The Architects share the terrible truth: the Void Leviathan was once like them, a creator-being who consumed too much negative energy.",
-      "\"It feeds on entropy, chaos, and the spaces between realities. Each universe it devours makes it stronger.\"",
-      "They reveal that the Leviathan has been slowly corrupting the prison from within, turning containment energy into food.",
-      "\"The only way to truly stop it is to starve it—or to sacrifice a reality to trap it permanently.\""
-    ],
-    "choices": [
-      {
-        "text": "Volunteer to sacrifice the pocket universe to permanently trap the Leviathan",
-        "next": "ending-23"
-      },
-      {
-        "text": "Search for an alternative solution that doesn't require sacrificing an entire reality",
-        "next": "ending-24"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6c",
-    "title": "Chapter 6: Allies in the Dark",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "You target the hostile energy signatures, providing support to the entities trying to maintain containment.",
-      "Your quantum weapons prove surprisingly effective against the chaotic forces threatening the prison structure.",
-      "\"Unknown vessel, you have our gratitude,\" a powerful mental voice reaches you. \"We are the Keepers—the last guardians of this prison.\"",
-      "They explain that the structure is failing and ask for your help in one final reinforcement effort."
-    ],
-    "choices": [
-      {
-        "text": "Commit all your ship's power to help the Keepers reinforce the prison",
-        "next": "ending-25"
-      },
-      {
-        "text": "Offer to evacuate the Keepers and find them a new sanctuary",
-        "next": "ending-26"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6d",
-    "title": "Chapter 6: The Watcher's Patience",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "You maintain observation distance, carefully recording the conflict within the structure.",
-      "Your patience is rewarded with crucial intelligence: the hostile entities are actually escape attempts by the imprisoned Void Leviathan.",
-      "The defensive entities are automated systems left by an ancient civilization to maintain the prison.",
-      "ARIA calculates that the automated defenses will fail within hours without intervention."
-    ],
-    "choices": [
-      {
-        "text": "Intervene to support the automated defenses",
-        "next": "ending-27"
-      },
-      {
-        "text": "Return to Earth with the intelligence and recommend a massive intervention fleet",
-        "next": "ending-28"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6e",
-    "title": "Chapter 6: Command Decision",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "Admiral Chen reviews your findings with grim determination.",
-      "\"This is beyond our current capabilities, but we can't let it threaten Earth,\" she decides. \"We're going to attempt a controlled nuclear destabilization of the anomaly.\"",
-      "The plan is risky—it might seal the breach or it might make things catastrophically worse.",
-      "\"Captain, you know this phenomenon better than anyone. Do we proceed?\""
-    ],
-    "choices": [
-      {
-        "text": "Support the Admiral's nuclear option as the best chance for success",
-        "next": "ending-29"
-      },
-      {
-        "text": "Argue for a more cautious approach using the alien technologies you've discovered",
-        "next": "ending-30"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6f",
-    "title": "Chapter 6: The Long Study",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "Admiral Chen approves the establishment of Research Station Alpha at a safe distance from the anomaly.",
-      "Over the following months, humanity's greatest scientists work to understand the dimensional breach.",
-      "However, the anomaly's expansion accelerates, suggesting that observation itself might be affecting its stability.",
-      "\"Captain, we may have triggered something by studying it so intensively,\" Dr. Sarah Kim reports with concern."
-    ],
-    "choices": [
-      {
-        "text": "Evacuate the research station and implement immediate containment measures",
-        "next": "ending-31"
-      },
-      {
-        "text": "Continue the research despite the risks—the knowledge might be worth the danger",
-        "next": "ending-32"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6g",
-    "title": "Chapter 6: Voice from the Void",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "You establish a communication link with the intelligence within the anomaly.",
-      "The response is overwhelming—a consciousness vast and alien, speaking in mathematical concepts beyond human comprehension.",
-      "ARIA helps translate: \"It claims to be a refugee from a dimension that was consumed by the Void Leviathan.\"",
-      "\"This entity has been fighting to keep the prison sealed from the inside, but it's losing the battle.\""
-    ],
-    "choices": [
-      {
-        "text": "Offer to help the entity escape to your dimension before the prison fails",
-        "next": "ending-33"
-      },
-      {
-        "text": "Ask the entity to teach you how to permanently seal the prison from the outside",
-        "next": "ending-34"
-      }
-    ]
-  },
-  {
-    "id": "chapter-6h",
-    "title": "Chapter 6: Breaking the Code",
-    "image": "/api/placeholder/400/250",
-    "text": [
-      "You and ARIA work frantically to decode and disrupt the countdown sequence.",
-      "The mathematical pattern appears to be a dimensional lock—and you realize it's not counting down to a breach, but to a permanent sealing.",
-      "\"Captain, I believe the anomaly is actually trying to seal itself permanently, but it needs a specific quantum resonance to complete the process.\"",
-      "You have the power to provide that resonance, but doing so will drain the Artemis completely."
-    ],
-    "choices": [
-      {
-        "text": "Provide the quantum resonance and help the anomaly seal itself permanently",
-        "next": "ending-35"
-      },
-      {
-        "text": "Wait for the fleet to arrive so multiple ships can share the power requirement",
-        "next": "ending-36"
-      }
-    ]
-  },
   {
     "id": "ending-21",
     "title": "Ending 21: The New Guardians",
