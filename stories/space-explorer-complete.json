@@ -768,5 +768,466 @@
     ],
     "choices": []
   }
+  
+  {
+    "id": "chapter-5k",
+    "title": "Chapter 5: Direct Communication",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You accept the transmission from within the pocket universe.",
+      "\"Greetings, traveler from the primary dimension,\" the voice resonates directly in your mind. \"We are the Architects of Void, creators of the quantum prison you discovered.\"",
+      "The energy beings explain that the Void Leviathan was their greatest mistake—a creation that consumed entire realities before they could contain it.",
+      "\"The prison weakens with each cosmic cycle. We have been seeking a species capable of reinforcing our work. Your quantum technology shows promise.\""
+    ],
+    "choices": [
+      {
+        "text": "Offer humanity's assistance in reinforcing the prison",
+        "next": "chapter-6a"
+      },
+      {
+        "text": "Ask about the true nature of the Void Leviathan",
+        "next": "chapter-6b"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5l",
+    "title": "Chapter 5: Silent Approach",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You maintain communications silence as you approach the massive structure.",
+      "The construct appears to be a fusion of organic and technological elements, pulsing with the rhythm of a cosmic heartbeat.",
+      "ARIA detects multiple energy signatures—some hostile, others seemingly protective.",
+      "\"Captain, I'm reading what appears to be a conflict within the structure. Some entities are fighting to contain others.\""
+    ],
+    "choices": [
+      {
+        "text": "Attempt to assist the entities trying to maintain containment",
+        "next": "chapter-6c"
+      },
+      {
+        "text": "Observe and gather intelligence before taking any action",
+        "next": "chapter-6d"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5m",
+    "title": "Chapter 5: Fleet Standby",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You maintain position as Earth's fastest ships race toward your coordinates.",
+      "Admiral Chen's flagship, the Endeavor, arrives with a full scientific and military complement.",
+      "\"Captain, your discovery has changed everything,\" the Admiral announces. \"We're authorizing first contact protocols and preparing for potential hostile action.\"",
+      "The anomaly continues to fluctuate, and your sensors detect increasing instability."
+    ],
+    "choices": [
+      {
+        "text": "Brief the Admiral on all your findings and recommend immediate containment",
+        "next": "chapter-6e"
+      },
+      {
+        "text": "Suggest establishing a research station to study the phenomenon long-term",
+        "next": "chapter-6f"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5n",
+    "title": "Chapter 5: Active Investigation",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "While awaiting backup, you continue your investigation of the anomaly.",
+      "You discover that the quantum signatures follow a mathematical pattern—almost like a countdown.",
+      "ARIA calculates that full dimensional breach will occur in approximately 72 hours.",
+      "\"Captain, I've also detected what appears to be a response signal from within the anomaly—something is aware of our presence.\""
+    ],
+    "choices": [
+      {
+        "text": "Attempt to establish communication with the intelligence inside the anomaly",
+        "next": "chapter-6g"
+      },
+      {
+        "text": "Focus on finding a way to disrupt the countdown sequence",
+        "next": "chapter-6h"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6a",
+    "title": "Chapter 6: The Architects' Alliance",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The Architects accept your offer and begin transferring advanced containment technologies to the Artemis.",
+      "\"Your species shows wisdom in recognizing cosmic responsibility,\" they communicate. \"We will guide you in creating permanent barriers.\"",
+      "However, they warn that becoming a prison-keeper species will change humanity forever.",
+      "\"Those who guard the Void must sometimes walk close to it. Are your people prepared for such darkness?\""
+    ],
+    "choices": [
+      {
+        "text": "Accept the responsibility and begin the transformation process",
+        "next": "ending-21"
+      },
+      {
+        "text": "Request time to consult with Earth before making such a momentous decision",
+        "next": "ending-22"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6b",
+    "title": "Chapter 6: The Void's Origin",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The Architects share the terrible truth: the Void Leviathan was once like them, a creator-being who consumed too much negative energy.",
+      "\"It feeds on entropy, chaos, and the spaces between realities. Each universe it devours makes it stronger.\"",
+      "They reveal that the Leviathan has been slowly corrupting the prison from within, turning containment energy into food.",
+      "\"The only way to truly stop it is to starve it—or to sacrifice a reality to trap it permanently.\""
+    ],
+    "choices": [
+      {
+        "text": "Volunteer to sacrifice the pocket universe to permanently trap the Leviathan",
+        "next": "ending-23"
+      },
+      {
+        "text": "Search for an alternative solution that doesn't require sacrificing an entire reality",
+        "next": "ending-24"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6c",
+    "title": "Chapter 6: Allies in the Dark",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You target the hostile energy signatures, providing support to the entities trying to maintain containment.",
+      "Your quantum weapons prove surprisingly effective against the chaotic forces threatening the prison structure.",
+      "\"Unknown vessel, you have our gratitude,\" a powerful mental voice reaches you. \"We are the Keepers—the last guardians of this prison.\"",
+      "They explain that the structure is failing and ask for your help in one final reinforcement effort."
+    ],
+    "choices": [
+      {
+        "text": "Commit all your ship's power to help the Keepers reinforce the prison",
+        "next": "ending-25"
+      },
+      {
+        "text": "Offer to evacuate the Keepers and find them a new sanctuary",
+        "next": "ending-26"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6d",
+    "title": "Chapter 6: The Watcher's Patience",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You maintain observation distance, carefully recording the conflict within the structure.",
+      "Your patience is rewarded with crucial intelligence: the hostile entities are actually escape attempts by the imprisoned Void Leviathan.",
+      "The defensive entities are automated systems left by an ancient civilization to maintain the prison.",
+      "ARIA calculates that the automated defenses will fail within hours without intervention."
+    ],
+    "choices": [
+      {
+        "text": "Intervene to support the automated defenses",
+        "next": "ending-27"
+      },
+      {
+        "text": "Return to Earth with the intelligence and recommend a massive intervention fleet",
+        "next": "ending-28"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6e",
+    "title": "Chapter 6: Command Decision",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Admiral Chen reviews your findings with grim determination.",
+      "\"This is beyond our current capabilities, but we can't let it threaten Earth,\" she decides. \"We're going to attempt a controlled nuclear destabilization of the anomaly.\"",
+      "The plan is risky—it might seal the breach or it might make things catastrophically worse.",
+      "\"Captain, you know this phenomenon better than anyone. Do we proceed?\""
+    ],
+    "choices": [
+      {
+        "text": "Support the Admiral's nuclear option as the best chance for success",
+        "next": "ending-29"
+      },
+      {
+        "text": "Argue for a more cautious approach using the alien technologies you've discovered",
+        "next": "ending-30"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6f",
+    "title": "Chapter 6: The Long Study",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Admiral Chen approves the establishment of Research Station Alpha at a safe distance from the anomaly.",
+      "Over the following months, humanity's greatest scientists work to understand the dimensional breach.",
+      "However, the anomaly's expansion accelerates, suggesting that observation itself might be affecting its stability.",
+      "\"Captain, we may have triggered something by studying it so intensively,\" Dr. Sarah Kim reports with concern."
+    ],
+    "choices": [
+      {
+        "text": "Evacuate the research station and implement immediate containment measures",
+        "next": "ending-31"
+      },
+      {
+        "text": "Continue the research despite the risks—the knowledge might be worth the danger",
+        "next": "ending-32"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6g",
+    "title": "Chapter 6: Voice from the Void",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You establish a communication link with the intelligence within the anomaly.",
+      "The response is overwhelming—a consciousness vast and alien, speaking in mathematical concepts beyond human comprehension.",
+      "ARIA helps translate: \"It claims to be a refugee from a dimension that was consumed by the Void Leviathan.\"",
+      "\"This entity has been fighting to keep the prison sealed from the inside, but it's losing the battle.\""
+    ],
+    "choices": [
+      {
+        "text": "Offer to help the entity escape to your dimension before the prison fails",
+        "next": "ending-33"
+      },
+      {
+        "text": "Ask the entity to teach you how to permanently seal the prison from the outside",
+        "next": "ending-34"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6h",
+    "title": "Chapter 6: Breaking the Code",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You and ARIA work frantically to decode and disrupt the countdown sequence.",
+      "The mathematical pattern appears to be a dimensional lock—and you realize it's not counting down to a breach, but to a permanent sealing.",
+      "\"Captain, I believe the anomaly is actually trying to seal itself permanently, but it needs a specific quantum resonance to complete the process.\"",
+      "You have the power to provide that resonance, but doing so will drain the Artemis completely."
+    ],
+    "choices": [
+      {
+        "text": "Provide the quantum resonance and help the anomaly seal itself permanently",
+        "next": "ending-35"
+      },
+      {
+        "text": "Wait for the fleet to arrive so multiple ships can share the power requirement",
+        "next": "ending-36"
+      }
+    ]
+  }
+  {
+    "id": "ending-21",
+    "title": "Ending 21: The New Guardians",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You accept the cosmic responsibility, and the Architects begin humanity's transformation into prison-keepers.",
+      "Advanced quantum technology integrates with human biology, granting your species the ability to perceive and manipulate dimensional barriers.",
+      "Earth becomes the center of a vast monitoring network, with humans serving as wardens of cosmic prisons across the galaxy.",
+      "The price is steep—humanity gains incredible power but loses much of its innocence and freedom.",
+      "Generations later, human children are born with the ability to see between dimensions, forever changed by your decision to guard the universe against entities like the Void Leviathan."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-22",
+    "title": "Ending 22: The Democratic Choice",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The Architects grant you time to return to Earth and present this momentous choice to humanity.",
+      "After months of global debate, humanity votes to accept the responsibility but with conditions—the transformation will be voluntary.",
+      "A new branch of humanity emerges: the Dimensional Wardens, volunteers who undergo the cosmic transformation.",
+      "Earth becomes a unique world where normal humans and cosmic guardians coexist, each contributing to humanity's dual nature.",
+      "Your careful diplomacy ensures that humanity enters its cosmic role with wisdom and choice rather than desperation, setting a precedent for other species facing similar decisions."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-23",
+    "title": "Ending 23: The Ultimate Prison",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You volunteer to sacrifice the pocket universe, trapping yourself, the Architects, and the Void Leviathan in a permanent dimensional loop.",
+      "The Architects are moved by your sacrifice and use their remaining power to ensure the prison will hold for eternity.",
+      "Your heroic act saves not just your reality, but all possible realities from the Leviathan's hunger.",
+      "The Artemis escapes just as the pocket universe collapses into itself, carrying news of your sacrifice to Earth.",
+      "You become a legend across multiple dimensions—the human who gave up everything to save infinity itself."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-24",
+    "title": "Ending 24: The Third Option",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Working with the Architects, you discover that the Void Leviathan's hunger can be satisfied with artificial entropy rather than consumed realities.",
+      "Using the Artemis's quantum drive as a template, you help create a massive entropy generator that feeds the entity synthetic chaos.",
+      "The Leviathan becomes docile, its hunger satisfied by the artificial feed, and agrees to remain in voluntary containment.",
+      "Your innovative solution saves the pocket universe and transforms a cosmic threat into a strange form of interdimensional livestock.",
+      "The Architects praise your creativity and offer humanity a place in their cosmic order as master problem-solvers and diplomatic innovators."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-25",
+    "title": "Ending 25: The Final Stand",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You commit all the Artemis's power to the Keepers' final reinforcement effort.",
+      "The combined power of your quantum drive and their ancient technology creates an impenetrable barrier around the Void Leviathan.",
+      "The prison holds, but the Artemis is permanently fused with the containment structure, becoming part of the cosmic jail.",
+      "You and your crew become the newest Keepers, granted immortality to guard the prison for eternity.",
+      "Your sacrifice ensures the safety of all realities, and the Keepers welcome you as honored guardians who chose duty over personal freedom."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-26",
+    "title": "Ending 26: The Exodus",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You offer to evacuate the failing Keepers to your dimension, giving them sanctuary after eons of service.",
+      "The grateful Keepers transfer their prison-keeping knowledge to humanity before abandoning their post.",
+      "Without the Keepers' active maintenance, the prison begins to fail, but their knowledge allows Earth to construct a new containment system.",
+      "The Void Leviathan is transferred to a more secure prison built in Earth's solar system using Keeper technology.",
+      "The rescued Keepers become humanity's advisors in cosmic affairs, their ancient wisdom guiding Earth's emergence as a galactic power."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-27",
+    "title": "Ending 27: The Automated Alliance",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You intervene to support the automated defense systems just as they begin to fail.",
+      "Your quantum weapons provide the additional power needed to reinforce the prison's containment protocols.",
+      "The automated systems integrate with the Artemis, making your ship part of the prison's defense network.",
+      "You become the first organic component in an ancient automated system, bridging the gap between artificial and biological intelligence.",
+      "Your integration allows the prison to adapt and evolve, making it stronger than ever before while giving you a unique perspective on cosmic security."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-28",
+    "title": "Ending 28: The Massive Response",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You return to Earth with crucial intelligence, triggering the largest military mobilization in human history.",
+      "The combined fleet of Earth arrives with hundreds of ships, overwhelming the failing prison defenses with sheer numbers.",
+      "The massive intervention succeeds, but the cost is enormous—dozens of ships are lost in the battle against escaping void entities.",
+      "Earth's military emerges as a major cosmic force, respected and feared throughout the galaxy for their willingness to sacrifice for the greater good.",
+      "Your intelligence gathering becomes the foundation for Earth's new role as the galaxy's primary rapid response force against cosmic threats."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-29",
+    "title": "Ending 29: The Nuclear Gambit",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You support Admiral Chen's nuclear destabilization plan, providing targeting data for the quantum warheads.",
+      "The controlled nuclear explosion creates a massive space-time distortion that collapses the anomaly in on itself.",
+      "The gambit works—the dimensional breach is sealed, but the local space is permanently scarred by the nuclear-quantum reaction.",
+      "The area becomes a navigation hazard known as the 'Chen Nebula,' a testament to humanity's willingness to take extreme risks.",
+      "Your support of the Admiral's bold plan saves reality but establishes humanity's reputation as a species that favors decisive, if dangerous, action."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-30",
+    "title": "Ending 30: The Diplomatic Path",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You convince Admiral Chen to try the alien technologies first, arguing for a more measured approach.",
+      "Using combined human and alien tech, the fleet successfully contains the anomaly without the risks of nuclear destabilization.",
+      "Your advocacy for caution and diplomacy over military force establishes humanity's reputation as wise and thoughtful.",
+      "The successful collaboration between human and alien technology opens new avenues for technological advancement.",
+      "Earth becomes known throughout the galaxy as a species that seeks understanding before action, leading to numerous peaceful first contact situations."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-31",
+    "title": "Ending 31: The Cautious Retreat",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You order the evacuation of Research Station Alpha and implement emergency containment protocols.",
+      "The hasty retreat prevents a catastrophic breach, but valuable research data is lost in the evacuation.",
+      "The anomaly stabilizes once observation ceases, suggesting that some cosmic phenomena are best left unstudied.",
+      "Your decision to prioritize safety over knowledge saves lives but leaves humanity with incomplete understanding of dimensional mechanics.",
+      "The incident establishes the 'Observer Effect Protocol' for future cosmic anomaly research, balancing scientific curiosity with cosmic safety."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-32",
+    "title": "Ending 32: The Dangerous Knowledge",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to continue the research despite the accelerating danger, believing the knowledge is worth the risk.",
+      "The intensive study triggers a partial breach, but the data gathered allows scientists to understand and eventually control the phenomenon.",
+      "Several researchers are lost in the breach, but their sacrifice leads to humanity's mastery of dimensional manipulation.",
+      "Earth becomes the galaxy's leading authority on dimensional physics, with Research Station Alpha serving as a memorial to those who died for knowledge.",
+      "Your difficult decision to pursue dangerous knowledge ultimately gives humanity the tools to prevent future dimensional crises across the galaxy."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-33",
+    "title": "Ending 33: The Refugee's Sanctuary",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You successfully extract the refugee entity from the failing prison, giving it sanctuary in your dimension.",
+      "The entity's knowledge of the Void Leviathan proves invaluable, allowing humanity to develop defenses against similar threats.",
+      "However, the escaped entity's dimensional signature attracts other void-touched beings to Earth's reality.",
+      "Earth becomes a haven for dimensional refugees, making humanity the guardians of displaced beings from consumed realities.",
+      "Your compassionate choice transforms Earth into a multidimensional metropolis, forever changing human civilization."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-34",
+    "title": "Ending 34: The Sealing Knowledge",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The refugee entity teaches you the ancient art of permanent dimensional sealing at the cost of its own existence.",
+      "Using this knowledge, you create an unbreakable barrier that seals the Void Leviathan forever.",
+      "The entity's sacrifice ensures that its consumed dimension will be avenged and no other realities will suffer the same fate.",
+      "Earth inherits the refugee's knowledge, making humanity the new masters of dimensional containment technology.",
+      "Your role as student to a dying entity establishes humanity as the inheritors of ancient cosmic wisdom and responsibility."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-35",
+    "title": "Ending 35: The Resonance Sacrifice",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You provide the quantum resonance, completely draining the Artemis to help the anomaly seal itself permanently.",
+      "The dimensional breach collapses into a stable, sealed state, becoming a permanent but harmless feature of local space.",
+      "The Artemis drifts powerless but victorious, with your crew rescued by the arriving Earth fleet.",
+      "Your ship is recovered and restored, becoming a symbol of humanity's willingness to sacrifice for cosmic safety.",
+      "The sealed anomaly becomes a monument to human courage and the site of the first interdimensional research institute."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-36",
+    "title": "Ending 36: The Collaborative Seal",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You wait for the fleet to arrive, and multiple ships provide the quantum resonance needed to seal the anomaly.",
+      "The collaborative effort succeeds perfectly, with the dimensional breach sealed and all ships remaining operational.",
+      "The shared power requirement becomes a model for future cosmic engineering projects requiring massive energy output.",
+      "Earth's fleet demonstrates the power of cooperation and coordinated action in cosmic affairs.",
+      "Your patience and strategic thinking establish the doctrine of 'Collective Resonance' as humanity's preferred method for handling cosmic-scale challenges."
+    ],
+    "choices": []
+  }
 
 ]
