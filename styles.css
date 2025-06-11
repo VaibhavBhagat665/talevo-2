@@ -234,6 +234,7 @@ body.dark-theme .search-input {
 .read-btn:hover {
   background-color: #e6b800;
   transform: translateY(-2px);
+  border: 2px solid gold;
 }
 
 .add-btn {
