@@ -508,4 +508,265 @@
       }
     ]
   }
+  {
+    "id": "ending-1",
+    "title": "Ending 1: The Dimensional Shepherds",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Working alongside the Xeltorians, you successfully deploy the dimensional inhibitor into the anomaly's core.",
+      "The quantum fissure begins to collapse in on itself, its chaotic energies stabilizing into a controlled portal.",
+      "\"The breach is sealed,\" the lead Xeltorian communicates through crystalline harmonics. \"But we must remain as guardians to ensure it never reopens.\"",
+      "You return to Earth as a hero, but carry the knowledge that an ancient alien civilization now watches over a cosmic prison in the depths of space.",
+      "The Artemis becomes the first human vessel to establish formal diplomatic relations with an interdimensional species, opening a new chapter in humanity's cosmic journey."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-2",
+    "title": "Ending 2: The Returned Guardians",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The Xeltorians accept your request and phase back into this dimension permanently.",
+      "With their advanced technology, they effortlessly contain the anomaly and begin repairs to the dimensional fabric.",
+      "\"Your species shows wisdom in recognizing when to seek help,\" their leader tells you. \"We will establish a monitoring station here.\"",
+      "Humanity gains powerful allies but must grapple with the humbling reality that some cosmic threats are beyond our current capabilities.",
+      "The Xeltorian Collective becomes Earth's first interdimensional ally, sharing selective knowledge while maintaining their role as cosmic guardians."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-3",
+    "title": "Ending 3: The Ultimate Sacrifice",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "With grim determination, you take the containment core and pilot a shuttle directly into the anomaly's heart.",
+      "The quantum singularity generator activates, creating a controlled collapse that seals the dimensional breach forever.",
+      "Your sacrifice saves not just Earth, but potentially countless civilizations across multiple dimensions.",
+      "The Artemis returns to Earth with your story, and you are posthumously honored as humanity's greatest hero.",
+      "A monument is erected at the site of the former anomaly, where space itself bears the subtle scars of your final act of courage."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-4",
+    "title": "Ending 4: The Collaborative Solution",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You return to the Artemis and work with ARIA to find an alternative to the suicide mission.",
+      "Together, you devise a plan to use the ship's quantum drive to create a resonance cascade that will seal the breach remotely.",
+      "The plan works, but the Artemis is permanently altered, its hull now bearing strange crystalline growths that pulse with interdimensional energy.",
+      "You return to Earth as both hero and harbinger of a new age where humanity's technology has been forever changed by contact with otherworldly forces.",
+      "The modified Artemis becomes the prototype for a new class of vessels capable of interdimensional travel, launching humanity into the cosmic community."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-5",
+    "title": "Ending 5: The Key to Infinity",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You activate the ancient key, and the Nexus device responds by opening controlled portals to multiple dimensions.",
+      "Through these gateways, you witness the vast network of reality-guardians working to maintain the cosmic balance.",
+      "The Void Leviathan is not destroyed but redirected to a dimension where it can exist without threatening inhabited realities.",
+      "You become Earth's first Dimensional Ambassador, tasked with representing humanity in the interdimensional council.",
+      "The key remains in your possession, making you the guardian of humanity's gateway to infinite possibilities and infinite responsibilities."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-6",
+    "title": "Ending 6: The Cautious Path",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You secure the key and return to Earth, where the greatest minds of humanity spend years studying its alien technology.",
+      "The anomaly eventually stabilizes on its own, becoming a permanent but dormant feature of local space.",
+      "Earth's scientific advancement accelerates dramatically as researchers unlock the secrets of dimensional manipulation.",
+      "However, other spacefaring civilizations take notice of humanity's new capabilities, leading to both opportunities and new threats.",
+      "You are appointed as the first Director of Interdimensional Affairs, preparing humanity for the complex cosmic politics that await."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-7",
+    "title": "Ending 7: The Scholar's Victory",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Through careful study and simulation, you and ARIA develop a theoretical framework for containing dimensional breaches.",
+      "Your research allows Earth's scientists to create the first human-designed quantum stabilizers.",
+      "The anomaly is gradually contained over several months through a series of precisely calculated interventions.",
+      "Your respectful approach to alien technology and refusal to disturb the dead earns you recognition as both a scientist and a philosopher.",
+      "The principles you establish become the foundation for humanity's ethical guidelines in cosmic exploration and first contact protocols."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-8",
+    "title": "Ending 8: The Distributed Solution",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Earth Command mobilizes the greatest scientific minds of the age to analyze your data remotely.",
+      "A solution is found through collaborative effort: a network of quantum beacons that can stabilize dimensional anomalies.",
+      "The crisis is resolved through humanity's greatest strength—our ability to work together across vast distances.",
+      "You return to Earth to find that your mission has triggered a golden age of international cooperation in space exploration.",
+      "The beacon network becomes humanity's first major contribution to cosmic security, earning respect from other galactic civilizations."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-9",
+    "title": "Ending 9: The Power of Unity",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You channel all of the Artemis's power into completing the stabilizer network, leaving your ship adrift but victorious.",
+      "The Void Leviathan's prison is reinforced permanently, its reality-warping influence contained for all time.",
+      "The Aetherii express their gratitude by gifting humanity with limited dimensional technology and cosmic knowledge.",
+      "You are rescued by an Earth fleet that arrives to find you floating in a now-peaceful region of space.",
+      "Humanity's willingness to sacrifice for the greater good establishes them as a trusted species in the interdimensional community."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-10",
+    "title": "Ending 10: The Reinforced Stand",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You hold position as Earth's combined fleet arrives, adding their stabilizers to your network.",
+      "The collective human effort, guided by Aetherii wisdom, successfully contains the dimensional breach.",
+      "The Void Leviathan retreats deeper into its prison, its escape thwarted by the unity of multiple species.",
+      "Earth becomes a founding member of the Interdimensional Security Council, taking on cosmic responsibilities.",
+      "Your patience and strategic thinking save both your crew and establish humanity as a reliable ally in cosmic affairs."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-11",
+    "title": "Ending 11: The Wisdom of Trust",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "After reviewing the Aetherii's shared memories of their past failures and victories, you choose to trust their guidance.",
+      "Working together, you implement their containment protocol just as the anomaly reaches critical instability.",
+      "The dimensional prison is successfully reinforced, and the Void Leviathan is contained for another cosmic age.",
+      "Your careful verification of alien intentions becomes a model for future first contact situations.",
+      "The Aetherii honor your wisdom by sharing advanced defensive technologies that protect Earth from future cosmic threats."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-12",
+    "title": "Ending 12: The Fortress Earth",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You choose to retreat and focus on defending Earth rather than containing the threat at its source.",
+      "Earth's combined military might creates an impressive defensive perimeter around the solar system.",
+      "The Void Leviathan eventually breaks free but finds Earth prepared with quantum shields and reality anchors.",
+      "A massive battle ensues, with humanity proving they can stand against cosmic-level threats through determination and unity.",
+      "Though the cost is high, humanity's defiant stand inspires other civilizations to join the fight, eventually driving back the interdimensional threat."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-13",
+    "title": "Ending 13: The Architect's Gambit",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You transmit the Architect's signal directly into the anomaly, hoping to activate their ancient safeguards.",
+      "The signal resonates with hidden mechanisms built into the fabric of space-time itself.",
+      "The anomaly doesn't just close—it transforms into a controlled gateway that can be opened or sealed at will.",
+      "You've accidentally discovered the Architects' greatest creation: a dimensional transit system connecting all realities.",
+      "Humanity inherits the responsibility of maintaining this cosmic infrastructure, becoming the new Architects of interdimensional travel."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-14",
+    "title": "Ending 14: The Lure of the Void",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You use the Architect's signal as bait, transmitting it from a probe sent far from Earth.",
+      "The Void Leviathan takes the bait, following the signal away from populated space into the cosmic void.",
+      "Your deception works perfectly—the entity is lured into empty space where it can rage harmlessly.",
+      "The anomaly collapses without the Leviathan's presence, sealing the dimensional breach permanently.",
+      "Your clever strategy saves countless lives and establishes humanity's reputation for innovative thinking in cosmic crises."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-15",
+    "title": "Ending 15: The Reality Blade",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You authorize the use of the alien reality-slicing weapons against the dimensional anomaly.",
+      "The weapons cut through space-time itself, severing the connection between dimensions.",
+      "The Void Leviathan is trapped permanently in its prison dimension, but local space bears permanent scars from the reality cuts.",
+      "These scars become navigation hazards and scientific curiosities, studied by researchers for centuries to come.",
+      "Your decisive action saves reality but at the cost of permanently altering the cosmic landscape around Earth's sector."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-16",
+    "title": "Ending 16: The Last Resort",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You hold the reality weapons in reserve, first attempting conventional solutions with the combined Earth fleet.",
+      "When all else fails and the Void Leviathan begins to break free, you deploy the alien weapons as a final gambit.",
+      "The precisely timed strike severs just enough of the dimensional connection to trap the entity without devastating local space-time.",
+      "Your restraint and timing save both reality and the cosmic infrastructure, earning praise from interdimensional allies.",
+      "The remaining alien weapons are secured for humanity's defense, making Earth a formidable protector of this galaxy."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-17",
+    "title": "Ending 17: The War of Realities",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "EarthFleet mobilizes in the greatest military effort in human history, preparing for interdimensional warfare.",
+      "The Void Leviathan arrives at Earth to find a coordinated defense of quantum mines, reality anchors, and dimensional shields.",
+      "The battle rages across multiple dimensions, with humanity fighting alongside newly arrived alien allies.",
+      "Victory comes at great cost, but humanity emerges as a proven defender of reality itself.",
+      "The war marks humanity's graduation from a planetary species to a cosmic military power, earning respect and responsibility in equal measure."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-18",
+    "title": "Ending 18: The Seeded Galaxy",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You initiate massive evacuation protocols and distribute your findings to every spacefaring civilization in the galaxy.",
+      "Though Earth falls to the Void Leviathan, humanity's legacy lives on in the colonies and allied species they warned.",
+      "Your sacrifice becomes a rallying cry for a galaxy-wide alliance against interdimensional threats.",
+      "The distributed human diaspora eventually develops the technology needed to reclaim Earth and contain the entity.",
+      "Humanity's final gift to the galaxy—warning and knowledge—saves countless civilizations and establishes humans as martyrs-turned-heroes."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-19",
+    "title": "Ending 19: The Anchor of Reality",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You use the Artemis itself as a quantum anchor, positioning the ship at the exact dimensional focal point.",
+      "Your vessel becomes permanently fused with the anomaly, creating a stable gateway that can be monitored and controlled.",
+      "You and your crew become the eternal guardians of this dimensional crossing, unable to leave but ensuring cosmic safety.",
+      "Earth sends supplies and relief crews, turning your ship into humanity's first interdimensional monitoring station.",
+      "Your sacrifice transforms from tragedy to triumph as the controlled gateway becomes humanity's doorway to infinite possibilities."
+    ],
+    "choices": []
+  },
+  {
+    "id": "ending-20",
+    "title": "Ending 20: The Final Transmission",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "In your final moments, you transmit everything—every scan, every conversation, every piece of alien data—across the galaxy.",
+      "Your real-time transmission allows other civilizations to prepare defenses and develop countermeasures.",
+      "Though the Artemis is destroyed and the Void Leviathan breaks free, your data saves billions of lives across dozens of worlds.",
+      "A coalition of alien species uses your information to eventually contain the entity using methods you discovered.",
+      "Your name becomes legend across the galaxy—the human captain whose final act of courage saved reality itself from an interdimensional horror."
+    ],
+    "choices": []
+  }
+
 ]
