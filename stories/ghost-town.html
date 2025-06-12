@@ -79,7 +79,7 @@
     </header>
 
   <main class="container">
-    <div class="story-container">
+    <div class="story-container" id="story-container">
       <!-- Chapter 1 -->
       <div class="story-chapter hidden" id="ending-1">
     <div class="chapter-image">
@@ -434,76 +434,150 @@
 <script src="script.js"></script>
 <script src="enhanced-story-viewer.js"></script>
       <script>
-        async function loadStoryFromJSON() {
-      const response = await fetch("ghost-town.json");
-      const storyData = await response.json();
-      const container = document.getElementById("story-container");
-      const loader = document.getElementById("loader");
+        // Fixed version of your story loading script
+async function loadStoryFromJSON() {
+  try {
+    const response = await fetch("ghost-town.json");
+    
+    // Check if the file exists and loaded successfully
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const storyData = await response.json();
+    
+    // Use class selector instead of ID since your HTML uses class="story-container"
+    const container = document.querySelector(".story-container");
+    const loader = document.getElementById("loader");
 
-      storyData.forEach((chapter) => {
-        if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
-
-        const chapterDiv = document.createElement("div");
-        chapterDiv.classList.add("story-chapter");
-        chapterDiv.id = chapter.id;
-        if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
-
-        chapterDiv.innerHTML = `
-          <div class="chapter-image">
-            <img src="${chapter.image}" alt="Chapter image" />
-          </div>
-          <h2 class="chapter-title">${chapter.title}</h2>
-          <div class="chapter-text">
-            ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
-          </div>
-          <div class="story-choices">
-            <h3>What will you do?</h3>
-            <div class="choice-options">
-              ${chapter.choices
-                .map(
-                  (choice) => `
-                <button class="choice-btn" data-next="${choice.next}">
-                  ${choice.text}
-                </button>`
-                )
-                .join("")}
-            </div>
-          </div>
-        `;
-        container.appendChild(chapterDiv);
-      });
-
-      loader.style.display = "none";
-      container.style.display = "block";
-
-      initStoryChoiceButtons();
-      updateStoryStats();
-
-      const savedChapter = localStorage.getItem("currentChapter");
-      if (savedChapter && document.getElementById(savedChapter)) {
-        document.querySelectorAll(".story-chapter").forEach((ch) =>
-          ch.classList.add("hidden")
-        );
-        document.getElementById(savedChapter).classList.remove("hidden");
-        window.scrollTo({ top: 0 });
-      }
+    // Check if container exists
+    if (!container) {
+      console.error("Story container not found!");
+      return;
     }
 
-    document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+    // Clear existing content
+    container.innerHTML = "";
 
-    document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("restart-btn")) {
-        localStorage.removeItem("currentChapter");
-        document.querySelectorAll(".story-chapter").forEach((el) =>
-          el.classList.add("hidden")
+    storyData.forEach((chapter) => {
+      if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+
+      const chapterDiv = document.createElement("div");
+      chapterDiv.classList.add("story-chapter");
+      chapterDiv.id = chapter.id;
+      if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+
+      chapterDiv.innerHTML = `
+        <div class="chapter-image">
+          <img src="${chapter.image}" alt="Chapter image" />
+        </div>
+        <h2 class="chapter-title">${chapter.title}</h2>
+        <div class="chapter-text">
+          ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
+        </div>
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            ${chapter.choices
+              .map(
+                (choice) => `
+              <button class="choice-btn" data-next="${choice.next}">
+                ${choice.text}
+              </button>`
+              )
+              .join("")}
+          </div>
+        </div>
+      `;
+      container.appendChild(chapterDiv);
+    });
+
+    if (loader) {
+      loader.style.display = "none";
+    }
+    container.style.display = "block";
+
+    // Initialize choice buttons
+    initStoryChoiceButtons();
+    
+    // Update stats if function exists
+    if (typeof updateStoryStats === 'function') {
+      updateStoryStats();
+    }
+
+    // Handle saved chapter
+    const savedChapter = localStorage.getItem("currentChapter");
+    if (savedChapter && document.getElementById(savedChapter)) {
+      document.querySelectorAll(".story-chapter").forEach((ch) =>
+        ch.classList.add("hidden")
+      );
+      document.getElementById(savedChapter).classList.remove("hidden");
+      window.scrollTo({ top: 0 });
+    }
+
+  } catch (error) {
+    console.error("Error loading story:", error);
+    
+    // Fallback: show existing hardcoded content
+    const container = document.querySelector(".story-container");
+    if (container) {
+      // Make sure at least one chapter is visible
+      const firstChapter = container.querySelector(".story-chapter");
+      if (firstChapter) {
+        firstChapter.classList.remove("hidden");
+      }
+    }
+  }
+}
+
+// Initialize choice button functionality
+function initStoryChoiceButtons() {
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('choice-btn')) {
+      const nextChapter = e.target.getAttribute('data-next');
+      if (nextChapter) {
+        // Hide all chapters
+        document.querySelectorAll('.story-chapter').forEach(ch => 
+          ch.classList.add('hidden')
         );
-        const first = document.getElementById("chapter-1");
-        if (first) {
-          first.classList.remove("hidden");
+        
+        // Show next chapter
+        const nextChapterElement = document.getElementById(nextChapter);
+        if (nextChapterElement) {
+          nextChapterElement.classList.remove('hidden');
           window.scrollTo({ top: 0 });
+          
+          // Save progress
+          localStorage.setItem('currentChapter', nextChapter);
         }
       }
-    });
+    }
+  });
+}
+
+// Load story when page loads
+document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+
+// Handle restart buttons
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("restart-btn")) {
+    localStorage.removeItem("currentChapter");
+    document.querySelectorAll(".story-chapter").forEach((el) =>
+      el.classList.add("hidden")
+    );
+    const first = document.getElementById("chapter-1");
+    if (first) {
+      first.classList.remove("hidden");
+      window.scrollTo({ top: 0 });
+    } else {
+      // If no chapter-1, show first available chapter
+      const firstChapter = document.querySelector(".story-chapter");
+      if (firstChapter) {
+        firstChapter.classList.remove("hidden");
+      }
+    }
+  }
+});
     </script>
     <footer style="font-size: 10px; color: #666; text-align: center; margin-top: 40px;">
     <a href="http://www.freepik.com" style="color: #666; text-decoration: none;">Designed by jcomp / Freepik</a>
