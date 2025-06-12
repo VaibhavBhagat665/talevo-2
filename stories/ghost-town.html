@@ -435,37 +435,48 @@
 <script src="enhanced-story-viewer.js"></script>
       <script>
         // Fixed version of your story loading script
+// Fixed version for object-based JSON structure
 async function loadStoryFromJSON() {
   try {
     const response = await fetch("ghost-town.json");
     
-    // Check if the file exists and loaded successfully
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     
     const storyData = await response.json();
     
-    // Use class selector instead of ID since your HTML uses class="story-container"
+    // Use class selector since your HTML uses class="story-container"
     const container = document.querySelector(".story-container");
     const loader = document.getElementById("loader");
 
-    // Check if container exists
     if (!container) {
       console.error("Story container not found!");
       return;
     }
 
-    // Clear existing content
+    // Clear existing content (but keep the hardcoded endings)
+    const existingEndings = container.querySelectorAll('[id^="ending-"]');
     container.innerHTML = "";
+    
+    // Re-add the existing endings
+    existingEndings.forEach(ending => container.appendChild(ending));
 
-    storyData.forEach((chapter) => {
-      if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+    // Convert object to array and process each chapter
+    Object.keys(storyData).forEach((chapterId) => {
+      const chapter = storyData[chapterId];
+      
+      // Skip if it's an ending (you have these hardcoded)
+      if (chapterId.startsWith("ending-")) return;
 
       const chapterDiv = document.createElement("div");
       chapterDiv.classList.add("story-chapter");
-      chapterDiv.id = chapter.id;
-      if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+      chapterDiv.id = chapterId;
+      
+      // Hide all chapters except the first one (you can adjust this logic)
+      if (chapterId !== "chapter-1") {
+        chapterDiv.classList.add("hidden");
+      }
 
       chapterDiv.innerHTML = `
         <div class="chapter-image">
@@ -515,6 +526,8 @@ async function loadStoryFromJSON() {
       window.scrollTo({ top: 0 });
     }
 
+    console.log("Story loaded successfully!");
+
   } catch (error) {
     console.error("Error loading story:", error);
     
@@ -532,6 +545,13 @@ async function loadStoryFromJSON() {
 
 // Initialize choice button functionality
 function initStoryChoiceButtons() {
+  // Remove existing listeners to avoid duplicates
+  const existingButtons = document.querySelectorAll('.choice-btn');
+  existingButtons.forEach(btn => {
+    btn.replaceWith(btn.cloneNode(true));
+  });
+
+  // Add event delegation for choice buttons
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('choice-btn')) {
       const nextChapter = e.target.getAttribute('data-next');
@@ -549,6 +569,8 @@ function initStoryChoiceButtons() {
           
           // Save progress
           localStorage.setItem('currentChapter', nextChapter);
+        } else {
+          console.error(`Chapter ${nextChapter} not found!`);
         }
       }
     }
@@ -556,7 +578,10 @@ function initStoryChoiceButtons() {
 }
 
 // Load story when page loads
-document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM loaded, loading story...");
+  loadStoryFromJSON();
+});
 
 // Handle restart buttons
 document.addEventListener("click", function (e) {
@@ -565,16 +590,12 @@ document.addEventListener("click", function (e) {
     document.querySelectorAll(".story-chapter").forEach((el) =>
       el.classList.add("hidden")
     );
-    const first = document.getElementById("chapter-1");
+    
+    // Try to find chapter-1, or the first available chapter
+    const first = document.getElementById("chapter-1") || document.querySelector(".story-chapter");
     if (first) {
       first.classList.remove("hidden");
       window.scrollTo({ top: 0 });
-    } else {
-      // If no chapter-1, show first available chapter
-      const firstChapter = document.querySelector(".story-chapter");
-      if (firstChapter) {
-        firstChapter.classList.remove("hidden");
-      }
     }
   }
 });
