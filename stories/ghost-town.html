@@ -434,11 +434,76 @@
 <script src="script.js"></script>
 <script src="enhanced-story-viewer.js"></script>
       <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const viewer = new EnhancedStoryViewer('ghost-town');
-            viewer.loadStory();
-            
-        });
+        async function loadStoryFromJSON() {
+      const response = await fetch("space-explorer-complete.json");
+      const storyData = await response.json();
+      const container = document.getElementById("story-container");
+      const loader = document.getElementById("loader");
+
+      storyData.forEach((chapter) => {
+        if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+
+        const chapterDiv = document.createElement("div");
+        chapterDiv.classList.add("story-chapter");
+        chapterDiv.id = chapter.id;
+        if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+
+        chapterDiv.innerHTML = `
+          <div class="chapter-image">
+            <img src="${chapter.image}" alt="Chapter image" />
+          </div>
+          <h2 class="chapter-title">${chapter.title}</h2>
+          <div class="chapter-text">
+            ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
+          </div>
+          <div class="story-choices">
+            <h3>What will you do?</h3>
+            <div class="choice-options">
+              ${chapter.choices
+                .map(
+                  (choice) => `
+                <button class="choice-btn" data-next="${choice.next}">
+                  ${choice.text}
+                </button>`
+                )
+                .join("")}
+            </div>
+          </div>
+        `;
+        container.appendChild(chapterDiv);
+      });
+
+      loader.style.display = "none";
+      container.style.display = "block";
+
+      initStoryChoiceButtons();
+      updateStoryStats();
+
+      const savedChapter = localStorage.getItem("currentChapter");
+      if (savedChapter && document.getElementById(savedChapter)) {
+        document.querySelectorAll(".story-chapter").forEach((ch) =>
+          ch.classList.add("hidden")
+        );
+        document.getElementById(savedChapter).classList.remove("hidden");
+        window.scrollTo({ top: 0 });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("restart-btn")) {
+        localStorage.removeItem("currentChapter");
+        document.querySelectorAll(".story-chapter").forEach((el) =>
+          el.classList.add("hidden")
+        );
+        const first = document.getElementById("chapter-1");
+        if (first) {
+          first.classList.remove("hidden");
+          window.scrollTo({ top: 0 });
+        }
+      }
+    });
     </script>
     <footer style="font-size: 10px; color: #666; text-align: center; margin-top: 40px;">
     <a href="http://www.freepik.com" style="color: #666; text-decoration: none;">Designed by jcomp / Freepik</a>
