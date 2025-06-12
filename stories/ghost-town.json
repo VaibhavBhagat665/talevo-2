@@ -1368,11 +1368,11 @@
         "choices": [
           {
             "text": "Ask what the pool is",
-            "next": "ending-revelation"
+            "next": "ending-11"
           },
           {
             "text": "Try to back away and escape",
-            "next": "ending-chase"
+            "next": "ending-10"
           }
         ]
       }
