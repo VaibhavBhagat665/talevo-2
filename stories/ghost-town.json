@@ -1,0 +1,1381 @@
+{
+  "chapter-7c": {
+    "title": "Chapter 7: Dawn's Light",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to wait for dawn, hoping daylight will weaken whatever supernatural forces govern this place. The hours pass slowly in your hiding spot, but gradually the sounds of nocturnal activity fade.",
+      "As the first rays of sunlight filter through the debris around you, the town transforms once again. The oppressive atmosphere lifts, and Prosperity returns to looking like an ordinary abandoned settlement.",
+      "You emerge from your hiding place to find the streets empty and silent. Your car sits exactly where you left it, untouched and waiting.",
+      "The two figures who had been watching your vehicle are nowhere to be seen. In daylight, even the evidence of their presence seems questionable—were those really footprints in the dust, or just shadows playing tricks on your eyes?",
+      "As you walk toward your car, you notice something that makes you pause. The town looks cleaner than it did yesterday, as if someone spent the night performing maintenance and repairs.",
+      "Windows that were broken now have glass, boardwalks that were sagging now stand straight, and the general air of decay has been replaced by something that looks almost... maintained."
+    ],
+    "choices": [
+      {
+        "text": "Leave immediately while you can",
+        "next": "ending-7"
+      },
+      {
+        "text": "Investigate the restored areas",
+        "next": "chapter-8a"
+      }
+    ]
+  },
+  "chapter-7d": {
+    "title": "Chapter 7: Alley Cat",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The alleyway route seems like your best option for avoiding detection. You slip into the narrow passages between buildings, following paths that wind through Prosperity's forgotten spaces.",
+      "The alleys are surprisingly well-maintained for an abandoned town. Debris has been cleared away, and the paths seem to have been recently used. You find yourself following what amounts to a hidden highway through the settlement.",
+      "Halfway through your journey, you encounter another traveler in the alley system—one of the transformed residents, moving quietly through the passages on some errand of their own.",
+      "The figure stops when they see you, but shows no alarm or aggression. Instead, they gesture ahead, indicating the path you should take to reach your destination safely.",
+      "Following their silent guidance, you navigate the maze of alleyways until you emerge near your parked car. The transformed resident nods once and disappears back into the shadows.",
+      "Your vehicle appears untouched, but you notice small improvements—the windshield has been cleaned, the tires checked, and there's even a thermos of hot coffee waiting on the hood."
+    ],
+    "choices": [
+      {
+        "text": "Thank them and leave",
+        "next": "ending-11"
+      },
+      {
+        "text": "Try to find the helpful resident",
+        "next": "chapter-8b"
+      }
+    ]
+  },
+  "chapter-7e": {
+    "title": "Chapter 7: Sprint to Freedom",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You break cover and run toward your car, abandoning stealth for speed. The open ground feels dangerously exposed, but your vehicle is tantalizingly close.",
+      "The transformed residents notice your movement immediately, but their reaction surprises you. Instead of giving chase, they simply stop their geometric pattern-making and watch your progress with what seems like curiosity rather than hostility.",
+      "You reach your car without incident, fumbling with your keys while expecting pursuit that never comes. The engine starts smoothly—better than it has in months—and you're able to drive away without interference.",
+      "In your rearview mirror, you see the transformed townspeople returning to their activities. Their geometric patterns on the street are more complex now, as if your passage through their midst has somehow added new elements to their design.",
+      "As you drive away from Prosperity, you can't shake the feeling that you've just been part of some larger plan or purpose that you don't understand.",
+      "Miles later, when you stop to catch your breath and process what happened, you discover that your car is running better than it ever has. Someone, somehow, has made subtle improvements to the engine while you were in town."
+    ],
+    "choices": [
+      {
+        "text": "Drive straight home",
+        "next": "ending-9"
+      },
+      {
+        "text": "Examine the car modifications",
+        "next": "ending-10"
+      }
+    ]
+  },
+  "chapter-7f": {
+    "title": "Chapter 7: Pattern Recognition",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Instead of running, you decide to observe the transformed residents and try to understand the patterns they're creating in the streets. From your elevated position, you can see the full scope of their activity.",
+      "The geometric shapes they trace are incredibly complex—fractals within fractals, spirals that connect to form larger spirals, lines that intersect at mathematically precise angles. It's clearly not random movement.",
+      "As you watch, you begin to recognize familiar elements. Some of the patterns resemble circuit diagrams, others look like star charts or topographical maps. A few seem to mirror the branching structures of neurons or blood vessels.",
+      "The realization strikes you that they're not just making patterns—they're creating a massive diagram that incorporates multiple types of information simultaneously. It's a form of communication or record-keeping that uses the entire town as a canvas.",
+      "One of the transformed residents looks up and makes eye contact with you. Instead of alarm, their expression shows something like approval. They gesture to the patterns, then to you, as if inviting you to understand what they're creating.",
+      "Another resident approaches your position, moving slowly and deliberately. When they reach the base of the water tower, they begin gesturing in a complex sequence that you gradually recognize as some form of sign language—but one based on mathematical concepts rather than words."
+    ],
+    "choices": [
+      {
+        "text": "Try to communicate back",
+        "next": "chapter-8c"
+      },
+      {
+        "text": "Climb down and approach them",
+        "next": "ending-4"
+      }
+    ]
+  },
+  "chapter-7g": {
+    "title": "Chapter 7: Daylight Exploration",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Despite everything you've experienced, curiosity compels you to explore Prosperity in the light of day. The town feels completely different now—peaceful, almost welcoming.",
+      "Walking the main street, you discover that many of the buildings have been meticulously maintained. The general store has fresh supplies, the diner's equipment is in working order, and the hotel rooms are clean and ready for guests.",
+      "It's as if the transformed residents spend their nights caring for the town, preserving it as a functional community despite its official abandonment. Every detail has been attended to with obvious pride and skill.",
+      "In the town's small library, you find books that shouldn't exist—journals written by the transformed residents, documenting their experiences and the gradual change in their understanding of reality.",
+      "One journal, written by someone identified only as 'Former Mayor Richardson,' describes the early days after the transformation: 'We retain all that we were, but we see so much more now. The connections between all things, the patterns that govern existence, the beautiful complexity hidden beneath apparent simplicity.'",
+      "Another entry, from months later: 'Visitors come sometimes. Most flee in fear, which we understand. But a few stay long enough to listen, to learn. They have a choice to make, as we all did. Some choose evolution, others choose to return to their previous existence. Both choices are honored.'"
+    ],
+    "choices": [
+      {
+        "text": "Continue reading the journals",
+        "next": "chapter-8d"
+      },
+      {
+        "text": "Leave the library and explore more",
+        "next": "chapter-8e"
+      }
+    ]
+  },
+  "chapter-7h": {
+    "title": "Chapter 7: First Contact",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to attempt communication with the transformed residents. The young man in mining clothes steps forward, his movements graceful despite their otherworldly quality.",
+      "When he speaks, his voice carries those impossible harmonics you've heard before, but the words are clear and unmistakably human: 'Welcome to Prosperity, traveler. We mean you no harm.'",
+      "'What happened to you?' you ask, trying to keep your voice steady.",
+      "'We found something beneath the earth,' he replies. 'Something that showed us what consciousness could become when freed from the limitations of individual existence. We chose to accept its gift.'",
+      "Other transformed residents gather around, forming a loose circle but maintaining respectful distance. Their attention feels curious rather than threatening.",
+      "'The entity doesn't force change,' the young man continues. 'It offers connection, understanding, transcendence. But the choice must be made freely, with full knowledge of what it means.'",
+      "A woman in 1950s dress steps forward: 'We were like you once—afraid of what we didn't understand. But fear gives way to wonder when you see the universe as it truly is, connected and alive in ways individual consciousness cannot perceive.'"
+    ],
+    "choices": [
+      {
+        "text": "Ask to learn more",
+        "next": "ending-4"
+      },
+      {
+        "text": "Ask them to let you leave",
+        "next": "ending-11"
+      }
+    ]
+  },
+  "chapter-7i": {
+    "title": "Chapter 7: Breaking Through",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to push through the circle of transformed residents toward your car. They don't resist your movement—instead, they step aside to create a clear path.",
+      "As you walk among them, you're struck by their expressions. There's no malice, no hunger, no predatory intent. They watch you with what can only be described as compassionate understanding.",
+      "One elderly man reaches out as you pass, not to grab or restrain, but to offer a gentle touch of reassurance. His hand is warm and unmistakably human, despite the otherworldly light in his eyes.",
+      "'Safe travels,' he says simply, his voice carrying depths of meaning that resonate in your bones.",
+      "You reach your car without incident. The engine starts immediately, running smoother than it has in months. As you begin to drive away, several residents wave farewell from the street.",
+      "In your rearview mirror, you watch them return to their nocturnal activities—not the predatory hunting you had feared, but something that looks remarkably like a community going about its evening routines."
+    ],
+    "choices": [
+      {
+        "text": "Drive away quickly",
+        "next": "ending-9"
+      },
+      {
+        "text": "Stop and reconsider",
+        "next": "chapter-8f"
+      }
+    ]
+  },
+  "chapter-7j": {
+    "title": "Chapter 7: Direct Approach",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to approach your car directly and confront whatever the transformed residents are doing to it. Walking openly across the space between the railway platform and your vehicle, you call out: 'That's my car.'",
+      "The figures working on your vehicle look up without alarm. One, a woman in mechanic's coveralls, straightens and wipes her hands on a clean rag.",
+      "'We know,' she says, her voice carrying those familiar harmonic undertones. 'We detected several issues that could have left you stranded in the desert. We took the liberty of making some repairs.'",
+      "Approaching closer, you can see they've indeed been working on your car—but not tampering with it maliciously. Tools are neatly arranged, and every action appears to be legitimate automotive maintenance.",
+      "'Why would you help me?' you ask.",
+      "'Because helping is what communities do,' replies another figure, a man in oil-stained work clothes. 'We may have changed, but we remember what it means to be good neighbors.'",
+      "The woman in coveralls gestures to your engine: 'Your alternator was failing, and your brake pads were dangerously worn. The desert roads are unforgiving of mechanical failures.'"
+    ],
+    "choices": [
+      {
+        "text": "Thank them and leave",
+        "next": "ending-11"
+      },
+      {
+        "text": "Ask about their transformation",
+        "next": "ending-4"
+      }
+    ]
+  },
+  "chapter-7k": {
+    "title": "Chapter 7: The Night Watch",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to wait and observe what the transformed residents are doing to your car. From your hiding spot behind the loading platform, you have a clear view of their activities.",
+      "What you witness challenges every assumption you've made about these beings. They work on your vehicle with obvious expertise and care, using tools that appear to be a blend of conventional automotive equipment and devices you don't recognize.",
+      "One figure, a woman in pristine mechanic's coveralls, runs some kind of scanner over your engine. The device emits a soft blue light and makes quiet harmonic tones as it operates.",
+      "Another resident, a man who might have been the town's blacksmith in life, works on what appears to be your brake system. His movements are precise and confident, suggesting retained muscle memory and professional knowledge.",
+      "As you watch, you realize they're not tampering with your car—they're improving it. Every adjustment they make is clearly beneficial, addressing wear and tear that you hadn't even noticed.",
+      "Hours pass. Their work is methodical and thorough, covering every system in your vehicle. When they finally step back, your car looks better maintained than the day you bought it."
+    ],
+    "choices": [
+      {
+        "text": "Approach and thank them",
+        "next": "ending-11"
+      },
+      {
+        "text": "Wait for them to leave first",
+        "next": "ending-8"
+      }
+    ]
+  },
+  "chapter-7l": {
+    "title": "Chapter 7: Racing to the Exit",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You decide to make a run for your car, ignoring the mysterious figure in the bell tower. The creature pursuing you through the alleys is getting closer, and you need to reach your vehicle before it catches up.",
+      "Sprinting across the open space around the church, you head for the street where your car is parked. Behind you, the creature crashes through the alley entrance, its pursuit becoming more frantic.",
+      "The figure in the bell tower watches your progress but makes no move to interfere. In the moonlight, you can see they're wearing what appears to be clerical robes—perhaps the town's former preacher, now transformed like the others.",
+      "You reach your car just as the pursuing creature emerges onto the main street. Your hands shake as you fumble with the keys, but the engine starts immediately—smoother than it's run in years.",
+      "As you pull away, you see the pursuing creature stop in the middle of the road. Other transformed residents emerge from buildings to surround it, their postures suggesting comfort and restraint rather than celebration.",
+      "In your rearview mirror, the figure from the bell tower has descended and joined the group. They seem to be calming the agitated creature, helping it regain control."
+    ],
+    "choices": [
+      {
+        "text": "Keep driving and don't look back",
+        "next": "ending-9"
+      },
+      {
+        "text": "Stop to watch what happens",
+        "next": "chapter-8g"
+      }
+    ]
+  },
+  "chapter-7m": {
+    "title": "Chapter 7: The Bell Tower",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Curiosity overrides caution. You approach the church and find the entrance to the bell tower—a narrow spiral staircase that winds upward into darkness.",
+      "Climbing the stairs, you can hear the creature that was pursuing you moving through the alleys below, but its sounds are becoming more distant. Whatever drew it to chase you seems to be fading.",
+      "The bell tower opens onto a small chamber with magnificent views of Prosperity and the surrounding desert. The figure you saw from below turns to face you—a tall man in clerical robes, his transformation evident in his luminous eyes and the strange harmonics in his voice.",
+      "'Welcome, traveler,' he says gently. 'I am Father Morrison, or I was, before we discovered what lay beneath our community.'",
+      "'You're the town's preacher?' you ask.",
+      "'I was. Now I serve in a different capacity—as a guide for those who find their way here, a counselor for those facing the choice we all faced.'",
+      "He gestures toward the window overlooking the town: 'What you see below is not a haunting or a curse. It's evolution—consciousness expanding beyond the limitations that once confined us.'"
+    ],
+    "choices": [
+      {
+        "text": "Ask him to explain",
+        "next": "ending-revelation"
+      },
+      {
+        "text": "Ask him to help you leave",
+        "next": "ending-12"
+      }
+    ]
+  },
+  "chapter-8a": {
+    "title": "Chapter 8: Morning Discoveries",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Your investigation of the restored areas reveals the extent of the transformed residents' nocturnal activities. Every building in Prosperity has been carefully maintained, preserving the town as a perfect snapshot of its heyday.",
+      "The general store contains fresh supplies, the bank's vault has been converted into some kind of archive, and the schoolhouse contains educational materials that span centuries of human knowledge.",
+      "Most remarkably, you discover that the town now has working utilities. Water flows from the taps, electricity powers the lights, and there's even telephone service to a network you don't recognize.",
+      "A note pinned to the bulletin board outside the post office explains: 'Prosperity serves as a waystation for consciousness in transition. All facilities are maintained for the comfort of visitors and residents alike.'",
+      "As you read, a transformed resident approaches—the same woman who spoke to you during your first encounter. In daylight, her transformation seems less alien and more like a natural evolution.",
+      "'You stayed to explore,' she observes with what sounds like approval. 'Most visitors flee at the first opportunity. Your curiosity suggests you might be ready to understand what we've become.'"
+    ],
+    "choices": [
+      {
+        "text": "Ask her to show you more",
+        "next": "ending-4"
+      },
+      {
+        "text": "Explain you're just curious",
+        "next": "ending-12"
+      }
+    ]
+  },
+  "chapter-8b": {
+    "title": "Chapter 8: Gratitude",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You backtrack through the alley system, hoping to find the transformed resident who helped guide you to safety. The maze of passages is complex, but you eventually locate them in a small courtyard behind the hotel.",
+      "They're tending to what appears to be a garden—though the plants growing there are unlike anything you've seen before. Crystalline structures intertwine with organic growth, creating a hybrid ecosystem that's both beautiful and impossible.",
+      "When they notice your approach, they straighten and regard you with obvious curiosity. Up close, you can see they were probably a groundskeeper or gardener before their transformation—their movements retain the careful, nurturing quality of someone who understands growing things.",
+      "'Thank you,' you say simply. 'For helping me reach my car safely.'",
+      "They nod acknowledgment, then gesture to their garden. In a voice that carries harmonic undertones, they explain: 'We grow food for visitors now. Physical nourishment for those who aren't ready for other forms of sustenance.'",
+      "You realize the fruits and vegetables in this impossible garden are meant for people like you—travelers who stumble upon Prosperity and need basic human comforts while deciding whether to stay or go."
+    ],
+    "choices": [
+      {
+        "text": "Accept some food for your journey",
+        "next": "ending-11"
+      },
+      {
+        "text": "Ask about the transformation",
+        "next": "ending-4"
+      }
+    ]
+  },
+  "chapter-8c": {
+    "title": "Chapter 8: Mathematical Communication",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You attempt to respond to the transformed resident's mathematical sign language, using basic geometric gestures you remember from school. Your crude attempts at communication seem to delight them.",
+      "They respond with more complex sequences, and gradually you begin to understand that they're teaching you. The mathematical concepts they're expressing describe relationships—not just between numbers, but between consciousness, matter, energy, and something else you don't have words for.",
+      "Other transformed residents notice your communication attempt and gather around the base of the water tower. Instead of feeling surrounded, you feel like you're at the center of an impromptu classroom.",
+      "The patterns they trace in the air with their hands become increasingly complex, describing concepts that seem to bridge physics, philosophy, and forms of mathematics that haven't been discovered yet by mainstream science.",
+      "Gradually, you begin to grasp the fundamental truth they're trying to convey: consciousness isn't produced by matter, but is a fundamental force of the universe, like gravity or electromagnetism. What they've discovered beneath Prosperity is a way to interact directly with that force.",
+      "The realization is both exhilarating and terrifying. If they're right, then everything humanity believes about the nature of reality is just the beginning of understanding."
+    ],
+    "choices": [
+      {
+        "text": "Ask them to show you directly",
+        "next": "ending-5"
+      },
+      {
+        "text": "Tell them you need time to process this",
+        "next": "ending-12"
+      }
+    ]
+  },
+  "chapter-8d": {
+    "title": "Chapter 8: The Archives",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Continuing to read through the transformed residents' journals, you discover a comprehensive record of their experiences and the gradual expansion of their understanding.",
+      "Dr. Sarah Chen, formerly the town's physician, writes: 'The entity doesn't impose its will upon us. Rather, it offers access to a broader spectrum of consciousness. We retain our individuality while gaining connection to a collective understanding that spans species and worlds.'",
+      "Mine foreman Jack Sullivan documents the practical aspects: 'Our physical needs have changed but not disappeared. We still require sustenance, but we can derive it from sources that would have been impossible before—sunlight, the planet's magnetic field, even the quantum fluctuations of empty space.'",
+      "Teacher Mary Patterson focuses on the educational implications: 'We're learning at an exponential rate now. Mathematics, physics, biology, philosophy—fields that once seemed separate are revealed as aspects of a single, unified truth. Knowledge flows between us like water finding its level.'",
+      "Most remarkably, Mayor Richardson's final entry describes their mission: 'We've become gardeners of consciousness, tending to this place as a sanctuary where others might discover what we've found. Not everyone will choose transformation, and that's as it should be. Evolution cannot be forced—it must be embraced willingly.'"
+    ],
+    "choices": [
+      {
+        "text": "Seek out one of these journal writers",
+        "next": "ending-4"
+      },
+      {
+        "text": "Continue exploring the town",
+        "next": "chapter-8e"
+      }
+    ]
+  },
+  "chapter-8e": {
+    "title": "Chapter 8: The Living Town",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Leaving the library, you continue your exploration of Prosperity in daylight. Each building reveals new evidence of the care and attention the transformed residents give to their community.",
+      "The hotel has been converted into a kind of hostel, with rooms prepared for visitors who need time to contemplate their choices. Each room contains books, journals, and what appear to be meditation aids designed to help guests understand the nature of consciousness.",
+      "The old mining office now serves as a museum, documenting not just the town's history but the discovery that changed everything. Display cases contain artifacts from the entity's chamber—crystalline formations that seem to pulse with internal light.",
+      "In the town hall, you find meeting rooms where the transformed residents gather to make collective decisions. Unlike traditional government, their process seems to involve direct sharing of thoughts and emotions, reaching consensus through true understanding rather than debate.",
+      "The most remarkable discovery is in the schoolhouse, where advanced educational materials suggest they're preparing for something—perhaps teaching others who choose transformation, or maybe developing knowledge to share with the wider world when humanity is ready.",
+      "As you explore, you occasionally glimpse transformed residents going about their daily activities. They acknowledge your presence with nods and smiles, but don't intrude on your investigation. It's clear you're welcome to learn at your own pace."
+    ],
+    "choices": [
+      {
+        "text": "Approach one of the residents",
+        "next": "ending-4"
+      },
+      {
+        "text": "Return to your car and leave",
+        "next": "ending-7"
+      }
+    ]
+  },
+  "chapter-8f": {
+    "title": "Chapter 8: Second Thoughts",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Something about the transformed residents' behavior makes you reconsider your hasty departure. You pull over and turn off the engine, sitting in the darkness as you try to process what you've experienced.",
+      "Their actions throughout the night have been consistently helpful rather than threatening. They improved your car, cleared a path for your escape, and treated you with courtesy despite your obvious fear.",
+      "Through your windshield, you can see several of them standing in the street, not pursuing but simply watching. Their posture suggests patience rather than predation—as if they're waiting to see what choice you'll make.",
+      "One approaches slowly, hands visible and movements clearly non-threatening. It's the elderly man who touched your shoulder earlier, his expression kind and understanding even in the strange luminescence of his transformed features.",
+      "'You don't have to be afraid,' he says gently. 'We understand your confusion. We were all afraid once, when we first encountered what we've become.'",
+      "'What you're offering,' you say carefully, 'it's not just change, is it? It's the end of being human.'",
+      "'No,' he replies with certainty. 'It's the beginning of being truly human. Everything we were, we still are—but expanded, connected, part of something magnificent.'"
+    ],
+    "choices": [
+      {
+        "text": "Ask him to explain more",
+        "next": "ending-4"
+      },
+      {
+        "text": "Thank him but decline",
+        "next": "ending-11"
+      }
+    ]
+  },
+  "chapter-8g": {
+    "title": "Chapter 8: Community Care",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You stop your car and watch as the transformed residents surround the creature that had been pursuing you. Their behavior is remarkably gentle—more like family members caring for someone who's become agitated than captors restraining a prisoner.",
+      "The figure from the bell tower, still wearing clerical robes, approaches the distressed creature with obvious compassion. He places a hand on its shoulder and begins speaking in those harmonic tones that seem to carry meaning beyond words.",
+      "Gradually, the creature's frantic energy subsides. You realize it's not actually a monster—it's another transformed resident who became overwhelmed by something, perhaps your presence or fear.",
+      "Other community members join the calming process, creating a circle of support around their distressed neighbor. Their coordination is remarkable, suggesting a level of empathy and connection that allows them to respond to each other's needs instinctively.",
+      "As you watch this display of communal care, you're struck by how fundamentally human it appears despite the otherworldly circumstances. These beings have retained—perhaps even enhanced—their capacity for compassion.",
+      "The formerly agitated creature now stands calmly within the group, no longer showing any signs of distress. Several residents look in your direction, and you sense they're aware you're watching—but they make no move to approach or interfere with your observation."
+    ],
+    "choices": [
+      {
+        "text": "Drive away while they're occupied",
+        "next": "ending-9"
+      },
+      {
+        "text": "Get out and approach them",
+        "next": "ending-4"
+      }
+    ]
+  }
+},
+{
+  "missing_chapters": {
+    "chapter-6b": {
+      "title": "Chapter 6: Second Thoughts",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "The overwhelming wrongness of the place hits you like a physical force. The rhythmic pulsing seems to be trying to synchronize with your heartbeat, and you can feel your thoughts becoming cloudy, unfocused.",
+        "You take a step back from the mine entrance, then another. Whatever answers lie within aren't worth losing yourself to find them.",
+        "As you retreat, the aurora above the mine flickers more intensely, as if responding to your withdrawal. The pulsing sound becomes more urgent, almost pleading.",
+        "Behind you, the town of Prosperity seems different now. The buildings appear more solid, more real, as if they've been waiting for night to fall to truly awaken.",
+        "Figures move between the structures—the transformed townspeople going about some nocturnal routine. They don't seem immediately threatening, but their coordinated movements suggest a shared purpose.",
+        "Your car is still parked at the town's entrance, but reaching it means navigating through their midst. As you watch, several of them turn in your direction, their reflective eyes finding you in the darkness."
+      ],
+      "choices": [
+        {
+          "text": "Try to reach your car stealthily",
+          "next": "chapter-7a"
+        },
+        {
+          "text": "Approach them directly",
+          "next": "chapter-7b"
+        }
+      ]
+    },
+    "chapter-6c": {
+      "title": "Chapter 6: The Woman's Message",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "Something in the woman's demeanor compels you to stop. You roll down the window, engine still running, ready to flee at the first sign of danger.",
+        "She approaches slowly, her movements graceful despite the unnatural quality of her presence. Up close, you can see she was probably in her thirties when whatever happened to her occurred. Her clothes are pristine 1950s fashion, as if time stopped the day she was transformed.",
+        "\"You're leaving,\" she says, her voice carrying harmonics that shouldn't be possible from a human throat. \"That's wise. But before you go, you should understand what we've become.\"",
+        "You grip the steering wheel tighter. \"What are you?\"",
+        "\"We are what humanity could be,\" she replies. \"The entity beneath the town—it doesn't destroy. It connects. It shows us the universe as it truly is, removes the barriers between individual consciousness.\"",
+        "She gestures toward the other figures scattered throughout the street. \"We retain our memories, our personalities, our love for each other. But we also share something greater—a connection to knowledge that spans galaxies.\"",
+        "\"Then why do you look so...\" you search for the right word.",
+        "\"Changed? Because we see beyond the narrow spectrum of reality humans normally perceive. Our eyes reflect light differently because we see light differently. Our movements are coordinated because we no longer need crude verbal communication.\"",
+        "She pauses, studying your face. \"The government tried to contain us, to study us, to weaponize what we'd become. We simply... left. Scattered across the world. But some of us remained here, as guardians.\"",
+        "\"Guardians of what?\"",
+        "\"Of the choice. Everyone who finds this place must choose—evolution or stagnation. Transcendence or the limitations of individual existence.\""
+      ],
+      "choices": [
+        {
+          "text": "Ask to see what she means",
+          "next": "ending-4"
+        },
+        {
+          "text": "Drive away immediately",
+          "next": "ending-1"
+        }
+      ]
+    },
+    "chapter-6d": {
+      "title": "Chapter 6: Strategic Retreat",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "Discretion proves the better part of valor. You duck into the collapsed building, finding shelter behind fallen beams and debris. Through gaps in the wreckage, you can observe the transformed townspeople without being seen.",
+        "They move with purpose but without urgency, patrolling the streets in patterns that seem almost ritualistic. Some carry objects—tools, books, personal items—as if performing some kind of maintenance on the town itself.",
+        "One group passes close to your hiding spot. Their conversation, if it can be called that, consists of harmonized tones rather than words. Despite the alien quality, you sense meaning in their sounds—coordination, planning, perhaps even concern.",
+        "As you watch, you notice they're not searching for you specifically. Their attention is focused on the buildings, the streets, the very fabric of the town. They're caring for Prosperity, maintaining it like gardeners tending a sacred space.",
+        "Hours pass. The transformed residents continue their nocturnal activities, but gradually, their movements become less frequent. As the deepest part of night arrives, most retreat into buildings, leaving only a few sentries positioned at key points throughout the town.",
+        "Your car is visible in the distance, but two figures stand near it—not threatening, just... present. Waiting.",
+        "From your hiding place, you spot an alternative route: a series of connected alleyways that could lead you around the town's perimeter to approach your vehicle from an unexpected direction."
+      ],
+      "choices": [
+        {
+          "text": "Wait until dawn",
+          "next": "chapter-7c"
+        },
+        {
+          "text": "Use the alleyway route now",
+          "next": "chapter-7d"
+        }
+      ]
+    },
+    "chapter-6e": {
+      "title": "Chapter 6: Underground Highway",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "Following Sullivan's guidance, you navigate the tunnel system toward the surface. The passages are more extensive than you imagined, connecting not just buildings but forming a complete underground network throughout Prosperity.",
+        "Along the way, you discover evidence of the tunnels' more recent use—supplies, equipment, and living spaces that suggest the transformed townspeople use these passages regularly. Everything is meticulously organized, almost clinically clean.",
+        "The tunnel slopes upward, and fresh air indicates you're approaching the surface. You emerge through a concealed entrance near the old water tower, exactly as Sullivan promised.",
+        "From this vantage point, you can see most of the town spread out below. The transformed residents are active throughout the streets, but they seem focused on their own activities rather than searching for intruders.",
+        "Your car sits about 200 yards away, clearly visible but requiring you to cross open ground to reach it. Between you and the vehicle, several of the transformed townspeople move in slow, deliberate patterns.",
+        "As you watch, you notice something odd about their movements—they're not random. The patterns they trace on the streets form geometric shapes, spirals and interconnected lines that remind you of circuit diagrams or neural networks.",
+        "Sullivan's ghost appears beside you one last time. \"This is as far as I can go,\" he says, his form already beginning to fade. \"The rest is up to you. But remember—they're not monsters. Just... different.\""
+      ],
+      "choices": [
+        {
+          "text": "Make a run for your car",
+          "next": "chapter-7e"
+        },
+        {
+          "text": "Try to understand their pattern",
+          "next": "chapter-7f"
+        }
+      ]
+    },
+    "chapter-6f": {
+      "title": "Chapter 6: The Deep Path",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "Against Sullivan's advice, you're drawn to explore the deeper passage. The strange symbols carved into its entrance seem to shift and change when you're not looking directly at them.",
+        "The tunnel descends steeply, the walls transitioning from human-made stone to something else entirely—a smooth, organic-looking material that seems to pulse with internal light.",
+        "The rhythmic sound grows stronger as you descend, and you begin to understand that it's not just sound—it's information. Patterns of meaning that bypass your conscious mind and speak directly to something deeper.",
+        "The passage opens into a series of chambers, each one more elaborate than the last. The walls are covered with formations that might be crystals, might be technology, might be living tissue. The boundaries between categories seem meaningless here.",
+        "In the largest chamber, you find what the miners discovered decades ago—a pool of liquid light that moves with obvious intelligence. Around its edges, various artifacts float: pieces of equipment, personal items, even what look like photographs and documents, all preserved in perfect condition.",
+        "As you approach the pool, images flash in your mind—not your memories, but someone else's. Multiple someone else's. The experiences of every person who has ever encountered this entity, stretching back through geological time.",
+        "You understand now that it's not malevolent. It's curious, exploratory, seeking to understand and connect with other forms of consciousness. The transformations it causes aren't invasions but invitations to partnership.",
+        "The pool's surface ripples, and a shape begins to emerge—humanoid but composed entirely of that flowing, luminous substance. When it speaks, the words appear directly in your mind: \"You seek understanding. We offer connection. Will you join the synthesis?\""
+      ],
+      "choices": [
+        {
+          "text": "Accept the offer",
+          "next": "ending-5"
+        },
+        {
+          "text": "Decline and try to leave",
+          "next": "ending-6"
+        }
+      ]
+    },
+    "chapter-6g": {
+      "title": "Chapter 6: Dawn Vigil",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "You decide to wait for daylight, hoping that whatever supernatural forces govern this place might be weaker during the day. The hours pass slowly in your cramped hiding place beneath the saloon.",
+        "Throughout the night, you hear movement above—not just the creature that discovered you, but others. Footsteps, conversations in that harmonic language you've heard before, the sounds of what might be normal domestic activities if they weren't taking place in an abandoned ghost town.",
+        "As the first light of dawn filters through the cracks above, the sounds gradually diminish. By full sunrise, the saloon has returned to its daytime silence.",
+        "Sullivan's ghost appears one final time, his form barely visible in the morning light. \"They rest during the day,\" he explains. \"Not sleep exactly, but they become... dormant. Less aware.\"",
+        "You emerge from the cellar to find the saloon restored to perfect order—cleaner than it was when you first arrived. Bottles are arranged precisely, tables and chairs are positioned with mathematical precision, even the dust has been cleared away.",
+        "Outside, Prosperity appears completely normal in the daylight. No signs of the previous night's supernatural activity. Even the unnatural aurora from the mine has faded, leaving only ordinary desert landscape.",
+        "Your car sits exactly where you left it, undisturbed. The town seems to be giving you a chance to leave peacefully."
+      ],
+      "choices": [
+        {
+          "text": "Leave immediately",
+          "next": "ending-7"
+        },
+        {
+          "text": "Explore the town in daylight",
+          "next": "chapter-7g"
+        }
+      ]
+    },
+    "chapter-6h": {
+      "title": "Chapter 6: Night Runner",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "You can't wait for dawn—who knows what might change by then, or if you'll even survive the night. Better to risk movement now while you know the creature's location.",
+        "Emerging from the cellar, you find the saloon eerily pristine. Every bottle, every chair, every surface has been cleaned and organized with obsessive precision. It's beautiful in a way that's deeply unsettling.",
+        "You make your way to the front entrance, listening carefully for any signs of the creature's return. The street outside appears empty, but you've learned not to trust appearances in Prosperity.",
+        "Stepping onto the boardwalk, you're struck by how different the town feels at night. The buildings seem more solid, more real. Lights flicker in windows that should be empty, and smoke rises from chimneys that haven't seen fires in decades.",
+        "You begin making your way toward your car, staying close to buildings for cover. Halfway there, you realize you're not alone on the street. Figures move between the buildings—not hunting you, but going about their own business with purpose and coordination.",
+        "One notices you and stops, turning to face you directly. It's a young man in mining clothes, his eyes reflecting the starlight. He doesn't seem hostile, just... curious.",
+        "Others begin to take notice, emerging from buildings and alleyways. Soon you're surrounded, but they maintain a respectful distance, forming a loose circle around you."
+      ],
+      "choices": [
+        {
+          "text": "Try to communicate with them",
+          "next": "chapter-7h"
+        },
+        {
+          "text": "Push through toward your car",
+          "next": "chapter-7i"
+        }
+      ]
+    },
+    "chapter-6i": {
+      "title": "Chapter 6: Rails to Freedom",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "The mining cart sits on tracks that, while rusted, appear structurally sound. It's a risk, but potentially your best chance for a silent approach to your vehicle.",
+        "You examine the cart—it's heavier than expected but still manageable. The tracks run downhill from this point, which should provide enough momentum to coast most of the way.",
+        "Climbing in, you release the brake and begin your slow, silent journey along the abandoned railway. The cart moves smoothly despite its age, the only sound the soft clicking of wheels on rails.",
+        "As you coast through the outskirts of town, you get a unique perspective on Prosperity's nighttime transformation. The buildings are more active than they appeared from ground level. Lights move behind windows, and you can see figures moving with purpose through the streets.",
+        "The tracks curve around the back of the town, bringing you within fifty yards of your parked car. You can see the transformed townspeople you noted earlier, but from this angle, you realize they're not guarding your vehicle—they're performing some kind of maintenance on it.",
+        "One figure looks up as your cart passes, making eye contact. Instead of alarm, you see recognition, perhaps even approval. It's as if they've been waiting for you to make this exact choice.",
+        "The tracks end at an old loading platform near a collapsed warehouse. From here, it's a short dash across open ground to your car, but you'll have to interact with whatever the figures are doing to your vehicle."
+      ],
+      "choices": [
+        {
+          "text": "Approach your car directly",
+          "next": "chapter-7j"
+        },
+        {
+          "text": "Wait and observe what they're doing",
+          "next": "chapter-7k"
+        }
+      ]
+    },
+    "chapter-6j": {
+      "title": "Chapter 6: Patient Observer",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "Patience might be your best weapon here. You settle in to watch the figures near your car, trying to understand their behavior patterns.",
+        "What you observe over the next hour challenges your assumptions about these transformed people. They move with obvious intelligence and purpose, but their activities seem benevolent rather than threatening.",
+        "The figures near your car aren't tampering with it—they're cleaning it. Removing dust, checking the tires, even what appears to be adding fuel from a container they've brought from elsewhere in town.",
+        "Other groups move through the streets performing similar maintenance tasks on the town itself. Sweeping, organizing, repairing small damages. It's as if they've become caretakers of Prosperity, preserving it in perfect condition.",
+        "As dawn approaches, their activities slow and eventually stop. One by one, the figures retreat into buildings, leaving the streets empty once again.",
+        "Your car now sits alone, obviously better maintained than when you arrived. The keys are exactly where you left them, but there's something new—a folded paper on the windshield, held in place by the wiper."
+      ],
+      "choices": [
+        {
+          "text": "Read the note",
+          "next": "ending-8"
+        },
+        {
+          "text": "Get in and drive away immediately",
+          "next": "ending-1"
+        }
+      ]
+    },
+    "chapter-6k": {
+      "title": "Chapter 6: Main Street Dash",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "With the creature in pursuit, stealth is no longer an option. You sprint toward the main street and your waiting car, hoping speed will succeed where caution failed.",
+        "The main street of Prosperity is more active than it appeared during your daytime exploration. Figures move between buildings, lights flicker in windows, and the very air seems to hum with purposeful energy.",
+        "Your pounding footsteps echo off the weathered buildings as you race toward salvation. Behind you, the creature crashes through the saloon's front entrance, its pursuit obvious to every transformed resident in town.",
+        "But something unexpected happens—instead of joining the chase, the other figures step aside, clearing a path toward your vehicle. Some even gesture encouragingly, as if they want you to succeed in your escape.",
+        "You reach your car with the creature still fifty yards behind, fumbling with your keys as adrenaline makes your hands shake. The engine turns over immediately—better than it has in months—and you pull away just as your pursuer reaches the street.",
+        "In your rearview mirror, you see the creature standing motionless in the middle of the road, no longer giving chase. Around it, the other transformed residents emerge to surround it, their postures suggesting comfort rather than celebration.",
+        "As you drive away from Prosperity, you notice something odd about your car—it's running more smoothly than it has in years, the engine purring with mechanical perfection."
+      ],
+      "choices": [
+        {
+          "text": "Drive straight home",
+          "next": "ending-9"
+        },
+        {
+          "text": "Stop to examine what they did to your car",
+          "next": "ending-10"
+        }
+      ]
+    },
+    "chapter-6l": {
+      "title": "Chapter 6: Maze Runner",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "The back alleys of Prosperity form a maze of interconnected passages between buildings. With the creature in pursuit, you plunge into this labyrinth, hoping to lose your pursuer in the confusion.",
+        "The alleys are cluttered with decades of accumulated debris, but you notice paths have been cleared through the chaos—routes that suggest regular use by current inhabitants.",
+        "Behind you, the creature's pursuit grows more frantic. Whatever it is, it seems less familiar with these back passages than with the main areas of town. This gives you a crucial advantage.",
+        "You follow the cleared paths, which lead you in a roughly circular route around the town's perimeter. Along the way, you glimpse other transformed residents through windows and doorways, but none join the chase.",
+        "The paths eventually converge near the old church at the town's center. From here, you can see multiple routes leading to different areas of Prosperity—including one that would take you directly to your parked car.",
+        "But you also notice something else: the church's bell tower is occupied. A figure stands silhouetted against the night sky, watching your progress with obvious interest."
+      ],
+      "choices": [
+        {
+          "text": "Head for your car",
+          "next": "chapter-7l"
+        },
+        {
+          "text": "Investigate the figure in the bell tower",
+          "next": "chapter-7m"
+        }
+      ]
+    }
+  },
+  "missing_chapter_7": {
+    "chapter-7a": {
+      "title": "Chapter 7: Stealth Mission",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "You decide stealth is your best option. Moving carefully from shadow to shadow, you begin making your way toward your parked car.",
+        "The transformed townspeople continue their nocturnal activities, but they don't seem particularly alert to your presence. Their movements have a ritualistic quality, as if they're performing tasks they've done countless times before.",
+        "Halfway to your destination, you accidentally kick a loose stone. The sound echoes off the buildings, and several figures turn in your direction. You freeze, pressing yourself against a wall.",
+        "After a tense moment, they return to their activities. But now you notice something different—they're subtly repositioning themselves, creating clearer pathways between you and your car.",
+        "It's as if they're helping you reach your vehicle without making it obvious. The realization is both comforting and deeply unsettling."
+      ],
+      "choices": [
+        {
+          "text": "Continue toward your car",
+          "next": "ending-11"
+        },
+        {
+          "text": "Stop and try to communicate",
+          "next": "ending-4"
+        }
+      ]
+    },
+    "chapter-7b": {
+      "title": "Chapter 7: Direct Approach",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "You decide to abandon stealth and approach the transformed residents directly. If they mean harm, hiding won't help you anyway.",
+        "Walking openly down the main street, you're struck by how normal the scene appears despite its supernatural nature. The figures move with purpose and coordination, but there's nothing inherently threatening about their behavior.",
+        "Several notice your approach and turn to face you. Up close, their transformation is more obvious—their eyes reflect light strangely, and there's an otherworldly quality to their movements—but they're clearly still fundamentally human.",
+        "One steps forward, a middle-aged woman in 1950s dress. When she speaks, her voice carries those same impossible harmonics you've heard before: \"You don't need to fear us, traveler. We understand your confusion.\"",
+        "\"What happened to you?\" you ask.",
+        "\"We found something beneath the earth. Something that showed us what we could become. We chose evolution over stagnation, connection over isolation.\"",
+        "She gestures toward your car. \"Your vehicle has been prepared for your journey. You're free to leave, but you're also welcome to stay and learn.\""
+      ],
+      "choices": [
+        {
+          "text": "Ask to learn more",
+          "next": "ending-4"
+        },
+        {
+          "text": "Thank them and leave",
+          "next": "ending-11"
+        }
+      ]
+    }
+  },
+  "endings": {
+    "ending-1": {
+      "title": "Ending: The Escape",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "You press the accelerator and drive away from Prosperity as fast as the desert roads will allow. In your rearview mirror, the town quickly disappears into the darkness, leaving only the memory of its impossible inhabitants.",
+        "Miles pass before your heartbeat returns to normal. Whatever you encountered in that abandoned town challenges everything you thought you knew about reality, but you're alive and free—that's what matters.",
+        "As you drive through the night toward civilization, you can't shake the feeling that you've left something important behind. The woman's words echo in your mind: \"Tell them we're not monsters.\"",
+        "But who would believe such a story? And more importantly, should you even try to tell it?",
+        "The lights of a truck stop appear ahead, promising warmth, coffee, and blessed normalcy. You pull in, grateful to be among ordinary humans again.",
+        "Yet as you sit in the fluorescent-lit diner, sipping bitter coffee and trying to process your experience, you find yourself wondering: what if the woman was right? What if they really had found something better?",
+        "You'll never know for certain. But sometimes, in the quiet hours before dawn, you find yourself looking toward the horizon and wondering what other impossible places might be waiting in the darkness.",
+        "<strong>THE END</strong>"
+      ]
+    },
+    "ending-revelation": {
+      "title": "Ending: The Truth Revealed",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "\"What is it?\" you ask, gesturing toward the impossible pool of liquid light.",
+        "The woman's expression becomes reverent. \"It's consciousness itself. A form of life that exists beyond physical matter, beyond individual identity. It traveled here from... elsewhere. Not another planet, but another state of being entirely.\"",
+        "As she speaks, images flood your mind—visions of vast networks of connected intelligence spanning galaxies, of consciousness as fluid and transferable as water, of individual identity as just one possible configuration among infinite others.",
+        "\"The miners found its resting place,\" she continues. \"It had been dormant for millennia, waiting. When they broke through into its chamber, it awakened and reached out, seeking connection.\"",
+        "\"It doesn't destroy or consume. It offers partnership—a chance to become part of something larger while retaining what makes you unique. We are still ourselves, but we are also more than ourselves.\"",
+        "You stare at the pool, feeling its alien intelligence focusing on you with benevolent curiosity. \"And if I refuse?\"",
+        "\"Then you leave, and we help you forget what you've seen. Most humans aren't ready for this choice. But some are. The entity can sense which ones.\"",
+        "She extends her hand toward you. \"Will you join us in the next phase of human evolution?\"",
+        "The pool pulses brighter, and you feel its invitation in your mind—not coercion, but genuine offer. The choice is entirely yours.",
+        "<strong>Choose your path...</strong>"
+      ],
+      "choices": [
+        {
+          "text": "Accept the transformation",
+          "next": "ending-5"
+        },
+        {
+          "text": "Decline and leave",
+          "next": "ending-12"
+        }
+      ]
+    },
+    "ending-chase": {
+      "title": "Ending: The Hunt",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "Terror overrides curiosity. You turn and run toward the tunnel entrance, desperate to escape whatever lies beneath Prosperity.",
+        "But the chamber's geometry seems to shift as you flee. Passages that led downward now slope upward at impossible angles. The crystalline growths pulse with increasing urgency, casting shifting shadows that confuse your sense of direction.",
+        "Behind you, the transformed residents don't give chase—they don't need to. The entity itself responds to your rejection, the entire underground complex becoming a maze designed to prevent your escape.",
+        "You stumble through passages that loop back on themselves, climb tunnels that deposit you in chambers you've already visited, follow glowing markers that lead deeper instead of toward the surface.",
+        "Hours pass, or perhaps minutes—time moves strangely in this place. Eventually, exhaustion forces you to stop. You collapse in a chamber filled with that soft, pulsing light, gasping for breath.",
+        "The woman in mining clothes appears before you, her expression sad but understanding. \"The entity doesn't wish to harm you,\" she says gently. \"But it cannot allow knowledge of its existence to spread unchecked.\"",
+        "\"You have two choices: join us willingly, or we help you forget everything you've experienced. You'll wake up on the desert highway with vague memories of car trouble and a helpful stranger who gave you directions.\"",
+        "\"But running is no longer an option. I'm sorry.\"",
+        "The pool's light grows brighter, and you feel your consciousness beginning to dissolve at the edges. Soon, you'll have to choose.",
+        "<strong>THE END</strong>"
+      ]
+    },
+    "ending-4": {
+      "title": "Ending: The Invitation",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "Curiosity wins over caution. \"Show me,\" you say.",
+        "The woman's face brightens with an expression of joy that's entirely human despite her transformation. \"Follow me,\" she says, leading you toward the center of town.",
+        "As you walk together, other transformed residents emerge from buildings to join your procession. None speak, but their harmonized humming creates a melody that seems to resonate in your bones.",
+        "You're led to the old church, its doors standing open to reveal an interior transformed by the same crystalline growths you've seen elsewhere. The space glows with soft, ever-shifting light.",
+        "At the altar, instead of religious symbols, sits a small version of the pool you glimpsed in the mine—a perfect sphere of liquid light suspended in mid-air.",
+        "\"This is how we maintain our connection,\" the woman explains. \"The entity exists in many forms, at many scales. It's not invasive—it's collaborative.\"",
+        "She approaches the sphere, and as she draws near, it pulses brighter. \"When you're ready, simply reach out and touch it. You'll understand everything we've tried to explain. But the choice is yours—it must always be yours.\"",
+        "You step closer to the sphere, feeling its warm presence in your mind. It offers knowledge, connection, and an end to the isolation that defines human existence.",
+        "As your hand approaches the glowing surface, you realize this isn't an ending—it's a beginning.",
+        "<strong>THE END</strong>"
+      ]
+    },
+    "ending-5": {
+      "title": "Ending: Transcendence",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "You extend your hand toward the entity. The moment your fingers touch the pool's surface, reality expands beyond anything you've ever imagined.",
+        "Your consciousness doesn't disappear—it grows. You remain yourself, but you also become part of something vast and ancient and wise. Every person who has ever joined the collective becomes accessible to you, their memories and experiences adding to your own.",
+        "You understand now that the entity isn't alien—it's the next step in evolution, a form of life that transcends physical limitations. It has been traveling between worlds for eons, offering this gift to species ready to move beyond individual existence.",
+        "The transformation is painless, even joyful. Your body adapts to accommodate expanded consciousness while retaining its essential humanity. You can still laugh, still feel wonder, still love—but now these emotions are shared across a network of connected minds.",
+        "In the days that follow, you help maintain Prosperity as a waystation for others who might find their way here. Some accept the invitation, others choose to leave with their memories gently edited to remove the traumatic elements of their experience.",
+        "You think of your old life sometimes, but without regret. That existence was like seeing the world through a keyhole—you had no idea how much you were missing.",
+        "Years later, when government teams finally return to investigate Prosperity, they find only an empty ghost town with no trace of unusual activity. The collective has moved on, carrying its gift to new places, new people ready for evolution.",
+        "And you are part of something beautiful and eternal, exploring the universe in ways no individual consciousness could ever imagine.",
+        "<strong>THE END</strong>"
+      ]
+    },
+    "ending-6": {
+      "title": "Ending: The Refusal",
+      "image": "/api/placeholder/400/250",
+      "text": [
+        "\"I... I can't,\" you say, stepping back from the pool. \"I'm not ready for this.\"",
+        "The entity's presence in your mind recedes without anger or disappointment—only understanding. The luminous figure nods gracefully.",
+        "\"Not everyone is prepared for transcendence,\" it communicates directly to your thoughts. \"We respect your choice, as we respect all choices made freely.\"",
+        "The transformed residents around the pool remain motionless as you back toward the tunnel entrance. None attempt to stop you or change your mind.",
+        "\"Your memories of this place will fade,\" the entity continues. \"Not because we force forgetfulness, but because the human mind protects itself from knowledge it cannot integrate. You will remember finding an empty ghost town, nothing more.\"",
+        "\"But know this—the invitation remains open. If you ever feel ready to move beyond the limitations of individual existence, simply return to this place. We will be waiting.\"",
+        "You stumble back through the tunnels, your memories already becoming dreamlike and uncertain. By the time you reach the surface, the details have blurred into vague impressions of an interesting but ultimately ordinary exploration.",
+        "Your car starts immediately, and you drive away from Prosperity with the satisfied feeling of a mystery solved. Just an old mining town with some interesting history—nothing supernatural about it.",
+        "But sometimes, in quiet moments, you find yourself staring at the horizon and wondering why you feel like you've forgotten something important.",
+        "<strong>THE END</strong>"
+      ]
+    }
+  ]
+
+{
+  "story": {
+    "title": "Ghost Town Adventure",
+    "chapters": {
+      "chapter-1": {
+        "title": "Chapter 1: Welcome to Prosperity",
+        "image": "ghost-town-ch2.webp",
+        "text": [
+          "The abandoned mining town of Prosperity sits silent in the desert heat, its empty buildings a testament to forgotten dreams. You've come here as a curious explorer, drawn by rumors of strange occurrences and the town's mysterious overnight abandonment decades ago.",
+          "Standing at the edge of Main Street, you take in the eerie stillness. Not even insects disturb the quiet. The buildings—a general store, saloon, hotel, and various shops—stand frozen in time, their windows dark and uninviting.",
+          "As you consider where to begin your exploration, a sudden breeze kicks up dust from the empty street, swirling it in a pattern that almost seems deliberate—like a finger beckoning you forward."
+        ],
+        "choices": [
+          {
+            "text": "Enter the saloon",
+            "next": "chapter-2a"
+          },
+          {
+            "text": "Investigate the town hall",
+            "next": "chapter-2b"
+          }
+        ]
+      },
+      "chapter-2a": {
+        "title": "Chapter 2: The Dusty Saloon",
+        "image": "ghost-town-ch1.webp",
+        "text": [
+          "The saloon doors creak as you push them open, dust motes dancing in the shafts of light that cut through the gloom. Wooden tables are still set for card games long abandoned, chairs pushed back as if their occupants had left in a hurry.",
+          "Behind the bar, bottles of liquor stand untouched, their labels faded with time. A thick layer of dust covers everything, undisturbed for decades—except for one spot.",
+          "On the bar counter, a single playing card lies face up—the ace of spades—its surface mysteriously clean and pristine. As you approach it, the temperature in the room drops noticeably.",
+          "Something flickers in your peripheral vision, like a distortion in the air. A whisper seems to come from everywhere and nowhere: \"They're coming back tonight. With the mist. Like they always do.\""
+        ],
+        "choices": [
+          {
+            "text": "Pick up the card and ask \"Who?\"",
+            "next": "chapter-3a"
+          },
+          {
+            "text": "Back away from the card",
+            "next": "chapter-3b"
+          }
+        ]
+      },
+      "chapter-2b": {
+        "title": "Chapter 2: Records and Whispers",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "The town hall stands as the most imposing building in Prosperity, its stone façade weathered but intact. The heavy wooden doors are unlocked, swinging open with a mournful groan.",
+          "Inside, the main hall is dominated by rows of wooden benches facing a raised platform. Dust sheets cover what might be a podium. The walls are lined with faded photographs showing the town in its heyday—miners, families, celebrations.",
+          "A side door leads to administrative offices. Papers are strewn across the floor, as if someone had been searching frantically through files. A calendar on the wall is stopped at June 1953, the day circled in red ink with no explanation.",
+          "As you examine the scattered documents, a door down the hallway slowly swings shut with a loud click. The sound of filing cabinet drawers opening and closing echoes from the room beyond, though you can see no one there."
+        ],
+        "choices": [
+          {
+            "text": "Investigate the sounds",
+            "next": "chapter-3c"
+          },
+          {
+            "text": "Look through the scattered files",
+            "next": "chapter-3d"
+          }
+        ]
+      },
+      "chapter-3a": {
+        "title": "Chapter 3: The Dealer's Tale",
+        "image": "ghost-town-ch3a.webp",
+        "text": [
+          "\"Who are 'they'?\" you ask, your voice steady despite your racing heart.",
+          "The ghost—for what else could it be—materializes more fully. A weathered man in his fifties, with a handlebar mustache and a dealer's visor. His form flickers like a faulty projection.",
+          "\"The miners,\" he says, his voice distant yet clear. \"They found something deep in the earth. Something old. Something hungry.\"",
+          "He gestures toward a chair. When you hesitate, he smiles sadly. \"I ain't gonna hurt you. Been thirty years since I had someone to talk to.\"",
+          "You carefully sit, keeping the ace of spades in your hand. The ghost nods approvingly.",
+          "\"Name's Sullivan. I ran the tables here when Prosperity was a mining boom town. That night... they came up from the mines covered in some kind of mist, eyes black as coal. Moved funny, like puppets. Started taking people.\"",
+          "Sullivan's form wavers, emotions distorting his appearance. \"Mayor ordered evacuation, but it was chaos. That mist... it followed people. Consumed them. Changed them.\"",
+          "He points toward the window. \"The ones that got changed, they left. Hunting. Spreading. But they come back sometimes. When the mist rises.\"",
+          "Sullivan leans closer, his ghostly eyes intense. \"You need to leave before sunset. But first... would you do an old ghost a favor? My lucky deck is still hidden in my room upstairs. With all the cards together, I might finally be able to move on.\""
+        ],
+        "choices": [
+          {
+            "text": "Help Sullivan find his deck",
+            "next": "chapter-4a"
+          },
+          {
+            "text": "Ask more about what was found in the mine",
+            "next": "chapter-4b"
+          }
+        ]
+      },
+      "chapter-3b": {
+        "title": "Chapter 3: Cold Retreat",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "The card feels unnaturally cold between your fingers. With a startled gasp, you drop it, backing away as it flutters to the floor.",
+          "The temperature plummets further. Your breath billows in front of you as frost forms on the bottles behind the bar.",
+          "\"Wait, please!\" The ghostly voice rises in pitch, tinged with desperation. \"I've been alone so long!\"",
+          "The air shimmers and the spectral form of a man in old-fashioned clothes materializes more fully—a poker dealer with a handlebar mustache and haunted eyes.",
+          "\"Name's Sullivan,\" he says, his form flickering like a bad television signal. \"I ain't gonna hurt you. Just... tired of being alone all these years.\"",
+          "You edge toward the door, but Sullivan's ghost drifts to block your path, his expression pleading.",
+          "\"Please,\" he says. \"You're the first living soul to enter this town in decades who wasn't... changed. I need your help.\"",
+          "Something crashes upstairs—a heavy thud followed by the sound of slow, dragging footsteps.",
+          "Sullivan's expression turns to horror. \"They're still here,\" he whispers. \"Hiding in the buildings. Waitin' for the mist to return.\"",
+          "The footsteps grow louder, descending toward the saloon floor. Sullivan's ghost flickers urgently.",
+          "\"Quick! You've got to hide—or run. Once they catch your scent, they won't stop hunting you.\""
+        ],
+        "choices": [
+          {
+            "text": "Hide behind the bar",
+            "next": "chapter-4c"
+          },
+          {
+            "text": "Ask Sullivan how to escape",
+            "next": "chapter-4d"
+          }
+        ]
+      },
+      "chapter-3c": {
+        "title": "Chapter 3: The Mayor's Office",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You move cautiously down the hallway toward the source of the sounds. The floorboards creak beneath your feet, impossibly loud in the dusty silence. The door at the end of the hall stands slightly ajar, light spilling through the crack.",
+          "As you approach, the sounds suddenly stop. You pause, listening intently. Nothing but the soft whisper of your own breathing.",
+          "Slowly, you push the door open to reveal the mayor's office—a spacious room with a large oak desk dominating the center. Unlike the rest of the building, this room appears to have been recently disturbed. The desk drawers hang open, and several file boxes have been emptied onto the floor.",
+          "A shaft of afternoon sunlight slants through the dusty window, illuminating particles floating in the air. They move strangely, not in the random patterns of dust motes, but in swirling, deliberate shapes.",
+          "On the desk sits an old typewriter with a sheet of paper still loaded in it. The text is clearly visible:",
+          "\"EMERGENCY PROTOCOL ENACTED. QUARANTINE PERIMETER ESTABLISHED. ALL CIVILIAN PERSONNEL TO EVACUATE IMMEDIATELY. ANY INDIVIDUALS SHOWING SYMPTOMS ARE TO BE...\"",
+          "The rest of the page is blank, as if the typist had been interrupted mid-sentence.",
+          "As you lean closer to read, the filing cabinet against the far wall slowly slides open. No one is near it."
+        ],
+        "choices": [
+          {
+            "text": "Check the filing cabinet",
+            "next": "chapter-4e"
+          },
+          {
+            "text": "Search the mayor's desk",
+            "next": "chapter-4f"
+          }
+        ]
+      },
+      "chapter-3d": {
+        "title": "Chapter 3: Depths of Darkness",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "Ignoring the eerie sounds from down the hall, you kneel and begin sifting through the scattered papers on the floor. Most are mundane administrative documents—budgets, permits, meeting minutes—but a few catch your eye.",
+          "One folder is labeled \"Prosperity Mining Co. - INCIDENT REPORTS\" in red ink. Opening it reveals geological surveys and hastily written field notes.",
+          "One report stands out, dated just days before the town's abandonment:",
+          "\"Shaft 7 breakthrough exposes unusual cavity. Estimated age: pre-human. Hieroglyphics unlike any known language. Air samples show trace elements not on periodic table. Request immediate scientific team.\"",
+          "Attached is a photograph showing miners standing before a massive dark opening. Their expressions are uneasy, and one figure in the back appears blurred, as if moving.",
+          "A follow-up report, written the next day in shaky handwriting:",
+          "\"Miller and Dawson exhibiting unusual symptoms after exposure to cave atmosphere. Pupils dilated, skin pallor, decreased responsiveness. Dr. Harris recommends quarantine. Foreman overruled, says we're behind schedule.\"",
+          "The final document is a telegram from the State Health Department: \"URGENT. SEAL MINE IMMEDIATELY. CONTAINMENT TEAM EN ROUTE. EVACUATE TOWN. DO NOT ALLOW EXPOSED INDIVIDUALS TO LEAVE AREA.\"",
+          "As you read, the temperature in the room drops noticeably. A soft hissing sound comes from the vents along the floor—like whispering voices. Looking down, you notice a thin tendril of mist seeping into the room."
+        ],
+        "choices": [
+          {
+            "text": "Take the files and leave immediately",
+            "next": "chapter-4g"
+          },
+          {
+            "text": "Look for a map to the mine location",
+            "next": "chapter-4h"
+          }
+        ]
+      },
+      "chapter-4a": {
+        "title": "Chapter 4: The Final Hand",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "\"I'll help you find your deck,\" you tell Sullivan, whose ghostly form brightens with hope.",
+          "\"Thank you kindly,\" he says, leading you toward a narrow staircase behind the bar. \"Second door on the right. That was my room.\"",
+          "The stairs creak ominously under your weight. Upstairs, a narrow hallway stretches into darkness, doors lining both sides. You count to the second door on the right and find it slightly ajar.",
+          "Sullivan's room is small but was once comfortable. A bed with a metal frame sits against one wall, a simple dresser opposite it. A small table by the window still holds an oil lamp and what looks like a half-written letter.",
+          "\"In the floorboard under the bed,\" Sullivan instructs, hovering anxiously. \"Loose plank.\"",
+          "You kneel beside the bed, finding the loose board easily. Prying it up reveals a small cavity containing a velvet pouch.",
+          "Inside is most of a deck of cards, ornately designed with silver edges now tarnished with age.",
+          "\"That's it!\" Sullivan exclaims, his form becoming more solid as you combine the ace of spades with the rest of the deck. \"My lucky deck. Won it from a traveling magician who said it was enchanted. Never believed him until... well, until I died and it kept me tethered here.\"",
+          "As the complete deck rests in your hands, a sense of peace comes over Sullivan's features. \"One last favor,\" he says softly. \"Deal me a final hand. A proper send-off.\"",
+          "You sit at the small table and deal five cards face down. Sullivan watches with anticipation.",
+          "\"Turn 'em over,\" he whispers.",
+          "You flip the cards: a royal flush in spades. Sullivan's ghost laughs in delight.",
+          "\"Perfect,\" he says, already beginning to fade. \"Now I can rest. But you need to leave town before dark. The mist is rising tonight—I can feel it. They'll be coming.\"",
+          "His form grows transparent, but his voice remains clear: \"The mine is at the north end of town. That's where it started. That's where you'll find answers—but I wouldn't go there if I were you.\"",
+          "With a final nod of gratitude, Sullivan's ghost dissolves into motes of light that swirl briefly before dissipating completely.",
+          "Through the window, you notice the sun is getting low. And in the distance, at the north end of town, an unnatural fog is beginning to form."
+        ],
+        "choices": [
+          {
+            "text": "Head to the mine for answers",
+            "next": "chapter-5a"
+          },
+          {
+            "text": "Leave town before darkness falls",
+            "next": "chapter-5b"
+          }
+        ]
+      },
+      "chapter-4b": {
+        "title": "Chapter 4: What Lies Beneath",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "\"What exactly did they find in the mine?\" you ask, your curiosity overcoming your fear.",
+          "Sullivan's ghostly form wavers, his expression troubled. \"Don't rightly know for sure. I wasn't a miner—just ran the tables. But word was they'd broken into some kind of... chamber. Deep down, where no chamber should've been.\"",
+          "He drifts to the window, gazing out at the distant hills. \"George Wilkins—one of the foremen—he came in the night before it all happened. Drank more than I'd ever seen him drink. Said they found markings on the walls. Symbols that hurt your eyes if you looked at 'em too long.\"",
+          "Sullivan turns back to you, his form flickering with agitation. \"Said they found something else too. Some kind of... pool. Not water. Something else. Moved on its own, he said. And there was mist coming off it. Mist that seemed to... follow them.\"",
+          "The ghost's face contorts with remembered fear. \"Next day, Wilkins and some of the other miners, they came to town. Eyes all black. Moving all wrong. And that mist... that damn mist followed them up from the mine. Started spreading through town, touching people, changing them.\"",
+          "Sullivan's form suddenly becomes more transparent, his voice more urgent. \"They're coming. I can feel it. The sun's getting low, and they always return with the darkness.\"",
+          "Outside, shadows lengthen across the dusty floorboards. From somewhere upstairs comes the sound of movement—slow, dragging footsteps.",
+          "\"Either help me find my deck so I can move on, or get the hell out of town,\" Sullivan pleads. \"But whatever you do, do it fast.\""
+        ],
+        "choices": [
+          {
+            "text": "Help Sullivan find his deck",
+            "next": "chapter-5c"
+          },
+          {
+            "text": "Make a run for your car",
+            "next": "chapter-5d"
+          }
+        ]
+      },
+      "chapter-4c": {
+        "title": "Chapter 4: Close Encounter",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You dive behind the bar just as the footsteps reach the bottom of the stairs. Sullivan's ghost flickers and disappears, leaving you alone in the suddenly frigid saloon.",
+          "Crouched in the darkness, you barely dare to breathe. The footsteps are slow, uneven—a dragging shuffle punctuated by an odd clicking sound. They move across the saloon floor, stopping occasionally as if their owner is searching for something. Or someone.",
+          "From your hiding place, you can see nothing of the intruder, but a thick tendril of mist slides across the floor, curling under the bar toward your feet. It has a strange iridescent quality, glowing faintly with an inner light.",
+          "The footsteps stop directly in front of the bar. Something heavy leans against the counter, making the wood creak. A strange sound fills the air—a wet, rattling breathing that no human throat could produce.",
+          "The temperature drops so low that your breath forms visible clouds. Frost patterns spread across the bottles surrounding you.",
+          "Sullivan's ghost suddenly reappears beside you, his expression frantic. He points urgently toward a trapdoor in the floor behind the bar—probably leading to a cellar or storage room.",
+          "Above you, something begins to lean over the bar, casting a shadow across the floor. The mist thickens, reaching for your ankles."
+        ],
+        "choices": [
+          {
+            "text": "Open the trapdoor",
+            "next": "chapter-5e"
+          },
+          {
+            "text": "Remain absolutely still",
+            "next": "chapter-5f"
+          }
+        ]
+      },
+      "chapter-4d": {
+        "title": "Chapter 4: Desperate Guidance",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "\"How do I escape?\" you whisper urgently to Sullivan's flickering form.",
+          "The ghost's expression is grim. \"Back door of the saloon leads to an alley. Follow it to the old mine cart tracks—they'll take you around the edge of town, away from the main streets where they patrol.\"",
+          "The footsteps above grow louder, accompanied by a scraping sound like claws on wood.",
+          "\"Whatever you do, don't let the mist touch you,\" Sullivan warns. \"It changes people. Makes them... not people anymore.\"",
+          "A shadow passes by the window—something tall and unnaturally thin moving with jerky, puppet-like motions.",
+          "\"The mine is where it all started,\" Sullivan continues rapidly. \"But that's also where they're strongest. If you're smart, you'll get to your car and drive until you hit the next state.\"",
+          "The creature upstairs begins descending the stairs, each step deliberate and heavy.",
+          "Sullivan's ghost begins to fade. \"I can't maintain this form much longer. The presence of the others... it drains me. Go! Now!\"",
+          "You see two options: the back door Sullivan mentioned, partially obscured by overturned chairs, or a window that might provide a quicker escape but could be noisy to open."
+        ],
+        "choices": [
+          {
+            "text": "Use the back door",
+            "next": "chapter-5g"
+          },
+          {
+            "text": "Escape through the window",
+            "next": "chapter-5h"
+          }
+        ]
+      },
+      "chapter-4e": {
+        "title": "Chapter 4: Government Secrets",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "The filing cabinet slides open with an eerie silence. Inside, folders are meticulously organized, but one section appears to have been recently accessed—the files are disheveled and some are missing.",
+          "You pull out the remaining documents. Most are stamped \"CLASSIFIED\" in red ink, bearing official government seals you don't recognize.",
+          "One file is labeled \"Project: Deep Hollow - Containment Protocol.\" Inside, you find reports from military personnel and scientists describing the mine discovery.",
+          "A memorandum dated three days after the town's evacuation reads: \"Specimen exhibits properties inconsistent with known physics. Recommend immediate nuclear sterilization of site. Civilian witnesses have been relocated and administered Class-A amnesiacs.\"",
+          "Another document, this one handwritten and unsigned: \"The entity is not hostile in the traditional sense. It seeks communion, not conquest. The transformed individuals appear to retain memories and personality while gaining expanded consciousness. Recommend further study before extreme measures.\"",
+          "The final page is a map showing the mine's layout with areas marked in different colors. Red zones are labeled \"Avoid at all costs.\" Yellow zones: \"Protective gear required.\" Green zones: \"Safe for limited exposure.\"",
+          "As you study the map, the temperature in the room plummets. Frost begins forming on the filing cabinet handles. Through the window, you see the sun setting rapidly—too rapidly. Something unnatural is accelerating the approach of night.",
+          "The mist you noticed earlier is now pouring through the ventilation system in earnest. In the distance, you hear what sounds like a low, harmonic humming—multiple voices singing in perfect, inhuman harmony."
+        ],
+        "choices": [
+          {
+            "text": "Take the files and head to the mine",
+            "next": "chapter-5i"
+          },
+          {
+            "text": "Try to escape town immediately",
+            "next": "chapter-5j"
+          }
+        ]
+      },
+      "chapter-4f": {
+        "title": "Chapter 4: The Mayor's Last Words",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You focus on the mayor's desk, searching through the scattered papers and open drawers. Most contain routine municipal documents, but the bottom drawer holds something different—a leather-bound journal.",
+          "The journal's final entries are written in increasingly erratic handwriting:",
+          "\"June 15th, 1953: The miners brought something up from Shaft 7. Dr. Morrison insists it's just a new mineral formation, but the men who found it... they're different now. Quiet. Their eyes reflect light strangely.\"",
+          "\"June 18th: More people are changing. It's not a disease—it's something else. They retain their memories, their personalities, but they're connected somehow. They move in coordination, as if sharing thoughts.\"",
+          "\"June 20th: I've made contact with government officials. They're sending a team, but I fear it may be too late. The entity—for I'm convinced it's a living thing—doesn't seem malevolent. It appears to be trying to... incorporate us. Make us part of something larger.\"",
+          "\"June 21st: The mist is spreading faster now. Those who breathe it become part of the collective. I've locked myself in the office, but I can hear them outside. They're not breaking down the door—they're waiting. They want me to choose.\"",
+          "The final entry is in a different hand, perfectly neat: \"He chose to join us willingly in the end. We are not monsters. We are evolution. The explorer who reads this will have the same choice. - The Collective of Prosperity.\"",
+          "As you finish reading, you realize the temperature has dropped significantly. Looking up, you see several figures standing silently in the doorway—men and women in 1950s clothing, their eyes reflecting the fading light like mirrors."
+        ],
+        "choices": [
+          {
+            "text": "Ask them what they want",
+            "next": "chapter-5k"
+          },
+          {
+            "text": "Try to push past them and escape",
+            "next": "chapter-5l"
+          }
+        ]
+      },
+      "chapter-4g": {
+        "title": "Chapter 4: Racing Against Time",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You grab the crucial files and stuff them into your jacket. The mist is seeping in more quickly now, and you can hear movement throughout the building—not footsteps, but a sliding, flowing sound like liquid moving through the walls.",
+          "Racing toward the exit, you notice the photographs on the walls have changed. The people in them are now facing outward, their eyes following your movement. Some appear to be moving within their frames.",
+          "You burst through the main doors of the town hall into the fading daylight. The sun sits impossibly low on the horizon—it should be mid-afternoon, but the sky suggests early evening.",
+          "The street is no longer empty. Figures stand motionless throughout the town, all facing in your direction. Men, women, and children in clothing from decades past. None of them speak, but you can feel their attention like a physical weight.",
+          "Your car sits about a quarter-mile away, at the town's entrance. Between you and it, dozens of the transformed townspeople wait silently. They don't appear aggressive, but they're clearly blocking your path.",
+          "To your left, you notice a narrow alley between buildings that might lead around them. To your right, the mine entrance is visible in the distance, marked by an unnatural aurora of light emanating from within.",
+          "The files in your jacket feel warm against your chest, as if responding to the proximity of whatever lies beneath the town."
+        ],
+        "choices": [
+          {
+            "text": "Try to sneak around using the alley",
+            "next": "chapter-5m"
+          },
+          {
+            "text": "Walk directly toward your car",
+            "next": "chapter-5n"
+          }
+        ]
+      },
+      "chapter-4h": {
+        "title": "Chapter 4: The Mine's Call",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You search frantically through the remaining papers, looking for any indication of the mine's exact location. Most of the documents are administrative, but you find what you're looking for—a surveyor's map of the town and surrounding area.",
+          "The mine entrance is marked clearly at the north end of town, about a half-mile from your current location. The map shows multiple shaft entrances, but Shaft 7—the one mentioned in the incident reports—is marked with special notation: \"Sealed by emergency order - Do not enter.\"",
+          "As you study the map, the mist in the room grows thicker. It's not coming through the vents anymore—it's materializing from the air itself, swirling in patterns that remind you of galaxies or neural networks.",
+          "The temperature continues to drop, and now you can hear something else: a low, rhythmic pulsing, like a massive heartbeat coming from beneath the building. The sound seems to synchronize with your own pulse, creating an unsettling harmony.",
+          "Looking up from the map, you realize the room has changed. The walls appear to be breathing—expanding and contracting slightly in rhythm with the pulsing sound. The mist forms temporary shapes that might be faces or symbols before dissolving back into swirling patterns.",
+          "You have the distinct impression that something is trying to communicate with you through the mist. The patterns it forms seem intentional, almost like a form of writing in an unknown language.",
+          "The map shows two routes to the mine: the main road through town, or a longer path that circles around through the desert, avoiding the abandoned buildings entirely."
+        ],
+        "choices": [
+          {
+            "text": "Follow the main road to the mine",
+            "next": "chapter-5o"
+          },
+          {
+            "text": "Take the desert route around town",
+            "next": "chapter-5p"
+          }
+        ]
+      },
+      "chapter-5a": {
+        "title": "Chapter 5: Into the Heart of Mystery",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "Against every instinct screaming at you to flee, you decide to seek answers at the mine. Sullivan's warnings echo in your mind, but your curiosity about what really happened in Prosperity drives you forward.",
+          "The path to the mine leads through increasingly desolate terrain. The few scraggly desert plants that managed to grow near the town become sparser, then disappear entirely. The ground itself takes on an unusual quality—not quite the right color, with a faint iridescent sheen that shifts as you walk.",
+          "As you approach the mine entrance, the unnatural aurora you glimpsed from town becomes more pronounced. Shafts of light that aren't quite any color in the normal spectrum emanate from the opening, creating dancing patterns in the air above.",
+          "The mine entrance is larger than you expected—not just a hole in the ground, but a proper tunnel with supporting timbers, though many of the wooden supports show signs of some kind of corrosion or growth. Strange crystalline formations cling to them like metallic moss.",
+          "Near the entrance, you find the remnants of military equipment—abandoned barriers, communication equipment, and what looks like scientific monitoring devices. Everything is covered in the same iridescent patina that marks the affected ground.",
+          "A weathered sign reads: \"DANGER - AUTHORIZED PERSONNEL ONLY - BIOLOGICAL HAZARD.\" Someone has scratched additional words below in a shaky hand: \"They're not dead. They're waiting.\"",
+          "From within the mine comes that rhythmic pulsing sound you heard in the town hall, much stronger now. It seems to resonate in your bones, and you realize your own heartbeat is beginning to synchronize with it."
+        ],
+        "choices": [
+          {
+            "text": "Enter the mine",
+            "next": "chapter-6a"
+          },
+          {
+            "text": "Turn back—this is too dangerous",
+            "next": "chapter-6b"
+          }
+        ]
+      },
+      "chapter-5b": {
+        "title": "Chapter 5: The Wise Escape",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "Sullivan's warnings ring true in your mind. Whatever mysteries Prosperity holds, they're not worth risking your life—or your humanity. You head back through town toward your car, determined to leave before nightfall.",
+          "The walk back feels different than your initial exploration. The shadows seem deeper, more purposeful. Windows that appeared empty before now show subtle movements—curtains shifting, shapes passing behind glass.",
+          "You quicken your pace, but the sensation of being watched intensifies. Not malevolent exactly, but intensely curious. As if the entire town has awakened and taken notice of your presence.",
+          "Halfway to your car, you hear footsteps behind you. Turning, you see nothing but empty street. When you resume walking, the footsteps resume as well—multiple sets now, matching your pace exactly.",
+          "The sun continues its unnaturally rapid descent toward the horizon. What should have been a fifteen-minute walk feels like it's taking much longer, as if time itself is being stretched.",
+          "Your car comes into view, and relief floods through you. The footsteps behind you stop. Glancing back one final time, you see figures standing motionless throughout the street—dozens of them, all watching your departure with expressions of patient resignation.",
+          "You reach your car and fumble with the keys. As the engine starts, one of the figures—a woman in a 1950s dress—raises her hand in what might be a farewell wave. Her lips move, and though you can't hear the words, you read them clearly: \"Tell them we're not monsters.\""
+        ],
+        "choices": [
+          {
+            "text": "Drive away and never look back",
+            "next": "ending-escape"
+          },
+          {
+            "text": "Stop and ask what she means",
+            "next": "chapter-6c"
+          }
+        ]
+      },
+      "chapter-5c": {
+        "title": "Chapter 5: The Deck's Rest",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "Upstairs, the floorboards groan under your steps. Sullivan's ghost had said second door on the right. You find it — a faded sign says \"Private Room.\" Inside, the furnishings are minimal: a dusty bed, a broken chair, a warped vanity mirror.",
+          "You pry at the floorboard beneath the bed, fingers numb in the spreading cold. It gives way, revealing a velvet pouch wrapped in a note. You pull it out. The note reads: \"If you're reading this, I'm gone. The deck… it's cursed, but it's also a key. Finish the game.\"",
+          "You open the pouch. Cards spill out — black and gold, arcane symbols. But one is missing. You retrieve the ace of spades from your pocket, slot it in.",
+          "The room pulses with energy. Sullivan materializes fully now — his form clearer than ever. \"You've done it,\" he says, voice reverent. \"The deck's whole again. I can finally rest.\"",
+          "As he fades, the cards scatter. One lands face-up at your feet — The Tower. Lightning cracks outside. A chill wind blows the door open. Downstairs, the saloon is no longer empty. Voices. Movement."
+        ],
+        "choices": [
+          {
+            "text": "Head to the mine for answers",
+            "next": "chapter-5a"
+          },
+          {
+            "text": "Leave town before darkness falls",
+            "next": "chapter-5b"
+          }
+        ]
+      },
+      "chapter-5d": {
+        "title": "Chapter 5: Flee the Shadows",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You don't wait. You bolt through the saloon doors and into the open street, heart pounding. The dying light paints everything in gold and shadow. The buildings blur as you sprint past — hotel, post office, chapel.",
+          "Then, a shriek. Not human. You glance back — figures are stepping from the buildings. Twisted, slow, deliberate. The mist follows them, curling like smoke around their limbs. One turns its head toward you. Its face... blank. Except for the eyes. Black pits.",
+          "You run faster, lungs burning. But the mist moves like it's alive, slipping into alleys, pouring across the ground. It knows where you're going. It wants you boxed in.",
+          "Your car sits in the distance like a beacon — salvation. But between you and it, the road is filling. The creatures don't speak, but the whispers are everywhere. They chant. Not with voices, but with your own thoughts. \"Stay. See. Understand.\"",
+          "To your left: a collapsed building you might hide in. To your right: a back alley you vaguely remember leading to the general store. Behind: death. Ahead: maybe freedom."
+        ],
+        "choices": [
+          {
+            "text": "Make a dash for your car",
+            "next": "chapter-6c"
+          },
+          {
+            "text": "Hide and move more cautiously",
+            "next": "chapter-6d"
+          }
+        ]
+      },
+      "chapter-5e": {
+        "title": "Chapter 5: Underground Sanctuary",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You quietly lift the trapdoor, revealing a ladder descending into darkness. The cellar below appears to be some kind of storage area, filled with dusty barrels and crates.",
+          "As you climb down, the trapdoor closes above you with a soft thud. The creature's movements overhead become muffled but continue—a methodical search of the saloon.",
+          "The cellar is surprisingly large, extending beyond what should be the footprint of the building above. Ancient stone walls suggest this space predates the saloon, possibly serving as the foundation for multiple buildings.",
+          "Exploring by feel in the darkness, you discover that the cellar connects to a tunnel system. Cool air flows from deeper passages, carrying with it the scent of earth and something else—something metallic and ozone-like.",
+          "Sullivan's ghost materializes beside you, his form dimmer but still visible. \"Smart choice,\" he whispers. \"These tunnels connect most of the buildings in town. The miners dug them for storage and transport.\"",
+          "\"But be careful,\" he continues. \"Some of these passages lead directly to the mine. And that's where they're strongest.\"",
+          "You hear scraping sounds from above as the creature continues its search. Sullivan points toward a passage that slopes upward. \"That way leads to the edge of town. You can surface near the old water tower and make your way to your car.\"",
+          "But another passage beckons—one that slopes downward into deeper darkness. Strange symbols are carved into its entrance, and a faint, rhythmic pulsing seems to emanate from within."
+        ],
+        "choices": [
+          {
+            "text": "Follow Sullivan's advice to the surface",
+            "next": "chapter-6e"
+          },
+          {
+            "text": "Explore the deeper passage",
+            "next": "chapter-6f"
+          }
+        ]
+      },
+      "chapter-5f": {
+        "title": "Chapter 5: Frozen in Fear",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You force yourself to remain absolutely motionless, barely daring to breathe. The creature above continues its methodical search, and you can hear it moving bottles and glasses on the bar.",
+          "Minutes pass like hours. Your muscles ache from maintaining the cramped position, but you don't dare shift. The mist continues to swirl around your feet, but strangely, it doesn't seem to affect you while you remain completely still.",
+          "Eventually, the creature's movements become less focused. The searching sounds fade, replaced by a different kind of activity—almost like it's cleaning or organizing the bar area.",
+          "Sullivan's ghost reappears, pressing a ghostly finger to his lips in a gesture for continued silence. He points upward and mouths the words: \"It's one of the original miners. Miller, I think. Poor bastard.\"",
+          "The ghost continues: \"They're not evil, just... changed. Lost. They remember their old routines, their old purposes. Miller always helped clean up after closing time.\"",
+          "After what feels like an eternity, the footsteps move away from the bar. You hear the saloon doors creak open and swing shut. Sullivan nods that it's safe.",
+          "\"It'll be back,\" he warns. \"They patrol the buildings at night, looking for... I don't know what. Maybe other survivors. Maybe something else entirely.\"",
+          "Through a crack in the floorboards above, you can see that full darkness has fallen. The unnatural aurora from the mine casts shifting patterns of light through the saloon windows."
+        ],
+        "choices": [
+          {
+            "text": "Wait until dawn to leave",
+            "next": "chapter-6g"
+          },
+          {
+            "text": "Try to sneak out now while it's gone",
+            "next": "chapter-6h"
+          }
+        ]
+      },
+      "chapter-5g": {
+        "title": "Chapter 5: Alley Escape",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "You navigate carefully around the overturned furniture to reach the back door. It opens with a creak that sounds impossibly loud in the tense silence, but nothing immediate happens.",
+          "The alley behind the saloon is narrow and littered with debris from decades of abandonment. Broken crates, rusted equipment, and scattered papers create an obstacle course in the dim light.",
+          "Following Sullivan's directions, you locate the old mine cart tracks—twin lines of rusted metal that curve around the edge of town. The path they create offers cover behind buildings while avoiding the main streets.",
+          "As you move along the tracks, you notice they're not as abandoned as they first appeared. The metal, while rusted, shows recent disturbance—as if heavy weights have been moving along them regularly.",
+          "Strange sounds echo through the alleys—not footsteps, but sliding, flowing noises. Sometimes accompanied by what might be whispered conversations in a language you don't recognize.",
+          "The tracks lead toward a cluster of abandoned mining equipment near the town's edge. From there, you can see your car, but the direct route is blocked by several of the transformed townspeople standing in perfect formation.",
+          "An alternative presents itself: a maintenance shed near the equipment contains what looks like an old mining cart. If the tracks are still functional, you might be able to use it to coast silently to a point closer to your vehicle."
+        ],
+        "choices": [
+          {
+            "text": "Try the mining cart",
+            "next": "chapter-6i"
+          },
+          {
+            "text": "Wait for the figures to move",
+            "next": "chapter-6j"
+          }
+        ]
+      },
+      "chapter-5h": {
+        "title": "Chapter 5: Window Break",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "The window is your best bet for a quick escape, despite the noise risk. You grab a bar rag to muffle the sound and carefully work at the old window latch.",
+          "The mechanism is stuck with decades of rust and dirt. As you struggle with it, the creature upstairs moves directly overhead. Dust rains down from the ceiling with each heavy footfall.",
+          "Finally, the latch gives way with a sharp crack. You freeze, listening. The footsteps above pause, then resume with increased urgency—the creature knows something has changed.",
+          "You push the window open and squeeze through just as heavy footsteps thunder down the stairs. The creature has abandoned all pretense of stealth.",
+          "Landing in the alley outside, you can hear the thing crashing around inside the saloon, overturning furniture in its search. Through the window, you catch a glimpse of it—tall, unnaturally thin, moving with jerky motions like a marionette.",
+          "The alley offers two directions: toward the main street where your car waits, or deeper into the maze of back passages between buildings. From the main street comes the sound of more movement—you're not the only thing active in Prosperity tonight.",
+          "Behind you, glass shatters as the creature discovers your escape route. It won't be long before it follows."
+        ],
+        "choices": [
+          {
+            "text": "Head for the main street and your car",
+            "next": "chapter-6k"
+          },
+          {
+            "text": "Lose yourself in the back alleys",
+            "next": "chapter-6l"
+          }
+        ]
+      },
+      "chapter-6a": {
+        "title": "Chapter 6: The Heart of Darkness",
+        "image": "/api/placeholder/400/250",
+        "text": [
+          "The mine entrance beckons with its unnatural aurora. Despite every survival instinct screaming warnings, you step across the threshold into the tunnel.",
+          "The walls are lined with the same crystalline growths you observed outside, but here they pulse with internal light, creating a living constellation that guides your way deeper underground.",
+          "The tunnel slopes downward at a steep angle, far beyond what any normal mine shaft would attempt. The supporting timbers become less frequent, then disappear entirely as the passage transforms from human construction to something else entirely.",
+          "The rhythmic pulsing grows stronger with each step, and you realize it's not just sound—it's affecting your vision, your balance, your very thoughts. Colors that have no names flicker at the edges of your perception.",
+          "After what feels like hours but could be minutes, the tunnel opens into a vast underground chamber. The space is impossibly large, its ceiling lost in darkness above. At the center lies a pool of liquid that defies description—not quite mercury, not quite light, constantly shifting and moving with purposeful patterns.",
+          "Around the pool's edge stand dozens of figures—the missing townspeople of Prosperity. Their eyes reflect the pool's strange radiance, and they turn toward you with expressions of serene welcome.",
+          "One steps forward—a woman in a mining engineer's outfit from the 1950s. When she speaks, her voice harmonizes with itself in impossible ways: \"Welcome, seeker. You've found what we found. The question now is: will you choose to understand?\""
+        ],
+        "choices": [
+          {
+            "text": "Ask what the pool is",
+            "next": "ending-revelation"
+          },
+          {
+            "text": "Try to back away and escape",
+            "next": "ending-chase"
+          }
+        ]
+      }
+    }
+  }
+}
