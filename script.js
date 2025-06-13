@@ -113,6 +113,16 @@ document.addEventListener("DOMContentLoaded", function() {
       id: "detectives-puzzle"
     },
     {
+      title: "The Enchanted Forest",
+      description: "A mystical journey through a forest where magic is real and creatures of legend roam free.",
+      genre: "Fantasy",
+      rating: 4.8,
+      image: "stories/enchanted-forest-cover.png",
+      featured: false,
+      trending: false,
+      id: "enchanted-forest"
+    },
+    {
       title: "Haunted Mansion",
       description: "Survive a night in a haunted mansion filled with spirits and secrets.",
       genre: "Horror",
