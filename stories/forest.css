@@ -336,3 +336,42 @@
     padding: 1rem 1.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .forest-theme .chapter-title {
+    font-size: 1.5rem;
+  }
+  .forest-theme .story-title {
+    font-size: 1.5rem;
+  }
+  .forest-theme .container {
+    flex-direction: column;
+    width: 110%; /* Reduced from 120% to 110% */
+    margin-left: -5%; /* Adjusted margin to match the new width */
+    padding: 0.75rem;
+  }
+  /* Fix text to prevent stretching */
+  .forest-theme .container * {
+    transform: none; /* Ensure text isn't stretched */
+  }
+  /* Add appropriate padding for the story-chapter */
+  .forest-theme .story-chapter {
+    padding: 1rem 0.75rem;
+  }
+}
+/*    .ghost-theme .chapter-title {
+    transform: scale(0.77,1);
+     padding: 0.2rem 0.2rem;
+  }
+  .ghost-theme .chapter-text {
+    transform: scale(0.77,1);
+    padding: 0.2rem 0.2rem;
+  }   */
+/*   .ghost-theme .story-chapter {
+    padding: 1rem 1rem;
+  } */
+  
+/*   .ghost-theme .story-container {
+    transform: scale(0.77,1);
+  } */
+}
