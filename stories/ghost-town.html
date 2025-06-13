@@ -436,49 +436,137 @@
       <script>
 async function loadStoryFromJSON() {
   try {
-    const response = await fetch('ghost-town.json');
-    if (!response.ok) throw new Error('Failed to fetch story JSON');
-
-    const data = await response.json();
-    const container = document.getElementById('story-container');
-
-    // Clear existing content
-    container.innerHTML = '';
-
-    Object.entries(data[0]).forEach(([chapterId, chapterData]) => {
-      if (chapterId === 'missing_chapters' || chapterId === 'missing_chapter_7' || chapterId === 'endings') return;
-
-      const chapterDiv = document.createElement('div');
-      chapterDiv.className = 'story-chapter';
+    const response = await fetch("ghost-town.json");
+    const storyData = await response.json();
+    const container = document.getElementById("story-container");
+    const loader = document.getElementById("loader");
+    
+    // Handle the array structure from your JSON
+    let chapters = {};
+    
+    // If storyData is an array, extract chapters from each object
+    if (Array.isArray(storyData)) {
+      storyData.forEach(item => {
+        Object.assign(chapters, item);
+      });
+    } else {
+      // If it's already an object, use it directly
+      chapters = storyData;
+    }
+    
+    // Convert chapters object to array of entries for processing
+    Object.entries(chapters).forEach(([chapterId, chapter]) => {
+      if (chapterId.startsWith("ending-")) return; // Skip endings from JSON
+      
+      const chapterDiv = document.createElement("div");
+      chapterDiv.classList.add("story-chapter");
       chapterDiv.id = chapterId;
-
-      const title = `<h2 class="chapter-title">${chapterData.title}</h2>`;
-      const image = `<div class="chapter-image"><img src="${chapterData.image}" alt="${chapterData.title}"></div>`;
-      const text = chapterData.text.map(p => `<p>${p}</p>`).join('');
-      const choices = chapterData.choices.map(choice =>
-        `<button onclick="goToChapter('${choice.next}')">${choice.text}</button>`).join('');
-
-      chapterDiv.innerHTML = `${image}${title}<div class="chapter-text">${text}</div><div class="story-controls">${choices}</div>`;
+      if (chapterId !== "chapter-1") chapterDiv.classList.add("hidden");
+      
+      chapterDiv.innerHTML = `
+        <div class="chapter-image">
+          <img src="${chapter.image}" alt="Chapter image" />
+        </div>
+        <h2 class="chapter-title">${chapter.title}</h2>
+        <div class="chapter-text">
+          ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
+        </div>
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            ${chapter.choices
+              .map(
+                (choice) => `
+              <button class="choice-btn" data-next="${choice.next}">
+                ${choice.text}
+              </button>`
+              )
+              .join("")}
+          </div>
+        </div>
+      `;
       container.appendChild(chapterDiv);
     });
-
-    // Show the first chapter by default
-    goToChapter('chapter-7c');
-
-  } catch (err) {
-    console.error('Error loading story:', err);
+    
+    // Hide loader and show content
+    if (loader) {
+      loader.style.display = "none";
+    }
+    container.style.display = "block";
+    
+    // Initialize choice buttons
+    initStoryChoiceButtons();
+    
+    // Update stats if function exists
+    if (typeof updateStoryStats === 'function') {
+      updateStoryStats();
+    }
+    
+    // Check for saved chapter
+    const savedChapter = localStorage.getItem("currentChapter");
+    if (savedChapter && document.getElementById(savedChapter)) {
+      document.querySelectorAll(".story-chapter").forEach((ch) =>
+        ch.classList.add("hidden")
+      );
+      document.getElementById(savedChapter).classList.remove("hidden");
+      window.scrollTo({ top: 0 });
+    }
+    
+  } catch (error) {
+    console.error("Error loading story data:", error);
+    // Show error message to user
+    const container = document.getElementById("story-container");
+    container.innerHTML = `
+      <div class="error-message">
+        <h2>Error Loading Story</h2>
+        <p>Sorry, there was an error loading the story data. Please try refreshing the page.</p>
+      </div>
+    `;
   }
 }
 
-function goToChapter(chapterId) {
-  const allChapters = document.querySelectorAll('.story-chapter');
-  allChapters.forEach(el => el.classList.add('hidden'));
-
-  const target = document.getElementById(chapterId);
-  if (target) target.classList.remove('hidden');
+function initStoryChoiceButtons() {
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("choice-btn")) {
+      const nextChapter = e.target.getAttribute("data-next");
+      
+      // Hide all chapters
+      document.querySelectorAll(".story-chapter").forEach((ch) =>
+        ch.classList.add("hidden")
+      );
+      
+      // Show next chapter
+      const nextChapterEl = document.getElementById(nextChapter);
+      if (nextChapterEl) {
+        nextChapterEl.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Save current chapter
+        localStorage.setItem("currentChapter", nextChapter);
+      } else {
+        console.error("Chapter not found:", nextChapter);
+      }
+    }
+  });
 }
 
-loadStoryFromJSON();
+// Load story when DOM is ready
+document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+
+// Handle restart buttons
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("restart-btn")) {
+    localStorage.removeItem("currentChapter");
+    document.querySelectorAll(".story-chapter").forEach((el) =>
+      el.classList.add("hidden")
+    );
+    const first = document.getElementById("chapter-1");
+    if (first) {
+      first.classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+});
       </script>
           
           <footer style="font-size: 10px; color: #666; text-align: center; margin-top: 40px;">
