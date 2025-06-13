@@ -434,254 +434,76 @@
 <script src="script.js"></script>
 <script src="enhanced-story-viewer.js"></script>
       <script>
-// Fixed version of story loading script
 async function loadStoryFromJSON() {
-  try {
-    console.log("Starting to load story from JSON...");
-    const response = await fetch("ghost-town.json");
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const storyData = await response.json();
-    console.log("Story data loaded:", storyData);
-    
-    // Use class selector since your HTML uses class="story-container"
-    const container = document.querySelector(".story-container");
-    const loader = document.getElementById("loader");
-
-    if (!container) {
-      console.error("Story container not found!");
-      return;
-    }
-
-    // Store existing endings before clearing
-    const existingEndings = Array.from(container.querySelectorAll('[id^="ending-"]'));
-    console.log("Found existing endings:", existingEndings.length);
-    
-    // Clear the container
-    container.innerHTML = "";
-    
-    // Track chapters loaded
-    let chaptersLoaded = 0;
-    let firstChapterId = null;
-
-    // Convert object to array and process each chapter
-    Object.keys(storyData).forEach((chapterId) => {
-      const chapter = storyData[chapterId];
-      
-      // Skip if it's an ending (we'll add these back later)
-      if (chapterId.startsWith("ending-")) {
-        console.log("Skipping ending:", chapterId);
-        return;
-      }
-
-      console.log("Processing chapter:", chapterId);
-      
-      // Track first chapter
-      if (!firstChapterId) {
-        firstChapterId = chapterId;
-      }
-
-      const chapterDiv = document.createElement("div");
-      chapterDiv.classList.add("story-chapter", "hidden");
-      chapterDiv.id = chapterId;
-
-      chapterDiv.innerHTML = `
-        <div class="chapter-image">
-          <img src="${chapter.image || '/api/placeholder/400/250'}" alt="Chapter image" />
-        </div>
-        <h2 class="chapter-title">${chapter.title}</h2>
-        <div class="chapter-text">
-          ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
-        </div>
-        <div class="story-choices">
-          <h3>What will you do?</h3>
-          <div class="choice-options">
-            ${chapter.choices
-              .map(
-                (choice) => `
-              <button class="choice-btn" data-next="${choice.next}">
-                ${choice.text}
-              </button>`
-              )
-              .join("")}
-          </div>
-        </div>
-      `;
-      
-      container.appendChild(chapterDiv);
-      chaptersLoaded++;
-    });
-
-    // Re-add the existing endings
-    existingEndings.forEach(ending => {
-      container.appendChild(ending);
-    });
-
-    console.log(`Loaded ${chaptersLoaded} chapters`);
-
-    // Hide loader
-    if (loader) {
-      loader.style.display = "none";
-    }
-    container.style.display = "block";
-
-    // Show the first chapter
-    if (firstChapterId) {
-      console.log("Showing first chapter:", firstChapterId);
-      const firstChapter = document.getElementById(firstChapterId);
-      if (firstChapter) {
-        firstChapter.classList.remove("hidden");
-      }
-    } else if (chaptersLoaded === 0) {
-      console.warn("No chapters loaded from JSON, showing first available chapter");
-      const firstAvailable = container.querySelector(".story-chapter");
-      if (firstAvailable) {
-        firstAvailable.classList.remove("hidden");
-      }
-    }
-
-    // Initialize choice buttons
-    initStoryChoiceButtons();
-    
-    // Update stats if function exists
-    if (typeof updateStoryStats === 'function') {
-      updateStoryStats();
-    }
-
-    // Handle saved chapter (but only if it's not an ending)
-    const savedChapter = localStorage.getItem("currentChapter");
-    if (savedChapter && document.getElementById(savedChapter) && !savedChapter.startsWith("ending-")) {
-      console.log("Restoring saved chapter:", savedChapter);
-      document.querySelectorAll(".story-chapter").forEach((ch) =>
-        ch.classList.add("hidden")
-      );
-      document.getElementById(savedChapter).classList.remove("hidden");
-      window.scrollTo({ top: 0 });
-    }
-
-    console.log("Story loaded successfully!");
-
-  } catch (error) {
-    console.error("Error loading story:", error);
-    
-    // Enhanced fallback: show existing hardcoded content
-    const container = document.querySelector(".story-container");
-    if (container) {
-      // Hide loader
+      const response = await fetch("ghost-town.json");
+      const storyData = await response.json();
+      const container = document.getElementById("story-container");
       const loader = document.getElementById("loader");
-      if (loader) {
-        loader.style.display = "none";
-      }
-      
-      // Make sure at least one non-ending chapter is visible
-      const chapters = container.querySelectorAll(".story-chapter:not([id^='ending-'])");
-      if (chapters.length > 0) {
-        // Hide all chapters first
-        container.querySelectorAll(".story-chapter").forEach(ch => 
+
+      storyData.forEach((chapter) => {
+        if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+
+        const chapterDiv = document.createElement("div");
+        chapterDiv.classList.add("story-chapter");
+        chapterDiv.id = chapter.id;
+        if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+
+        chapterDiv.innerHTML = `
+          <div class="chapter-image">
+            <img src="${chapter.image}" alt="Chapter image" />
+          </div>
+          <h2 class="chapter-title">${chapter.title}</h2>
+          <div class="chapter-text">
+            ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
+          </div>
+          <div class="story-choices">
+            <h3>What will you do?</h3>
+            <div class="choice-options">
+              ${chapter.choices
+                .map(
+                  (choice) => `
+                <button class="choice-btn" data-next="${choice.next}">
+                  ${choice.text}
+                </button>`
+                )
+                .join("")}
+            </div>
+          </div>
+        `;
+        container.appendChild(chapterDiv);
+      });
+
+      loader.style.display = "none";
+      container.style.display = "block";
+
+      initStoryChoiceButtons();
+      updateStoryStats();
+
+      const savedChapter = localStorage.getItem("currentChapter");
+      if (savedChapter && document.getElementById(savedChapter)) {
+        document.querySelectorAll(".story-chapter").forEach((ch) =>
           ch.classList.add("hidden")
         );
-        // Show first non-ending chapter
-        chapters[0].classList.remove("hidden");
-        console.log("Fallback: showing first available chapter");
-      } else {
-        console.error("No story chapters found, even in fallback!");
+        document.getElementById(savedChapter).classList.remove("hidden");
+        window.scrollTo({ top: 0 });
       }
     }
-  }
-}
 
-// Initialize choice button functionality
-function initStoryChoiceButtons() {
-  console.log("Initializing choice buttons...");
-  
-  // Remove existing listeners to avoid duplicates
-  const existingButtons = document.querySelectorAll('.choice-btn');
-  existingButtons.forEach(btn => {
-    btn.replaceWith(btn.cloneNode(true));
-  });
+    document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
 
-  // Add event delegation for choice buttons
-  document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('choice-btn')) {
-      const nextChapter = e.target.getAttribute('data-next');
-      console.log("Choice clicked, next chapter:", nextChapter);
-      
-      if (nextChapter) {
-        // Hide all chapters
-        document.querySelectorAll('.story-chapter').forEach(ch => 
-          ch.classList.add('hidden')
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("restart-btn")) {
+        localStorage.removeItem("currentChapter");
+        document.querySelectorAll(".story-chapter").forEach((el) =>
+          el.classList.add("hidden")
         );
-        
-        // Show next chapter
-        const nextChapterElement = document.getElementById(nextChapter);
-        if (nextChapterElement) {
-          nextChapterElement.classList.remove('hidden');
+        const first = document.getElementById("chapter-1");
+        if (first) {
+          first.classList.remove("hidden");
           window.scrollTo({ top: 0 });
-          
-          // Save progress
-          localStorage.setItem('currentChapter', nextChapter);
-          console.log("Navigated to chapter:", nextChapter);
-        } else {
-          console.error(`Chapter ${nextChapter} not found!`);
         }
       }
-    }
-  });
-}
-
-// Load story when page loads
-document.addEventListener("DOMContentLoaded", function() {
-  console.log("DOM loaded, loading story...");
-  loadStoryFromJSON();
-});
-
-// Handle restart buttons
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("restart-btn")) {
-    console.log("Restart button clicked");
-    localStorage.removeItem("currentChapter");
-    
-    // Hide all chapters
-    document.querySelectorAll(".story-chapter").forEach((el) =>
-      el.classList.add("hidden")
-    );
-    
-    // Try to find the first non-ending chapter
-    const firstChapter = document.querySelector(".story-chapter:not([id^='ending-'])");
-    if (firstChapter) {
-      firstChapter.classList.remove("hidden");
-      window.scrollTo({ top: 0 });
-      console.log("Restarted to first chapter:", firstChapter.id);
-    } else {
-      console.error("No starting chapter found for restart!");
-    }
-  }
-});
-
-// Debug function to check what's loaded
-function debugStoryState() {
-  const container = document.querySelector(".story-container");
-  if (container) {
-    const allChapters = container.querySelectorAll(".story-chapter");
-    const visibleChapters = container.querySelectorAll(".story-chapter:not(.hidden)");
-    const endings = container.querySelectorAll("[id^='ending-']");
-    const nonEndings = container.querySelectorAll(".story-chapter:not([id^='ending-'])");
-    
-    console.log("=== Story Debug ===");
-    console.log("Total chapters:", allChapters.length);
-    console.log("Visible chapters:", visibleChapters.length);
-    console.log("Endings:", endings.length);
-    console.log("Non-ending chapters:", nonEndings.length);
-    console.log("Chapter IDs:", Array.from(allChapters).map(ch => ch.id));
-    console.log("==================");
-  }
-}
-
-// Call debug function after a short delay to check state
-setTimeout(debugStoryState, 2000);
+    });
     </script>
     <footer style="font-size: 10px; color: #666; text-align: center; margin-top: 40px;">
     <a href="http://www.freepik.com" style="color: #666; text-decoration: none;">Designed by jcomp / Freepik</a>
