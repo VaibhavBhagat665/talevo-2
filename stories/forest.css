@@ -33,7 +33,7 @@
   z-index: -1;
 }
 
-.forest-theme .story-header {
+/* .forest-theme .story-header {
   background: linear-gradient(to bottom, rgba(26, 46, 26, 0.95), rgba(45, 74, 45, 0.9));
   padding: 1.5rem 2rem;
   display: flex;
@@ -42,7 +42,7 @@
   box-shadow: var(--shadow);
   border-bottom: 2px solid var(--accent-color);
   backdrop-filter: blur(10px);
-}
+}  */
 
 .forest-theme .story-container {
   display: flex;
@@ -54,24 +54,24 @@
 
 .forest-theme .story-title {
   font-family: 'Cinzel', serif;
-  font-size: 2.2rem;
+/*   font-size: 2.2rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   color: var(--mystical-gold);
   text-shadow: var(--text-shadow);
   text-align: center;
   width: 100%;
-  position: relative;
+  position: relative; */
 }
 
-.forest-theme .story-title::after {
+/* .forest-theme .story-title::after {
   content: '◆';
   display: block;
   font-size: 1rem;
   color: var(--accent-color);
   margin-top: 0.5rem;
   opacity: 0.8;
-}
+} */
 
 .forest-theme .story-chapter {
   padding: 3rem 2.5rem;
