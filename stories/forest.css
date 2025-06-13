@@ -15,7 +15,7 @@
   --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 
   font-family: 'Crimson Text', serif;
-  background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 50%, #3d5a3d 100%);
+/*   background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 50%, #3d5a3d 100%); */
   color: var(--text-color);
   background-attachment: fixed;
   min-height: 100vh;
