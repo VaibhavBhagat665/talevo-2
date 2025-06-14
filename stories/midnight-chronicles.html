@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Enchanted Forest | Talevo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="midnight.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .story-controls {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .story-controls button {
+      padding: 10px 20px;
+      border: none;
+      background: #1e293b;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .story-controls button:hover {
+      background: #3b82f6;
+      transform: translateY(-2px);
+    }
+    .loading-indicator {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body class="dark-mode story-page">
+  <main class="container forest-theme">
+    <img src="https://iili.io/3QX415P.png" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;" />
+    <header class="story-header">
+      <div class="logo-container">
+        <a href="https://talevo.netlify.app/" class="logo">
+          <svg class="logo-svg" viewBox="0 0 200 60">
+            <path d="M10,15 Q30,5 60,10 T100,10 T140,10 T190,15 Q200,30 190,45 T140,50 T100,50 T60,50 Q30,55 10,45 Q0,30 10,15" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <text fill="currentColor" font-size="26" font-weight="bold" x="50" y="36" letter-spacing="2">Talevo</text>
+            <circle class="star star1" cx="25" cy="25" fill="currentColor" r="3"></circle>
+            <circle class="star star2" cx="175" cy="20" fill="currentColor" r="2.5"></circle>
+            <circle class="star star3" cx="155" cy="40" fill="currentColor" r="2"></circle>
+            <circle class="star star4" cx="40" cy="45" fill="currentColor" r="1.5"></circle>
+            <circle class="star star5" cx="130" cy="15" fill="currentColor" r="2"></circle>
+            <circle class="star star6" cx="100" cy="48" fill="currentColor" r="1"></circle>
+            <circle class="star star7" cx="180" cy="35" fill="currentColor" r="1"></circle>
+          </svg>
+        </a>
+      </div>
+      <div class="story-nav">
+        <a href="https://talevo.netlify.app/" class="back">
+          <button class="btn btn-icon" id="backBtn"><i class="fas fa-arrow-left"></i></button>
+        </a>
+        <div class="story-title">The Enchanted Forest</div>
+        <div class="story-controls">
+          <button class="btn btn-icon" id="bookmarkBtn"><i class="far fa-bookmark"></i></button>
+          <button class="btn btn-icon" id="shareBtn"><i class="fas fa-share-alt"></i></button>
+        </div>
+      </div>
+    </header>
+    <main class="container">
+      <div id="loader" class="loading-indicator">Loading story...</div>
+      <div class="story-container" id="story-container" style="display: none;"></div>
+
+      <!-- Ending chapters (HTML only) -->
+      <div class="story-chapter hidden" id="ending-1">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Eternal Guardians">
+  </div>
+  <h2 class="chapter-title">Ending: Eternal Guardians</h2>
+  <div class="chapter-text">
+    <p>The transformation completes in a rush of light and sensation. You and Maya become something new—still yourselves, but expanded, connected, powerful. Your consciousness spans both the human world and the realm beyond, allowing you to monitor the barrier from both sides.</p>
+    
+    <p>Together, you're stronger than any guardian has ever been. The entity on the other side, sensing this new strength, finally agrees to communicate. Through long negotiations conducted across dimensional boundaries, you establish a treaty—the entity will cease its attempts to break through in exchange for limited, controlled contact with human consciousness.</p>
+    
+    <p>Years pass. You and Maya, forever young in your transformed state, become legends whispered about in the town. Children dare each other to venture into the Whispering Grove, hoping to catch a glimpse of the Guardian Twins who protect the boundary between worlds.</p>
+    
+    <p>You never regret your choice. The connection you share with Maya is deeper than anything you could have imagined—a love that transcends the physical, a partnership that spans dimensions. And knowing that everyone you care about sleeps safely because of your sacrifice makes every moment of your eternal watch worthwhile.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-2">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Diplomatic Resolution">
+  </div>
+  <h2 class="chapter-title">Ending: The Negotiated Peace</h2>
+  <div class="chapter-text">
+    <p>Your combined consciousness reaches out to the entity beyond the barrier, approaching it not as an enemy to be contained, but as a being to be understood. What you discover changes everything—the entity isn't malevolent, just desperately lonely after eons of isolation.</p>
+    
+    <p>Through careful mental contact, you learn that it never wanted to invade or destroy your world. It simply wanted to communicate, to share knowledge and experience with beings capable of abstract thought. The barrier, while necessary to prevent accidental contamination between realms, had become a prison for both sides.</p>
+    
+    <p>Working together, you and Maya design a new kind of barrier—one that allows for controlled communication while maintaining the necessary separation. Scientists and scholars from your world begin carefully structured exchanges with the entity, leading to revolutionary advances in physics, philosophy, and understanding of consciousness itself.</p>
+    
+    <p>Maya's mother is finally able to return to human form, her two-decade vigil ended. The three of you work together to establish protocols for future contact, ensuring that both worlds benefit from this unprecedented cooperation. The Whispering Grove becomes not a place of fear, but a center of learning and wonder.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-3">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Ultimate Sacrifice">
+  </div>
+  <h2 class="chapter-title">Ending: The Hero's Journey</h2>
+  <div class="chapter-text">
+    <p>Despite Maya's protests, you step through the dimensional gateway into the other realm. The moment you cross the threshold, you feel the crushing weight of alien reality pressing against your consciousness. This is a place where human logic doesn't apply, where thought and matter interweave in ways that threaten to drive you mad.</p>
+    
+    <p>But your purpose gives you strength. Following the connection to Maya, you navigate the impossible landscape until you find the massive doorway her mother has been guarding. Sarah looks at you with recognition and infinite sadness—she knows what you've come to do.</p>
+    
+    <p>"<em>Tell Maya I'm proud of her,</em>" she whispers as she steps aside, finally allowing herself to rest after twenty years of constant vigilance. "<em>And tell her I'll see her again someday, somewhere beyond all of this.</em>"</p>
+    
+    <p>You take her place at the door, pressing your hands against the dark stone and feeling the barrier respond to your will. The door begins to seal permanently, the alien realm slowly cutting itself off from your world forever. The entity beyond doesn't fight this—you sense its relief, its gratitude that the temptation to cross between worlds will finally be removed.</p>
+    
+    <p>As the last crack of light disappears, you feel Maya's anguish across the dimensional boundary, but also her understanding. You've given her and everyone else the freedom to live normal lives, free from the burden of guardianship. It's a fair trade for one life freely given.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-4">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Together Forever">
+  </div>
+  <h2 class="chapter-title">Ending: Side by Side</h2>
+  <div class="chapter-text">
+    <p>You and Maya cross into the other realm together, your hands clasped tightly as reality shifts around you. The alien landscape is beautiful and terrible—crystalline forests that sing with otherworldly music, skies that show impossible constellations, ground that pulses with bioluminescent patterns.</p>
+    
+    <p>Maya's mother greets you both with tears of joy and sorrow. She helps you understand the true nature of the guardian's role—not just standing watch, but serving as ambassadors between realms, ensuring that neither world interferes destructively with the other.</p>
+    
+    <p>"<em>The barrier was never meant to be permanent,</em>" she explains. "<em>It was supposed to be a temporary measure while both sides learned to coexist safely. But fear and misunderstanding on both sides kept it in place far longer than necessary.</em>"</p>
+    
+    <p>Working together, the three of you begin the delicate process of gradually lowering the barrier while establishing new protocols for safe inter-dimensional contact. It takes years of careful work, but eventually, both worlds begin to benefit from controlled cultural and scientific exchange.</p>
+    
+    <p>You and Maya become the first official ambassadors to the other realm, splitting your time between worlds, never fully belonging to either but helping both. Your friendship deepens into something beyond human understanding—a bond forged in purpose and strengthened by shared wonder at the infinite possibilities that exist when different forms of consciousness learn to work together.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-5">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Innovation and Hope">
+  </div>
+  <h2 class="chapter-title">Ending: The New Path</h2>
+  <div class="chapter-text">
+    <p>Your determination to find an innovative solution sparks something in Maya she'd thought was lost—hope. Together, you begin combining her years of research with the mystical knowledge passed down through her family, looking for possibilities that previous generations might have missed.</p>
+    
+    <p>The breakthrough comes when you realize that the barrier doesn't have to be maintained by a single consciousness. Using principles from network theory and distributed computing, you design a system where the guardian role can be shared among multiple volunteers, each carrying only a fraction of the burden.</p>
+    
+    <p>Maya puts out a careful, coded call through online forums dedicated to paranormal research. To your surprise, dozens of people respond—individuals who've had their own encounters with the supernatural, who understand that there are forces in the world that need to be watched and balanced.</p>
+    
+    <p>The new Guardian Network is born. Instead of one person sacrificing their humanity, a group of volunteers shares the responsibility, each maintaining their individual lives while contributing to the collective watch. The burden that once crushed single guardians becomes manageable when distributed among many willing minds.</p>
+    
+    <p>Maya's mother is finally able to return to human form, her long vigil ended. The Whispering Grove becomes a place of gathering for the new guardians, a headquarters where ancient wisdom and modern innovation work together to protect both worlds.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-6">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Breaking the Cycle">
+  </div>
+  <h2 class="chapter-title">Ending: The Refusal</h2>
+  <div class="chapter-text">
+    <p>You look Maya in the eyes and say the words that change everything: "You don't have to do this. Family curse or not, ancient destiny or not—you have the right to choose your own path. Let's find another way, or let's walk away entirely."</p>
+    
+    <p>Maya's ghostly form solidifies with your words, as if your belief in her right to choose gives her strength. "You're right. I've been so focused on what I'm supposed to do that I never asked what I actually want to do."</p>
+    
+    <p>Together, you turn away from the mystical grove and walk back toward town. The forest tries to hold you—paths shift, voices call out warnings, and the very air seems to thicken with supernatural resistance. But your determination to reject the predetermined path proves stronger than the ancient magic trying to enforce it.</p>
+    
+    <p>When you emerge from the grove, Maya is fully solid again, fully human. The town doesn't fall into chaos, the world doesn't end—nothing catastrophic happens at all. Sometimes, it turns out, the scariest choice is simply saying "no" to something that claims to be inevitable.</p>
+    
+    <p>Years later, Maya becomes a researcher into supernatural phenomena, helping others who face similar "destiny" situations find alternatives to sacrifice and submission. The Whispering Grove grows quiet and dormant, its power fading without someone to feed it with fear and acceptance. Maybe some burdens are only as real as we allow them to be.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-7">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Dangerous Relocation">
+  </div>
+  <h2 class="chapter-title">Ending: The Great Migration</h2>
+  <div class="chapter-text">
+    <p>The plan to relocate the interdimensional barrier is the most dangerous thing ever attempted by guardians, but also potentially the most liberating. You and Maya spend months preparing, gathering volunteers, and mapping out the perfect remote location—an uninhabited island in the Arctic Ocean where no human will ever accidentally stumble upon the gateway.</p>
+    
+    <p>The transportation process is harrowing. Maya maintains the barrier while her mother and grandmother, both recalled from their otherworldly states, help carry the artifact using a combination of ancient ritual and modern technology. The journey takes three days, during which the barrier flickers dangerously, allowing brief glimpses of the other realm to leak through.</p>
+    
+    <p>But the plan works. The artifact is successfully installed in its new location, the barrier stabilizes, and for the first time in generations, the guardians are free to live normal lives. The supernatural threat is contained in a place where it can't affect innocent people, and the guardian family can finally break the cycle of sacrifice.</p>
+    
+    <p>Maya returns to college, eventually becoming a professor of theoretical physics with a specialty in dimensional mechanics. You remain her closest friend and secret collaborator, helping to monitor the relocated barrier through advanced technology. The Whispering Grove becomes just another forest, and the world is a little bit safer.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-8">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Acceptance of Duty">
+  </div>
+  <h2 class="chapter-title">Ending: The Willing Guardian</h2>
+  <div class="chapter-text">
+    <p>After considering all the possibilities and their risks, Maya makes her choice with quiet dignity. "I can't risk everyone's safety on untested theories. The guardian role has protected people for generations—maybe it's time I stopped fighting it and started embracing it."</p>
+    
+    <p>The transformation is beautiful when accepted willingly rather than forced by circumstance. Maya's human form expands into something luminous and powerful, her consciousness growing to encompass both realms while still retaining her core identity and memories.</p>
+    
+    <p>But unlike previous guardians, Maya doesn't face her role alone. You remain her anchor to humanity, visiting the grove regularly, helping her remember what she's protecting and why it matters. The isolation that drove previous guardians to despair is broken by your friendship.</p>
+    
+    <p>Maya's mother is finally able to rest, her long watch ended. She chooses to return to human form and live out her remaining years in peace, knowing that her daughter is stronger and better supported than she ever was.</p>
+    
+    <p>The Whispering Grove becomes a place of pilgrimage for those who understand the supernatural world—not feared, but respected as the home of a guardian who chose her duty out of love rather than obligation. And in the quiet moments between her cosmic responsibilities, Maya knows she made the right choice.</p>
+    
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+
+</div>
+
+      
+    </main>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    async function loadStoryFromJSON() {
+      const response = await fetch("midnight-chronicles.json");
+      const storyData = await response.json();
+      const container = document.getElementById("story-container");
+      const loader = document.getElementById("loader");
+
+      storyData.forEach((chapter) => {
+        if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+
+        const chapterDiv = document.createElement("div");
+        chapterDiv.classList.add("story-chapter");
+        chapterDiv.id = chapter.id;
+        if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+
+        chapterDiv.innerHTML = `
+          <div class="chapter-image">
+            <img src="${chapter.image}" alt="Chapter image" />
+          </div>
+          <h2 class="chapter-title">${chapter.title}</h2>
+          <div class="chapter-text">
+            ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
+          </div>
+          <div class="story-choices">
+            <h3>What will you do?</h3>
+            <div class="choice-options">
+              ${chapter.choices
+                .map(
+                  (choice) => `
+                <button class="choice-btn" data-next="${choice.next}">
+                  ${choice.text}
+                </button>`
+                )
+                .join("")}
+            </div>
+          </div>
+        `;
+        container.appendChild(chapterDiv);
+      });
+
+      loader.style.display = "none";
+      container.style.display = "block";
+
+      initStoryChoiceButtons();
+      updateStoryStats();
+
+      const savedChapter = localStorage.getItem("currentChapter");
+      if (savedChapter && document.getElementById(savedChapter)) {
+        document.querySelectorAll(".story-chapter").forEach((ch) =>
+          ch.classList.add("hidden")
+        );
+        document.getElementById(savedChapter).classList.remove("hidden");
+        window.scrollTo({ top: 0 });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+
+    d
