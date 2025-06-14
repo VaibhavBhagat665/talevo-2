@@ -198,7 +198,7 @@ let currentHeroIndex = 0;
         background: 'url(https://iili.io/3QX415P.png)'
       },
       {
-        title: 'Midnight Mystery',
+        title: 'Midnight Chronicles',
         desc: 'A small town is shaken by a series of strange disappearances. As a detective, your choices will lead you closer to the truth or deeper into danger.',
         genre: 'Mystery',
         rating: '4.6',
