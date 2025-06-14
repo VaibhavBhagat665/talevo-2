@@ -1,0 +1,377 @@
+/* Midnight Chronicles Theme Stylesheet (Scoped under .forest-theme) */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;500;600&display=swap');
+
+.forest-theme {
+  --bg-color: #0a0a0f;
+  --text-color: #e0e0e6;
+  --accent-color: #00d4ff;
+  --secondary-color: #7a4fd8;
+  --danger-color: #ff3366;
+  --mystical-gold: #00ffcc;
+  --forest-green: #1a1a2e;
+  --shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+  --glow: 0 0 15px rgba(0, 212, 255, 0.3);
+  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+
+  font-family: 'Rajdhani', sans-serif;
+/*   background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%); */
+  color: var(--text-color);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.forest-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* .forest-theme .story-header {
+  background: linear-gradient(to bottom, rgba(10, 10, 15, 0.95), rgba(26, 26, 46, 0.9));
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--accent-color);
+  backdrop-filter: blur(10px);
+}  */
+
+.forest-theme .story-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem 0;
+/*   opacity: 80%; */
+}
+
+.forest-theme .story-title {
+  font-family: 'Orbitron', monospace;
+   font-size: 2.2rem;
+  font-weight: 700;
+/*   font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--mystical-gold);
+  text-shadow: var(--text-shadow);
+  text-align: center;
+  width: 100%;
+  position: relative; */
+}
+
+/* .forest-theme .story-title::after {
+  content: '◆';
+  display: block;
+  font-size: 1rem;
+  color: var(--accent-color);
+  margin-top: 0.5rem;
+  opacity: 0.8;
+} */
+
+.forest-theme .story-chapter {
+  padding: 3rem 2.5rem;
+  width: 100%;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 1000px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  animation: fadeIn 1.5s ease-in-out;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--glow), inset 0 0 20px rgba(0, 212, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.forest-theme .story-chapter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  border-radius: 12px 12px 0 0;
+}
+
+.forest-theme .chapter-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-shadow: var(--text-shadow);
+  text-align: center;
+  position: relative;
+}
+
+.forest-theme .chapter-title::before,
+.forest-theme .chapter-title::after {
+  content: '◇';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.forest-theme .chapter-title::before {
+  left: -2rem;
+}
+
+.forest-theme .chapter-title::after {
+  right: -2rem;
+}
+
+.forest-theme .chapter-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+.forest-theme .chapter-text p {
+  margin: 1.5rem 0;
+  color: var(--text-color);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.forest-theme .chapter-text p:first-letter {
+  font-size: 3rem;
+  font-family: 'Orbitron', monospace;
+  float: left;
+  line-height: 2.5rem;
+  margin: 0.2rem 0.5rem 0 0;
+  color: var(--mystical-gold);
+  text-shadow: var(--text-shadow);
+}
+
+.forest-theme .chapter-image img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--accent-color);
+}
+
+.forest-theme .story-choices h3 {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: var(--text-shadow);
+}
+
+.forest-theme .choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.forest-theme .choice-btn {
+  padding: 1rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 15, 0.9));
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  text-shadow: var(--text-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.forest-theme .choice-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.forest-theme .choice-btn:hover::before {
+  left: 100%;
+}
+
+.forest-theme .choice-btn:hover {
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  color: #0a0a0f;
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  text-shadow: none;
+}
+
+.forest-theme .restart-btn {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, var(--danger-color), #cc1a4d);
+  color: var(--text-color);
+  border: none;
+  border-radius: 12px;
+  margin-top: 2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  text-shadow: var(--text-shadow);
+}
+
+.forest-theme .restart-btn:hover {
+  background: linear-gradient(135deg, #00d4ff, var(--danger-color));
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.98); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.forest-theme .hidden {
+  display: none;
+}
+
+.forest-theme ::-webkit-scrollbar {
+  width: 12px;
+}
+
+.forest-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-color), var(--secondary-color));
+  border-radius: 10px;
+  border: 1px solid var(--forest-green);
+}
+
+.forest-theme ::-webkit-scrollbar-track {
+  background: var(--forest-green);
+  border-radius: 10px;
+}
+
+.forest-theme .nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+.forest-theme #prev-btn,
+.forest-theme #next-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 15, 0.9));
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-shadow: var(--text-shadow);
+}
+
+.forest-theme #prev-btn:hover,
+.forest-theme #next-btn:hover {
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  color: #0a0a0f;
+  text-shadow: none;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .forest-theme .chapter-title {
+    font-size: 1.8rem;
+  }
+  
+  .forest-theme .story-title {
+    font-size: 1.8rem;
+  }
+  
+  .forest-theme .story-chapter {
+    padding: 2rem 1.5rem;
+    margin: 1rem auto;
+  }
+  
+  .forest-theme .chapter-title::before,
+  .forest-theme .chapter-title::after {
+    display: none;
+  }
+  
+  .forest-theme .chapter-text p:first-letter {
+    font-size: 2.5rem;
+    line-height: 2rem;
+  }
+  
+  .forest-theme .choice-btn {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .forest-theme .story-header {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .forest-theme .chapter-title {
+    font-size: 1.5rem;
+  }
+  .forest-theme .story-title {
+    font-size: 1.5rem;
+  }
+  .forest-theme .container {
+    flex-direction: column;
+    width: 110%; /* Reduced from 120% to 110% */
+    margin-left: -5%; /* Adjusted margin to match the new width */
+    padding: 0.75rem;
+  }
+  /* Fix text to prevent stretching */
+  .forest-theme .container * {
+    transform: none; /* Ensure text isn't stretched */
+  }
+  /* Add appropriate padding for the story-chapter */
+  .forest-theme .story-chapter {
+    padding: 1rem 0.75rem;
+  }
+}
+/*    .ghost-theme .chapter-title {
+    transform: scale(0.77,1);
+     padding: 0.2rem 0.2rem;
+  }
+  .ghost-theme .chapter-text {
+    transform: scale(0.77,1);
+    padding: 0.2rem 0.2rem;
+  }   */
+/*   .ghost-theme .story-chapter {
+    padding: 1rem 1rem;
+  } */
+  
+/*   .ghost-theme .story-container {
+    transform: scale(0.77,1);
+  } */
+      }
