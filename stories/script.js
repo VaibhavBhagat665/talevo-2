@@ -690,8 +690,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Method 1: Hide all content inside chapter-image divs
-    const chapterImageDivs = document.querySelectorAll('.chapter-image');
+    // Hide all content inside divs with class "chapter-image"
+    const chapterImageDivs = document.querySelectorAll('div.chapter-image');
     
     chapterImageDivs.forEach(function(div) {
         // Hide all child elements
@@ -712,17 +712,17 @@ document.addEventListener('DOMContentLoaded', function() {
 function hideChapterImageContent() {
     const style = document.createElement('style');
     style.innerHTML = `
-        .chapter-image * {
+        div.chapter-image * {
             display: none !important;
         }
         
         /* Or hide the entire div */
-        /* .chapter-image {
+        /* div.chapter-image {
             display: none !important;
         } */
         
         /* Or make content invisible but keep layout */
-        /* .chapter-image * {
+        /* div.chapter-image * {
             visibility: hidden !important;
         } */
     `;
@@ -732,9 +732,9 @@ function hideChapterImageContent() {
 // Call the CSS method
 hideChapterImageContent();
 
-// Alternative: Hide specific types of content within chapter-image
+// Alternative: Hide specific types of content within chapter-image divs
 function hideSpecificContent() {
-    const chapterDivs = document.querySelectorAll('.chapter-image');
+    const chapterDivs = document.querySelectorAll('div.chapter-image');
     
     chapterDivs.forEach(function(div) {
         // Hide all images
@@ -759,16 +759,16 @@ const observer = new MutationObserver(function(mutations) {
             for (let i = 0; i < addedNodes.length; i++) {
                 const node = addedNodes[i];
                 if (node.nodeType === 1) { // Element node
-                    if (node.classList && node.classList.contains('chapter-image')) {
-                        // Hide content in newly added chapter-image divs
+                    if (node.classList && node.classList.contains('chapter-image') && node.tagName === 'DIV') {
+                        // Hide content in newly added div.chapter-image elements
                         const children = node.children;
                         for (let j = 0; j < children.length; j++) {
                             children[j].style.display = 'none';
                         }
                     }
                     
-                    // Also check if any child elements have chapter-image class
-                    const chapterDivs = node.querySelectorAll('.chapter-image');
+                    // Also check if any child elements are divs with chapter-image class
+                    const chapterDivs = node.querySelectorAll('div.chapter-image');
                     chapterDivs.forEach(function(div) {
                         const children = div.children;
                         for (let k = 0; k < children.length; k++) {
