@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
       rating: 4.7,
       image: "stories/last-kingdom-cover.png",
       featured: true,
-      trending: true,
+      trending: false,
       id: "last-kingdom"
     },
     {
@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
       genre: "Horror",
       rating: 4.5,
       image: "stories/ghost-town-cover.png",
-      featured: false,
-      trending: true,
+      featured: true,
+      trending: false,
       id: "ghost-town"
     },
     {
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
       genre: "Fantasy",
       rating: 4.3,
       image: "stories/desert-mirage-cover.png",
-      featured: true,
+      featured: false,
       trending: false,
       id: "desert-mirage"
     },
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
       genre: "Fantasy",
       rating: 4.6,
       image: "stories/forgotten-realms-cover.png",
-      featured: true,
+      featured: false,
       trending: false,
       id: "forgotten-realms"
     },
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
       rating: 4.5,
       image: "stories/hearts-desire-cover.png",
       featured: false,
-      trending: false,
+      trending: true,
       id: "hearts-desire"
     },
     {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
       rating: 4.8,
       image: "stories/detectives-puzzle-cover.png",
       featured: false,
-      trending: false,
+      trending: true,
       id: "detectives-puzzle"
     },
     {
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
       genre: "Fantasy",
       rating: 4.8,
       image: "stories/enchanted-forest-cover.png",
-      featured: false,
+      featured: true,
       trending: false,
       id: "enchanted-forest"
     },
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
       rating: 4.7,
       image: "stories/haunted-mansion-cover.png",
       featured: false,
-      trending: false,
+      trending: true,
       id: "haunted-mansion"
     }
   ];
