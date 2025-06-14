@@ -161,63 +161,231 @@
   </div>
       
   </main>
+    
   <script src="script.js"></script>
   <script>
-    async function loadStoryFromJSON() {
-      const response = await fetch("midnight-chronicles.json");
-      const storyData = await response.json();
-      const container = document.getElementById("story-container");
-      const loader = document.getElementById("loader");
+    // Complete story loading and navigation script
+async function loadStoryFromJSON() {
+  try {
+    const response = await fetch("midnight-chronicles.json");
+    const storyData = await response.json();
+    const container = document.getElementById("story-container");
+    const loader = document.getElementById("loader");
 
-      storyData.forEach((chapter) => {
-        if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+    // Clear container first
+    container.innerHTML = '';
 
-        const chapterDiv = document.createElement("div");
-        chapterDiv.classList.add("story-chapter");
-        chapterDiv.id = chapter.id;
-        if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+    storyData.forEach((chapter) => {
+      if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON as they're in HTML
 
-        chapterDiv.innerHTML = `
-          <div class="chapter-image">
-            <img src="${chapter.image}" alt="Chapter image" />
+      const chapterDiv = document.createElement("div");
+      chapterDiv.classList.add("story-chapter");
+      chapterDiv.id = chapter.id;
+      if (chapter.id !== "chapter-1") chapterDiv.classList.add("hidden");
+
+      chapterDiv.innerHTML = `
+        <div class="chapter-image">
+          <img src="${chapter.image}" alt="Chapter image" />
+        </div>
+        <h2 class="chapter-title">${chapter.title}</h2>
+        <div class="chapter-text">
+          ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
+        </div>
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            ${chapter.choices
+              .map(
+                (choice) => `
+              <button class="choice-btn" data-next="${choice.next}">
+                ${choice.text}
+              </button>`
+              )
+              .join("")}
           </div>
-          <h2 class="chapter-title">${chapter.title}</h2>
-          <div class="chapter-text">
-            ${chapter.text.map((p) => `<p>${p}</p>`).join("")}
-          </div>
-          <div class="story-choices">
-            <h3>What will you do?</h3>
-            <div class="choice-options">
-              ${chapter.choices
-                .map(
-                  (choice) => `
-                <button class="choice-btn" data-next="${choice.next}">
-                  ${choice.text}
-                </button>`
-                )
-                .join("")}
-            </div>
-          </div>
-        `;
-        container.appendChild(chapterDiv);
-      });
+        </div>
+      `;
+      container.appendChild(chapterDiv);
+    });
 
-      loader.style.display = "none";
-      container.style.display = "block";
+    // Hide loader and show content
+    loader.style.display = "none";
+    container.style.display = "block";
 
-      initStoryChoiceButtons();
-      updateStoryStats();
+    // Initialize story functionality
+    initStoryChoiceButtons();
+    initRestartButtons();
+    
+    // Load saved progress if exists
+    loadSavedProgress();
+    
+  } catch (error) {
+    console.error("Error loading story:", error);
+    document.getElementById("loader").innerHTML = "Error loading story. Please refresh the page.";
+  }
+}
 
-      const savedChapter = localStorage.getItem("currentChapter");
-      if (savedChapter && document.getElementById(savedChapter)) {
-        document.querySelectorAll(".story-chapter").forEach((ch) =>
-          ch.classList.add("hidden")
-        );
-        document.getElementById(savedChapter).classList.remove("hidden");
-        window.scrollTo({ top: 0 });
-      }
+function initStoryChoiceButtons() {
+  document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("choice-btn")) {
+      const nextChapter = e.target.getAttribute("data-next");
+      navigateToChapter(nextChapter);
     }
+  });
+}
 
-    document.addEventListener("DOMContentLoaded", loadStoryFromJSON);
+function initRestartButtons() {
+  document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("restart-btn")) {
+      restartStory();
+    }
+  });
+}
 
-    d
+function navigateToChapter(chapterId) {
+  // Hide all chapters
+  document.querySelectorAll(".story-chapter").forEach((chapter) => {
+    chapter.classList.add("hidden");
+  });
+
+  // Show target chapter
+  const targetChapter = document.getElementById(chapterId);
+  if (targetChapter) {
+    targetChapter.classList.remove("hidden");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Save progress
+    saveProgress(chapterId);
+  } else {
+    console.error(`Chapter ${chapterId} not found`);
+  }
+}
+
+function restartStory() {
+  // Clear saved progress
+  localStorage.removeItem("currentChapter");
+  localStorage.removeItem("storyProgress");
+  
+  // Navigate to first chapter
+  navigateToChapter("chapter-1");
+}
+
+function saveProgress(chapterId) {
+  localStorage.setItem("currentChapter", chapterId);
+  
+  // Save timestamp for progress tracking
+  const progress = {
+    currentChapter: chapterId,
+    timestamp: new Date().toISOString(),
+    storyTitle: "The Enchanted Forest"
+  };
+  localStorage.setItem("storyProgress", JSON.stringify(progress));
+}
+
+function loadSavedProgress() {
+  const savedChapter = localStorage.getItem("currentChapter");
+  if (savedChapter && document.getElementById(savedChapter)) {
+    navigateToChapter(savedChapter);
+  }
+}
+
+// Bookmark functionality
+function initBookmarkButton() {
+  const bookmarkBtn = document.getElementById("bookmarkBtn");
+  if (bookmarkBtn) {
+    bookmarkBtn.addEventListener("click", function() {
+      const currentChapter = document.querySelector(".story-chapter:not(.hidden)");
+      if (currentChapter) {
+        saveProgress(currentChapter.id);
+        
+        // Visual feedback
+        const icon = bookmarkBtn.querySelector("i");
+        icon.classList.remove("far");
+        icon.classList.add("fas");
+        
+        setTimeout(() => {
+          icon.classList.remove("fas");
+          icon.classList.add("far");
+        }, 2000);
+        
+        // Show notification (optional)
+        showNotification("Progress saved!");
+      }
+    });
+  }
+}
+
+// Share functionality
+function initShareButton() {
+  const shareBtn = document.getElementById("shareBtn");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", function() {
+      if (navigator.share) {
+        navigator.share({
+          title: "The Enchanted Forest - Interactive Story",
+          text: "Check out this amazing interactive story!",
+          url: window.location.href
+        });
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showNotification("Link copied to clipboard!");
+        });
+      }
+    });
+  }
+}
+
+// Notification system
+function showNotification(message) {
+  const notification = document.createElement("div");
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #1e293b;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+  `;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.animation = "slideOut 0.3s ease";
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Add CSS for notifications
+const notificationStyles = document.createElement("style");
+notificationStyles.textContent = `
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+  }
+`;
+document.head.appendChild(notificationStyles);
+
+// Initialize everything when DOM is loaded
+document.addEventListener("DOMContentLoaded", function() {
+  loadStoryFromJSON();
+  initBookmarkButton();
+  initShareButton();
+});
+  </script>
+  </main>
+</body>
+</html>
+  
