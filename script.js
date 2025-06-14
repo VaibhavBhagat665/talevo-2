@@ -1570,6 +1570,183 @@ function setupSearchDropdown() {
   toggleClearButton();
 }
 
+  // Disable right-click context menu
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C
+document.addEventListener('keydown', function(e) {
+    // F12 - Developer Tools
+    if (e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+I - Developer Tools
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+J - Console
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+U - View Source
+    if (e.ctrlKey && e.keyCode === 85) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+C - Element Inspector
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+A - Select All (optional)
+    if (e.ctrlKey && e.keyCode === 65) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+S - Save Page (optional)
+    if (e.ctrlKey && e.keyCode === 83) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+P - Print (optional)
+    if (e.ctrlKey && e.keyCode === 80) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable text selection
+document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Disable drag and drop
+document.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Clear console periodically
+setInterval(function() {
+    console.clear();
+}, 1000);
+
+// Detect if developer tools are open
+let devtools = {
+    open: false,
+    orientation: null
+};
+
+const threshold = 160;
+
+setInterval(function() {
+    if (window.outerHeight - window.innerHeight > threshold || 
+        window.outerWidth - window.innerWidth > threshold) {
+        if (!devtools.open) {
+            devtools.open = true;
+            // Redirect or show warning when dev tools detected
+            document.body.innerHTML = '<h1>Access Denied</h1><p>Developer tools are not allowed on this page.</p>';
+            // Or redirect: window.location.href = 'about:blank';
+        }
+    } else {
+        devtools.open = false;
+    }
+}, 500);
+
+// Disable common inspect shortcuts on mobile
+document.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) {
+        e.preventDefault();
+    }
+});
+
+// Disable zoom
+document.addEventListener('wheel', function(e) {
+    if (e.ctrlKey) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+// Disable pinch zoom on mobile
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(e) {
+    let now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        e.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+// Additional CSS to disable text selection and other interactions
+const style = document.createElement('style');
+style.innerHTML = `
+    * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+`;
+document.head.appendChild(style);
+
+// Disable image dragging
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+    });
+});
+
+// Override console methods
+(function() {
+    try {
+        const devtools = {
+            log: console.log,
+            info: console.info,
+            warn: console.warn,
+            error: console.error,
+            clear: console.clear
+        };
+        
+        Object.keys(devtools).forEach(key => {
+            console[key] = function() {};
+        });
+    } catch(e) {}
+})();
+
+// Detect debugging attempts
+(function() {
+    let start = Date.now();
+    debugger;
+    if (Date.now() - start > 100) {
+        document.body.innerHTML = '<h1>Debugging Detected</h1>';
+    }
+})();
+
 
 
 
