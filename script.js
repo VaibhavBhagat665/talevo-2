@@ -23,26 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
       id: "midnight-chronicles"
     },
     {
-      title: "Digital Dreamscape",
-      description: "Enter a virtual world where reality and fantasy blur.",
-      genre: "Cyberpunk",
-      rating: 4.9,
-      image: "stories/digital-dreamscape-cover.png",
-      featured: true,
-      trending: false,
-      id: "digital-dreamscape"
-    },
-    {
-      title: "Last Kingdom",
-      description: "A medieval fantasy where your choices determine the fate of kingdoms.",
-      genre: "Fantasy",
-      rating: 4.7,
-      image: "stories/last-kingdom-cover.png",
-      featured: true,
-      trending: false,
-      id: "last-kingdom"
-    },
-    {
       title: "Ghost Town",
       description: "Explore an abandoned town with a dark past and supernatural presence.",
       genre: "Horror",
@@ -131,6 +111,26 @@ document.addEventListener("DOMContentLoaded", function() {
       featured: false,
       trending: true,
       id: "haunted-mansion"
+    },
+    {
+      title: "Digital Dreamscape",
+      description: "Enter a virtual world where reality and fantasy blur.",
+      genre: "Cyberpunk",
+      rating: 4.9,
+      image: "stories/digital-dreamscape-cover.png",
+      featured: true,
+      trending: false,
+      id: "digital-dreamscape"
+    },
+    {
+      title: "Last Kingdom",
+      description: "A medieval fantasy where your choices determine the fate of kingdoms.",
+      genre: "Fantasy",
+      rating: 4.7,
+      image: "stories/last-kingdom-cover.png",
+      featured: true,
+      trending: false,
+      id: "last-kingdom"
     }
   ];
 
