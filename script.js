@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
       description: "A mystical journey through a forest where magic is real and creatures of legend roam free.",
       genre: "Fantasy",
       rating: 4.8,
-      image: "stories/enchanted-forest-cover.png",
+      image: "stories/forest-cover.png",
       featured: true,
       trending: false,
       id: "enchanted-forest"
