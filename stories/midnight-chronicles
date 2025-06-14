@@ -1,0 +1,260 @@
+
+[
+  {
+    "id": "chapter-1",
+    "title": "Chapter 1: The Inheritance",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The letter arrived on a moonless night, its wax seal bearing a symbol you'd never seen before—a twisted tree with roots that seemed to writhe in the candlelight. Your great-aunt Cordelia, whom you'd met only once as a child, had left you her estate in the remote village of Ravenhollow.",
+      "The train journey took you through increasingly desolate countryside, where fog clung to barren trees like ghostly shrouds. As you disembarked at the tiny station, the conductor's eyes held a warning he dared not voice aloud.",
+      "Blackthorn Manor loomed against the storm-dark sky, its Gothic spires piercing the clouds. The villagers who brought you here spoke in hushed tones about the house, crossing themselves when they thought you weren't looking. Inside, dust motes danced in shafts of dying light, and every shadow seemed to harbor secrets.",
+      "In the study, you found Cordelia's journal, its final entry dated just three days ago: 'The covenant grows stronger with each passing night. I fear I have run out of time. The new keeper must be prepared, for the darkness stirs, and the seals weaken. Trust no one—not even the light.'"
+    ],
+    "choices": [
+      { "text": "Search the cellar for clues about this 'covenant'", "next": "chapter-2a" },
+      { "text": "Visit the village to learn about your great-aunt", "next": "chapter-2b" }
+    ]
+  },
+  {
+    "id": "chapter-2a",
+    "title": "Chapter 2A: Beneath the Foundation",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The cellar stairs groaned under your weight, each step echoing in the oppressive darkness below. Your flashlight beam revealed stone walls carved with symbols that seemed to shift when you weren't looking directly at them. The air grew thick with an otherworldly presence.",
+      "At the cellar's heart stood an altar of black stone, its surface stained with substances you preferred not to identify. Five candles surrounded a leather-bound tome, their flames burning without wax, casting shadows that moved independently of their sources.",
+      "The book fell open at your touch, revealing pages written in multiple hands across centuries. Your great-aunt's neat script filled the final pages: 'The Twilight Covenant binds five families to contain the Hunger. When darkness falls on the new moon, one keeper from each bloodline must perform the ritual, or the entity breaks free.'",
+      "A sound from upstairs made you freeze—footsteps, slow and deliberate, though you knew you'd locked the front door. The candle flames suddenly blazed higher, and you realized with growing horror that tonight was the new moon."
+    ],
+    "choices": [
+      { "text": "Attempt to perform the ritual yourself", "next": "chapter-3a" },
+      { "text": "Flee upstairs to confront the intruder", "next": "chapter-3b" }
+    ]
+  },
+  {
+    "id": "chapter-2b",
+    "title": "Chapter 2B: Whispers in Ravenhollow",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The Crooked Crow tavern fell silent when you entered, thirty pairs of eyes turning toward you with a mixture of fear and pity. The bartender, a weathered man with prematurely white hair, poured you a drink without being asked.",
+      "'You're Cordelia's kin,' he said, his voice barely above a whisper. 'She spoke of you often in her final days. Said you'd come when the time was right.' He glanced nervously at the other patrons, who had resumed their conversations in hushed tones.",
+      "An elderly woman approached your table, her fingers twisted with arthritis and age. 'My grandmother was part of it, child. The covenant that keeps the darkness at bay. Five families, five bloodlines, all sworn to maintain the barrier. But the others... they've forgotten their duty, moved away, died without passing on the knowledge.'",
+      "She leaned closer, her breath smelling of herbs and secrets. 'Cordelia was the last who remembered. Now it falls to you. Tonight, when the moon dies, you must choose: honor the covenant and bind yourself to this place forever, or let the world face what our ancestors imprisoned.'"
+    ],
+    "choices": [
+      { "text": "Ask about the other bloodlines", "next": "chapter-3c" },
+      { "text": "Return to the manor immediately", "next": "chapter-3d" }
+    ]
+  },
+  {
+    "id": "chapter-3a",
+    "title": "Chapter 3A: The Summoning Circle",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "With trembling hands, you began to read the ritual aloud, the ancient words seeming to burn your tongue as you spoke them. The temperature in the cellar plummeted, and your breath came out in visible puffs as the supernatural cold intensified.",
+      "The symbols on the walls began to glow with an eerie phosphorescence, and you felt a presence stirring in the darkness beyond the physical world. The candle flames turned from orange to blue, then to a color that had no name, casting everything in an otherworldly light.",
+      "But as you reached the climax of the incantation, you realized with dawning horror that something was wrong. The words were changing, transforming in your mouth into something else entirely. This wasn't a binding ritual—it was a summoning.",
+      "Behind you, a voice like grinding stone spoke: 'Foolish child. Your great-aunt protected you from the truth. There is no covenant. There is only hunger, and you have just opened the door.'"
+    ],
+    "choices": [
+      { "text": "Fight back with whatever power you can muster", "next": "chapter-4a" },
+      { "text": "Try to reverse the ritual", "next": "chapter-4b" }
+    ]
+  },
+  {
+    "id": "chapter-3b",
+    "title": "Chapter 3B: The Watchers",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You raced up the cellar stairs, your heart pounding with each step. The main floor of the manor was eerily quiet, but you could sense eyes watching you from every shadow. The grandfather clock in the hallway had stopped at 11:47.",
+      "In the parlor, four figures sat in the dusty chairs, their faces hidden beneath dark hoods. They didn't move or speak, but their presence filled the room with an oppressive weight that made breathing difficult. On the table before them lay an ornate silver key.",
+      "'Welcome, keeper,' the center figure finally spoke, its voice neither male nor female, neither young nor old. 'We are the remaining guardians of the covenant. Your great-aunt's death has left us incomplete, and time grows short.'",
+      "The figure to the left raised its head slightly, revealing nothing but darkness beneath the hood. 'The entity stirs. Each night without the full ritual, the barriers weaken. You must choose now: accept the burden of your bloodline, or watch as everything your ancestors died to protect crumbles into shadow.'"
+    ],
+    "choices": [
+      { "text": "Take the key and accept your role", "next": "chapter-4c" },
+      { "text": "Demand to know what really happened to Cordelia", "next": "chapter-4d" }
+    ]
+  },
+  {
+    "id": "chapter-3c",
+    "title": "Chapter 3C: The Forgotten Bloodlines",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The old woman's eyes grew distant as she spoke of the other families. 'The Ashfords were the first to break faith, fleeing to America after the Great War. The Greys died out in the plague of 1918. The Thornfield line ended with poor Elizabeth's madness—she walked into the moor one winter night and was never seen again.'",
+      "'That left only the Blackwoods and your family, the Ravencrofts. But old Magnus Blackwood grew bitter in his final years, convinced the covenant was a lie, a chain binding us to superstition. He burned his family's ritual tools before he died.'",
+      "She gripped your wrist with surprising strength. 'But blood calls to blood, child. The power doesn't die—it just sleeps. If you can awaken the old magic in the surviving descendants, perhaps the covenant can be renewed. But time is short, and some prices... some prices are too terrible to pay.'",
+      "A young man at the bar turned toward you, his resemblance to the description of the Blackwoods unmistakable. His eyes held the same haunted look you'd seen in your mirror since arriving at Ravenhollow."
+    ],
+    "choices": [
+      { "text": "Approach the Blackwood descendant", "next": "chapter-4e" },
+      { "text": "Ask about the 'terrible prices' mentioned", "next": "chapter-4f" }
+    ]
+  },
+  {
+    "id": "chapter-3d",
+    "title": "Chapter 3D: Racing Against Darkness",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You left the tavern in haste, the villagers' worried glances following you into the night. The fog had grown thicker during your absence, and strange sounds echoed from the moors—howls that belonged to no earthly creature, and whispers in languages that predated human civilization.",
+      "Back at Blackthorn Manor, you found the front door standing open despite your certainty that you'd locked it. Inside, the temperature had dropped dramatically, and your breath misted in the frigid air. Every mirror in the house had cracked, their surfaces reflecting not your image, but glimpses of something moving in the spaces between.",
+      "In the study, Cordelia's journal lay open to a new page, though you were certain it had been blank before. Fresh ink formed words as you watched: 'The hunger grows stronger. It knows you're here. It knows you're alone. Don't trust the shadows—they're not empty anymore.'",
+      "A sound from the cellar made your blood freeze—the slow, rhythmic scraping of claws against stone, growing closer with each passing second."
+    ],
+    "choices": [
+      { "text": "Barricade yourself in the study and wait for dawn", "next": "chapter-4g" },
+      { "text": "Confront whatever is coming from the cellar", "next": "chapter-4h" }
+    ]
+  },
+  {
+    "id": "chapter-4a",
+    "title": "Chapter 4A: Awakening Power",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Something deep within your soul ignited as you faced the emerging darkness. The blood of generations of covenant keepers flowed through your veins, and with it came power you never knew you possessed. Your hands blazed with silver light as you turned to face the entity.",
+      "The creature that emerged from the shadows was a writhing mass of darkness and hunger, its form constantly shifting between nightmares made manifest. But your light pushed it back, and for the first time in hours, you felt hope.",
+      "'Impossible,' it hissed, its voice like breaking glass. 'The bloodline should be weak, diluted by generations of ignorance.' But even as it spoke, you could see fear in its countless eyes."
+    ],
+    "choices": [
+      { "text": "Press your advantage and banish it", "next": "ending-1" },
+      { "text": "Try to bind it as your ancestors did", "next": "ending-2" }
+    ]
+  },
+  {
+    "id": "chapter-4b",
+    "title": "Chapter 4B: The Price of Knowledge",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "Desperately, you tried to reverse the words, to undo what you had begun. But the ritual had its own momentum now, and the entity was already pushing through the barrier between worlds. Your only hope was to redirect the summoning, to bind it to yourself rather than let it run free.",
+      "The cost was immediate and terrible. Dark energy poured into you, and you felt your humanity slipping away with each passing second. But you also felt the entity's power becoming yours to command."
+    ],
+    "choices": [
+      { "text": "Embrace the transformation", "next": "ending-3" },
+      { "text": "Fight to maintain your humanity", "next": "ending-4" }
+    ]
+  },
+  {
+    "id": "chapter-4c",
+    "title": "Chapter 4C: The Guardian's Burden",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The key was cold as ice in your palm, and the moment you grasped it, visions flooded your mind. You saw the covenant's true history—generations of guardians who had sacrificed everything to keep the world safe from the entity that lurked beyond the veil.",
+      "The hooded figures stood as one, and you realized they were not alive in any conventional sense. They were the spirits of past guardians, bound to this place by duty and sacrifice. Now you would join their eternal vigil."
+    ],
+    "choices": [
+      { "text": "Accept your fate and become a guardian", "next": "ending-5" },
+      { "text": "Look for another way to protect the world", "next": "ending-1" }
+    ]
+  },
+  {
+    "id": "chapter-4d",
+    "title": "Chapter 4D: The Truth About Cordelia",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The guardians were silent for a long moment before the one on the right spoke. 'Cordelia chose to break the covenant rather than condemn another generation to our fate. She tried to find a way to destroy the entity permanently, but the cost...'",
+      "'She gave her life force to strengthen the barriers one final time,' another continued. 'It bought us three days—three days to find you and convince you to take up the burden she refused to pass on.'"
+    ],
+    "choices": [
+      { "text": "Honor Cordelia's sacrifice", "next": "ending-4" },
+      { "text": "Continue her work to destroy the entity", "next": "ending-2" }
+    ]
+  },
+  {
+    "id": "chapter-4e",
+    "title": "Chapter 4E: Alliance of Blood",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The young man looked up as you approached, and you saw recognition flash in his dark eyes. 'You're the Ravencroft heir,' he said quietly. 'I'm Thomas Blackwood. I've been having the dreams too—visions of darkness and ancient promises.'",
+      "Together, you realized that the bloodline magic was awakening in both of you, responding to the growing threat. Perhaps the covenant didn't need five families—perhaps two, working together, could be enough."
+    ],
+    "choices": [
+      { "text": "Form a new covenant with Thomas", "next": "ending-1" },
+      { "text": "Seek out more descendants", "next": "ending-5" }
+    ]
+  },
+  {
+    "id": "chapter-4f",
+    "title": "Chapter 4F: The Ultimate Sacrifice",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "The old woman's face crumpled with grief as she explained. 'The entity feeds on life force, on the very essence of being. To keep it bound, the guardians must offer a piece of their soul each night. Eventually, there's nothing left of who they were.'",
+      "'Your great-aunt lasted longer than most—sixty years of slowly fading away. But in the end, the choice is always the same: sacrifice yourself gradually, or let the world burn quickly.'"
+    ],
+    "choices": [
+      { "text": "Accept the gradual sacrifice", "next": "ending-5" },
+      { "text": "Look for a way to break the cycle", "next": "ending-3" }
+    ]
+  },
+  {
+    "id": "chapter-4g",
+    "title": "Chapter 4G: The Siege",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You barricaded yourself in the study as the sounds from below grew louder and more terrifying. But as the hours passed, you realized that dawn might not come—not if the entity fully manifested in this world.",
+      "The walls themselves began to bleed shadow, and you knew your hiding place would not hold much longer. Your only chance was to find a way to complete the ritual that Cordelia had started."
+    ],
+    "choices": [
+      { "text": "Use Cordelia's notes to finish her work", "next": "ending-2" },
+      { "text": "Make a final stand", "next": "ending-4" }
+    ]
+  },
+  {
+    "id": "chapter-4h",
+    "title": "Chapter 4H: Into the Abyss",
+    "image": "/api/placeholder/400/250",
+    "text": [
+      "You descended into the cellar to face whatever was coming, knowing that running would only delay the inevitable. What you found there defied description—a tear in reality itself, with something vast and hungry pressing against the boundaries of your world.",
+      "But in that moment of absolute terror, you felt your ancestral power awakening, and you understood that this confrontation had been inevitable from the moment you accepted Cordelia's inheritance."
+    ],
+    "choices": [
+      { "text": "Seal the tear with your life force", "next": "ending-4" },
+      { "text": "Try to turn the entity's power against itself", "next": "ending-3" }
+    ]
+  }
+]
+```
+
+## HTML Endings
+
+```html
+<div class="story-chapter hidden" id="ending-1">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="Dawn of Victory">
+  </div>
+  <h2 class="chapter-title">Ending: Dawn of Victory</h2>
+  <div class="chapter-text">
+    <p>Your combined power blazed like a star in the darkness, and the entity's screams shook the very foundations of reality as it was banished back to the void. The covenant was reborn, stronger than ever, forged not from duty alone but from willing sacrifice and the bonds of fellowship.</p>
+    <p>Thomas Blackwood stood beside you as the first rays of dawn broke through the dissipating shadows. Together, you had not only stopped the ancient evil but found a way to bind it permanently, ensuring that future generations would never face this terror again.</p>
+    <p>Ravenhollow awakened to a world cleansed, and the villagers spoke of the night when two young guardians restored the light to their darkest hour. The manor, once a prison of shadows, became a beacon of hope.</p>
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-2">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="The Binding Eternal">
+  </div>
+  <h2 class="chapter-title">Ending: The Binding Eternal</h2>
+  <div class="chapter-text">
+    <p>Following Cordelia's notes and your own intuition, you managed to complete her final ritual. The entity was not destroyed—such beings cannot truly die—but it was bound so completely that it would slumber for a thousand years or more.</p>
+    <p>The cost was everything. Your life force was woven into the binding, and you felt yourself fading even as the darkness receded. But you had saved not just Ravenhollow, but the entire world from a hunger that would have consumed everything.</p>
+    <p>Your spirit joined those of the guardians who came before, watching over the seal and ensuring that if the entity ever stirred again, someone would be there to stand against it. In death, you found a purpose greater than life.</p>
+    <p>The village erected a monument in your honor, though few would ever know the full truth of what you sacrificed. But the world turned on, safe and bright, because you chose to stand in the darkness.</p>
+    <p><strong>THE END</strong></p>
+  </div>
+  <div class="story-restart">
+    <button class="restart-btn">Start Over</button>
+  </div>
+</div>
+
+<div class="story-chapter hidden" id="ending-3">
+  <div class="chapter-image">
+    <img src="/api/placeholder/400/250" alt="The Dark Transformation">
+  </div>
+  <h2 class="chapter-title">Ending: The Dark Transformation</h2>
+  <div class="chapter-text">
+    <p>The entity's power flowed through you like molten darkness, changing you at the most fundamental level. You were no longer entirely human, but you were no longer entirely helpless either. The creature found itself bound to your will, its hunger now yours to command.</p>
+    <p>With this terrible power, you reshaped the rules of the game. The entity would feed, yes, but only on those who deserved its attention—the cruel, the corrupt, the irredeemably evil. You became judge, jury, and executioner, walking the line between salvation and damnation.</p>
+    <p>Ravenhollow whispered stories of the Shadow Guardian who emerged from Blackthorn Manor, protecting the innocent and punishing the wicked with supernatural just
