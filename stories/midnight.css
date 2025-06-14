@@ -81,7 +81,7 @@
 }
 
 /* Main Story Container */
-.midnight-theme .story-container {
+.midnight-theme .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -447,7 +447,7 @@
 }
 
 @media (max-width: 480px) {
-  .midnight-theme .story-container {
+  .midnight-theme .container {
     padding: 1.5rem 0.5rem;
   }
   
