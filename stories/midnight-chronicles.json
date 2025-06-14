@@ -17,7 +17,7 @@
   },
   {
     "id": "chapter-2a",
-    "title": "Chapter 2A: Beneath the Foundation",
+    "title": "Chapter 2: Beneath the Foundation",
     "image": "/api/placeholder/400/250",
     "text": [
       "The cellar stairs groaned under your weight, each step echoing in the oppressive darkness below. Your flashlight beam revealed stone walls carved with symbols that seemed to shift when you weren't looking directly at them. The air grew thick with an otherworldly presence.",
@@ -32,7 +32,7 @@
   },
   {
     "id": "chapter-2b",
-    "title": "Chapter 2B: Whispers in Ravenhollow",
+    "title": "Chapter 2: Whispers in Ravenhollow",
     "image": "/api/placeholder/400/250",
     "text": [
       "The Crooked Crow tavern fell silent when you entered, thirty pairs of eyes turning toward you with a mixture of fear and pity. The bartender, a weathered man with prematurely white hair, poured you a drink without being asked.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "chapter-3a",
-    "title": "Chapter 3A: The Summoning Circle",
+    "title": "Chapter 3: The Summoning Circle",
     "image": "/api/placeholder/400/250",
     "text": [
       "With trembling hands, you began to read the ritual aloud, the ancient words seeming to burn your tongue as you spoke them. The temperature in the cellar plummeted, and your breath came out in visible puffs as the supernatural cold intensified.",
@@ -62,7 +62,7 @@
   },
   {
     "id": "chapter-3b",
-    "title": "Chapter 3B: The Watchers",
+    "title": "Chapter 3: The Watchers",
     "image": "/api/placeholder/400/250",
     "text": [
       "You raced up the cellar stairs, your heart pounding with each step. The main floor of the manor was eerily quiet, but you could sense eyes watching you from every shadow. The grandfather clock in the hallway had stopped at 11:47.",
@@ -77,7 +77,7 @@
   },
   {
     "id": "chapter-3c",
-    "title": "Chapter 3C: The Forgotten Bloodlines",
+    "title": "Chapter 3: The Forgotten Bloodlines",
     "image": "/api/placeholder/400/250",
     "text": [
       "The old woman's eyes grew distant as she spoke of the other families. 'The Ashfords were the first to break faith, fleeing to America after the Great War. The Greys died out in the plague of 1918. The Thornfield line ended with poor Elizabeth's madness—she walked into the moor one winter night and was never seen again.'",
@@ -92,7 +92,7 @@
   },
   {
     "id": "chapter-3d",
-    "title": "Chapter 3D: Racing Against Darkness",
+    "title": "Chapter 3: Racing Against Darkness",
     "image": "/api/placeholder/400/250",
     "text": [
       "You left the tavern in haste, the villagers' worried glances following you into the night. The fog had grown thicker during your absence, and strange sounds echoed from the moors—howls that belonged to no earthly creature, and whispers in languages that predated human civilization.",
@@ -107,7 +107,7 @@
   },
   {
     "id": "chapter-4a",
-    "title": "Chapter 4A: Awakening Power",
+    "title": "Chapter 4: Awakening Power",
     "image": "/api/placeholder/400/250",
     "text": [
       "Something deep within your soul ignited as you faced the emerging darkness. The blood of generations of covenant keepers flowed through your veins, and with it came power you never knew you possessed. Your hands blazed with silver light as you turned to face the entity.",
@@ -121,7 +121,7 @@
   },
   {
     "id": "chapter-4b",
-    "title": "Chapter 4B: The Price of Knowledge",
+    "title": "Chapter 4: The Price of Knowledge",
     "image": "/api/placeholder/400/250",
     "text": [
       "Desperately, you tried to reverse the words, to undo what you had begun. But the ritual had its own momentum now, and the entity was already pushing through the barrier between worlds. Your only hope was to redirect the summoning, to bind it to yourself rather than let it run free.",
@@ -134,7 +134,7 @@
   },
   {
     "id": "chapter-4c",
-    "title": "Chapter 4C: The Guardian's Burden",
+    "title": "Chapter 4: The Guardian's Burden",
     "image": "/api/placeholder/400/250",
     "text": [
       "The key was cold as ice in your palm, and the moment you grasped it, visions flooded your mind. You saw the covenant's true history—generations of guardians who had sacrificed everything to keep the world safe from the entity that lurked beyond the veil.",
@@ -147,7 +147,7 @@
   },
   {
     "id": "chapter-4d",
-    "title": "Chapter 4D: The Truth About Cordelia",
+    "title": "Chapter 4: The Truth About Cordelia",
     "image": "/api/placeholder/400/250",
     "text": [
       "The guardians were silent for a long moment before the one on the right spoke. 'Cordelia chose to break the covenant rather than condemn another generation to our fate. She tried to find a way to destroy the entity permanently, but the cost...'",
@@ -160,7 +160,7 @@
   },
   {
     "id": "chapter-4e",
-    "title": "Chapter 4E: Alliance of Blood",
+    "title": "Chapter 4: Alliance of Blood",
     "image": "/api/placeholder/400/250",
     "text": [
       "The young man looked up as you approached, and you saw recognition flash in his dark eyes. 'You're the Ravencroft heir,' he said quietly. 'I'm Thomas Blackwood. I've been having the dreams too—visions of darkness and ancient promises.'",
@@ -173,7 +173,7 @@
   },
   {
     "id": "chapter-4f",
-    "title": "Chapter 4F: The Ultimate Sacrifice",
+    "title": "Chapter 4: The Ultimate Sacrifice",
     "image": "/api/placeholder/400/250",
     "text": [
       "The old woman's face crumpled with grief as she explained. 'The entity feeds on life force, on the very essence of being. To keep it bound, the guardians must offer a piece of their soul each night. Eventually, there's nothing left of who they were.'",
@@ -186,7 +186,7 @@
   },
   {
     "id": "chapter-4g",
-    "title": "Chapter 4G: The Siege",
+    "title": "Chapter 4: The Siege",
     "image": "/api/placeholder/400/250",
     "text": [
       "You barricaded yourself in the study as the sounds from below grew louder and more terrifying. But as the hours passed, you realized that dawn might not come—not if the entity fully manifested in this world.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "chapter-4h",
-    "title": "Chapter 4H: Into the Abyss",
+    "title": "Chapter 4: Into the Abyss",
     "image": "/api/placeholder/400/250",
     "text": [
       "You descended into the cellar to face whatever was coming, knowing that running would only delay the inevitable. What you found there defied description—a tear in reality itself, with something vast and hungry pressing against the boundaries of your world.",
