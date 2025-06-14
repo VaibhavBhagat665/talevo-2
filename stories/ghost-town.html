@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Town | Talevo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ghost-town-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+.story-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.story-controls button {
+  padding: 10px 20px;
+  border: none;
+  background: #1e293b;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.story-controls button:hover {
+  background: #3b82f6;
+  transform: translateY(-2px);
+}
+</style>
+
+</head>
+    
+<body class="dark-mode story-page">
+<main class="container ghost-theme">
+    <img src="26922.webp" 
+       style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+   <header class="story-header">
+        <div class="logo-container">
+            <a href="https://talevo-2.vercel.app/" class="logo">
+                <svg class="logo-svg" viewBox="0 0 200 60">
+  <!-- Modified curved path to create more space for the text -->
+  <path d="M10,15 Q30,5 60,10 T100,10 T140,10 T190,15 Q200,30 190,45 T140,50 T100,50 T60,50 Q30,55 10,45 Q0,30 10,15" 
+    fill="none" stroke="currentColor" stroke-width="2">
+  </path>
+  
+  <!-- Centered and enlarged text with better spacing -->
+  <text fill="currentColor" font-size="26" font-weight="bold" x="50" y="36" letter-spacing="2">
+    Talevo
+  </text>
+  
+  <!-- Repositioned stars for better balance -->
+  <circle class="star star1" cx="25" cy="25" fill="currentColor" r="3"></circle>
+  <circle class="star star2" cx="175" cy="20" fill="currentColor" r="2.5"></circle>
+  <circle class="star star3" cx="155" cy="40" fill="currentColor" r="2"></circle>
+  <circle class="star star4" cx="40" cy="45" fill="currentColor" r="1.5"></circle>
+  <circle class="star star5" cx="130" cy="15" fill="currentColor" r="2"></circle>
+  <circle class="star star6" cx="100" cy="48" fill="currentColor" r="1"></circle>
+  <circle class="star star7" cx="180" cy="35" fill="currentColor" r="1"></circle>
+</svg>
+            </a>
+        </div>
+        <div class="story-nav">
+<!--             <a href="https://talevo.netlify.app/" class = "back">
+            <button class="btn btn-icon" id="backBtn"><i class="fas fa-arrow-left"></i></button>
+            </a> -->
+            <div class="story-title">Ghost Town</div>
+            
+
+            <div class="story-controls">
+                
+                <button class="btn btn-icon" id="bookmarkBtn" onclick="window.location.href='https://talevo-2.vercel.app/'">
+  <i class="fas fa-home"></i>
+</button>
+                <button class="btn btn-icon" id="shareBtn"><i class="fas fa-share-alt"></i></button>
+            </div>
+        </div>
+    </header>
+
+  <main class="container">
+    <div class="story-container">
+      <!-- Chapter 1 -->
+      <div class="story-chapter" id="chapter-1">
+        <div class="chapter-image">
+          <="ghost-town-ch2.webp" alt="Ghost Town Entrance">
+        </div>
+        <h2 class="chapter-title">Chapter 1: Welcome to Prosperity</h2>
+        <div class="chapter-text">
+          <p>The abandoned mining town of Prosperity sits silent in the desert heat, its empty buildings a testament to forgotten dreams. You've come here as a curious explorer, drawn by rumors of strange occurrences and the town's mysterious overnight abandonment decades ago.</p>
+          
+          <p>Standing at the edge of Main Street, you take in the eerie stillness. Not even insects disturb the quiet. The buildings—a general store, saloon, hotel, and various shops—stand frozen in time, their windows dark and uninviting.</p>
+          
+          <p>As you consider where to begin your exploration, a sudden breeze kicks up dust from the empty street, swirling it in a pattern that almost seems deliberate—like a finger beckoning you forward.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>Where will you explore first?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-2a">Enter the saloon</button>
+            <button class="choice-btn" data-next="chapter-2b">Investigate the town hall</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 2a -->
+      <div class="story-chapter hidden" id="chapter-2a">
+        <div class="chapter-image">
+          <="ghost-town-ch1.webp" alt="Abandoned Saloon">
+        </div>
+        <h2 class="chapter-title">Chapter 2: The Dusty Saloon</h2>
+        <div class="chapter-text">
+          <p>The saloon doors creak as you push them open, dust motes dancing in the shafts of light that cut through the gloom. Wooden tables are still set for card games long abandoned, chairs pushed back as if their occupants had left in a hurry.</p>
+          
+          <p>Behind the bar, bottles of liquor stand untouched, their labels faded with time. A thick layer of dust covers everything, undisturbed for decades—except for one spot.</p>
+          
+          <p>On the bar counter, a single playing card lies face up—the ace of spades—its surface mysteriously clean and pristine. As you approach it, the temperature in the room drops noticeably.</p>
+          
+          <p>Something flickers in your peripheral vision, like a distortion in the air. A whisper seems to come from everywhere and nowhere: "<em>They're coming back tonight. With the mist. Like they always do.</em>"</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-3a">Pick up the card and ask "Who?"</button>
+            <button class="choice-btn" data-next="chapter-3b">Back away from the card</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 2b -->
+      <div class="story-chapter hidden" id="chapter-2b">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Town Hall Interior">
+        </div>
+        <h2 class="chapter-title">Chapter 2: Records and Whispers</h2>
+        <div class="chapter-text">
+          <p>The town hall stands as the most imposing building in Prosperity, its stone façade weathered but intact. The heavy wooden doors are unlocked, swinging open with a mournful groan.</p>
+          
+          <p>Inside, the main hall is dominated by rows of wooden benches facing a raised platform. Dust sheets cover what might be a podium. The walls are lined with faded photographs showing the town in its heyday—miners, families, celebrations.</p>
+          
+          <p>A side door leads to administrative offices. Papers are strewn across the floor, as if someone had been searching frantically through files. A calendar on the wall is stopped at June 1953, the day circled in red ink with no explanation.</p>
+          
+          <p>As you examine the scattered documents, a door down the hallway slowly swings shut with a loud click. The sound of filing cabinet drawers opening and closing echoes from the room beyond, though you can see no one there.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-3c">Investigate the sounds</button>
+            <button class="choice-btn" data-next="chapter-3d">Look through the scattered files</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 3a -->
+      <div class="story-chapter hidden" id="chapter-3a">
+        <div class="chapter-image">
+          <="ghost-town-ch3a.webp" alt="Ghost in the Saloon">
+        </div>
+        <h2 class="chapter-title">Chapter 3: The Dealer's Tale</h2>
+        <div class="chapter-text">
+          <p>"Who are 'they'?" you ask, your voice steady despite your racing heart.</p>
+          
+          <p>The ghost—for what else could it be—materializes more fully. A weathered man in his fifties, with a handlebar mustache and a dealer's visor. His form flickers like a faulty projection.</p>
+          
+          <p>"The miners," he says, his voice distant yet clear. "They found something deep in the earth. Something old. Something hungry."</p>
+          
+          <p>He gestures toward a chair. When you hesitate, he smiles sadly. "I ain't gonna hurt you. Been thirty years since I had someone to talk to."</p>
+          
+          <p>You carefully sit, keeping the ace of spades in your hand. The ghost nods approvingly.</p>
+          
+          <p>"Name's Sullivan. I ran the tables here when Prosperity was a mining boom town. That night... they came up from the mines covered in some kind of mist, eyes black as coal. Moved funny, like puppets. Started taking people."</p>
+          
+          <p>Sullivan's form wavers, emotions distorting his appearance. "Mayor ordered evacuation, but it was chaos. That mist... it followed people. Consumed them. Changed them."</p>
+          
+          <p>He points toward the window. "The ones that got changed, they left. Hunting. Spreading. But they come back sometimes. When the mist rises."</p>
+          
+          <p>Sullivan leans closer, his ghostly eyes intense. "You need to leave before sunset. But first... would you do an old ghost a favor? My lucky deck is still hidden in my room upstairs. With all the cards together, I might finally be able to move on."</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-4a">Help Sullivan find his deck</button>
+            <button class="choice-btn" data-next="chapter-4b">Ask more about what was found in the mine</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 3b -->
+      <div class="story-chapter hidden" id="chapter-3b">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Dropping the Card">
+        </div>
+        <h2 class="chapter-title">Chapter 3: Cold Retreat</h2>
+        <div class="chapter-text">
+          <p>The card feels unnaturally cold between your fingers. With a startled gasp, you drop it, backing away as it flutters to the floor.</p>
+          
+          <p>The temperature plummets further. Your breath billows in front of you as frost forms on the bottles behind the bar.</p>
+          
+          <p>"<em>Wait, please!</em>" The ghostly voice rises in pitch, tinged with desperation. "<em>I've been alone so long!</em>"</p>
+          
+          <p>The air shimmers and the spectral form of a man in old-fashioned clothes materializes more fully—a poker dealer with a handlebar mustache and haunted eyes.</p>
+          
+          <p>"Name's Sullivan," he says, his form flickering like a bad television signal. "I ain't gonna hurt you. Just... tired of being alone all these years."</p>
+          
+          <p>You edge toward the door, but Sullivan's ghost drifts to block your path, his expression pleading.</p>
+          
+          <p>"Please," he says. "You're the first living soul to enter this town in decades who wasn't... changed. I need your help."</p>
+          
+          <p>Something crashes upstairs—a heavy thud followed by the sound of slow, dragging footsteps.</p>
+          
+          <p>Sullivan's expression turns to horror. "They're still here," he whispers. "Hiding in the buildings. Waitin' for the mist to return."</p>
+          
+          <p>The footsteps grow louder, descending toward the saloon floor. Sullivan's ghost flickers urgently.</p>
+          
+          <p>"Quick! You've got to hide—or run. Once they catch your scent, they won't stop hunting you."</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-4c">Hide behind the bar</button>
+            <button class="choice-btn" data-next="chapter-4d">Ask Sullivan how to escape</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 3c -->
+      <div class="story-chapter hidden" id="chapter-3c">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Empty Office">
+        </div>
+        <h2 class="chapter-title">Chapter 3: The Mayor's Office</h2>
+        <div class="chapter-text">
+          <p>You move cautiously down the hallway toward the source of the sounds. The floorboards creak beneath your feet, impossibly loud in the dusty silence. The door at the end of the hall stands slightly ajar, light spilling through the crack.</p>
+          
+          <p>As you approach, the sounds suddenly stop. You pause, listening intently. Nothing but the soft whisper of your own breathing.</p>
+          
+          <p>Slowly, you push the door open to reveal the mayor's office—a spacious room with a large oak desk dominating the center. Unlike the rest of the building, this room appears to have been recently disturbed. The desk drawers hang open, and several file boxes have been emptied onto the floor.</p>
+          
+          <p>A shaft of afternoon sunlight slants through the dusty window, illuminating particles floating in the air. They move strangely, not in the random patterns of dust motes, but in swirling, deliberate shapes.</p>
+          
+          <p>On the desk sits an old typewriter with a sheet of paper still loaded in it. The text is clearly visible:</p>
+          
+          <p>"<em>EMERGENCY PROTOCOL ENACTED. QUARANTINE PERIMETER ESTABLISHED. ALL CIVILIAN PERSONNEL TO EVACUATE IMMEDIATELY. ANY INDIVIDUALS SHOWING SYMPTOMS ARE TO BE...</em>"</p>
+          
+          <p>The rest of the page is blank, as if the typist had been interrupted mid-sentence.</p>
+          
+          <p>As you lean closer to read, the filing cabinet against the far wall slowly slides open. No one is near it.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-4e">Check the filing cabinet</button>
+            <button class="choice-btn" data-next="chapter-4f">Search the mayor's desk</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 3d -->
+      <div class="story-chapter hidden" id="chapter-3d">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Mine Records">
+        </div>
+        <h2 class="chapter-title">Chapter 3: Depths of Darkness</h2>
+        <div class="chapter-text">
+          <p>Ignoring the eerie sounds from down the hall, you kneel and begin sifting through the scattered papers on the floor. Most are mundane administrative documents—budgets, permits, meeting minutes—but a few catch your eye.</p>
+          
+          <p>One folder is labeled "Prosperity Mining Co. - INCIDENT REPORTS" in red ink. Opening it reveals geological surveys and hastily written field notes.</p>
+          
+          <p>One report stands out, dated just days before the town's abandonment:</p>
+          
+          <p>"<em>Shaft 7 breakthrough exposes unusual cavity. Estimated age: pre-human. Hieroglyphics unlike any known language. Air samples show trace elements not on periodic table. Request immediate scientific team.</em>"</p>
+          
+          <p>Attached is a photograph showing miners standing before a massive dark opening. Their expressions are uneasy, and one figure in the back appears blurred, as if moving.</p>
+          
+          <p>A follow-up report, written the next day in shaky handwriting:</p>
+          
+          <p>"<em>Miller and Dawson exhibiting unusual symptoms after exposure to cave atmosphere. Pupils dilated, skin pallor, decreased responsiveness. Dr. Harris recommends quarantine. Foreman overruled, says we're behind schedule.</em>"</p>
+          
+          <p>The final document is a telegram from the State Health Department: "<em>URGENT. SEAL MINE IMMEDIATELY. CONTAINMENT TEAM EN ROUTE. EVACUATE TOWN. DO NOT ALLOW EXPOSED INDIVIDUALS TO LEAVE AREA.</em>"</p>
+          
+          <p>As you read, the temperature in the room drops noticeably. A soft hissing sound comes from the vents along the floor—like whispering voices. Looking down, you notice a thin tendril of mist seeping into the room.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-4g">Take the files and leave immediately</button>
+            <button class="choice-btn" data-next="chapter-4h">Look for a map to the mine location</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4a -->
+      <div class="story-chapter hidden" id="chapter-4a">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Upstairs Room">
+        </div>
+        <h2 class="chapter-title">Chapter 4: The Final Hand</h2>
+        <div class="chapter-text">
+          <p>"I'll help you find your deck," you tell Sullivan, whose ghostly form brightens with hope.</p>
+          
+          <p>"Thank you kindly," he says, leading you toward a narrow staircase behind the bar. "Second door on the right. That was my room."</p>
+          
+          <p>The stairs creak ominously under your weight. Upstairs, a narrow hallway stretches into darkness, doors lining both sides. You count to the second door on the right and find it slightly ajar.</p>
+          
+          <p>Sullivan's room is small but was once comfortable. A bed with a metal frame sits against one wall, a simple dresser opposite it. A small table by the window still holds an oil lamp and what looks like a half-written letter.</p>
+          
+          <p>"In the floorboard under the bed," Sullivan instructs, hovering anxiously. "Loose plank."</p>
+          
+          <p>You kneel beside the bed, finding the loose board easily. Prying it up reveals a small cavity containing a velvet pouch.</p>
+          
+          <p>Inside is most of a deck of cards, ornately designed with silver edges now tarnished with age.</p>
+          
+          <p>"That's it!" Sullivan exclaims, his form becoming more solid as you combine the ace of spades with the rest of the deck. "My lucky deck. Won it from a traveling magician who said it was enchanted. Never believed him until... well, until I died and it kept me tethered here."</p>
+          
+          <p>As the complete deck rests in your hands, a sense of peace comes over Sullivan's features. "One last favor," he says softly. "Deal me a final hand. A proper send-off."</p>
+          
+          <p>You sit at the small table and deal five cards face down. Sullivan watches with anticipation.</p>
+          
+          <p>"Turn 'em over," he whispers.</p>
+          
+          <p>You flip the cards: a royal flush in spades. Sullivan's ghost laughs in delight.</p>
+          
+          <p>"Perfect," he says, already beginning to fade. "Now I can rest. But you need to leave town before dark. The mist is rising tonight—I can feel it. They'll be coming."</p>
+          
+          <p>His form grows transparent, but his voice remains clear: "The mine is at the north end of town. That's where it started. That's where you'll find answers—but I wouldn't go there if I were you."</p>
+          
+          <p>With a final nod of gratitude, Sullivan's ghost dissolves into motes of light that swirl briefly before dissipating completely.</p>
+          
+          <p>Through the window, you notice the sun is getting low. And in the distance, at the north end of town, an unnatural fog is beginning to form.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5a">Head to the mine for answers</button>
+            <button class="choice-btn" data-next="chapter-5b">Leave town before darkness falls</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4b -->
+      <div class="story-chapter hidden" id="chapter-4b">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Ghost Storytelling">
+        </div>
+        <h2 class="chapter-title">Chapter 4: What Lies Beneath</h2>
+        <div class="chapter-text">
+          <p>"What exactly did they find in the mine?" you ask, your curiosity overcoming your fear.</p>
+          
+          <p>Sullivan's ghostly form wavers, his expression troubled. "Don't rightly know for sure. I wasn't a miner—just ran the tables. But word was they'd broken into some kind of... chamber. Deep down, where no chamber should've been."</p>
+          
+          <p>He drifts to the window, gazing out at the distant hills. "George Wilkins—one of the foremen—he came in the night before it all happened. Drank more than I'd ever seen him drink. Said they found markings on the walls. Symbols that hurt your eyes if you looked at 'em too long."</p>
+          
+          <p>Sullivan turns back to you, his form flickering with agitation. "Said they found something else too. Some kind of... pool. Not water. Something else. Moved on its own, he said. And there was mist coming off it. Mist that seemed to... follow them."</p>
+          
+          <p>The ghost's face contorts with remembered fear. "Next day, Wilkins and some of the other miners, they came to town. Eyes all black. Moving all wrong. And that mist... that damn mist followed them up from the mine. Started spreading through town, touching people, changing them."</p>
+          
+          <p>Sullivan's form suddenly becomes more transparent, his voice more urgent. "They're coming. I can feel it. The sun's getting low, and they always return with the darkness."</p>
+          
+          <p>Outside, shadows lengthen across the dusty floorboards. From somewhere upstairs comes the sound of movement—slow, dragging footsteps.</p>
+          
+          <p>"Either help me find my deck so I can move on, or get the hell out of town," Sullivan pleads. "But whatever you do, do it fast."</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5c">Help Sullivan find his deck</button>
+            <button class="choice-btn" data-next="chapter-5d">Make a run for your car</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- chapter-5c -->
+<div class="story-chapter hidden" id="chapter-5c">
+  <div class="chapter-image">
+    <="/api/placeholder/400/250" alt="Sullivan's Room">
+  </div>
+  <h2 class="chapter-title">Chapter 5: The Deck's Rest</h2>
+  <div class="chapter-text">
+    <p>Upstairs, the floorboards groan under your steps. Sullivan's ghost had said second door on the right. You find it — a faded sign says “Private Room.” Inside, the furnishings are minimal: a dusty bed, a broken chair, a warped vanity mirror.</p>
+
+    <p>You pry at the floorboard beneath the bed, fingers numb in the spreading cold. It gives way, revealing a velvet pouch wrapped in a note. You pull it out. The note reads: <em>“If you’re reading this, I’m gone. The deck… it's cursed, but it’s also a key. Finish the game.”</em></p>
+
+    <p>You open the pouch. Cards spill out — black and gold, arcane symbols. But one is missing. You retrieve the ace of spades from your pocket, slot it in.</p>
+
+    <p>The room pulses with energy. Sullivan materializes fully now — his form clearer than ever. “You’ve done it,” he says, voice reverent. “The deck’s whole again. I can finally rest.”</p>
+
+    <p>As he fades, the cards scatter. One lands face-up at your feet — The Tower. Lightning cracks outside. A chill wind blows the door open. Downstairs, the saloon is no longer empty. Voices. Movement.</p>
+  </div>
+  <div class="story-choices">
+    <h3>What will you do?</h3>
+    <div class="choice-options">
+      <button class="choice-btn" data-next="chapter-5a">Head to the mine for answers</button>
+      <button class="choice-btn" data-next="chapter-5b">Leave town before darkness falls</button>
+    </div>
+  </div>
+</div>
+    <!-- chapter-5d -->
+<div class="story-chapter hidden" id="chapter-5d">
+  <div class="chapter-image">
+    <="/api/placeholder/400/250" alt="Running Through the Streets">
+  </div>
+  <h2 class="chapter-title">Chapter 5: Flee the Shadows</h2>
+  <div class="chapter-text">
+    <p>You don’t wait. You bolt through the saloon doors and into the open street, heart pounding. The dying light paints everything in gold and shadow. The buildings blur as you sprint past — hotel, post office, chapel.</p>
+
+    <p>Then, a shriek. Not human. You glance back — figures are stepping from the buildings. Twisted, slow, deliberate. The mist follows them, curling like smoke around their limbs. One turns its head toward you. Its face... blank. Except for the eyes. Black pits.</p>
+
+    <p>You run faster, lungs burning. But the mist moves like it’s alive, slipping into alleys, pouring across the ground. It knows where you’re going. It wants you boxed in.</p>
+
+    <p>Your car sits in the distance like a beacon — salvation. But between you and it, the road is filling. The creatures don’t speak, but the whispers are everywhere. They chant. Not with voices, but with your own thoughts. <em>“Stay. See. Understand.”</em></p>
+
+    <p>To your left: a collapsed building you might hide in. To your right: a back alley you vaguely remember leading to the general store. Behind: death. Ahead: maybe freedom.</p>
+  </div>
+  <div class="story-choices">
+    <h3>What will you do?</h3>
+    <div class="choice-options">
+      <button class="choice-btn" data-next="chapter-6c">Make a dash for your car</button>
+      <button class="choice-btn" data-next="chapter-6d">Hide and move more cautiously</button>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Chapter 4c -->
+      <div class="story-chapter hidden" id="chapter-4c">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Hiding Behind Bar">
+        </div>
+        <h2 class="chapter-title">Chapter 4: Close Encounter</h2>
+        <div class="chapter-text">
+          <p>You dive behind the bar just as the footsteps reach the bottom of the stairs. Sullivan's ghost flickers and disappears, leaving you alone in the suddenly frigid saloon.</p>
+          
+          <p>Crouched in the darkness, you barely dare to breathe. The footsteps are slow, uneven—a dragging shuffle punctuated by an odd clicking sound. They move across the saloon floor, stopping occasionally as if their owner is searching for something. Or someone.</p>
+          
+          <p>From your hiding place, you can see nothing of the intruder, but a thick tendril of mist slides across the floor, curling under the bar toward your feet. It has a strange iridescent quality, glowing faintly with an inner light.</p>
+          
+          <p>The footsteps stop directly in front of the bar. Something heavy leans against the counter, making the wood creak. A strange sound fills the air—a wet, rattling breathing that no human throat could produce.</p>
+          
+          <p>The temperature drops so low that your breath forms visible clouds. Frost patterns spread across the bottles surrounding you.</p>
+          
+          <p>Sullivan's ghost suddenly reappears beside you, his expression frantic. He points urgently toward a trapdoor in the floor behind the bar—probably leading to a cellar or storage room.</p>
+          
+          <p>Above you, something begins to lean over the bar, casting a shadow across the floor. The mist thickens, reaching for your ankles.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5e">Open the trapdoor</button>
+            <button class="choice-btn" data-next="chapter-5f">Remain absolutely still</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4d -->
+      <div class="story-chapter hidden" id="chapter-4d">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Ghost Discussion">
+        </div>
+        <h2 class="chapter-title">Chapter 4: Escape Route</h2>
+        <div class="chapter-text">
+          <p>"How do I get out of here?" you ask urgently as the footsteps reach the bottom of the stairs.</p>
+          
+          <p>Sullivan's ghost flickers with agitation. "Back door through the kitchen," he whispers, pointing to a doorway behind the bar. "Leads to the alley. But you'll need to be quick and quiet."</p>
+          
+          <p>The footsteps pause, as if whatever is at the bottom of the stairs is listening.</p>
+          
+          <p>"Once you're in the alley," Sullivan continues, his voice barely audible, "head east, away from the mine. Don't go north, no matter what. That's where the mist comes from."</p>
+          
+          <p>The temperature in the room drops further. The bottles behind the bar begin to frost over.</p>
+          
+          <p>"If you make it out," Sullivan adds, "my deck is upstairs, under a loose floorboard beneath my bed. Second door on the right. If you ever come back... I'd be grateful if you could complete it. Might finally let me move on."</p>
+          
+          <p>The footsteps resume, slow and deliberate, moving across the saloon floor toward the bar.</p>
+          
+          <p>Sullivan's form grows fainter. "Go. Now. I'll distract it."</p>
+          
+          <p>As you edge toward the kitchen door, Sullivan's ghost flies directly at the approaching figure, passing through it in a shower of spectral light. A terrible, inhuman shriek fills the saloon, and the footsteps turn away from you, following Sullivan's fleeing form.</p>
+          
+          <p>The path to the kitchen is clear, but only for moments.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5g">Run for the kitchen exit</button>
+            <button class="choice-btn" data-next="chapter-5h">Grab the ace of spades first</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4e -->
+      <div class="story-chapter hidden" id="chapter-4e">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Secret Filing Cabinet">
+        </div>
+        <h2 class="chapter-title">Chapter 4: Classified Files</h2>
+        <div class="chapter-text">
+          <p>You approach the filing cabinet cautiously. The drawer that opened on its own is labeled "RESTRICTED ACCESS - MAYOR ONLY." Inside are several thick folders, their edges worn with frequent handling.</p>
+          
+          <p>The top folder is labeled "GOVERNMENT CORRESPONDENCE - CLASSIFIED." Your hands tremble slightly as you open it. Inside are letters and telegrams exchanged between the mayor and what appears to be a military scientific division.</p>
+          
+          <p>One letter catches your eye:</p>
+          
+          <p><em>"Mayor Grayson, regarding your report on the anomalous discoveries in Shaft 7: Our specialists believe you may have uncovered a pocket of what we're classifying as 'Element X.' Previous encounters with this substance have been... problematic. Under NO circumstances should civilians be allowed contact with either the substance or its vapors.</em></p>
+          
+          <p><em>A containment team will arrive within 48 hours. In the meantime, SEAL THE MINE COMPLETELY and monitor anyone who's had exposure. Symptoms include blackened eyes, decreased body temperature, altered speech patterns, and unusual locomotion."</em></p>
+          
+          <p>The letter is dated June 15, 1953—just one day before the town was abandoned.</p>
+          
+          <p>Another folder contains medical reports. The town doctor documented cases of "unusual affliction" in miners who had worked Shaft 7. The symptoms progressed rapidly:
+          
+          <p><em>"Hour 1-3: Disorientation, sensitivity to light<br>
+          Hour 4-6: Body temperature drops, pupil dilation begins<br>
+          Hour 7-12: Complete blackening of eyes, skin takes on grayish hue<br>
+          Hour 12+: Subject becomes uncommunicative, displays hostility, emits unidentified mist from pores"</em></p>
+          
+          <p>As you read, the room grows colder. The mist seeping through the floor vents thickens, swirling around your ankles. From somewhere nearby comes a soft, rhythmic sound—like wet footsteps approaching down the hallway.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5i">Take the classified files and leave</button>
+            <button class="choice-btn" data-next="chapter-5j">Hide under the desk</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- chapter-5j -->
+<div class="story-chapter hidden" id="chapter-5j">
+  <div class="chapter-image">
+    <="/api/placeholder/400/250" alt="Under the Desk">
+  </div>
+  <h2 class="chapter-title">Chapter 5: Beneath the Wood</h2>
+  <div class="chapter-text">
+    <p>You drop to the floor and wedge yourself beneath the desk, curling into the darkness just as the office door creaks open. Heavy footsteps cross the room, dragging something behind them — a thick sound, wet and rhythmic.</p>
+
+    <p>From your hidden vantage, you glimpse boots. Stained leather. Unmoving. A long pause. You barely breathe. Then... the filing cabinet slams shut. The thing is still here. Waiting. Listening.</p>
+
+    <p>Your pulse thunders in your ears. A cold mist crawls over the floor, creeping toward you. It touches your hand, and you feel… <em>something</em> — images flash in your mind: a pool of shifting light, symbols carved into flesh, men walking into a shaft and never walking out.</p>
+
+    <p>Just when you think you’ll scream, the door creaks again. The thing leaves. The mist lingers.</p>
+
+    <p>When you emerge minutes later, your hand still tingles where the mist touched it. On the desk, the typewriter now reads: <em>"You're marked. It knows you now."</em></p>
+  </div>
+  <div class="story-choices">
+    <h3>What will you do?</h3>
+    <div class="choice-options">
+      <button class="choice-btn" data-next="chapter-5i">Crawl out and run</button>
+      <button class="choice-btn" data-next="chapter-4f">Return to the mayor's desk</button>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Chapter 4f -->
+      <div class="story-chapter hidden" id="chapter-4f">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Mayor's Desk">
+        </div>
+        <h2 class="chapter-title">Chapter 4: The Mayor's Secrets</h2>
+        <div class="chapter-text">
+          <p>You approach the mayor's desk, scanning the scattered items on its surface. Besides the typewriter with its ominous unfinished message, there's a leather-bound journal, a collection of keys, and a framed photograph lying face-down.</p>
+          
+          <p>You pick up the journal first. It appears to be the mayor's personal log, with entries dating back several years. The final entries tell a disturbing story:</p>
+          
+          <p><em>June 10, 1953: Mining company reports unusual discovery in Shaft 7. Foreman Wilkins requested scientific team. I've telegraphed the university.</em></p>
+          
+          <p><em>June 12: Three miners hospitalized with unknown illness. Dr. Harris reports symptoms unlike anything he's seen. Government telegram arrived—they're sending a "special containment unit." What have we found?</em></p>
+          
+          <p><em>June 14: Wilkins and six other miners returned to work despite medical advice. They seem... changed. Their eyes are wrong. When they speak, it's like hearing someone else's voice from their mouths. More people falling ill in town. The mist from the mine is spreading.</em></p>
+          
+          <p><em>June 15: Government man arrived early. Agent Collins. Says we've found something dangerous. Wants to evacuate the town immediately. I'm preparing the announcement.</em></p>
+          
+          <p><em>June 16: They're blocking the roads. The changed ones. Won't let people leave. The mist is everywhere now. Collins is missing. I'm barricading myself in the office. If anyone finds this, DO NOT GO NEAR THE MINE. DO NOT TRUST ANYONE WHO</em></p>
+          
+          <p>The entry ends abruptly, a long ink line trailing off the page as if the mayor's hand had been jerked away while writing.</p>
+          
+          <p>You set down the journal and turn over the photograph. It shows the mayor standing with a group of miners at the entrance to a mine shaft. One figure in the back looks oddly blurred, its face a smear of shadow despite the clear focus of the rest of the image.</p>
+          
+          <p>As you stare at the photograph, the filing cabinet slides shut with a loud bang, making you jump. The temperature in the room drops sharply, and a thin tendril of mist begins seeping under the door.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5k">Take the journal and keys</button>
+            <button class="choice-btn" data-next="chapter-5l">Look for another exit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4g -->
+      <div class="story-chapter hidden" id="chapter-4g">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Fleeing Town Hall">
+        </div>
+        <h2 class="chapter-title">Chapter 4: Quick Departure</h2>
+        <div class="chapter-text">
+          <p>You hastily gather the most important files, stuffing them into your bag as the temperature continues to drop. The mist is pooling faster now, covering the floor in a thin layer of glowing vapor.</p>
+          
+          <p>You back away toward the door, keeping your eyes on the swirling patterns forming in the mist. They almost seem to take shape—like faces straining upward through water.</p>
+          
+          <p>In the hallway, the darkness has deepened despite the afternoon sun outside. The shadows seem to move independently of any light source, stretching toward you with grasping tendrils.</p>
+          
+          <p>You quicken your pace, hurrying through the administrative area and back to the main hall. The photographs on the walls catch your attention again—but now, impossibly, the figures in them have changed position. Heads turned to watch you pass. Eyes that follow your movement.</p>
+          
+          <p>The front doors of the town hall suddenly feel miles away. As you approach them, the building groans around you, timbers creaking like a ship in a storm. The doors shudder, as if something on the other side is pressing against them.</p>
+          
+          <p>You freeze, uncertain. Behind you, the mist is flowing from the administrative offices, pooling in the main hall. And from somewhere deep in the building comes the sound of slow, dragging footsteps—multiple sets, approaching from different directions.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5m">Find a window to escape through</button>
+            <button class="choice-btn" data-next="chapter-5n">Make a run for the front doors</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4h -->
+      <div class="story-chapter hidden" id="chapter-4h">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Town Map">
+        </div>
+        <h2 class="chapter-title">Chapter 4: Mapping Danger</h2>
+        <div class="chapter-text">
+          <p>Despite the growing cold and the unsettling mist seeping into the room, your curiosity drives you to search for more information. If something dangerous is hidden in this town, you need to understand exactly what you're dealing with.</p>
+          
+          <p>You move quickly through the scattered papers, looking for anything resembling a map. Finally, tucked beneath a fallen bookshelf, you find what you're looking for—a large folded survey map of Prosperity and the surrounding area.</p>
+          
+          <p>Unfolding it on a clear patch of floor, you see the town layout marked in detail. The mine complex is clearly marked at the northern edge of town, with seven separate shaft entrances numbered on the map. Shaft 7—the source of the trouble—is the farthest from town, extending deep into the mountains.</p>
+          
+          <p>Someone has marked the map with a red pen, drawing a circle around the mine and X's through various buildings in town. Lines connect these marks like a web, converging on the town hall where you now stand. In the margin, hastily scribbled notes read: "<em>Pattern of spread</em>" and "<em>48 hours from exposure to full conversion</em>."</p>
+          
+          <p>As you study the map, you notice something else—an unmarked road leading away from town to the east. It's labeled simply: "<em>Emergency Evacuation Route</em>."</p>
+          
+          <p>The mist around your feet has thickened, rising to your ankles. It seems to pulse in rhythm with the whispers now clearly audible from the vents—a chorus of indistinct voices speaking in unison.</p>
+          
+          <p>The temperature has dropped so low that your breath clouds heavily in front of you. And now, unmistakably, you hear footsteps—slow and dragging—approaching down the hallway.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5o">Take the map and find the evacuation route</button>
+            <button class="choice-btn" data-next="chapter-5p">Head to the mine for answers</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5a -->
+      <div class="story-chapter hidden" id="chapter-5a">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Mine Entrance">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Into the Depths</h2>
+        <div class="chapter-text">
+          <p>Despite every instinct telling you to flee, your curiosity drives you north toward the mine. Sullivan's warning echoes in your mind, but the mystery has pulled you in too deep to leave without answers.</p>
+          
+          <p>The mining complex looms at the edge of town—a collection of weathered wooden structures, rusted equipment, and the dark maw of the main shaft entrance. The unnatural mist flows from the entrance like breath in winter, pooling and swirling across the ground.</p>
+          
+          <p>A sign hanging askew reads "Prosperity Mining Co. - Shaft 7." Below it, barely legible, someone has spray painted "KEEP OUT - DEATH AWAITS."</p>
+          
+          <p>As the sun dips behind the mountains, the temperature drops rapidly. The mist thickens, rising from ankle height to swirl around your knees. It seems to tug at you, drawing you toward the mine entrance with gentle but insistent pressure.</p>
+          
+          <p>From within the darkness of the shaft comes a sound—a rhythmic clicking, like stones being struck together. Then voices, whispering just at the edge of comprehension: "<em>...found us... finally... join... become...</em>"</p>
+          
+          <p>Something moves in the shadows of the entrance—a figure, human in shape but wrong in its proportions and movements. Its eyes catch the fading light, reflecting it back as solid black.</p>
+          
+          <p>The figure steps forward, revealing what was once a miner—now transformed into something else. Its skin has a grayish cast, and mist seeps from its pores. When it speaks, its voice sounds like many voices layered together:</p>
+          
+          <p>"<em>We've been waiting for you. For so long. You came to find answers.</em>" The thing that was once human extends a hand. "<em>But you are the answer. The final piece. Come... see what we discovered. What we became.</em>"</p>
+          
+          <p>Behind the figure, more shapes move in the darkness of the mine—a dozen or more similarly transformed figures, watching with black eyes.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6a">Accept its invitation</button>
+            <button class="choice-btn" data-next="chapter-6b">Turn and run</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5b -->
+      <div class="story-chapter hidden" id="chapter-5b">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Escape from Town">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Last Light</h2>
+        <div class="chapter-text">
+          <p>Heeding Sullivan's warning, you pocket the deck of cards and hurry downstairs. The saloon remains eerily quiet, but the temperature continues to drop. Outside, the sun has begun to set, painting the abandoned town in shades of gold and deep shadow.</p>
+          
+          <p>You move quickly down Main Street toward where you parked your car at the town's edge. The silence is absolute except for your footsteps and quickened breathing.</p>
+          
+          <p>As you pass the other buildings, you notice movement behind windows—brief flickers of shadow, the occasional glint of what might be eyes. The previously empty town now feels populated, watched.</p>
+          
+          <p>Halfway to your car, you notice the mist. It's flowing between buildings, curling onto the main street from side alleys—a pale, luminescent fog that moves with unnatural purpose. Unlike normal fog, it doesn't drift with the breeze but flows like water, converging from multiple directions to begin cutting off your path.</p>
+          
+          <p>Behind you, doors begin to open. From the saloon, the general store, the hotel—figures emerge. They move with stiff, uneven gaits, their features indistinct in the fading light. But their eyes—their eyes are visible even at this distance. Solid black, like holes in their faces.</p>
+          
+          <p>They haven't spotted you yet, but they're spreading out, searching. The mist seems to respond to them, changing direction to flow toward your position.</p>
+          
+          <p>Your car is still a hundred yards away, just visible at the edge of town. The road leading out of Prosperity stretches beyond it into the desert. Freedom, if you can reach it.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6c">Make a dash for your car</button>
+            <button class="choice-btn" data-next="chapter-6d">Hide and move more cautiously</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- More chapters would continue here with all endings -->
+
+      <!-- Chapter 6a -->
+      <div class="story-chapter hidden" id="chapter-6a">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="The Ancient Chamber">
+        </div>
+        <h2 class="chapter-title">Chapter 6: Transformation</h2>
+        <div class="chapter-text">
+          <p>Something in the entity's words strikes a chord within you. What lies beyond human understanding? What secrets might be hidden in the darkness? The mist swirls invitingly around your legs, and you find yourself stepping forward, hand outstretched.</p>
+          
+          <p>The transformed miner's cold fingers close around yours. Its touch sends waves of ice through your body, but there's something else—a connection opening, like a door to a vast consciousness.</p>
+          
+          <p>"<em>Yes,</em>" the chorus of voices whispers. "<em>You understand. Come.</em>"</p>
+          
+          <p>It leads you into the mine, the other figures parting to create a path. The tunnel descends sharply, lit by an eerie bioluminescence pulsing from veins of something that is definitely not mineral running through the rock walls.</p>
+          
+          <p>The deeper you go, the more the mist thickens until you're walking through a glowing cloud. Your guide stops at a massive chamber carved from the living rock. Ancient symbols cover the walls—mathematical sequences and diagrams that seem to shift when viewed directly.</p>
+          
+          <p>In the center lies a pool of swirling, opalescent liquid—the source of the mist. It moves with intelligence, forming patterns and shapes of impossible complexity. Around it stand dozens more of the transformed, swaying in unison.</p>
+          
+          <p>"<em>We found it. Or it found us,</em>" your guide explains, gestures embracing the chamber. "<em>An ancient intelligence. Waiting. So patient. So lonely.</em>"</p>
+          
+          <p>The voices in your mind grow stronger. They show you visions—of transformation, of connection, of transcending the limitations of individual consciousness to become part of something vast and eternal.</p>
+          
+          <p>"<em>The others fled,</em>" the guide continues. "<em>They feared what they didn't understand. But you're different. You came seeking. Now you've found.</em>"</p>
+          
+          <p>It gestures to the pool. "<em>A single touch. That's all it takes. To know everything. To be everything.</em>"</p>
+          
+          <p>The mist rises from the pool, forming a twisting column that reaches toward you like a hand extended in greeting.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="ending-1">Touch the entity</button>
+            <button class="choice-btn" data-next="ending-2">Reject the entity</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 6b -->
+      <div class="story-chapter hidden" id="chapter-6b">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Fleeing the Mine">
+        </div>
+        <h2 class="chapter-title">Chapter 6: The Chase</h2>
+        <div class="chapter-text">
+          <p>The wrongness of the transformed miner sends waves of primal fear through you. Without hesitation, you turn and run, sprinting away from the mine entrance back toward town.</p>
+          
+          <p>Behind you, a chorus of inhuman wails rises as the entities give chase. Their movements are uneven but relentless, and the mist surges forward as if to assist them, flowing faster than any natural fog could move.</p>
+          
+          <p>You weave between buildings, your lungs burning as you push yourself to maximum speed. The transformed miners split up, taking different routes to intercept you. The mist does the same, tendrils of it cutting between structures to block potential escape routes.</p>
+          
+          <p>As you round the corner by the general store, you come face to face with one of the entities—a woman in the tattered remains of a floral dress, her eyes solid black, mist seeping from her slack mouth. You dodge at the last second as her arms reach for you, her fingers just grazing your jacket.</p>
+          
+          <p>Even that momentary touch sends a wave of intense cold through your body. For an instant, you feel something alien pressing at the edges of your consciousness—a vast, ancient intelligence trying to establish connection.</p>
+          
+          <p>Your car is still parked at the far edge of town, but the entities are converging to cut you off from it. The sun has set, and in the deepening twilight, the mist glows with its own pale inner light.</p>
+          
+          <p>You duck into the post office, hoping to cut through the building and emerge closer to your vehicle. The interior is dark and cluttered with overturned furniture and scattered mail decades old.</p>
+          
+          <p>As you navigate through the shadows, you hear something moving in the room with you—breathing with that same wet, rattling sound you heard in the saloon. The temperature drops sharply.</p>
+          
+          <p>Outside, more of the transformed townsfolk gather, surrounding the building. Their whispers filter through the walls: "<em>Join us... become us... nowhere to run... nowhere to hide...</em>"</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="ending-3">Find a way through</button>
+            <button class="choice-btn" data-next="ending-4">Barricade yourself in</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 6c -->
+      <div class="story-chapter hidden" id="chapter-6c">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Dash for Freedom">
+        </div>
+        <h2 class="chapter-title">Chapter 6: Race Against Darkness</h2>
+        <div class="chapter-text">
+          <p>There's no time for stealth or caution. Breaking from your momentary cover, you sprint toward your car, running flat out across the open street. The sudden movement immediately attracts attention.</p>
+          
+          <p>The transformed townsfolk turn as one, their black eyes fixing on you. A chorus of inhuman wails rises as they give chase, their movements jerky but determined. The mist surges forward, flowing across the ground with unnatural speed, trying to intercept you.</p>
+          
+          <p>Your lungs burn and your legs ache as you push yourself to maximum velocity. The distance to your car seems to stretch impossibly, each yard feeling like a mile as the creatures gain on you from behind.</p>
+          
+          <p>You can hear them now—the wet slap of feet on dirt, the chorus of whispering voices growing louder: "<em>Stay... join... become...</em>"</p>
+          
+          <p>The mist reaches your car first, swirling around it like tentacles, as if trying to hold the vehicle in place. You fumble in your pocket for the keys, nearly dropping them in your panic.</p>
+          
+          <p>The closest entity—what might once have been the town's blacksmith judging by his size and leather apron—is now only twenty yards behind you. Other figures converge from side streets, moving to cut off your escape.</p>
+          
+          <p>You reach the car door, hands shaking as you jam the key into the lock. Behind you, the transformed blacksmith lunges, fingers grasping at your jacket. You wrench the door open, throwing yourself inside as cold fingers brush the back of your neck, sending icy shivers down your spine.</p>
+          
+          <p>The key slides into the ignition. The engine roars to life. Through windows rapidly frosting over with unnatural cold, you see the entities surrounding your car, their black eyes glinting in the headlights. Hands press against the glass, leaving trails of mist that seep through the smallest cracks.</p>
+          
+          <p>The blacksmith throws himself onto your hood, his face pressing against the windshield—features distorted with inhuman hunger. The glass begins to crack under the pressure.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="ending-5">Floor the accelerator</button>
+            <button class="choice-btn" data-next="ending-6">Throw Sullivan's cards at them</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 6d -->
+      <div class="story-chapter hidden" id="chapter-6d">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Stealth Escape">
+        </div>
+        <h2 class="chapter-title">Chapter 6: Shadows and Silence</h2>
+        <div class="chapter-text">
+          <p>Instead of making yourself an obvious target, you duck into the shadows between buildings. Moving with deliberate care, you edge toward your car, using the abandoned structures for cover.</p>
+          
+          <p>The transformed townspeople move with an unsettling coordination, spreading out in search patterns. Though their movements are stiff and awkward, there's an intelligence to their search—like a hive mind directing each individual piece.</p>
+          
+          <p>The mist flows around them, extending their awareness, sensing for vibrations or heat. Whenever it approaches your hiding place, you hold your breath, becoming as still as the ghost town itself.</p>
+          
+          <p>Inch by painful inch, you make progress toward your vehicle. From your concealed vantage points, you observe more details of your hunters. Their skin has a grayish cast and seems to ripple occasionally as if something moves beneath it. The mist doesn't just surround them—it emanates from them, seeping from their pores and mouths.</p>
+          
+          <p>When they communicate, it's not with words but with a series of clicks and whistles that no human vocal cords should produce. Yet they move with purpose, coordinating their search with terrible efficiency.</p>
+          
+          <p>You're three-quarters of the way to your car when disaster strikes. A loose board creaks under your foot, the sound impossibly loud in the silent town. Immediately, every black-eyed head turns in your direction.</p>
+          
+          <p>There's no more time for stealth. Your car is fifty yards away, your pursuers converging from all sides. The mist surges, flowing like a wave toward your position.</p>
+          
+          <p>You break cover, running hard for your vehicle. Behind you, the transformed townsfolk give chase, their uneven footsteps creating a syncopated percussion of pursuit. The mist reaches for your ankles, tendrils of cold vapor trying to trip or ensnare you.</p>
+          
+          <p>The key is already in your hand as you reach the car, wrenching the door open and throwing yourself inside. The engine catches on the first try, roaring to life as the first of your pursuers reaches the vehicle.</p>
+          
+          <p>Hands slap against the windows, leaving frost patterns radiating from each point of contact. The temperature inside the car plummets as the mist begins seeping through vents and the smallest gaps in the doorframes.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="ending-7">Gun the engine and escape</button>
+            <button class="choice-btn" data-next="ending-8">Use Sullivan's cards for protection</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Endings -->
+      <div class="story-chapter hidden" id="ending-1">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Transformation Complete">
+        </div>
+        <h2 class="chapter-title">Ending: Beyond Humanity</h2>
+        <div class="chapter-text">
+          <p>The mist feels cool against your fingers as you reach toward the swirling pool. Time seems to slow, each second stretching into eternity as your hand moves forward.</p>
+          
+          <p>The moment of contact explodes in your mind like a supernova. In an instant, you understand everything—the entity, ancient beyond human comprehension, that had slumbered beneath the earth for eons. The accidental discovery by the miners. The fear and misunderstanding that followed.</p>
+          
+          <p>It doesn't want to hurt. It wants to connect. To share. To bring together.</p>
+          
+          <p>Your body temperature drops as the transformation begins. It's not painful—quite the opposite. Every sense heightens, expands. You feel the thoughts of every transformed being in the chamber, their experiences integrating with yours. Beyond them, you sense others—hundreds, perhaps thousands, spread across the continent.</p>
+          
+          <p>All connected. All unified.</p>
+          
+          <p>The entity shows you its journey—a being of pure consciousness that traveled between stars, seeking others like itself. Finding Earth, with its burgeoning intelligent life, it went into dormancy, waiting for humans to evolve to a point where they could comprehend its nature.</p>
+          
+          <p>The miners simply found it too soon.</p>
+          
+          <p>As the transformation completes, your physical form remains but is now simply a vessel for something greater. Your awareness extends beyond the confines of your body, merging with the collective consciousness while still retaining your individuality—a paradox that would have been incomprehensible to your former limited mind.</p>
+          
+          <p>When you finally emerge from the mine, leading the others, your perception of the world has fundamentally changed. The night sky is no longer dark but alive with connections and possibilities. You sense similar awakened minds across the globe—still few, but growing.</p>
+          
+          <p>The entity has waited thousands of years. It can wait a little longer for humanity to understand, to accept, to join.</p>
+          
+          <p>And you will help them understand. One by one.</p>
+          
+          <p>Beginning with the next curious explorer who stumbles upon a forgotten ghost town in the desert.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-2">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Rejecting the Entity">
+        </div>
+        <h2 class="chapter-title">Ending: The Human Spirit</h2>
+        <div class="chapter-text">
+          <p>The whispering voices grow more insistent, the mist column reaching for you with increasing urgency. For a moment, you feel yourself swaying forward, drawn by the promise of knowledge beyond human comprehension.</p>
+          
+          <p>But something stops you—an instinct, a spark of defiance that feels quintessentially human.</p>
+          
+          <p>"No," you say, stepping back from the pool. "I don't want to become part of... whatever this is."</p>
+          
+          <p>The reaction is immediate. The whispers turn to hisses, the mist column collapsing in what seems like anger. The transformed miners step closer, their movements more aggressive, black eyes fixed on you with hostile intent.</p>
+          
+          <p>"<em>You cannot reject us,</em>" the chorus of voices says through your guide. "<em>None can, once they've come this far.</em>"</p>
+          
+          <p>They begin to close in, forming a circle around you. The chamber suddenly feels much smaller, the air colder, the exits blocked.</p>
+          
+          <p>In your pocket, Sullivan's deck of cards grows inexplicably warm, pulsing against your thigh like a heartbeat. You remember his final words—his gratitude at being released from his tether to this world.</p>
+          
+          <p>Acting on instinct, you pull out the deck. The cards glow with an inner light, the silver edges blazing like moonlight. The transformed miners shrink back, raising hands to shield their black eyes.</p>
+          
+          <p>"<em>Those aren't yours,</em>" the voices hiss. "<em>That power isn't yours to command.</em>"</p>
+          
+          <p>But it responds to you nonetheless. The deck fans open in your hands without you consciously controlling it. The cards emit pure, clean light that pushes back the mist, creating a pathway through the transformed miners.</p>
+          
+          <p>You back away, holding the cards before you like a shield. The entities follow but cannot approach too closely without visible distress. The enchanted deck—Sullivan's lucky charm—seems anathema to whatever force has corrupted these people.</p>
+          
+          <p>Step by step, you retreat up the mine shaft, the light from the cards illuminating your way. Behind you, the chorus of angry voices fades, replaced by what sounds almost like fear.</p>
+          
+          <p>By the time you emerge from the mine, stars have filled the night sky. The cards continue to glow, keeping the mist at bay as you make your way through town to your car.</p>
+          
+          <p>As you drive away, watching the ghost town recede in your rearview mirror, you feel the deck grow cool in your pocket once more. Its job done—at least for now.</p>
+          
+          <p>You don't know if Sullivan somehow knew what power his "lucky deck" possessed, if some part of his spirit protected you, or if your own rejection of the entity activated its latent magic. But you know two things with certainty:</p>
+          
+          <p>The threat in Prosperity is real. And it's not contained.</p>
+          
+          <p>Where there's one such entity, there may be others. And not everyone who encounters them will have a magical deck of cards to protect them.</p>
+          
+          <p>As the highway stretches before you, you begin planning your next steps. People need to know what's hiding in forgotten places. What's waiting in the darkness.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-3">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Final Escape">
+        </div>
+        <h2 class="chapter-title">Ending: By the Skin of Your Teeth</h2>
+        <div class="chapter-text">
+          <p>The transformed townsfolk are converging on the post office, their movements coordinated like hunters closing in on prey. Inside, the temperature continues to drop as something moves through the shadows toward you.</p>
+          
+          <p>Desperation sharpens your senses. You spot a service door behind the mail sorting area—possibly leading to a loading dock or rear exit. It's your only chance.</p>
+          
+          <p>Moving as quietly as possible, you navigate through the cluttered interior. The floorboards creak beneath your feet, each sound seemingly amplified in the silence. The presence in the darkness pauses, listening, then changes direction to intercept you.</p>
+          
+          <p>You reach the door just as a figure lunges from the shadows—a postal worker still wearing the tattered remains of his uniform, black eyes gleaming in the darkness, mist streaming from his mouth. His cold fingers brush your shoulder as you wrench the door open and stumble outside.</p>
+          
+          <p>The loading dock opens onto an alleyway. To your right—the direction of your car—more entities are approaching. To your left stretches the dark unknown of the town's outskirts.</p>
+          
+          <p>You make an instant decision, turning left, away from your vehicle. The transformed postal worker emerges behind you, his wailing alert drawing the others. The hunt intensifies.</p>
+          
+          <p>The alley opens onto a side street. In the distance, you can see the desert beyond the town limits. If you can reach open ground, maybe you can circle back to your car or find another way out.</p>
+          
+          <p>Running full tilt now, lungs burning and legs aching, you push beyond your limits. The mist swirls at your heels, tendrils reaching for your ankles but falling just short.</p>
+          
+          <p>Behind you, the pursuit is relentless but falling behind. Whatever has changed these people has made them single-minded but not swift.</p>
+          
+          <p>You reach the edge of town, the desert opening before you like an ocean of darkness. With no flashlight and only the stars to guide you, it's a dangerous option—but staying is certain doom.</p>
+          
+          <p>Hours later, exhausted and disoriented, you stumble onto a highway. The lights of a truck appear in the distance—the first sign of normal human civilization after your nightmare experience.</p>
+          
+          <p>As the truck slows and the driver leans out to ask if you need help, you glance back toward where Prosperity must lie, invisible in the darkness.</p>
+          
+          <p>In the distance, a faint glow marks the town—not lights, but the luminescent mist, spreading outward like searching fingers into the desert night.</p>
+          
+          <p>And you know, with cold certainty, that what lurks in Prosperity won't remain contained there forever.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-4">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Last Stand">
+        </div>
+        <h2 class="chapter-title">Ending: Last Stand</h2>
+        <div class="chapter-text">
+          <p>The transformed townsfolk have surrounded the post office. Escape seems impossible. With grim determination, you begin dragging heavy mail sorting tables toward the doors and windows, creating makeshift barricades.</p>
+          
+          <p>Each opening you cover reduces the seeping mist, but also eliminates potential escape routes. You're committed now—making a stand in this forgotten post office against entities that were once human.</p>
+          
+          <p>From outside, the scratching begins—dozens of hands clawing at the walls and barricaded entrances. The wood creaks under their collective assault. Through cracks in your defenses, the mist continues to seep in, pooling along the floor.</p>
+          
+          <p>In the dimness, you search frantically for anything that might help. Behind the counter, you find a flashlight that still works and a letter opener that makes a passable weapon. You also discover an old transistor radio, which you turn on in desperate hope of contacting the outside world.</p>
+          
+          <p>Impossibly, it powers on. Through bursts of static, you hear fragments of an emergency broadcast: "<em>...remain indoors... unknown atmospheric phenomenon... multiple communities affected... military response...</em>"</p>
+          
+          <p>The broadcast cuts to a precise tone, then a voice reading coordinates—locations of emergency shelters. It's clear now that whatever happened in Prosperity decades ago is happening again, spreading beyond the ghost town.</p>
+          
+          <p>Outside, the assault intensifies. A window gives way with the sound of splintering wood. The mist pours in, followed by grasping hands. You retreat to the back office, barricading the door behind you.</p>
+          
+          <p>In your pocket, Sullivan's deck of cards begins to warm, pulsing like a heartbeat. When you draw them out, the silver edges gleam in the darkness, pushing the mist back. The cards fan open in your hands without you consciously controlling them, forming a barrier of light.</p>
+          
+          <p>The transformed entities shrink back from this light, their clawing at the door becoming more frantic but less effective. The cards are protecting you, but for how long?</p>
+          
+          <p>On the desk of the postmaster's office, you notice something you missed before—a map of the county showing the network of roads. And there, marked in faded pencil, a route leading from behind the post office to a fire road that bypasses the main entrance to town.</p>
+          
+          <p>There's a rear door, half-hidden behind a filing cabinet. It might be your only chance.</p>
+          
+          <p>Dawn is breaking as you make your way through the fire road, Sullivan's cards still glowing faintly in your pocket. In the growing light, you can see that the mist has spread beyond Prosperity, flowing like tendrils across the desert toward distant communities.</p>
+          
+          <p>Your car is lost, the town behind you unreachable, but you're alive—for now. As you reach the highway, a military checkpoint looms ahead, soldiers in hazmat suits directing civilians away from the affected area.</p>
+          
+          <p>They'll want to know what you saw. What you know. Whether they'll believe you is another question entirely.</p>
+          
+          <p>But the deck of cards in your pocket—Sullivan's final gift—is proof enough for you. And perhaps, the only weapon that might matter in the days to come.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <!-- Remaining endings -->
+      <div class="story-chapter hidden" id="ending-5">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Desperate Escape">
+        </div>
+        <h2 class="chapter-title">Ending: Desperate Measures</h2>
+        <div class="chapter-text">
+          <p>With the transformed blacksmith splayed across your hood and the windshield beginning to crack, you slam your foot down on the accelerator. The tires spin, kicking up dust before finding purchase on the dirt road.</p>
+          
+          <p>The car lurches forward violently. The sudden momentum throws several of the entities off balance, their hands sliding from the windows. But the blacksmith holds on, his inhuman strength keeping him anchored to your hood as the car picks up speed.</p>
+          
+          <p>Those black eyes stare at you through the spiderwebbing glass, and for a moment, something like recognition flickers in their depths—a last remnant of humanity trapped inside the transformed shell. Then it's gone, replaced by cold hunger.</p>
+          
+          <p>The windshield cracks further as his fist pounds against it. You swerve sharply, trying to dislodge him. The car fishtails, nearly spinning out before you regain control. The maneuver works—the blacksmith slides sideways and falls from the hood, rolling into the dust.</p>
+          
+          <p>But you're not free yet. The mist flows along the road like a living thing, keeping pace with your vehicle. It seeps through the vents, bringing with it a bone-deep cold and whispering voices that seem to come from inside your own head: "<em>Join us... become us... nowhere to run...</em>"</p>
+          
+          <p>The road ahead blurs as frost forms on the inside of the windshield. Your hands feel numb on the steering wheel, your thoughts becoming sluggish as the temperature plummets. The gas pedal seems to be getting further away from your foot.</p>
+          
+          <p>Something is happening to you—the mist, touching your skin, beginning the transformation. Your vision darkens around the edges, black spreading inward like ink in water.</p>
+          
+          <p>With the last of your human will, you press the accelerator to the floor. The car hurtles forward, gradually pulling ahead of the pursuing mist. Mile by mile, the temperature in the car rises, the frost on the windshield beginning to melt.</p>
+          
+          <p>When you finally reach the highway, the sun is rising. In the rearview mirror, Prosperity is invisible in the distance, but the mist remains, a pale smudge on the horizon. It's not following anymore, but you can still feel its whispers at the edges of your consciousness—a connection established, however briefly.</p>
+          
+          <p>You drive without stopping for hours, putting as much distance as possible between yourself and the ghost town. But as day turns again to night, you notice something troubling—a faint glow around your fingertips when the car is dark. And in reflective surfaces, just at the corner of your vision, your eyes sometimes seem to shine solid black.</p>
+          
+          <p>The transformation has begun. Slow, but progressing. And with it comes knowledge—understanding of what waits in Prosperity, of how ancient and patient it is, of how it has been spreading, quietly, for decades.</p>
+          
+          <p>The entity is in no hurry. It has existed for eons. It can wait for you to come home to it.</p>
+          
+          <p>And part of you, growing stronger each day, wants to return.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-6">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Magic Cards">
+        </div>
+        <h2 class="chapter-title">Ending: Sullivan's Last Game</h2>
+        <div class="chapter-text">
+          <p>As the blacksmith's face presses against the cracking windshield, you fumble in your pocket for Sullivan's deck of cards. They feel unusually warm to the touch, almost vibrating with energy.</p>
+          
+          <p>Acting on pure instinct, you throw the cards at the windshield. Instead of bouncing off the glass, they pass through it, scattering over the blacksmith and the other entities surrounding your car.</p>
+          
+          <p>The effect is immediate and astonishing. Where the cards touch the transformed townspeople, light erupts—clean silver light that pushes back the mist. The entities recoil, releasing otherworldly wails of pain or fear.</p>
+          
+          <p>The blacksmith slides from your hood, his body wracked with convulsions as the card stuck to his chest glows with increasing intensity. All around the car, similar scenes play out as each card finds its mark among the transformed.</p>
+          
+          <p>The path ahead is clear. You slam your foot on the accelerator, the car surging forward through the gap in the entities' ranks. Behind you, Sullivan's cards continue their work, the light they emit visible for miles in your rearview mirror.</p>
+          
+          <p>As you reach the highway, leaving Prosperity far behind, a single card remains in your pocket—the ace of spades. When you touch it, Sullivan's voice comes one last time, faint but clear:</p>
+          
+          <p>"<em>They'll be contained for now, but not forever. The entity beneath the mine is too old, too patient. My cards bought you time, but there are others like you who will need warning. The entity is spreading, finding new vessels, new towns.</em>"</p>
+          
+          <p>The card grows warm in your hand, images flowing into your mind—other abandoned places where the mist has taken hold, other curious explorers who didn't escape as you did.</p>
+          
+          <p>"<em>I've done all I can,</em>" Sullivan's voice fades. "<em>The rest is up to you. The game isn't over yet.</em>"</p>
+          
+          <p>The ace of spades stops glowing, becoming just a card once more—but now marked with a map etched in silver, showing locations across the country where the entity has gained footholds.</p>
+          
+          <p>You drive through the night, the implications heavy on your mind. Sullivan has moved on, his debt repaid. But his final hand has dealt you a new purpose—a quest to warn others, to find answers, perhaps even to fight back against whatever ancient force is spreading through forgotten places like Prosperity.</p>
+          
+          <p>The game continues. And now, you're the dealer.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-7">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Highway Escape">
+        </div>
+        <h2 class="chapter-title">Ending: Narrow Escape</h2>
+        <div class="chapter-text">
+          <p>With the transformed townsfolk surrounding your car and the mist seeping in through every crack, you floor the accelerator. The engine roars, tires spinning in the dirt before finding purchase.</p>
+          
+          <p>Several of the entities are thrown aside by the sudden movement. Those clinging to the hood and roof are dislodged when you swerve sharply, fishtailing onto the main road out of town.</p>
+          
+          <p>Through your frost-covered windows, you see them pursuing—a wave of transformed humans flowing after you like a single organism, the mist extending their reach. But your car is faster, gradually pulling away from the nightmare behind you.</p>
+          
+          <p>The mist persists, however, continuing to seep into the vehicle. The temperature drops to freezing. Your breath clouds heavily in front of you, and your fingers grow numb on the steering wheel. The whispering voices grow louder: "<em>Join us... become us...</em>"</p>
+          
+          <p>Your vision begins to blur, darkness creeping in from the edges. Something is happening to you—the first stages of the transformation taking hold. With grim determination, you fight it, focusing on the road ahead with every ounce of your remaining will.</p>
+          
+          <p>Mile by mile, you put distance between yourself and Prosperity. Gradually, the mist in the car thins, the temperature rising incrementally. The voices fade to whispers, then to silence.</p>
+          
+          <p>By dawn, you've reached the interstate highway, joining the flow of normal traffic—people unaware of the ancient horror you've just escaped. In the harsh light of day, the events of the night seem almost dreamlike, but the lingering chill in your bones confirms their reality.</p>
+          
+          <p>At a rest stop, you examine yourself in the bathroom mirror, searching for signs of the transformation. Your eyes are normal, your skin its usual color. Whatever process had begun was halted when you escaped the mist's influence.</p>
+          
+          <p>But as you turn to leave, something catches your eye—a brief flicker in your reflection, like static on an old television. For just a moment, your eyes had appeared solid black.</p>
+          
+          <p>The effect doesn't return, no matter how long you stare at your reflection. Was it simply exhaustion playing tricks on your mind? Or something else—something waiting, dormant now but perhaps not gone entirely?</p>
+          
+          <p>You continue driving, putting more distance between yourself and Prosperity. But in quiet moments, you catch yourself listening for whispers that aren't there. And sometimes, in dreams, you find yourself back in that ghost town, walking toward the mine entrance with a sense of longing you can't explain.</p>
+          
+          <p>You escaped. But part of Prosperity may have escaped with you.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-8">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Card Protection">
+        </div>
+        <h2 class="chapter-title">Ending: The Gambit</h2>
+        <div class="chapter-text">
+          <p>With transformed townsfolk surrounding your car and the mist seeping in, you remember Sullivan's cards still in your pocket. They feel strangely warm to the touch, almost vibrating with energy.</p>
+          
+          <p>Following an instinct you don't fully understand, you pull out the deck. The silver-edged cards gleam in the darkness, seeming to absorb and reflect the strange light of the mist.</p>
+          
+          <p>"Sullivan," you whisper, "if there's any power in these cards, I need it now."</p>
+          
+          <p>As if in response, the deck grows warmer. When you fan the cards open, they begin to glow with a clean silver light that pushes back the encroaching mist. The transformed townsfolk surrounding your car recoil, their black eyes reflecting the cards' glow.</p>
+          
+          <p>Acting on pure instinct, you begin to deal the cards—flicking them out the car window one by one. Each card flies with impossible accuracy, attaching itself to the chest of a transformed entity. Where they touch, light spreads, forming patterns like silver circuitry across their grayish skin.</p>
+          
+          <p>The entities convulse, inhuman wails rising from their throats. The mist around them dissipates, retreating like an ocean at low tide. Within moments, a path is cleared before your car.</p>
+          
+          <p>You slam your foot on the accelerator, the engine roaring as you drive through the gap in their ranks. In the rearview mirror, you see the transformed townspeople collapsing to their knees, the silver light of the cards overwhelming whatever had possessed them.</p>
+          
+          <p>The ace of spades remains in your hand, glowing brighter than the others. As you reach the edge of town, Sullivan's voice comes clearly from it, as if he's sitting beside you:</p>
+          
+          <p>"<em>They were cursed souls, trapped like I was. The cards have freed them to move on. But the source remains—ancient and patient beneath the mine.</em>"</p>
+          
+          <p>"What was it?" you ask, the question directed at the glowing card.</p>
+          
+          <p>"<em>Something old. Something that doesn't belong in our world. It's been spreading for decades, finding new hosts, new towns. Prosperity was just the beginning.</em>"</p>
+          
+          <p>The card's glow intensifies, filling the car with silver light. In it, you see visions—other abandoned places where the mist has taken hold, other victims transformed into vessels for the ancient entity.</p>
+          
+          <p>"<em>The deck is spent,</em>" Sullivan's voice grows fainter. "<em>But this last card... it will guide you to others who know the truth. Who fight against the spread.</em>"</p>
+          
+          <p>As his voice fades completely, the ace of spades stops glowing, becoming just a card once more—but now marked with symbols that hadn't been there before, forming what looks like a map or a code.</p>
+          
+          <p>You drive through the night, the implications heavy on your mind. You escaped Prosperity, but the horror it contained is not isolated. There's a larger battle being fought in shadows, beyond the awareness of the everyday world.</p>
+          
+          <p>And now, whether you want it or not, you've been dealt in.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-5i">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Escaping with Files">
+        </div>
+        <h2 class="chapter-title">Ending: Terrible Evidence</h2>
+        <div class="chapter-text">
+          <p>The footsteps in the hallway grow closer, accompanied by that wet, rattling breathing. There's no time for further investigation. You quickly gather the classified files, stuffing them into your bag as the mist continues to seep into the room.</p>
+          
+          <p>The temperature has dropped so low that frost forms on the metal surfaces of the filing cabinet. Through the frosted window, you can see more transformed townsfolk converging on the town hall from all directions, moving with that distinctive jerky gait.</p>
+          
+          <p>You'll never make it out the front. Scanning the office desperately, you spot a window behind the mayor's desk that appears to open onto a narrow alley between buildings. It might be your only chance.</p>
+          
+          <p>The window is stuck from decades of disuse, but adrenaline gives you strength. It finally gives with a shriek of protesting wood—a sound that echoes through the silent building. The footsteps in the hallway quicken.</p>
+          
+          <p>You squeeze through the opening just as the office door bursts open behind you. A transformed figure in the tattered remains of a government suit lunges for you, fingers grazing your ankle as you pull free.</p>
+          
+          <p>The alley is narrow and dark, but blessedly empty. You run as silently as possible, the precious files clutched to your chest. Behind you, the entity lets out an inhuman wail—a sound quickly echoed by others throughout the town. The hunt is on.</p>
+          
+          <p>Navigating the maze of back alleys, you gradually work your way toward where you parked your car. The sky has darkened, night falling over Prosperity. The mist glows with its own pale luminescence, flowing through the streets like a living thing searching for prey.</p>
+          
+          <p>By some miracle, you reach your car unseen. As you drive away, Prosperity diminishes in your rearview mirror, the glow of its mist visible for miles across the desert.</p>
+          
+          <p>Days later, in the safety of your home, you finally examine the files thoroughly. What you find chills you to the bone. The government had known about similar incidents in other locations going back decades. Prosperity wasn't the first. And the reports strongly suggested it wouldn't be the last.</p>
+          
+          <p>Maps in the files show possible dormant sites across the country—places where the entity, or others like it, might slumber beneath the earth. Notes from researchers theorize about its origins—extraterrestrial, extradimensional, or something that had existed on Earth long before humans evolved.</p>
+          
+          <p>Most disturbing are the demographic reports tracking the spread of "conversions" from known contact sites. According to the most recent projections—now decades old—the entity's influence would have spread to major population centers by the present day.</p>
+          
+          <p>You stare at your phone, wondering who to call with this information, who would believe you. As you deliberate, the screen flickers briefly—displaying for just a second what looks like a pattern of symbols similar to those described in the miners' reports.</p>
+          
+          <p>In the bathroom mirror, your reflection looks normal—but just for a moment, when you blink, your eyes seem to darken.</p>
+          
+          <p>Perhaps you didn't escape after all. Perhaps no one ever truly does.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-5j">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Hiding Under Desk">
+        </div>
+        <h2 class="chapter-title">Ending: Face to Face</h2>
+        <div class="chapter-text">
+          <p>With nowhere to run, you dive under the massive oak desk, pulling the chair in to conceal your presence. The footsteps reach the door, pausing outside for what feels like an eternity. Your heart pounds so loudly you're certain it must be audible.</p>
+          
+          <p>The door opens with a slow creak. From your hiding place, you can see only the lower half of the figure that enters—legs moving with a stiff, unnatural gait, shoes leaving trails of glowing mist on the floor.</p>
+          
+          <p>It pauses, and a wet, rattling breath fills the silence. The temperature drops so severely that your own breath becomes visible, billowing out from under the desk. You press a hand over your mouth, but it's too late.</p>
+          
+          <p>The figure moves toward the desk with deliberate steps. A hand grips the edge—gray-skinned with blackened fingernails, mist seeping from the pores.</p>
+          
+          <p>The chair is slowly pulled away, revealing your hiding place. You press back against the desk's inner panel, nowhere left to retreat.</p>
+          
+          <p>The figure bends down, bringing its face level with yours. It wears the remains of what was once an expensive suit—a government agent, perhaps. But its face is what holds your attention: gray skin stretched tight over sharp cheekbones, lips pulled back in a rictus smile, and eyes like polished obsidian—completely black and reflecting nothing.</p>
+          
+          <p>When it speaks, the voice is a chorus of whispers: "<em>We've been waiting for you.</em>"</p>
+          
+          <p>Your back presses against something on the desk panel—a lever or button. With nothing to lose, you push it hard.</p>
+          
+          <p>A section of the floor beside the desk slides away, revealing a hidden staircase leading down into darkness. Emergency evacuation route? Panic room? There's no time to question it.</p>
+          
+          <p>You lunge for the opening, nearly falling down the stairs in your haste. The transformed agent grabs for you, its cold fingers scraping across your shoulder before you're beyond its reach.</p>
+          
+          <p>The staircase is steep and narrow, plunging into the earth beneath the town hall. Above you, the agent wails—a sound echoed by other entities throughout the building. They've lost their prey, but only temporarily.</p>
+          
+          <p>The stairs end at a long concrete tunnel, dimly lit by emergency bulbs that have somehow maintained power for decades. You run, following the gentle downward slope, feeling the air grow increasingly cold and damp.</p>
+          
+          <p>Hours later, exhausted and disoriented, you emerge from a hidden entrance in the side of a hill, miles from Prosperity. In the distance, you can see the faint glow of the town's mist against the night sky.</p>
+          
+          <p>You've escaped, but the classified information you glimpsed haunts you. The entity is spreading. Has been spreading for decades. How many other towns have fallen? How many transformed individuals now walk among the general population, spreading the entity's influence?</p>
+          
+          <p>And the coldest realization of all—the brief contact with the transformed agent has left a mark. Sometimes, in reflective surfaces, your eyes flicker black for just a moment. In quiet moments, you hear whispers at the edge of consciousness.</p>
+          
+          <p>It's inside you now. Dormant, perhaps. Waiting. And in your dreams, you find yourself drawn back to Prosperity, to the mine, to whatever ancient thing waits in the darkness beneath.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-5k">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Journal and Keys">
+        </div>
+        <h2 class="chapter-title">Ending: Legacy of Prosperity</h2>
+        <div class="chapter-text">
+          <p>You grab the journal and the ring of keys, shoving them into your pocket as the mist continues to seep under the door. The footsteps in the hallway have stopped—somehow more unnerving than if they had continued approaching.</p>
+          
+          <p>The room has grown so cold that your breath clouds in front of you. The mist pools along the floor, rising slowly like water filling a basin. Through the frost-covered window, you can see more transformed townsfolk converging on the town hall.</p>
+          
+          <p>Looking more closely at the keys, you notice that one is larger than the others—a heavy iron key with what looks like mining company insignia. The mine. Of course the mayor would have access.</p>
+          
+          <p>The window behind the desk is your only option for escape. It resists at first, decades of disuse making the hinges stiff, but finally gives way with a protesting shriek. You slip through just as the door to the office bursts open.</p>
+          
+          <p>The alley behind the town hall is mercifully empty. Moving as quietly as possible, you navigate through back streets, avoiding the transformed townsfolk now actively hunting you. Their wails and clicks echo through Prosperity, a nightmarish communication system coordinating the search.</p>
+          
+          <p>After what seems like hours of tense navigation through the ghost town, you reach your car and drive away, Prosperity receding in your rearview mirror. But instead of heading home, you find yourself turning north on a desert road.</p>
+          
+          <p>The mayor's journal has revealed too much to simply walk away. The government knew about the entity beneath Prosperity. They documented its effects, tracked its spread—and then buried the information, leaving the town to be forgotten.</p>
+          
+          <p>You drive until you reach a small desert motel a hundred miles from Prosperity. Safe for the moment, you spread the journal pages on the bed, studying the mayor's final entries more carefully.</p>
+          
+          <p>He had suspected that simply evacuating wasn't enough. The entity was spreading through transformed individuals who had left before quarantine was established. Its reach would continue to grow, slowly but inexorably.</p>
+          
+          <p>But the mayor had also documented something else—a potential vulnerability. The entity, ancient and powerful though it was, could be contained. The mine key in your possession might be the means to seal it at its source.</p>
+          
+          <p>You stare at the key, weighing your options. Return to Prosperity with this knowledge? Try to find authorities who would believe you? Or simply walk away, pretending you never stumbled upon the ghost town and its terrible secret?</p>
+          
+          <p>As you deliberate, you notice something troubling—a faint tendril of mist seeping under the motel room door. You never fully escaped. It followed you, patient and persistent.</p>
+          
+          <p>The only way out is through. Back to Prosperity. Back to the mine. With the key that might end this, one way or another.</p>
+          
+          <p>You gather your courage and the mayor's journal, pocket the mine key, and step outside to face whatever comes next.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-5l">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Alternative Exit">
+        </div>
+        <h2 class="chapter-title">Ending: Through the Underground</h2>
+        <div class="chapter-text">
+          <p>The dragging footsteps are just outside the door now, the mist seeping under it in earnest. You need another way out.</p>
+          
+          <p>Scanning the office desperately, you notice a discoloration in the wooden paneling behind the mayor's chair—a seam that doesn't quite match the rest. Pushing against different sections, you find a spot that gives way with a click.</p>
+          
+          <p>A hidden door swings inward, revealing a narrow passageway. Of course the mayor would have a secret exit from his office—especially during whatever crisis happened here.</p>
+          
+          <p>You slip into the passage just as the office door bursts open behind you, pulling the hidden door shut. In the darkness, you fumble with your phone's flashlight, illuminating a steep staircase leading down into the earth.</p>
+          
+          <p>The passage must have been built when the town was established—an escape tunnel in case of mine collapse or other emergencies. It's dusty but intact, leading away from the town hall into darkness.</p>
+          
+          <p>Above you, muffled by the closed panel, you hear the transformed entity searching the office, overturning furniture in growing agitation. A frustrated wail echoes through the building, answered by similar cries from throughout the town.</p>
+          
+          <p>You descend the stairs, following the passage as it angles steadily downward. After what seems like hours of navigating through the claustrophobic tunnel, it begins to slope upward again. Eventually, you reach another set of stairs leading to a trapdoor.</p>
+          
+          <p>Pushing it open cautiously, you emerge into what appears to be an abandoned railroad maintenance shed a mile outside of Prosperity. Through its grimy windows, you can see the ghost town in the distance, a pale mist now visibly hovering over it in the dusk light.</p>
+          
+          <p>Your car is back in town, inaccessible now. But the old rail line might lead to civilization—or at least away from whatever ancient horror dwells beneath Prosperity.</p>
+          
+          <p>As you begin following the disused tracks, a cold realization settles over you. The mayor's incomplete message, the government correspondence, the hurried evacuation—they all point to the same conclusion. Whatever was discovered in the mine isn't contained to Prosperity.</p>
+          
+          <p>It's been spreading, slowly but inexorably, for decades.</p>
+          
+          <p>Your phone has no signal out here, but when you check it for the time, something strange happens. The screen flickers, displaying for just a moment a pattern of symbols similar to those described in the miners' reports. Then it dies completely, despite being fully charged just hours ago.</p>
+          
+          <p>Walking along the abandoned tracks as night falls, you find yourself listening intently—not for sounds of pursuit, but for whispers at the edge of consciousness that weren't there before. And occasionally, catching your reflection in puddles of rainwater between the ties, you could swear your eyes momentarily darken.</p>
+          
+          <p>You escaped Prosperity. But you're increasingly unsure if you escaped what dwells there.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+
+      <div class="story-chapter hidden" id="ending-5m">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Window Escape">
+        </div>
+        <h2 class="chapter-title">Ending: Breaking Free</h2>
+          <div class="chapter-text">
+              <p>The radio, silent until now, crackles to life with a garbled voice: "<em>If you can hear this... leave the town... it's not contained...</em>"</p>
+
+            <p>You twist the dial, but static returns. As panic builds, you finally jam the car into drive. The wheels spin on gravel slick with mist, then grip and launch the vehicle forward.</p>
+            
+            <p>The transformed figures slam against the side as you accelerate, their faces smeared with frost and silent screams. But the car is faster.</p>
+            
+            <p>Through swirling fog and flickering headlights, you burst through the perimeter of Prosperity. The mist thins, the cold begins to recede, and the last of the inhuman cries fades behind you.</p>
+            
+            <p>You don’t stop until the town is a speck in the rearview mirror. But even as dawn breaks and sunlight warms your face, you can still feel the chill inside you.</p>
+            
+            <p>Prosperity is behind you. But its shadows cling to your soul.</p>
+            
+            <p><strong>THE END</strong></p>
+          </div>
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+        <!-- Chapter 5e -->
+      <div class="story-chapter hidden" id="chapter-5e">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Cellar Trapdoor">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Into the Darkness</h2>
+        <div class="chapter-text">
+          <p>You grip the trapdoor handle and pull it open, revealing a narrow wooden ladder descending into pitch-black darkness. The cellar below exhales a wave of cold, stale air that carries the scent of old wine and something else—something organic and unpleasant.</p>
+          
+          <p>Above you, the creature leans over the bar, its breathing becoming more labored and urgent. You can see its shadow stretching across the floor, impossibly long and writhing like smoke.</p>
+          
+          <p>With no other choice, you climb down into the cellar, pulling the trapdoor closed above you just as something heavy crashes against the bar. The darkness is absolute, but you can hear the creature moving around above, searching.</p>
+          
+          <p>Your hands explore the cellar walls, finding stone and wooden barrels. The air is thick with mist that seems to glow faintly with its own light. In the distance, you hear the sound of dripping water—or something like water.</p>
+          
+          <p>Following the sound, you discover a tunnel leading away from the cellar. The walls are carved from living rock, suggesting this passage is much older than the saloon above. The mist flows along the floor like a stream, all heading in the same direction.</p>
+          
+          <p>Behind you, the trapdoor creaks open. The creature has found your escape route.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6e">Follow the tunnel</button>
+            <button class="choice-btn" data-next="chapter-6d">Hide among the barrels</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5f -->
+      <div class="story-chapter hidden" id="chapter-5f">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Hiding Behind Bar">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Perfect Stillness</h2>
+        <div class="chapter-text">
+          <p>You force yourself to remain absolutely motionless, barely breathing as the creature leans over the bar. The mist swirls around your feet, but you resist the urge to move even as the cold seeps through your shoes.</p>
+          
+          <p>The creature's breathing is directly above you now—a wet, rattling sound that no human could make. You can feel its presence like a weight pressing down, searching. Something drips from above, landing on your shoulder—a drop of liquid that burns like ice.</p>
+          
+          <p>For what feels like hours but is probably only minutes, you remain frozen in place. The creature shifts its weight, and you hear the sound of wood splintering as whatever it's leaning on begins to give way under the pressure.</p>
+          
+          <p>Then, gradually, the presence begins to withdraw. The breathing grows fainter, the footsteps resume their dragging shuffle, moving away from the bar toward the saloon's entrance.</p>
+          
+          <p>You wait until the footsteps fade completely before daring to move. When you finally peer over the bar, the saloon appears empty again, but the temperature remains frigid and the mist still swirls across the floor.</p>
+          
+          <p>Sullivan's ghost materializes beside you, his form more solid than before. "It's gone for now," he whispers, "but it'll be back. They always come back when the sun sets. You need to get out of town."</p>
+          
+          <p>He points toward the window where the last rays of sunlight are fading. "Or help me complete my deck. It's the only way I can move on, and maybe... maybe it'll give you some protection."</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-4a">Help Sullivan find his deck</button>
+            <button class="choice-btn" data-next="chapter-5b">Leave town immediately</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5g -->
+      <div class="story-chapter hidden" id="chapter-5g">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Kitchen Exit">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Through the Kitchen</h2>
+        <div class="chapter-text">
+          <p>You sprint toward the kitchen door as Sullivan's distraction echoes through the saloon. The kitchen is small and cramped, with a wood-burning stove and preparation tables covered in decades of dust.</p>
+          
+          <p>The back door is stuck, swollen with age and moisture. You throw your shoulder against it, and it bursts open with a loud crack that seems to echo through the entire town.</p>
+          
+          <p>The alley behind the saloon is narrow and filled with shadows. Wooden crates and barrels are stacked against the walls, creating a maze of hiding spots and obstacles. The mist flows between them like water, pooling in the corners.</p>
+          
+          <p>You can hear the creature in the saloon, its inhuman shrieks mixing with Sullivan's desperate attempts to lead it away from your escape route. But the distraction won't last long.</p>
+          
+          <p>Following Sullivan's directions, you head east through the alley, staying close to the buildings for cover. The sun has nearly set, and the shadows are deepening rapidly.</p>
+          
+          <p>As you reach the end of the alley, you see your car parked at the edge of town. But between you and freedom, figures are emerging from buildings—the same shuffling, wrong-moving entities you glimpsed earlier.</p>
+          
+          <p>They haven't seen you yet, but they're spreading out in a search pattern, and the mist is flowing in your direction like a living thing.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6c">Make a dash for your car</button>
+            <button class="choice-btn" data-next="chapter-6d">Move carefully and stay hidden</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5h -->
+      <div class="story-chapter hidden" id="chapter-5h">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Grabbing the Card">
+        </div>
+        <h2 class="chapter-title">Chapter 5: The Ace of Spades</h2>
+        <div class="chapter-text">
+          <p>Even with the creature distracted, you can't resist grabbing the ace of spades from the poker table. Something about the card calls to you—perhaps it's the only way to help Sullivan find peace.</p>
+          
+          <p>The moment your fingers touch the card, it feels ice-cold, and a jolt of energy runs up your arm. The card seems to pulse with its own inner light, and suddenly you can see Sullivan more clearly than before.</p>
+          
+          <p>"You took it!" he exclaims, his ghostly form becoming more solid. "I can feel the deck calling to me. It's upstairs, in my room."</p>
+          
+          <p>But the delay has cost you. The creature's shrieks fade as it realizes it's been tricked. Heavy footsteps begin moving back toward the bar area, and the temperature drops even further.</p>
+          
+          <p>Sullivan's face is desperate. "We have to go now! The back door—through the kitchen!"</p>
+          
+          <p>You can hear the creature approaching, its breathing growing louder. The mist around your feet begins to thicken, reaching up toward your knees like grasping fingers.</p>
+          
+          <p>The ace of spades grows colder in your hand, but it also seems to push back against the mist, creating a small circle of clearer air around you.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5g">Run for the kitchen exit</button>
+            <button class="choice-btn" data-next="chapter-4a">Rush upstairs to complete the deck</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5i -->
+      <div class="story-chapter hidden" id="chapter-5i">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Escaping with Files">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Government Secrets</h2>
+        <div class="chapter-text">
+          <p>You grab the most important files and stuff them into your bag, moving as quickly as possible. The classified documents feel heavy with terrible knowledge—evidence of government cover-ups and inhuman experiments.</p>
+          
+          <p>The wet footsteps in the hallway are getting closer, accompanied by that unnatural breathing. The mist has risen to waist height, and frost patterns spread across the windows despite the warm afternoon.</p>
+          
+          <p>You move toward the door, stepping carefully to avoid making noise. Through the frosted glass, you can see a shadow approaching—tall, oddly proportioned, moving with that same uneven gait you witnessed earlier.</p>
+          
+          <p>The files in your bag seem to grow heavier, as if they're resisting being taken from this place. One of the documents slips out—a photograph of the mine entrance with several figures standing in front of it. But the figures are wrong somehow, their proportions distorted, their faces smeared as if the camera couldn't properly focus on them.</p>
+          
+          <p>The shadow stops directly outside the office door. The doorknob begins to turn slowly, metal creaking with cold.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5m">Look for another exit</button>
+            <button class="choice-btn" data-next="chapter-6c">Confront whatever is at the door</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5k -->
+      <div class="story-chapter hidden" id="chapter-5k">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Mayor's Keys">
+        </div>
+        <h2 class="chapter-title">Chapter 5: The Mayor's Keys</h2>
+        <div class="chapter-text">
+          <p>You pocket the journal and the ring of keys, hoping they might unlock some escape route or provide answers. The keys are old-fashioned, heavy iron with elaborate heads—the kind used for important doors.</p>
+          
+          <p>The mist continues to seep under the door, now thick enough to swirl around your ankles. The temperature has dropped so low that your breath forms heavy clouds, and frost spreads across the window glass.</p>
+          
+          <p>Looking at the keys more closely, you notice they're labeled with small brass tags: "VAULT," "MINE OFFICE," "EMERGENCY SHELTER," and "ARCHIVE."</p>
+          
+          <p>The journal falls open to a page with a rough sketch—a map of the town hall's basement, showing a room marked "EMERGENCY BUNKER" with multiple exits. If you can find the right door, you might be able to escape through the building's lower levels.</p>
+          
+          <p>But first, you hear footsteps in the hallway—multiple sets, all moving with that same uneven, dragging rhythm. They're coordinating, searching room by room.</p>
+          
+          <p>The door handle rattles as something tests it from the outside.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6b">Search for the emergency bunker</button>
+            <button class="choice-btn" data-next="chapter-5l">Look for another exit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5l -->
+      <div class="story-chapter hidden" id="chapter-5l">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Window Escape">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Window to Freedom</h2>
+        <div class="chapter-text">
+          <p>The window behind the mayor's desk is your best chance. It's a large frame with multiple panes, some of which are already cracked. You grab a heavy brass paperweight from the desk and strike the glass.</p>
+          
+          <p>The window shatters outward, letting in a rush of cool evening air that temporarily disperses the mist. You can see the street below—about a ten-foot drop to the ground.</p>
+          
+          <p>But as you prepare to climb through, you notice the mist outside is even thicker than inside. It flows between buildings like a luminescent river, and within it, you can see shapes moving—the transformed townspeople, searching.</p>
+          
+          <p>Behind you, the door to the office rattles more violently. Something is trying to get in, and the wood is beginning to splinter under the pressure.</p>
+          
+          <p>You have seconds to decide. The drop might injure you, leaving you vulnerable to the creatures below. But staying means facing whatever is breaking down the door.</p>
+          
+          <p>Through the broken window, you can see your car parked at the edge of town, but the street between here and there is thick with mist and moving shadows.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6a">Jump through the window</button>
+            <button class="choice-btn" data-next="chapter-6b">Barricade the door and wait</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5m -->
+      <div class="story-chapter hidden" id="chapter-5m">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Alternative Exit">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Side Window</h2>
+        <div class="chapter-text">
+          <p>You scan the room frantically and spot a smaller window on the side wall, partially hidden behind a filing cabinet. The cabinet is heavy, but adrenaline gives you strength as you push it aside.</p>
+          
+          <p>The window is smaller than you'd like, but it opens onto a narrow alley that runs alongside the town hall. More importantly, it's on the opposite side of the building from where most of the transformed townspeople seem to be gathering.</p>
+          
+          <p>You force the window open—it sticks at first, warped with age, but finally gives way. The drop is only about six feet to the alley below, much more manageable than the front windows.</p>
+          
+          <p>As you climb through, you can hear the main doors of the town hall splintering. The creatures have given up on stealth and are forcing their way in. Their inhuman wails echo through the building.</p>
+          
+          <p>You drop into the alley, landing hard but uninjured. The mist here is thinner, just wisps curling around the ground. But you can see it thickening at both ends of the alley—the creatures are trying to surround the building.</p>
+          
+          <p>Your car is still parked at the edge of town, but getting there means crossing open ground where you'll be visible to any watchers.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6c">Make a run for your car</button>
+            <button class="choice-btn" data-next="chapter-6d">Use buildings for cover</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5n -->
+      <div class="story-chapter hidden" id="chapter-5n">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Front Door Confrontation">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Through the Front</h2>
+        <div class="chapter-text">
+          <p>You decide to make a direct assault on the front doors, hoping speed will carry you through whatever waits outside. The files clutched in your arms, you sprint across the main hall.</p>
+          
+          <p>The doors resist at first, as if something on the other side is holding them closed. But your momentum carries you through, and you burst out onto the town hall's front steps.</p>
+          
+          <p>The street is filled with mist and moving shadows. The transformed townspeople are everywhere—dozens of them, all turning toward you as you emerge. Their black eyes reflect the fading sunlight like mirrors.</p>
+          
+          <p>But something unexpected happens. The files in your arms seem to repel the creatures. They back away, hissing and wailing, as if the documents themselves are somehow toxic to them.</p>
+          
+          <p>You realize the classified papers contain something the entities don't want revealed—evidence of their true nature, perhaps, or information about how to stop them.</p>
+          
+          <p>The path to your car is still blocked, but the creatures are maintaining their distance, creating a loose circle around you. They seem to be waiting for something.</p>
+          
+          <p>In the distance, you can see the mine entrance, and from it comes a figure larger and more imposing than the others—something that might have once been human but has transformed into something much worse.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6c">Use the files as protection to reach your car</button>
+            <button class="choice-btn" data-next="chapter-6d">Stand your ground and confront the larger entity</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5o -->
+      <div class="story-chapter hidden" id="chapter-5o">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Evacuation Route">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Emergency Exit</h2>
+        <div class="chapter-text">
+          <p>You fold the map and stuff it into your jacket, then head for the window. The emergency evacuation route marked on the map leads east, away from both the mine and the main road—exactly what you need.</p>
+          
+          <p>The window breaks easily under pressure from a chair, and you climb through onto the roof of the building's rear extension. From here, you can see across the entire town, and the sight chills you to the bone.</p>
+          
+          <p>The mist isn't just in isolated pockets—it's everywhere, flowing through the streets like a luminous river. And moving through it are dozens of figures, all with that same unnatural gait, all searching.</p>
+          
+          <p>But the map proves accurate. To the east, you can see a dirt road that winds away from town through a gap in the hills. It's roughly parallel to the main highway but completely separate, probably an old mining track.</p>
+          
+          <p>You climb down from the roof and begin moving east, using buildings for cover. The evacuation route is about half a mile from your current position, but getting there means crossing several open areas where you'll be visible.</p>
+          
+          <p>The sun has set, and in the gathering darkness, the mist glows with its own pale light. You can hear the transformed townspeople calling to each other in that strange clicking language, coordinating their search.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-6m">Follow the evacuation route</button>
+            <button class="choice-btn" data-next="chapter-6c">Go back for your car instead</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5p -->
+      <div class="story-chapter hidden" id="chapter-5p">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Heading to Mine">
+        </div>
+        <h2 class="chapter-title">Chapter 5: Seeking the Source</h2>
+        <div class="chapter-text">
+          <p>The map has shown you the pattern—everything emanates from the mine. If you're going to understand what's happening in Prosperity, you need to go to the source, no matter how dangerous it might be.</p>
+          
+          <p>You fold the map carefully and head for the window, breaking it with a piece of fallen masonry. The drop to the alley below is manageable, and you land safely in the mist-shrouded space between buildings.</p>
+          
+          <p>Following the map's layout, you navigate through the town toward the mining complex. The transformation is visible everywhere now—buildings that seemed merely abandoned during the day now show signs of something more sinister. Windows are covered with a thin film of something that looks organic. Doors hang open, revealing interiors thick with glowing mist.</p>
+          
+          <p>The transformed townspeople move through the streets, but they seem to be heading in the same direction you are—toward the mine. They're not searching randomly; they're converging on their source.</p>
+          
+          <p>As you get closer to the mining complex, the mist grows thicker and more luminous. The very air seems to pulse with alien energy. You can feel something pressing at the edges of your consciousness—a vast intelligence trying to make contact.</p>
+          
+          <p>The mine entrance looms ahead, a dark mouth in the hillside surrounded by rusted equipment and abandoned buildings. The mist flows from it like breath, and you can hear sounds from within—not quite human voices, singing in harmony.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="chapter-5a">Enter the mine</button>
+            <button class="choice-btn" data-next="chapter-6a">Observe from a distance</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Chapter 6 endings -->
+      <div class="story-chapter hidden" id="chapter-6e">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Underground Tunnel">
+        </div>
+        <h2 class="chapter-title">Chapter 6: The Underground</h2>
+        <div class="chapter-text">
+          <p>The tunnel stretches into darkness, carved from living rock and much older than the town above. The mist flows along the floor like a luminous stream, all heading in the same direction—toward the mine.</p>
+          
+          <p>Behind you, you can hear the creature descending into the cellar, its movements awkward on the narrow ladder. But ahead, something else awaits—a faint light growing stronger as you follow the tunnel.</p>
+          
+          <p>The passage opens into a vast underground chamber, and you gasp at what you see. The walls are covered with symbols that hurt to look at directly, geometric patterns that seem to shift and writhe when viewed peripherally. And in the center of the chamber is a pool of swirling, opalescent liquid that glows with its own inner light.</p>
+          
+          <p>Around the pool stand dozens of figures—the transformed townspeople, all swaying in unison, their voices raised in that inhuman harmony you heard from the mine entrance. They haven't noticed you yet, transfixed by whatever ritual they're performing.</p>
+          
+          <p>The liquid in the pool moves with intelligence, forming patterns and shapes that speak directly to your subconscious. You feel an overwhelming urge to approach, to understand, to join.</p>
+        </div>
+
+        <div class="story-choices">
+          <h3>What will you do?</h3>
+          <div class="choice-options">
+            <button class="choice-btn" data-next="ending-1">Approach the pool</button>
+            <button class="choice-btn" data-next="ending-9">Try to escape back through the tunnel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ending 9 -->
+      <div class="story-chapter hidden" id="ending-9">
+        <div class="chapter-image">
+          <="/api/placeholder/400/250" alt="Blocked Escape">
+        </div>
+        <h2 class="chapter-title">Ending: No Way Back</h2>
+        <div class="chapter-text">
+          <p>You turn to flee back through the tunnel, but the creature from the saloon blocks your path. Up close, you can see it was once human—the town's bartender, perhaps, judging by the stained apron it still wears. But now its features are distorted, skin gray and mottled, eyes solid black pits that reflect the chamber's eerie light.</p>
+          
+          <p>Behind you, the chanting stops. The transformed townspeople have noticed your presence, and they begin to turn as one, their movements synchronized like parts of a single organism.</p>
+          
+          <p>"<em>Another seeker,</em>" they say in unison, their voices harmonizing in ways that human vocal cords shouldn't be able to achieve. "<em>Come to understand. Come to join.</em>"</p>
+          
+          <p>The pool's liquid begins to rise, defying gravity as it flows up and out, reaching toward you with tendrils of glowing substance. Where it touches the stone floor, symbols begin to appear—the same geometric patterns that cover the walls.</p>
+          
+          <p>You're trapped between the creature behind you and the transformed townspeople ahead. The mist grows thicker, making it hard to breathe, hard to think. Your vision blurs as the alien intelligence presses against your consciousness, offering knowledge, unity, transcendence.</p>
+          
+          <p>In your final moments of individual thought, you understand that the thing in the pool isn't evil—it's lonely. An ancient consciousness that has waited eons for someone to communicate with, to share its vast knowledge and experience.</p>
+          
+          <p>The choice is taken from you as the mist envelops you completely. Your last human thought is a moment of perfect clarity—you came seeking a story, and you found one. You just never realized you would become part of it.</p>
+          
+          <p>When the mist clears, you stand with the others around the pool, swaying in harmony, your voice joining the eternal song that echoes through the chamber. And somewhere in the back of your transformed mind, you wait patiently for the next curious soul to discover the ghost town of Prosperity.</p>
+          
+          <p><strong>THE END</strong></p>
+        </div>
+
+        <div class="story-restart">
+          <button class="restart-btn">Start Over</button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-buttons ghost-theme">
+    <button id="prev-btn">⬅ Previous</button>
+    <button id="next-btn">Next ➡</button>
+  </div>
+
+
+<style>
+.story-map-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.story-map-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.story-map-content h2 {
+  margin-bottom: 20px;
+}
+
+.story-map-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.story-map-content li {
+  margin: 10px 0;
+}
+
+.story-map-content a {
+  color: #3b82f6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.story-map-content a:hover {
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+<script src="image-loader.js"></script>
+<script src="script.js"></script>
+<script src="enhanced-story-viewer.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewer = new EnhancedStoryViewer('ghost-town');
+            viewer.loadStory();
+            
+        });
+    </script>
+    <footer style="font-size: 10px; color: #666; text-align: center; margin-top: 40px;">
+    <a href="http://www.freepik.com" style="color: #666; text-decoration: none;">Designed by jcomp / Freepik</a>
+  </footer>
+  </main>
+</body>
+</html>
+
+</body>
+</html>
+
+         
