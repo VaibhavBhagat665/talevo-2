@@ -688,6 +688,104 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 })();
 
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Method 1: Hide all content inside chapter-image divs
+    const chapterImageDivs = document.querySelectorAll('.chapter-image');
+    
+    chapterImageDivs.forEach(function(div) {
+        // Hide all child elements
+        const children = div.children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].style.display = 'none';
+        }
+        
+        // Or alternatively, clear the content entirely
+        // div.innerHTML = '';
+        
+        // Or hide the entire div itself
+        // div.style.display = 'none';
+    });
+});
+
+// Alternative method using CSS injection
+function hideChapterImageContent() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .chapter-image * {
+            display: none !important;
+        }
+        
+        /* Or hide the entire div */
+        /* .chapter-image {
+            display: none !important;
+        } */
+        
+        /* Or make content invisible but keep layout */
+        /* .chapter-image * {
+            visibility: hidden !important;
+        } */
+    `;
+    document.head.appendChild(style);
+}
+
+// Call the CSS method
+hideChapterImageContent();
+
+// Alternative: Hide specific types of content within chapter-image
+function hideSpecificContent() {
+    const chapterDivs = document.querySelectorAll('.chapter-image');
+    
+    chapterDivs.forEach(function(div) {
+        // Hide all images
+        const images = div.querySelectorAll('img');
+        images.forEach(img => img.style.display = 'none');
+        
+        // Hide all text content
+        const textNodes = div.querySelectorAll('p, span, div, h1, h2, h3, h4, h5, h6');
+        textNodes.forEach(node => node.style.display = 'none');
+        
+        // Hide all links
+        const links = div.querySelectorAll('a');
+        links.forEach(link => link.style.display = 'none');
+    });
+}
+
+// If you want to hide content that gets loaded dynamically
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList') {
+            const addedNodes = mutation.addedNodes;
+            for (let i = 0; i < addedNodes.length; i++) {
+                const node = addedNodes[i];
+                if (node.nodeType === 1) { // Element node
+                    if (node.classList && node.classList.contains('chapter-image')) {
+                        // Hide content in newly added chapter-image divs
+                        const children = node.children;
+                        for (let j = 0; j < children.length; j++) {
+                            children[j].style.display = 'none';
+                        }
+                    }
+                    
+                    // Also check if any child elements have chapter-image class
+                    const chapterDivs = node.querySelectorAll('.chapter-image');
+                    chapterDivs.forEach(function(div) {
+                        const children = div.children;
+                        for (let k = 0; k < children.length; k++) {
+                            children[k].style.display = 'none';
+                        }
+                    });
+                }
+            }
+        }
+    });
+});
+
+// Start observing changes to the document
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
 
 
 // CONTROLS WHEN NAV BUTTONS SHOW
