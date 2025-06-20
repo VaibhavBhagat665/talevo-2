@@ -156,12 +156,10 @@ document.addEventListener("DOMContentLoaded", function() {
   if (!story || !story.title) {
     return `https://via.placeholder.com/320x180?text=Story`;
   }
-  
-  // Convert the story title to a URL-friendly format
-  // Replace spaces with hyphens and remove special characters
-  const formattedTitle = story.id;       // Trim hyphens from end
-  
-  // Return the URL in the desired format: stories/(storyname)-cover.png
+
+
+  const formattedTitle = story.id;       
+
   return `stories/${formattedTitle}-cover.png`;
 }
 let currentHeroIndex = 0;
@@ -219,31 +217,26 @@ let currentHeroIndex = 0;
 
   if (!heroContent || !story) return;
 
-  // Clear previous animation classes
   heroContent.classList.remove('animate__slideInRight', 'animate__slideInLeft', 'animate__fadeOut');
 
-  // Animate out
   heroContent.classList.add('animate__animated', 'animate__fadeOut');
 
-  // After fade out completes, update content and slide in
   setTimeout(() => {
-    // Update content
+
     if (heroBackground) heroBackground.style.backgroundImage = story.background;
     if (heroTitle) heroTitle.textContent = story.title;
     if (heroDesc) heroDesc.textContent = story.desc;
     if (genreSpan) genreSpan.textContent = story.genre;
     if (ratingSpan) ratingSpan.textContent = story.rating;
 
-    // Switch animation classes
     heroContent.classList.remove('animate__fadeOut');
     heroContent.classList.add(`animate__${direction === 'left' ? 'slideInLeft' : 'slideInRight'}`);
 
-    // Update indicators
     const indicators = document.querySelectorAll('.slide-indicators .indicator');
     indicators.forEach((ind, i) => {
       ind.classList.toggle('active', i === index);
     });
-  }, 300); // Make sure this matches fadeOut animation duration
+  }, 300); 
 }
 
 
@@ -289,7 +282,7 @@ function resetHeroAutoSlide() {
   heroAutoSlideTimeout = setTimeout(() => {
     currentHeroIndex = (currentHeroIndex + 1) % heroStories.length;
     updateHeroSection(currentHeroIndex, 'right');
-    resetHeroAutoSlide(); // 🌀 restart loop
+    resetHeroAutoSlide(); 
   }, SLIDE_INTERVAL);
 }
     
@@ -309,7 +302,7 @@ nextBtn.addEventListener('click', () => {
   updateHeroSection(currentHeroIndex, 'right');
 });
     resetHeroAutoSlide();
-    // Swipe functionality for hero carousel (mobile)
+
 let startX = 0;
     if (window.innerWidth <= 576) {
 const hero = document.querySelector('.hero');
@@ -361,8 +354,6 @@ if (hero) {
       </div>
     `;
 
-    
-    // Add click event to redirect
     card.addEventListener('click', () => {
       window.location.href = `stories/${story.id}.html`;
     });
@@ -373,48 +364,40 @@ if (hero) {
   
 
   function setupStoryCardHoverEffects() {
-    // Target all story cards (existing and dynamically created ones)
+
     const storyCards = document.querySelectorAll('.story-card');
     
     storyCards.forEach(card => {
-      // Remove any existing event listeners to prevent duplicates
+
       card.removeEventListener('mouseenter', handleCardEnter);
       card.removeEventListener('mouseleave', handleCardLeave);
-      
-      // Add the new event listeners
+
       card.addEventListener('mouseenter', handleCardEnter);
       card.addEventListener('mouseleave', handleCardLeave);
-      
-      // Make sure card has the necessary structure for our effect
+
       prepareCardStructure(card);
     });
   }
-  
-  // Function to prepare card structure for the hover effect
+
   function prepareCardStructure(card) {
-    // Mark card as prepared to avoid duplicate setup
+
     if (card._structurePrepared) return;
     card._structurePrepared = true;
-    
-    // Get card elements
+
     const imgContainer = card.querySelector('.story-card-img-container');
     const img = card.querySelector('.story-card-img');
     const content = card.querySelector('.story-card-content');
     
     if (!imgContainer || !img || !content) return;
-    
-    // Store original content for later
+
     card._originalHTML = card.innerHTML;
-    
-    // Create a clone of the image to use as full-size background
+
     const fullImg = img.cloneNode(true);
     fullImg.className = 'story-card-full-img';
-    
-    // Create text overlay container
+
     const overlayContent = document.createElement('div');
     overlayContent.className = 'story-card-overlay-content';
-    
-    // Move content elements to the overlay
+
     const title = content.querySelector('.story-card-title');
     const desc = content.querySelector('.story-card-desc');
     const meta = content.querySelector('.story-card-meta');
@@ -436,23 +419,19 @@ if (hero) {
       overlayMeta.className = 'story-card-overlay-meta';
       overlayContent.appendChild(overlayMeta);
     }
-    
-    // Create read button
+
     const readBtn = document.createElement('button');
     readBtn.className = 'read-now-btn';
     readBtn.textContent = 'Read Now';
     overlayContent.appendChild(readBtn);
-    
-    // Create overlay container that will hold both the full image and text
+
     const overlay = document.createElement('div');
     overlay.className = 'story-card-hover-overlay';
     overlay.appendChild(fullImg);
     overlay.appendChild(overlayContent);
-    
-    // Add overlay to card
+
     card.appendChild(overlay);
-    
-    // Add click event to button
+
     readBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const storyId = card.getAttribute('data-id');
@@ -461,64 +440,52 @@ if (hero) {
       }
     });
   }
-  
 
-  // Handler for mouseenter event
   function handleCardEnter(e) {
     const card = e.currentTarget;
-    
-    // Add hover class
+
     card.classList.add('card-hover');
-    
-    // Get hover overlay
+
     const overlay = card.querySelector('.story-card-hover-overlay');
     if (overlay) {
       overlay.style.opacity = '1';
       overlay.style.transform = 'translateY(0)';
     }
-    
-    // Get overlay content for animation
+
     const overlayContent = card.querySelector('.story-card-overlay-content');
     if (overlayContent) {
-      // Delay content animation for a better effect
+
       setTimeout(() => {
         overlayContent.style.opacity = '1';
         overlayContent.style.transform = 'translateY(0)';
       }, 150);
     }
-    
-    // Add subtle card animation
+
     card.style.transform = 'translateY(-5px)';
     card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
   }
-  
-  // Handler for mouseleave event
+
   function handleCardLeave(e) {
     const card = e.currentTarget;
-    
-    // Remove hover class
+
     card.classList.remove('card-hover');
-    
-    // Reset overlay
+
     const overlay = card.querySelector('.story-card-hover-overlay');
     if (overlay) {
       overlay.style.opacity = '0';
       overlay.style.transform = 'translateY(100%)';
     }
-    
-    // Reset overlay content
+
     const overlayContent = card.querySelector('.story-card-overlay-content');
     if (overlayContent) {
       overlayContent.style.opacity = '0';
       overlayContent.style.transform = 'translateY(20px)';
     }
-    
-    // Reset card animation
+
     card.style.transform = '';
     card.style.boxShadow = '';
   }
-  
-  // Add CSS to head for hover effects
+
   const styleElement = document.createElement('style');
   styleElement.textContent = `
     .story-card {
@@ -646,11 +613,9 @@ if (hero) {
     }
   `;
   document.head.appendChild(styleElement);
-  
-  // Initial setup for existing cards
+
   setupStoryCardHoverEffects();
-  
-  // Setup a mutation observer to watch for dynamically added story cards
+
   const observeTarget = document.querySelector('main');
   if (observeTarget) {
     const observer = new MutationObserver(function(mutations) {
@@ -660,21 +625,17 @@ if (hero) {
         }
       });
     });
-    
-    // Start observing
+
     observer.observe(observeTarget, { childList: true, subtree: true });
   }
-  
-  // Update any existing story creation functions to integrate with hover effects
+
   const originalCreateStoryCard = window.createStoryCard;
   if (typeof originalCreateStoryCard === 'function') {
     window.createStoryCard = function(story) {
       const card = originalCreateStoryCard(story);
-      
-      // Prepare the card structure for hover effect
+
       prepareCardStructure(card);
-      
-      // Add event listeners
+
       card.addEventListener('mouseenter', handleCardEnter);
       card.addEventListener('mouseleave', handleCardLeave);
       card._hoverEventsAttached = true;
@@ -798,30 +759,26 @@ if (hero) {
   toast.textContent = message;
   toastContainer.appendChild(toast);
 
-  // Auto-remove after animation
   setTimeout(() => {
     toast.remove();
   }, 3500);
 }
 
 
-//   function setupAddToLibraryButtons() {
-//   const buttons = document.querySelectorAll('.add-btn');
-//   buttons.forEach(btn => {
-//     btn.addEventListener('click', (e) => {
-//       e.stopPropagation();
-//       const card = btn.closest('.story-card') || document.querySelector('.hero');
-//       const id = card?.getAttribute('data-id') || storyData[currentHeroIndex].id;
-//       let library = JSON.parse(localStorage.getItem('library') || '[]');
-//       if (!library.includes(id)) {
-//         library.push(id);
-//         localStorage.setItem('library', JSON.stringify(library));
-//         showToast("Story added to your library!");
 
-//       }
-//     });
-//   });
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   function setupTrendingSection() {
@@ -881,7 +838,6 @@ if (hero) {
     const body = document.body;
     const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-    // Check if theme preference exists in localStorage
     const isDarkMode = localStorage.getItem('darkTheme') === 'true';
     
     if (isDarkMode) {
@@ -921,254 +877,207 @@ if (prefersDark === null) {
 
   }
 
-// function setupLoginModal() {
-//   const loginBtn = document.querySelector('.login-btn');
-//   const modalOverlay = document.querySelector('.modal-overlay');
-//   const modalClose = document.querySelector('.modal-close');
-//   const modalTabs = document.querySelectorAll('.modal-tab');
-//   const modalForms = document.querySelectorAll('.modal-form');
-  
-//   if (!loginBtn || !modalOverlay) return;
-  
-//   // Login button click handler
-//   if (loginBtn) {
-//     loginBtn.addEventListener('click', () => {
-//       modalOverlay.classList.add('active');
-//     });
-//   }
-  
-//   // Modal close handlers
-//   if (modalClose) {
-//     modalClose.addEventListener('click', () => {
-//       modalOverlay.classList.remove('active');
-//     });
-//   }
-  
-//   // Close modal when clicking outside
-//   modalOverlay.addEventListener('click', (e) => {
-//     if (e.target === modalOverlay) {
-//       modalOverlay.classList.remove('active');
-//     }
-//   });
-  
-//   // Tab switching
-//   modalTabs.forEach(tab => {
-//     tab.addEventListener('click', () => {
-//       const tabName = tab.getAttribute('data-tab');
-      
-//       modalTabs.forEach(t => t.classList.remove('active'));
-//       modalForms.forEach(f => f.classList.remove('active'));
-      
-//       tab.classList.add('active');
-//       const targetForm = document.querySelector(`.${tabName}-form`);
-//       if (targetForm) {
-//         targetForm.classList.add('active');
-//       }
-//     });
-//   });
-  
-//   // Sign-in form submission
-//   const signinForm = document.getElementById('signin-form');
-//   if (signinForm) {
-//     signinForm.addEventListener('submit', async (e) => {
-//       e.preventDefault();
-      
-//       const emailInput = document.getElementById('signin-email');
-//       const passwordInput = document.getElementById('signin-password');
-//       const submitBtn = signinForm.querySelector('button[type="submit"]');
-      
-//       if (!emailInput || !passwordInput) {
-//         console.error('Sign-in form elements not found');
-//         return;
-//       }
-      
-//       const email = emailInput.value.trim();
-//       const password = passwordInput.value;
-      
-//       // Basic validation
-//       if (!email || !password) {
-//         showNotification('Please fill out all fields', 'warning');
-//         return;
-//       }
-      
-//       // Show loading state
-//       const originalText = submitBtn.textContent;
-//       submitBtn.textContent = 'Signing in...';
-//       submitBtn.disabled = true;
-      
-//       try {
-//         const result = await window.authManager.signIn(email, password);
-        
-//         if (result.success) {
-//           // Success - modal will close and UI will update automatically
-//           modalOverlay.classList.remove('active');
-//           emailInput.value = '';
-//           passwordInput.value = '';
-          
-//           // Show success message
-//           showNotification('Welcome back!', 'success');
-//         } else {
-//           // Show error
-//           showNotification(result.error, 'error');
-//           passwordInput.value = '';
-//         }
-//       } catch (error) {
-//         console.error('Sign in error:', error);
-//         showNotification('An error occurred. Please try again.', 'error');
-//       } finally {
-//         // Reset button state
-//         submitBtn.textContent = originalText;
-//         submitBtn.disabled = false;
-//       }
-//     });
-//   }
-  
-//   // Sign-up form submission
-//   const signupForm = document.getElementById('signup-form');
-//   if (signupForm) {
-//     signupForm.addEventListener('submit', async (e) => {
-//       e.preventDefault();
-      
-//       const usernameInput = document.getElementById('signup-username');
-//       const emailInput = document.getElementById('signup-email');
-//       const passwordInput = document.getElementById('signup-password');
-//       const submitBtn = signupForm.querySelector('button[type="submit"]');
-      
-//       if (!usernameInput || !emailInput || !passwordInput) {
-//         console.error('Sign-up form elements not found');
-//         return;
-//       }
-      
-//       const username = usernameInput.value.trim();
-//       const email = emailInput.value.trim();
-//       const password = passwordInput.value;
-      
-//       // Basic validation
-//       if (!username || !email || !password) {
-//         showNotification('Please fill out all fields', 'warning');
-//         return;
-//       }
-      
-//       // Email validation
-//       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//       if (!emailRegex.test(email)) {
-//         showNotification('Please enter a valid email address', 'warning');
-//         return;
-//       }
-      
-//       // Password validation
-//       if (password.length < 6) {
-//         showNotification('Password must be at least 6 characters long', 'warning');
-//         return;
-//       }
-      
-//       // Show loading state
-//       const originalText = submitBtn.textContent;
-//       submitBtn.textContent = 'Creating account...';
-//       submitBtn.disabled = true;
-      
-//       try {
-//         const result = await window.authManager.signUp(username, email, password);
-        
-//         if (result.success) {
-//           // Success - modal will close and UI will update automatically
-//           modalOverlay.classList.remove('active');
-//           usernameInput.value = '';
-//           emailInput.value = '';
-//           passwordInput.value = '';
-          
-//           // Show success message
-//           showNotification('Account created successfully! Welcome to Talevo!', 'success');
-//         } else {
-//           // Show error
-//           showNotification(result.error, 'error');
-//         }
-//       } catch (error) {
-//         console.error('Sign up error:', error);
-//         showNotification('An error occurred. Please try again.', 'error');
-//       } finally {
-//         // Reset button state
-//         submitBtn.textContent = originalText;
-//         submitBtn.disabled = false;
-//       }
-//     });
-//   }
-// }
-
-// Helper function to check password
-// function checkPassword(email, password) {
-//     // Get all registered users
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-//     return users.some(user => user.email === email && user.password === password);
-// }
-
-// // Helper function to get stored username for an email
-// function getStoredUsername(email) {
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-//     const user = users.find(user => user.email === email);
-//     return user ? user.username : email.split('@')[0]; // Fallback to email prefix
-// }
-
-// // Helper function to check if email is already registered
-// function isEmailRegistered(email) {
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-//     return users.some(user => user.email === email);
-// }
-
-// // Helper function to store user data
-// function storeUserData(username, email, password) {
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-    
-//     // Add new user
-//     users.push({
-//         username: username,
-//         email: email,
-//         password: password, // In production, this should be hashed
-//         registeredDate: new Date().toISOString()
-//     });
-    
-//     // Store updated users array
-//     localStorage.setItem('registeredUsers', JSON.stringify(users));
-// }
 
 
-// Updated displayWelcomeUsername function with better integration
-// function displayWelcomeUsername() {
-//     const username = localStorage.getItem("username");
-//     const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-//     const loginBtn = document.querySelector(".login-btn");
-//     const accountWrapper = document.querySelector(".account-wrapper");
-//     const accountMenu = document.querySelector(".account-menu");
-//     const accountName = document.getElementById("account-name");
-    
-//     if (username && isAuthenticated) {
-//         // User is signed in
-//         if (loginBtn) loginBtn.style.display = "none";
-//         if (accountWrapper) accountWrapper.classList.remove("hidden");
-//         if (accountName) accountName.textContent = username;
-//     } else {
-//         // User is not signed in - ensure everything is hidden
-//         if (loginBtn) loginBtn.style.display = "inline-block";
-//         if (accountWrapper) accountWrapper.classList.add("hidden");
-//         if (accountMenu) accountMenu.classList.add("hidden");
-//     }
-// }
 
-// Initialize everything when DOM is loaded
- 
-    
-    // Account toggle functionality - only add if element exists
-    
-    
-    // Close dropdown on outside click
-   
 
-    
-    // Sign out functionality
-    
-  // Enhanced JS Features for Talevo
 
-// Smooth scroll to section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const navLinks = document.querySelectorAll(".nav-links a");
 navLinks.forEach(link => {
   link.addEventListener("click", e => {
@@ -1178,7 +1087,6 @@ navLinks.forEach(link => {
   });
 });
 
-// Instant search with dropdown results
 const searchInput = document.querySelector(".search-input");
 const searchResults = document.getElementById("search-results");
 searchResults.classList.remove("hidden");
@@ -1215,10 +1123,6 @@ function createMiniCard(story) {
   return card;
 }
 
-
-
-
-// Category filter with toggleable story grid
 const categoryCards = document.querySelectorAll(".category-card");
 const categoriesSection = document.getElementById("categories");
 
@@ -1227,11 +1131,9 @@ categoryCards.forEach(card => {
     const category = card.dataset.category;
     const filtered = storyData.filter(s => s.genre.toLowerCase() === category);
 
-    // Remove existing result div if any
     const existing = document.querySelector(".category-results");
     if (existing) existing.remove();
 
-    // Create new result div
     const container = document.createElement("div");
     container.className = "category-results container";
     container.style.marginTop = "30px";
@@ -1271,7 +1173,6 @@ function setupSmoothScroll() {
   });
 }
 
-// Enhanced search functionality with rectangular results, cross button, and history
 function setupSearchDropdown() {
   const input = document.querySelector(".search-input");
   const results = document.getElementById("search-results");
@@ -1279,7 +1180,6 @@ function setupSearchDropdown() {
   
   if (!input || !results) return;
 
-  // Style the results container
   results.style.display = "none";
   results.style.position = "absolute";
   results.style.top = "100%";
@@ -1294,12 +1194,10 @@ function setupSearchDropdown() {
   results.style.overflowY = "auto";
   results.style.border = "1px solid #ddd";
 
-  // Position the container as relative to contain the absolute results
   searchContainer.style.position = "relative";
   
   const historyKey = 'searchHistory';
 
-  // Create clear button (X) for the input
   const clearBtn = document.createElement("span");
   clearBtn.innerHTML = "×";
   clearBtn.className = "search-clear-btn";
@@ -1314,15 +1212,14 @@ function setupSearchDropdown() {
   clearBtn.style.padding = "0 8px";
   clearBtn.style.display = "none";
   clearBtn.style.zIndex = "5";
-  
-  // Only append if it doesn't already exist
+
   if (!searchContainer.querySelector(".search-clear-btn")) {
     searchContainer.appendChild(clearBtn);
   }
 
   function saveSearch(term) {
     let history = JSON.parse(localStorage.getItem(historyKey)) || [];
-    // Don't add duplicates, move to top if exists
+
     const existingIndex = history.indexOf(term);
     if (existingIndex > -1) {
       history.splice(existingIndex, 1);
@@ -1365,8 +1262,7 @@ function setupSearchDropdown() {
       termText.style.textOverflow = 'ellipsis';
       termText.style.whiteSpace = 'nowrap';
       item.appendChild(termText);
-      
-      // History item delete button
+
       const deleteBtn = document.createElement('span');
       deleteBtn.innerHTML = '×';
       deleteBtn.style.marginLeft = '10px';
@@ -1442,8 +1338,7 @@ function setupSearchDropdown() {
         resultItem.style.borderBottom = "1px solid #eee";
         resultItem.style.cursor = "pointer";
         resultItem.style.transition = "background-color 0.2s";
-        
-        // Hover effect
+
         resultItem.addEventListener("mouseenter", () => {
           resultItem.style.backgroundColor = "var(--hover-bg, #f5f5f5)";
         });
@@ -1451,8 +1346,7 @@ function setupSearchDropdown() {
         resultItem.addEventListener("mouseleave", () => {
           resultItem.style.backgroundColor = "";
         });
-        
-        // Image container
+
         const imgContainer = document.createElement("div");
         imgContainer.style.width = "60px";
         imgContainer.style.height = "60px";
@@ -1470,11 +1364,10 @@ function setupSearchDropdown() {
         
         imgContainer.appendChild(img);
         resultItem.appendChild(imgContainer);
-        
-        // Content container
+
         const content = document.createElement("div");
         content.style.flex = "1";
-        content.style.minWidth = "0"; // Allows text truncation
+        content.style.minWidth = "0"; 
         
         const title = document.createElement("div");
         title.textContent = story.title;
@@ -1516,7 +1409,6 @@ function setupSearchDropdown() {
     results.style.display = "block";
   }
 
-  // Show clear button when input has content
   function toggleClearButton() {
     if (input.value.length > 0) {
       clearBtn.style.display = "block";
@@ -1525,7 +1417,6 @@ function setupSearchDropdown() {
     }
   }
 
-  // Clear search input and results
   clearBtn.addEventListener("click", () => {
     input.value = "";
     results.innerHTML = "";
@@ -1534,7 +1425,6 @@ function setupSearchDropdown() {
     input.focus();
   });
 
-  // Focus event - show history if empty
   input.addEventListener("focus", () => {
     toggleClearButton();
     if (input.value.trim().length < 2) {
@@ -1544,7 +1434,6 @@ function setupSearchDropdown() {
     }
   });
 
-  // Input event - search as user types
   input.addEventListener("input", () => {
     toggleClearButton();
     const val = input.value.trim();
@@ -1559,92 +1448,77 @@ function setupSearchDropdown() {
     }
   });
 
-  // Handle clicks outside to close results
   document.addEventListener("click", (e) => {
     if (!searchContainer.contains(e.target)) {
       results.style.display = "none";
     }
   });
 
-  // Initial setup
   toggleClearButton();
 }
 
-  // Disable right-click context menu
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
 });
 
-// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C
 document.addEventListener('keydown', function(e) {
-    // F12 - Developer Tools
+
     if (e.keyCode === 123) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+Shift+I - Developer Tools
+
     if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+Shift+J - Console
+
     if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+U - View Source
+
     if (e.ctrlKey && e.keyCode === 85) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+Shift+C - Element Inspector
+
     if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+A - Select All (optional)
+
     if (e.ctrlKey && e.keyCode === 65) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+S - Save Page (optional)
+
     if (e.ctrlKey && e.keyCode === 83) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+P - Print (optional)
+
     if (e.ctrlKey && e.keyCode === 80) {
         e.preventDefault();
         return false;
     }
 });
 
-// Disable text selection
 document.addEventListener('selectstart', function(e) {
     e.preventDefault();
     return false;
 });
 
-// Disable drag and drop
 document.addEventListener('dragstart', function(e) {
     e.preventDefault();
     return false;
 });
 
-// Clear console periodically
 setInterval(function() {
     console.clear();
 }, 1000);
 
-// Detect if developer tools are open
 let devtools = {
     open: false,
     orientation: null
@@ -1657,30 +1531,27 @@ setInterval(function() {
         window.outerWidth - window.innerWidth > threshold) {
         if (!devtools.open) {
             devtools.open = true;
-            // Redirect or show warning when dev tools detected
+
             document.body.innerHTML = '<h1>Access Denied</h1><p>Developer tools are not allowed on this page.</p>';
-            // Or redirect: window.location.href = 'about:blank';
+
         }
     } else {
         devtools.open = false;
     }
 }, 500);
 
-// Disable common inspect shortcuts on mobile
 document.addEventListener('touchstart', function(e) {
     if (e.touches.length > 1) {
         e.preventDefault();
     }
 });
 
-// Disable zoom
 document.addEventListener('wheel', function(e) {
     if (e.ctrlKey) {
         e.preventDefault();
     }
 }, { passive: false });
 
-// Disable pinch zoom on mobile
 let lastTouchEnd = 0;
 document.addEventListener('touchend', function(e) {
     let now = (new Date()).getTime();
@@ -1690,7 +1561,6 @@ document.addEventListener('touchend', function(e) {
     lastTouchEnd = now;
 }, false);
 
-// Additional CSS to disable text selection and other interactions
 const style = document.createElement('style');
 style.innerHTML = `
     * {
@@ -1711,7 +1581,6 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// Disable image dragging
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -1721,7 +1590,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Override console methods
 (function() {
     try {
         const devtools = {
@@ -1738,7 +1606,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch(e) {}
 })();
 
-// Detect debugging attempts
 (function() {
     let start = Date.now();
     debugger;
@@ -1779,252 +1646,206 @@ function setupCategoryFilter() {
     });
   });
 }
-// function setupLoginModal() {
-//     const loginBtn = document.querySelector('.login-btn');
-//     const modalOverlay = document.querySelector('.modal-overlay');
-//     const modalClose = document.querySelector('.modal-close');
-//     const modalTabs = document.querySelectorAll('.modal-tab');
-//     const modalForms = document.querySelectorAll('.modal-form');
-    
-//     if (!loginBtn || !modalOverlay) return;
-    
-//     // Check if user is logged in - Initialize display
-//     displayWelcomeUsername();
-    
-//     // Login button click handler
-//     if (loginBtn) {
-//         loginBtn.addEventListener('click', () => {
-//             modalOverlay.classList.add('active');
-//         });
-//     }
-    
-//     // Modal close handlers
-//     if (modalClose) {
-//         modalClose.addEventListener('click', () => {
-//             modalOverlay.classList.remove('active');
-//         });
-//     }
-    
-//     // Close modal when clicking outside
-//     modalOverlay.addEventListener('click', (e) => {
-//         if (e.target === modalOverlay) {
-//             modalOverlay.classList.remove('active');
-//         }
-//     });
-    
-//     // Tab switching
-//     modalTabs.forEach(tab => {
-//         tab.addEventListener('click', () => {
-//             const tabName = tab.getAttribute('data-tab');
-            
-//             modalTabs.forEach(t => t.classList.remove('active'));
-//             modalForms.forEach(f => f.classList.remove('active'));
-            
-//             tab.classList.add('active');
-//             const targetForm = document.querySelector(`.${tabName}-form`);
-//             if (targetForm) {
-//                 targetForm.classList.add('active');
-//             }
-//         });
-//     });
-    
-//     // Sign-in form submission
-//     const signinForm = document.getElementById('signin-form');
-//     if (signinForm) {
-//         signinForm.addEventListener('submit', (e) => {
-//             e.preventDefault();
-            
-//             // Get form elements
-//             const emailInput = document.getElementById('signin-email');
-//             const passwordInput = document.getElementById('signin-password');
-            
-//             if (!emailInput || !passwordInput) {
-//                 console.error('Sign-in form elements not found');
-//                 return;
-//             }
-            
-//             const email = emailInput.value.trim();
-//             const password = passwordInput.value;
-            
-//             // Basic validation
-//             if (!email || !password) {
-//                 alert('Please fill out all fields');
-//                 return;
-//             }
-            
-//             // Check credentials
-//             if (!checkPassword(email, password)) {
-//                 alert('Incorrect email or password. Please try again.');
-//                 passwordInput.value = ''; // Clear the password field
-//                 return;
-//             }
-            
-//             // Get the stored username for this email
-//             const storedUsername = getStoredUsername(email);
-            
-//             // Store user data and authentication state
-//             localStorage.setItem('username', storedUsername);
-//             localStorage.setItem('userEmail', email);
-//             localStorage.setItem('isAuthenticated', 'true');
-            
-//             // Update UI
-//             displayWelcomeUsername();
-//             modalOverlay.classList.remove('active');
-            
-//             // Clear form
-//             emailInput.value = '';
-//             passwordInput.value = '';
-//         });
-//     }
-    
-//     // Sign-up form submission
-//     const signupForm = document.getElementById('signup-form');
-//     if (signupForm) {
-//         signupForm.addEventListener('submit', (e) => {
-//             e.preventDefault();
-            
-//             // Get form elements
-//             const usernameInput = document.getElementById('signup-username');
-//             const emailInput = document.getElementById('signup-email');
-//             const passwordInput = document.getElementById('signup-password');
-            
-//             if (!usernameInput || !emailInput || !passwordInput) {
-//                 console.error('Sign-up form elements not found');
-//                 return;
-//             }
-            
-//             const username = usernameInput.value.trim();
-//             const email = emailInput.value.trim();
-//             const password = passwordInput.value;
-            
-//             // Basic validation
-//             if (!username || !email || !password) {
-//                 alert('Please fill out all fields');
-//                 return;
-//             }
-            
-//             // Email validation
-//             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//             if (!emailRegex.test(email)) {
-//                 alert('Please enter a valid email address');
-//                 return;
-//             }
-            
-//             // Password validation
-//             if (password.length < 6) {
-//                 alert('Password must be at least 6 characters long');
-//                 return;
-//             }
-            
-//             // Check if email already exists
-//             if (isEmailRegistered(email)) {
-//                 alert('An account with this email already exists. Please sign in instead.');
-//                 return;
-//             }
-            
-//             // Store user data
-//             storeUserData(username, email, password);
-            
-//             // Set as authenticated
-//             localStorage.setItem('username', username);
-//             localStorage.setItem('userEmail', email);
-//             localStorage.setItem('isAuthenticated', 'true');
-            
-//             // Update UI
-//             displayWelcomeUsername();
-//             modalOverlay.classList.remove('active');
-            
-//             // Clear form
-//             usernameInput.value = '';
-//             emailInput.value = '';
-//             passwordInput.value = '';
-            
-//             alert('Sign up successful! Welcome to Talevo!');
-//         });
-//     }
-// }
-
-// // Helper function to check password
-// function checkPassword(email, password) {
-//     // Get all registered users
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-//     return users.some(user => user.email === email && user.password === password);
-// }
-
-// // Helper function to get stored username for an email
-// function getStoredUsername(email) {
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-//     const user = users.find(user => user.email === email);
-//     return user ? user.username : email.split('@')[0]; // Fallback to email prefix
-// }
-
-// // Helper function to check if email is already registered
-// function isEmailRegistered(email) {
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-//     return users.some(user => user.email === email);
-// }
-
-// // Helper function to store user data
-// function storeUserData(username, email, password) {
-//     const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-    
-//     // Add new user
-//     users.push({
-//         username: username,
-//         email: email,
-//         password: password, // In production, this should be hashed
-//         registeredDate: new Date().toISOString()
-//     });
-    
-//     // Store updated users array
-//     localStorage.setItem('registeredUsers', JSON.stringify(users));
-// }
-
-// // Updated displayWelcomeUsername function with better integration
-// function displayWelcomeUsername() {
-//     const username = localStorage.getItem("username");
-//     const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-//     const loginBtn = document.querySelector(".login-btn");
-//     const accountWrapper = document.querySelector(".account-wrapper");
-//     const accountName = document.getElementById("account-name");
-//     const accountMenu = document.querySelector(".account-menu");
-
-//     if (isAuthenticated && username) {
-//         if (loginBtn) loginBtn.style.display = "none";
-//         if (accountWrapper) accountWrapper.classList.remove("hidden");
-//         if (accountName) accountName.textContent = username;
-//     } else {
-//         if (loginBtn) loginBtn.style.display = "inline-block";
-//         if (accountWrapper) accountWrapper.classList.add("hidden");
-//         if (accountMenu) accountMenu.classList.add("hidden");
-//     }
-// }
 
 
-// Separate function to setup account toggle
-// function setupAccountToggle() {
-//     const accountToggle = document.getElementById("accountToggle");
-//     if (!accountToggle) return;
-    
-//     // Remove existing listeners to prevent duplicates
-//     const newToggle = accountToggle.cloneNode(true);
-//     accountToggle.parentNode.replaceChild(newToggle, accountToggle);
-    
-//     // Add fresh event listener
-//     newToggle.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         e.stopPropagation();
-//         const menu = document.querySelector(".account-menu");
-//         const button = document.querySelector(".account-button");
-//         if (menu) menu.classList.toggle("hidden");
-//         if (button) button.classList.toggle("active");
-//     });
-// }
-
-// Setup sign out functionality
 
 
-// Global click handler for closing dropdown
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function setupGlobalClickHandler() {
     document.addEventListener("click", function (e) {
         const toggle = document.getElementById("accountToggle");
@@ -2039,19 +1860,15 @@ function setupGlobalClickHandler() {
     });
 }
 
-// Initialize everything when DOM is loaded
 
-
-  // Add this function to your document.addEventListener("DOMContentLoaded", function() { ... }) block
 function fixSearchFunctionality() {
-  // First, ensure the search container exists and has proper structure
+
   const searchContainer = document.querySelector('.search-container');
   if (!searchContainer) {
     console.error('Search container not found');
     return;
   }
-  
-  // Get or create the search input
+
   let searchInput = searchContainer.querySelector('.search-input');
   if (!searchInput) {
     searchInput = document.createElement('input');
@@ -2060,8 +1877,7 @@ function fixSearchFunctionality() {
     searchInput.placeholder = 'Search stories...';
     searchContainer.appendChild(searchInput);
   }
-  
-  // Create or get the search results container
+
   let searchResults = document.getElementById('search-results');
   if (!searchResults) {
     searchResults = document.createElement('div');
@@ -2069,8 +1885,7 @@ function fixSearchFunctionality() {
     searchResults.className = 'search-results';
     searchContainer.appendChild(searchResults);
   }
-  
-  // Style the results container properly with theme variables
+
   searchResults.style.display = "none";
   searchResults.style.position = "absolute";
   searchResults.style.top = "100%";
@@ -2085,11 +1900,9 @@ function fixSearchFunctionality() {
   searchResults.style.maxHeight = "400px";
   searchResults.style.overflowY = "auto";
   searchResults.style.border = "1px solid var(--border-color, #ddd)";
-  
-  // Make sure search container has relative positioning
+
   searchContainer.style.position = "relative";
-  
-  // Create clear button with theme variables
+
   let clearBtn = searchContainer.querySelector('.search-clear-btn');
   if (!clearBtn) {
     clearBtn = document.createElement("span");
@@ -2110,30 +1923,26 @@ function fixSearchFunctionality() {
   }
   
   const historyKey = 'searchHistory';
-  
-  // Helper function to get proper hover background color
+
   function getHoverBg() {
-    // Check if we're in dark theme by looking at computed styles
+
     const computedStyle = getComputedStyle(document.documentElement);
     const cardBg = computedStyle.getPropertyValue('--card-bg').trim();
-    
-    // If card background is dark (likely dark theme), return a lighter shade
-    // If card background is light (likely light theme), return a darker shade
+
+
     if (cardBg && (cardBg.includes('rgb') || cardBg.includes('#'))) {
-      // For dark theme, we want rgba(255,255,255,0.1) for a subtle lighter effect
-      // For light theme, we want rgba(0,0,0,0.05) for a subtle darker effect
+
+
       const isDarkTheme = document.documentElement.classList.contains('dark-theme') || 
                          document.body.classList.contains('dark-theme') ||
-                         cardBg.includes('33') || cardBg.includes('44') || cardBg.includes('55'); // common dark values
+                         cardBg.includes('33') || cardBg.includes('44') || cardBg.includes('55'); 
       
       return isDarkTheme ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)';
     }
-    
-    // Fallback to CSS variable with better defaults
+
     return 'var(--search-hover-bg, rgba(255, 255, 255, 0.1))';
   }
-  
-  // Save search term to history
+
   function saveSearch(term) {
     if (!term || term.trim().length < 2) return;
     
@@ -2146,8 +1955,7 @@ function fixSearchFunctionality() {
     if (history.length > 10) history.pop();
     localStorage.setItem(historyKey, JSON.stringify(history));
   }
-  
-  // Load and display search history with proper theme support
+
   function loadSearchHistory() {
     const history = JSON.parse(localStorage.getItem(historyKey)) || [];
     searchResults.innerHTML = '';
@@ -2184,8 +1992,7 @@ function fixSearchFunctionality() {
       termText.style.textOverflow = 'ellipsis';
       termText.style.whiteSpace = 'nowrap';
       item.appendChild(termText);
-      
-      // History item delete button with theme variables
+
       const deleteBtn = document.createElement('span');
       deleteBtn.innerHTML = '×';
       deleteBtn.style.marginLeft = '10px';
@@ -2215,8 +2022,7 @@ function fixSearchFunctionality() {
         searchInput.value = term;
         performSearch(term);
       });
-      
-      // Add hover effect with proper theme-aware background
+
       item.addEventListener('mouseenter', () => {
         item.style.backgroundColor = getHoverBg();
       });
@@ -2230,8 +2036,7 @@ function fixSearchFunctionality() {
     
     searchResults.style.display = 'block';
   }
-  
-  // Perform search and display results with proper theme support
+
   function performSearch(query) {
     searchResults.innerHTML = "";
     if (!query || query.length < 2) {
@@ -2276,8 +2081,7 @@ function fixSearchFunctionality() {
         resultItem.style.cursor = "pointer";
         resultItem.style.transition = "background-color 0.2s ease";
         resultItem.style.color = 'var(--text)';
-        
-        // Hover effect with proper theme-aware background
+
         resultItem.addEventListener("mouseenter", () => {
           resultItem.style.backgroundColor = getHoverBg();
         });
@@ -2285,8 +2089,7 @@ function fixSearchFunctionality() {
         resultItem.addEventListener("mouseleave", () => {
           resultItem.style.backgroundColor = "";
         });
-        
-        // Image container
+
         const imgContainer = document.createElement("div");
         imgContainer.style.width = "60px";
         imgContainer.style.height = "60px";
@@ -2304,11 +2107,10 @@ function fixSearchFunctionality() {
         
         imgContainer.appendChild(img);
         resultItem.appendChild(imgContainer);
-        
-        // Content container
+
         const content = document.createElement("div");
         content.style.flex = "1";
-        content.style.minWidth = "0"; // Allows text truncation
+        content.style.minWidth = "0"; 
         
         const title = document.createElement("div");
         title.textContent = story.title;
@@ -2350,8 +2152,7 @@ function fixSearchFunctionality() {
     
     searchResults.style.display = "block";
   }
-  
-  // Show clear button when input has content
+
   function toggleClearButton() {
     if (searchInput.value.length > 0) {
       clearBtn.style.display = "block";
@@ -2359,8 +2160,7 @@ function fixSearchFunctionality() {
       clearBtn.style.display = "none";
     }
   }
-  
-  // Clear search input and results
+
   clearBtn.addEventListener("click", () => {
     searchInput.value = "";
     searchResults.innerHTML = "";
@@ -2368,8 +2168,7 @@ function fixSearchFunctionality() {
     clearBtn.style.display = "none";
     searchInput.focus();
   });
-  
-  // Focus event - show history if empty
+
   searchInput.addEventListener("focus", () => {
     toggleClearButton();
     if (searchInput.value.trim().length < 2) {
@@ -2378,8 +2177,7 @@ function fixSearchFunctionality() {
       performSearch(searchInput.value);
     }
   });
-  
-  // Input event - search as user types
+
   searchInput.addEventListener("input", () => {
     toggleClearButton();
     const val = searchInput.value.trim();
@@ -2393,15 +2191,13 @@ function fixSearchFunctionality() {
       performSearch(val);
     }
   });
-  
-  // Handle clicks outside to close results
+
   document.addEventListener("click", (e) => {
     if (!searchContainer.contains(e.target)) {
       searchResults.style.display = "none";
     }
   });
-  
-  // Initial setup
+
   toggleClearButton();
   
   console.log('Search functionality initialized with proper theme support');
@@ -2454,7 +2250,6 @@ function showContinueReadingSection() {
     featured.parentNode.insertBefore(section, featured);
   }
 
-  // Handle continue buttons
   document.querySelectorAll(".continue-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.id;
@@ -2468,20 +2263,20 @@ function showContinueReadingSection() {
 
 
   function init() {
-    // displayWelcomeUsername(); // Commented out because the function is not defined
+
     fixSearchFunctionality();
     setupHeroSection();
     setupFeaturedCarousel();
     setupTrendingSection();
     setupThemeToggle();
-    // setupLoginModal();
+
     setupStoryCardHoverEffects();
     setupMutationObserver();
   
     setupSmoothScroll();
     setupGlobalClickHandler();
     setupCategoryFilter();
-    // <- use only this
+
     showContinueReadingSection()
 }
 
