@@ -1,4 +1,4 @@
-// Enhanced Firebase Authentication Functions with Library Support
+
 import { app } from './firebase-config.js';
 
 export class FirebaseAuthManager {
@@ -7,27 +7,23 @@ export class FirebaseAuthManager {
     this.db = window.firebaseDb;
     this.utils = window.firebaseUtils;
     this.currentUser = null;
-    
-    // Listen for auth state changes
+
     this.utils.onAuthStateChanged(this.auth, (user) => {
       this.currentUser = user;
       this.updateUI(user);
     });
   }
 
-  // Sign up new user
   async signUp(username, email, password) {
     try {
-      // Create user account
+
       const userCredential = await this.utils.createUserWithEmailAndPassword(this.auth, email, password);
       const user = userCredential.user;
 
-      // Update user profile with username
       await this.utils.updateProfile(user, {
         displayName: username
       });
 
-      // Store additional user data in Firestore
       await this.utils.setDoc(this.utils.doc(this.db, 'users', user.uid), {
         username: username,
         email: email,
@@ -36,7 +32,6 @@ export class FirebaseAuthManager {
         library: [] // Initialize empty library
       });
 
-      // Wait a moment for profile update to propagate
       await new Promise(resolve => setTimeout(resolve, 100));
 
       return { success: true, user: user };
@@ -46,28 +41,23 @@ export class FirebaseAuthManager {
     }
   }
 
-  // Sign in existing user
   async signIn(email, password) {
     try {
       const userCredential = await this.utils.signInWithEmailAndPassword(this.auth, email, password);
       const user = userCredential.user;
-      
-      // Get user data from Firestore to ensure we have the username
+
       const userDoc = await this.utils.getDoc(this.utils.doc(this.db, 'users', user.uid));
       const userData = userDoc.data();
-      
-      // If displayName is not set but we have username in Firestore, update it
+
       if (!user.displayName && userData?.username) {
         await this.utils.updateProfile(user, {
           displayName: userData.username
         });
       }
-      
-      // FIXED: Clear localStorage before syncing to prevent old data
-      // localStorage.removeItem('userLibrary');
-      // localStorage.removeItem('progress');
-      
-      // Sync library after successful login
+
+
+
+
       await this.syncLibrary();
 
       setTimeout(() => {
@@ -81,18 +71,16 @@ export class FirebaseAuthManager {
     }
   }
 
-  // FIXED: Sign out user with proper cleanup
   async signOut() {
     try {
-      // Clear all user-specific data from localStorage
+
       localStorage.removeItem('userLibrary');
       localStorage.removeItem('progress');
       localStorage.removeItem('username');
       localStorage.removeItem('isAuthenticated');
       
       await this.utils.signOut(this.auth);
-      
-      // FIXED: Reset all Add to Library buttons after sign out
+
       this.resetAllLibraryButtons();
       
       return { success: true };
@@ -102,24 +90,20 @@ export class FirebaseAuthManager {
     }
   }
 
-  // FIXED: Reset all library buttons to default state
   resetAllLibraryButtons() {
   document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
-    // Reset to original state
+
     button.innerHTML = '<i class="fas fa-plus"></i> Add to Library';
     button.className = button.className.replace(/\s*(added|in-library|error)\s*/g, ' ').trim();
     button.disabled = false;
     button.style.pointerEvents = 'auto';
-    
-    // Remove the data attribute to allow re-setup
+
     button.removeAttribute('data-library-setup');
   });
-  
-  // Re-setup the buttons immediately
+
   setupLibraryButtons();
 }
 
-  // FIXED: Add story to user's library with individual button state management
   async addToLibrary(storyData, buttonElement = null) {
     console.log('addToLibrary called with:', storyData);
 console.log('Current user:', this.currentUser?.email);
@@ -128,12 +112,10 @@ console.log('Button element:', buttonElement);
     showNotification('Please sign in to add stories to your library', 'warning');
     return { success: false, error: 'User not authenticated' };
   }
-  
-  // FIXED: Validate and ensure story has a proper ID before proceeding
+
   if (!storyData.id || storyData.id.trim() === '') {
     console.warn('Story data missing ID, generating one...');
-    
-    // Generate a unique ID if missing
+
     let newId = '';
     if (storyData.title && storyData.title.trim() !== '') {
       newId = storyData.title.toLowerCase()
@@ -146,27 +128,23 @@ console.log('Button element:', buttonElement);
     if (!newId || newId.length < 2) {
       newId = 'story-' + Date.now();
     }
-    
-    // Add timestamp for uniqueness
+
     storyData.id = newId + '-' + Date.now();
     console.log('Generated new story ID:', storyData.id);
   }
-  
-  // FIXED: Additional validation to ensure ID is always valid
+
   if (!storyData.id || typeof storyData.id !== 'string' || storyData.id.trim() === '') {
     storyData.id = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
     console.log('Used fallback story ID:', storyData.id);
   }
-  
-  // Only manage the specific button that was clicked
+
   let originalHTML = '';
   let originalClass = '';
   
   if (buttonElement) {
     originalHTML = buttonElement.innerHTML;
     originalClass = buttonElement.className;
-    
-    // Set loading state for this specific button only
+
     buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
     buttonElement.disabled = true;
     buttonElement.style.pointerEvents = 'none';
@@ -176,18 +154,16 @@ console.log('Button element:', buttonElement);
     const userRef = this.utils.doc(this.db, 'users', this.currentUser.uid);
     const userDoc = await this.utils.getDoc(userRef);
     const userData = userDoc.data() || {};
-    
-    // Get current library or initialize empty array
+
     const currentLibrary = userData.library || [];
-    
-    // FIXED: Check for existing story by ID more robustly
+
     const existingStory = currentLibrary.find(story => 
       story.id === storyData.id || 
       (story.title === storyData.title && story.author === storyData.author)
     );
     
     if (existingStory) {
-      // Story already exists - update button and redirect to library
+
       if (buttonElement) {
         buttonElement.innerHTML = '<i class="fas fa-book-open"></i> View in Library';
         buttonElement.classList.add('in-library');
@@ -206,8 +182,7 @@ console.log('Button element:', buttonElement);
       }, 1000);
       return { success: false, error: 'Story already in library', inLibrary: true };
     }
-    
-    // FIXED: Add timestamp and ensure all required fields are present
+
     const storyWithTimestamp = {
       id: storyData.id, // Ensure ID is always included
       title: storyData.title || 'Untitled Story',
@@ -218,34 +193,28 @@ console.log('Button element:', buttonElement);
       image: storyData.image || 'https://via.placeholder.com/300x200?text=Story',
       addedAt: new Date().toISOString()
     };
-    
-    // FIXED: Final validation before adding to library
+
     if (!storyWithTimestamp.id || storyWithTimestamp.id.trim() === '') {
       throw new Error('Story ID validation failed');
     }
     
     console.log('Adding story to library with ID:', storyWithTimestamp.id);
-    
-    // Add story to library
+
     const updatedLibrary = [...currentLibrary, storyWithTimestamp];
-    
-    // Update Firestore
+
     await this.utils.setDoc(userRef, {
       ...userData,
       library: updatedLibrary
     }, { merge: true });
-    
-    // Update localStorage for immediate sync
+
     localStorage.setItem('userLibrary', JSON.stringify(updatedLibrary));
-    
-    // Update button state for success
+
     if (buttonElement) {
       buttonElement.innerHTML = '<i class="fas fa-check"></i> Added to Library';
       buttonElement.classList.add('added');
       buttonElement.disabled = false;
       buttonElement.style.pointerEvents = 'auto';
-      
-      // Change click behavior to redirect to library
+
       setTimeout(() => {
         buttonElement.onclick = (e) => {
           e.preventDefault();
@@ -261,13 +230,11 @@ console.log('Button element:', buttonElement);
     
   } catch (error) {
     console.error('Error adding to library:', error);
-    
-    // Reset button state on error
+
     if (buttonElement) {
       buttonElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to add';
       buttonElement.classList.add('error');
-      
-      // Reset after 3 seconds
+
       setTimeout(() => {
         buttonElement.innerHTML = originalHTML;
         buttonElement.className = originalClass;
@@ -281,7 +248,6 @@ console.log('Button element:', buttonElement);
   }
 }
 
-  // Remove story from user's library
   async removeFromLibrary(storyId) {
     if (!this.currentUser) {
       return { success: false, error: 'User not authenticated' };
@@ -291,20 +257,16 @@ console.log('Button element:', buttonElement);
       const userRef = this.utils.doc(this.db, 'users', this.currentUser.uid);
       const userDoc = await this.utils.getDoc(userRef);
       const userData = userDoc.data() || {};
-      
-      // Get current library
+
       const currentLibrary = userData.library || [];
-      
-      // Remove story from library
+
       const updatedLibrary = currentLibrary.filter(story => story.id !== storyId);
-      
-      // Update Firestore
+
       await this.utils.setDoc(userRef, {
         ...userData,
         library: updatedLibrary
       }, { merge: true });
-      
-      // Update localStorage
+
       localStorage.setItem('userLibrary', JSON.stringify(updatedLibrary));
       
       return { success: true, library: updatedLibrary };
@@ -315,7 +277,6 @@ console.log('Button element:', buttonElement);
     }
   }
 
-  // Get user's library
   async getUserLibrary() {
     if (!this.currentUser) {
       return [];
@@ -331,7 +292,6 @@ console.log('Button element:', buttonElement);
     }
   }
 
-  // Check if story is in user's library
   async isInLibrary(storyId) {
     if (!this.currentUser) {
       return false;
@@ -346,15 +306,13 @@ console.log('Button element:', buttonElement);
     }
   }
 
-  // FIXED: Improved sync library with proper cleanup
   async syncLibrary() {
     if (!this.currentUser) return;
     
     try {
-      // Get library from Firebase first (source of truth)
+
       const firebaseLibrary = await this.getUserLibrary();
-      
-      // Update localStorage with Firebase data
+
       localStorage.setItem('userLibrary', JSON.stringify(firebaseLibrary));
       
       console.log('Library synced for user:', this.currentUser.uid, 'Stories:', firebaseLibrary.length);
@@ -377,7 +335,7 @@ console.log('Button element:', buttonElement);
         const storyData = createStoryData(storyCard);
         
         if (libraryIds.includes(storyData.id)) {
-          // Story is already in library
+
           button.innerHTML = '<i class="fas fa-book-open"></i> View in Library';
           button.classList.add('in-library');
           button.onclick = (e) => {
@@ -386,7 +344,7 @@ console.log('Button element:', buttonElement);
             window.location.href = 'library.html';
           };
         } else {
-          // Story is not in library - reset to default
+
           button.innerHTML = '<i class="fas fa-plus"></i> Add to Library';
           button.classList.remove('added', 'in-library', 'error');
           button.onclick = null; // Will be handled by event listener
@@ -398,7 +356,6 @@ console.log('Button element:', buttonElement);
   }
 }
 
-  // Update reading progress in Firebase
   async updateReadingProgress(storyId, progress) {
     if (!this.currentUser) return;
     
@@ -421,7 +378,6 @@ console.log('Button element:', buttonElement);
     }
   }
 
-  // Get reading progress from Firebase
   async getReadingProgress() {
     if (!this.currentUser) return {};
     
@@ -435,7 +391,6 @@ console.log('Button element:', buttonElement);
     }
   }
 
-  // FIXED: Update UI based on auth state with proper cleanup
   async updateUI(user) {
     const loginBtn = document.querySelector(".login-btn");
     const accountWrapper = document.querySelector(".account-wrapper");
@@ -444,10 +399,9 @@ console.log('Button element:', buttonElement);
     const usernameDisplay = document.getElementById("username-display");
 
     if (user) {
-      // User is signed in - get username properly
+
       let username = user.displayName;
-      
-      // If no displayName, try to get username from Firestore
+
       if (!username) {
         try {
           const userDoc = await this.utils.getDoc(this.utils.doc(this.db, 'users', user.uid));
@@ -458,23 +412,20 @@ console.log('Button element:', buttonElement);
           username = user.email.split('@')[0];
         }
       }
-      
-      // Show account UI, hide login button
+
       if (loginBtn) loginBtn.style.display = "none";
       if (accountWrapper) accountWrapper.classList.remove("hidden");
       if (accountName) accountName.textContent = username;
       if (usernameDisplay) usernameDisplay.textContent = `Welcome, ${username}!`;
-      
-      // Sync reading progress and library
+
       this.syncReadingProgress();
       this.syncLibrary();
-      
-      // FIXED: Reset library buttons when user signs in
+
       setTimeout(() => {
         this.resetAllLibraryButtons();
       }, 500);
     } else {
-      // User is not signed in - reset UI
+
       if (loginBtn) {
         loginBtn.style.display = "inline-block";
       }
@@ -487,27 +438,23 @@ console.log('Button element:', buttonElement);
       if (usernameDisplay) {
         usernameDisplay.textContent = "Welcome!";
       }
-      
-      // FIXED: Clear all user-specific data and reset UI
+
       localStorage.removeItem('username');
       localStorage.removeItem('isAuthenticated');
       localStorage.removeItem('userLibrary');
       localStorage.removeItem('progress');
-      
-      // Reset library buttons
+
       this.resetAllLibraryButtons();
     }
   }
 
-  // FIXED: Improved sync reading progress
   async syncReadingProgress() {
     if (!this.currentUser) return;
     
     try {
-      // Get progress from Firebase first (source of truth)
+
       const firebaseProgress = await this.getReadingProgress();
-      
-      // Update localStorage with Firebase data
+
       localStorage.setItem("progress", JSON.stringify(firebaseProgress));
       
     } catch (error) {
@@ -515,7 +462,6 @@ console.log('Button element:', buttonElement);
     }
   }
 
-  // Convert Firebase error codes to user-friendly messages
   getErrorMessage(errorCode) {
     const errorMessages = {
       'auth/email-already-in-use': 'An account with this email already exists.',
@@ -532,30 +478,25 @@ console.log('Button element:', buttonElement);
     return errorMessages[errorCode] || 'An error occurred. Please try again.';
   }
 
-  // Check if user is currently signed in
   isSignedIn() {
     return !!this.currentUser;
   }
 
-  // Get current user info
   getCurrentUser() {
     return this.currentUser;
   }
 }
 
-// FIXED: Enhanced utility function to create story data object
 function createStoryData(storyElement) {
   console.log('Creating story data for element:', storyElement);
-  
-  // Try multiple selectors to find story information
+
   let title = '';
   let author = '';
   let description = '';
   let genre = '';
   let rating = '';
   let image = '';
-  
-  // Try different title selectors
+
   const titleSelectors = [
     '.story-title',
     '.hero-story-title', 
@@ -572,8 +513,7 @@ function createStoryData(storyElement) {
       break;
     }
   }
-  
-  // Try different author selectors
+
   const authorSelectors = [
     '.story-author',
     '.hero-story-author',
@@ -588,8 +528,7 @@ function createStoryData(storyElement) {
       break;
     }
   }
-  
-  // Try different description selectors
+
   const descriptionSelectors = [
     '.story-description',
     '.hero-story-desc',
@@ -605,8 +544,7 @@ function createStoryData(storyElement) {
       break;
     }
   }
-  
-  // Try different genre selectors
+
   const genreSelectors = [
     '.story-genre',
     '.genre span',
@@ -622,8 +560,7 @@ function createStoryData(storyElement) {
       break;
     }
   }
-  
-  // Try different rating selectors
+
   const ratingSelectors = [
     '.story-rating',
     '.rating span',
@@ -639,8 +576,7 @@ function createStoryData(storyElement) {
       break;
     }
   }
-  
-  // Try different image selectors
+
   const imageSelectors = [
     '.story-image',
     '.hero-image img',
@@ -655,13 +591,11 @@ function createStoryData(storyElement) {
       break;
     }
   }
-  
-  // Get story ID from data attribute first
+
   let storyId = storyElement.getAttribute('data-story-id');
-  
-  // If no data-story-id attribute, try to get from URL or other sources
+
   if (!storyId || storyId.trim() === '') {
-    // Try to get from href or onclick attributes
+
     const readBtn = storyElement.querySelector('.read-story-btn, .continue-reading-btn, .read-btn');
     if (readBtn) {
       const href = readBtn.getAttribute('href');
@@ -676,8 +610,7 @@ function createStoryData(storyElement) {
         }
       }
     }
-    
-    // If still no ID, generate one from title
+
     if (!storyId || storyId.trim() === '') {
       if (title && title.trim() !== '') {
         storyId = title.toLowerCase()
@@ -685,26 +618,22 @@ function createStoryData(storyElement) {
           .replace(/\s+/g, '-')
           .replace(/-+/g, '-')
           .replace(/^-|-$/g, '');
-          
-        // Add timestamp for uniqueness
+
         if (storyId.length > 0) {
           storyId = storyId + '-' + Date.now();
         }
       }
-      
-      // Final fallback
+
       if (!storyId || storyId.length < 2) {
         storyId = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
       }
     }
   }
-  
-  // Ensure the ID is always valid and not empty
+
   if (!storyId || storyId.trim() === '') {
     storyId = 'story-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
   }
-  
-  // Set default values if not found
+
   const storyData = {
     id: storyId,
     title: title || 'Untitled Story',
@@ -720,14 +649,12 @@ function createStoryData(storyElement) {
   return storyData;
 }
 
-// FIXED: Function to setup "Add to Library" buttons with individual state management
 function setupLibraryButtons() {
-  // Setup for existing story cards
+
   document.querySelectorAll('.add-btn, .add-to-library-btn').forEach(button => {
-    // Skip if already has event listener
+
     button.removeEventListener('click', handleLibraryClick);
-    
-    // Add fresh event listener
+
     button.addEventListener('click', handleLibraryClick);
     
     button.addEventListener('click', async (e) => {
@@ -736,23 +663,20 @@ function setupLibraryButtons() {
       
       if (!window.authManager.isSignedIn()) {
         showNotification('Please sign in to add stories to your library', 'warning');
-        // Trigger login modal
+
         const loginBtn = document.querySelector('.login-btn');
         if (loginBtn) loginBtn.click();
         return;
       }
-      
-      // Find the story card element
+
       const storyCard = button.closest('.story-card, .hero-content');
       if (!storyCard) {
         showNotification('Could not find story information', 'error');
         return;
       }
-      
-      // Extract story data
+
       const storyData = createStoryData(storyCard);
-      
-      // FIXED: Pass the specific button element to addToLibrary
+
       await window.authManager.addToLibrary(storyData, button);
     });
   });
@@ -764,29 +688,25 @@ async function handleLibraryClick(e) {
   
   if (!window.authManager.isSignedIn()) {
     showNotification('Please sign in to add stories to your library', 'warning');
-    // Trigger login modal
+
     const loginBtn = document.querySelector('.login-btn');
     if (loginBtn) loginBtn.click();
     return;
   }
-  
-  // Find the story card element
+
   const storyCard = this.closest('.story-card, .hero-content');
   if (!storyCard) {
     showNotification('Could not find story information', 'error');
     return;
   }
-  
-  // Extract story data
+
   const storyData = createStoryData(storyCard);
-  
-  // Pass the specific button element to addToLibrary
+
   await window.authManager.addToLibrary(storyData, this);
 }
 
-// Utility function to show notifications
 function showNotification(message, type = 'info') {
-  // Create notification element if it doesn't exist
+
   let notification = document.getElementById('notification');
   if (!notification) {
     notification = document.createElement('div');
@@ -807,8 +727,7 @@ function showNotification(message, type = 'info') {
     `;
     document.body.appendChild(notification);
   }
-  
-  // Set notification style based on type
+
   const colors = {
     success: '#10b981',
     error: '#ef4444',
@@ -819,14 +738,12 @@ function showNotification(message, type = 'info') {
   notification.style.backgroundColor = colors[type] || colors.info;
   notification.textContent = message;
   notification.style.transform = 'translateX(0)';
-  
-  // Auto hide after 3 seconds
+
   setTimeout(() => {
     notification.style.transform = 'translateX(400px)';
   }, 3000);
 }
 
-// FIXED: Setup account menu functionality with proper button state management
 function setupAccountMenu() {
   const accountToggle = document.getElementById('accountToggle');
   const accountMenu = document.querySelector('.account-menu');
@@ -835,13 +752,11 @@ function setupAccountMenu() {
   if (!accountToggle || !accountMenu) {
     return;
   }
-  
-  // Toggle account menu on click
+
   accountToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     accountMenu.classList.toggle('hidden');
-    
-    // Rotate the dropdown arrow
+
     const arrow = accountToggle.querySelector('.dropdown-arrow');
     if (arrow) {
       arrow.style.transform = accountMenu.classList.contains('hidden') 
@@ -849,8 +764,7 @@ function setupAccountMenu() {
         : 'rotate(180deg)';
     }
   });
-  
-  // Close menu when clicking outside
+
   document.addEventListener('click', (e) => {
     if (!accountToggle.contains(e.target) && !accountMenu.contains(e.target)) {
       if (!accountMenu.classList.contains('hidden')) {
@@ -862,43 +776,38 @@ function setupAccountMenu() {
       }
     }
   });
-  
-  // FIXED: Sign out link handler with proper state management
+
   if (signOutLink) {
     signOutLink.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
-      
-      // FIXED: Store original state to ensure proper reset
+
       const originalHTML = signOutLink.innerHTML;
       const originalPointerEvents = signOutLink.style.pointerEvents;
       
       try {
-        // Show loading state
+
         signOutLink.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing out...';
         signOutLink.style.pointerEvents = 'none';
         
         const result = await window.authManager.signOut();
         
         if (result.success) {
-          // Hide the menu immediately
+
           accountMenu.classList.add('hidden');
           const arrow = accountToggle.querySelector('.dropdown-arrow');
           if (arrow) {
             arrow.style.transform = 'rotate(0deg)';
           }
-          
-          // Show success message
+
           showNotification('Signed out successfully', 'success');
-          
-          // FIXED: Reset button state immediately after successful sign out
+
           signOutLink.innerHTML = originalHTML;
           signOutLink.style.pointerEvents = originalPointerEvents;
-          
-          // UI will be updated automatically by the auth state change listener
+
         } else {
           showNotification('Error signing out. Please try again.', 'error');
-          // Reset link state on error
+
           signOutLink.innerHTML = originalHTML;
           signOutLink.style.pointerEvents = originalPointerEvents;
         }
@@ -906,8 +815,7 @@ function setupAccountMenu() {
       } catch (error) {
         console.error('Sign out error:', error);
         showNotification('Error signing out. Please try again.', 'error');
-        
-        // FIXED: Always reset link state on error
+
         signOutLink.innerHTML = originalHTML;
         signOutLink.style.pointerEvents = originalPointerEvents;
       }
@@ -915,7 +823,6 @@ function setupAccountMenu() {
   }
 }
 
-// Login modal setup function
 function setupLoginModal() {
   const loginBtn = document.querySelector('.login-btn');
   const modalOverlay = document.querySelector('.modal-overlay');
@@ -924,29 +831,25 @@ function setupLoginModal() {
   const modalForms = document.querySelectorAll('.modal-form');
   
   if (!loginBtn || !modalOverlay) return;
-  
-  // Login button click handler
+
   if (loginBtn) {
     loginBtn.addEventListener('click', () => {
       modalOverlay.classList.add('active');
     });
   }
-  
-  // Modal close handlers
+
   if (modalClose) {
     modalClose.addEventListener('click', () => {
       modalOverlay.classList.remove('active');
     });
   }
-  
-  // Close modal when clicking outside
+
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) {
       modalOverlay.classList.remove('active');
     }
   });
-  
-  // Tab switching
+
   modalTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const tabName = tab.getAttribute('data-tab');
@@ -961,8 +864,7 @@ function setupLoginModal() {
       }
     });
   });
-  
-  // Sign-in form submission
+
   const signinForm = document.getElementById('signin-form');
   if (signinForm) {
     signinForm.addEventListener('submit', async (e) => {
@@ -979,14 +881,12 @@ function setupLoginModal() {
       
       const email = emailInput.value.trim();
       const password = passwordInput.value;
-      
-      // Basic validation
+
       if (!email || !password) {
         showNotification('Please fill out all fields', 'warning');
         return;
       }
-      
-      // Show loading state
+
       const originalText = submitBtn.textContent;
       submitBtn.textContent = 'Signing in...';
       submitBtn.disabled = true;
@@ -995,15 +895,14 @@ function setupLoginModal() {
         const result = await window.authManager.signIn(email, password);
         
         if (result.success) {
-          // Success - modal will close and UI will update automatically
+
           modalOverlay.classList.remove('active');
           emailInput.value = '';
           passwordInput.value = '';
-          
-          // Show success message
+
           showNotification('Welcome back!', 'success');
         } else {
-          // Show error
+
           showNotification(result.error, 'error');
           passwordInput.value = '';
         }
@@ -1011,14 +910,13 @@ function setupLoginModal() {
         console.error('Sign in error:', error);
         showNotification('An error occurred. Please try again.', 'error');
       } finally {
-        // Reset button state
+
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       }
     });
   }
-  
-  // Sign-up form submission
+
   const signupForm = document.getElementById('signup-form');
   if (signupForm) {
     signupForm.addEventListener('submit', async (e) => {
@@ -1037,27 +935,23 @@ function setupLoginModal() {
       const username = usernameInput.value.trim();
       const email = emailInput.value.trim();
       const password = passwordInput.value;
-      
-      // Basic validation
+
       if (!username || !email || !password) {
         showNotification('Please fill out all fields', 'warning');
         return;
       }
-      
-      // Email validation
+
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         showNotification('Please enter a valid email address', 'warning');
         return;
       }
-      
-      // Password validation
+
       if (password.length < 6) {
         showNotification('Password must be at least 6 characters long', 'warning');
         return;
       }
-      
-      // Show loading state
+
       const originalText = submitBtn.textContent;
       submitBtn.textContent = 'Creating account...';
       submitBtn.disabled = true;
@@ -1066,23 +960,22 @@ function setupLoginModal() {
         const result = await window.authManager.signUp(username, email, password);
         
         if (result.success) {
-          // Success - modal will close and UI will update automatically
+
           modalOverlay.classList.remove('active');
           usernameInput.value = '';
           emailInput.value = '';
           passwordInput.value = '';
-          
-          // Show success message
+
           showNotification('Account created successfully! Welcome to Talevo!', 'success');
         } else {
-          // Show error
+
           showNotification(result.error, 'error');
         }
       } catch (error) {
         console.error('Sign up error:', error);
         showNotification('An error occurred. Please try again.', 'error');
       } finally {
-        // Reset button state
+
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       }
@@ -1090,25 +983,20 @@ function setupLoginModal() {
   }
 }
 
-// Initialize Firebase Auth Manager
 window.authManager = new FirebaseAuthManager();
 
-// Make functions available globally
 window.showNotification = showNotification;
 window.createStoryData = createStoryData;
 window.setupLibraryButtons = setupLibraryButtons;
 
-// Export the setup functions
 window.setupLoginModal = setupLoginModal;
 window.setupAccountMenu = setupAccountMenu;
 
-// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   setupLoginModal();
   setupAccountMenu();
   setupLibraryButtons();
-  
-  // FIXED: Re-setup library buttons when new content is loaded dynamically
+
   const observer = new MutationObserver((mutations) => {
   let shouldResetup = false;
   
