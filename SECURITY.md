@@ -1,13 +1,35 @@
-# Security Policy
+# 🔐 Security Policy
 
-## Reporting Issues
+## 📅 Supported Versions
 
-If you discover a bug or security issue in **Talevo**, please do not share it publicly. Instead, report it privately to:
+Only the latest deployed version of Talevo is supported.
 
-📧 vaibhavbhagat7461@gmail.com
+| Version | Supported |
+|---------|-----------|
+| Latest  | ✅         |
+| Older   | ❌         |
 
-I will review and respond promptly.
+---
 
-## Project Status
+## 🐞 Reporting a Vulnerability
 
-This project is actively maintained by Vaibhav Bhagat.
+If you discover a security issue related to Talevo or its public showcase:
+
+**Contact:**
+- Name: Vaibhav Bhagat
+- Email: vaibhavbhagat7461@gmail.com
+
+Please include:
+- Description of the issue
+- Steps to reproduce
+- Any suggested fix (optional)
+
+Response expected in 3–5 working days.
+
+---
+
+## 🧭 Responsible Disclosure
+
+Do not open public issues for security bugs. Private, responsible disclosure is appreciated.
+
+
