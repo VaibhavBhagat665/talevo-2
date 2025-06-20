@@ -74,7 +74,6 @@
       <div id="loader" class="loading-indicator">Loading story...</div>
       <div class="story-container" id="story-container" style="display: none;"></div>
 
-      <!-- Ending chapters (HTML only) -->
       <div class="story-chapter hidden" id="ending-1">
   <div class="chapter-image">
     <img src="/api/placeholder/400/250" alt="Eternal Guardians">
@@ -266,7 +265,7 @@
       const loader = document.getElementById("loader");
 
       storyData.forEach((chapter) => {
-        if (chapter.id.startsWith("ending-")) return; // Skip endings from JSON
+        if (chapter.id.startsWith("ending-")) return;
 
         const chapterDiv = document.createElement("div");
         chapterDiv.classList.add("story-chapter");
