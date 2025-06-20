@@ -1,4 +1,4 @@
-// Firebase Configuration
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
 import { 
   getAuth, 
@@ -15,7 +15,6 @@ import {
   getDoc 
 } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
 
-// Your Firebase config (replace with your actual config)
 const firebaseConfig = {
   apiKey: "AIzaSyArx9uO2fZlXjWdcHjQVkxk9glNjqo_Grw",
   authDomain: "talevo-f47de.firebaseapp.com",
@@ -26,12 +25,10 @@ const firebaseConfig = {
   measurementId: "G-LLG62MEY9G"
 };
 
-// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Export for use in other files
 window.firebaseAuth = auth;
 window.firebaseDb = db;
 window.firebaseUtils = {
