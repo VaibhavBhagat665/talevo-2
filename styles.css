@@ -21,7 +21,7 @@
   --border-radius: 12px;
 }
 
-/* Light/dark mode themes */
+
 body {
   --bg: var(--bg-light);
   --text: var(--text-dark);
@@ -60,7 +60,7 @@ h1, h2, h3, h4 {
   padding: 0 20px;
 }
 
-/* Header Styles */
+
 header {
   position: fixed;
   top: 0;
@@ -126,7 +126,7 @@ body.dark-theme header {
   width: 100%;
 }
 
-/* Theme toggle & user actions */
+
 .user-actions {
   display: flex;
   align-items: center;
@@ -190,7 +190,7 @@ body.dark-theme .search-input {
   pointer-events: none;
 }
 
-/* Button Styles */
+
 .btn {
   background: var(--gradient);
   color: white;
@@ -246,7 +246,7 @@ body.dark-theme .search-input {
   transform: translateY(-2px);
 }
 
-/* Genre and Rating Styles */
+
 .genre {
   background: rgba(138, 43, 226, 0.2);
   padding: 5px 15px;
@@ -278,7 +278,7 @@ body.dark-theme .search-input {
   color: #ffcc00;
 }
 
-/* Sections Common Styles */
+
 section {
   padding: 60px 0;
   opacity: 0;
@@ -310,7 +310,7 @@ section.visible {
   border-radius: 2px;
 }
 
-/* Hero Section */
+
 .hero {
   position: relative;
   top: 15vh;
@@ -401,7 +401,7 @@ section.visible {
   gap: 16px;
 }
 
-/* Hero Carousel */
+
 .hero-carousel {
   position: relative;
   width: 100%;
@@ -443,7 +443,7 @@ section.visible {
   transform: scale(1.05);
 }
 
-/* Carousel Navigation */
+
 .carousel-indicators {
   position: absolute;
   bottom: 30px;
@@ -507,7 +507,7 @@ section.visible {
   opacity: 1 !important;
 }
 
-/* Featured Stories */
+
 .stories-carousel {
   position: relative;
   overflow: hidden;
@@ -615,7 +615,7 @@ section.visible {
   box-shadow: 0 6px 15px var(--glow);
 }
 
-/* Trending Section */
+
 .trending-container {
   position: relative;
   overflow: hidden;
@@ -632,7 +632,7 @@ section.visible {
   animation-play-state: paused;
 }
 
-/* Categories */
+
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -693,7 +693,7 @@ section.visible {
   z-index: 1;
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -830,7 +830,7 @@ section.visible {
   margin-top: 10px;
 }
 
-/* Footer */
+
 footer {
   padding: 60px 0 30px;
   background: var(--card-bg);
@@ -921,7 +921,7 @@ footer {
   transform: translateY(-3px);
 }
 
-/* Utility Classes */
+
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -945,7 +945,7 @@ footer {
   display: none;
 }
 
-/* Logo Animation */
+
 .logo-svg {
   width: 120px;
   height: 60px;
@@ -962,7 +962,7 @@ footer {
 .star4 { animation-delay: 0s; }
 .star5 { animation-delay: 2s; }
 
-/* Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1012,7 +1012,7 @@ footer {
   50% { opacity: 1; r: 3; }
 }
 
-/* Responsive */
+
 @media (max-width: 992px) {
   .hero-title {
     font-size: 3rem;
@@ -1133,13 +1133,13 @@ footer {
   }
 }
 
-/* Override the initial hidden state of sections */
+
 section {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
 
-/* Fix for hero navigation arrows that weren't showing */
+
 .hero-nav {
   position: absolute;
   top: 92%;
@@ -1165,7 +1165,7 @@ section {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Fix for slide indicators */
+
 .slide-indicators {
   position: absolute;
   bottom: 30px;
@@ -1176,27 +1176,27 @@ section {
   z-index: 3;
 }
 
-/* Fix for hero background */
+
 .hero-background {
   background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
 }
 
-/* Fix for issue where images might not load */
+
 .story-card-img {
   background-color: #f0f0f0;
 }
 
-/* Set image fallbacks */
+
 .hero-background:empty {
   background-color: var(--card-bg);
 }
 
-/* Ensure modal is behind other elements by default */
+
 .modal-overlay {
   z-index: 9999;
 }
 
-/* Fix for trending section and scrolling */
+
 .trending-scroll {
   animation: scroll-left 40s linear infinite;
 }
@@ -1210,7 +1210,7 @@ section {
   }
 }
 
-/* Make sure card buttons are clickable */
+
 .read-btn, .add-btn {
   position: relative;
   z-index: 5;
@@ -1275,7 +1275,7 @@ section {
 
 .read-now-btn {
   background-color: #ffcc00;
-  color: var(--text-dark); /* or just #111 */
+  color: var(--text-dark); 
 }
 body.dark-theme .read-now-btn {
   color: #111;
@@ -1504,7 +1504,7 @@ body.dark-theme .modal-tab.active {
 
 .story-card {
   position: relative;
-  overflow: hidden; /* ⬅️ important */
+  overflow: hidden; 
   border-radius: 8px;
   transition: all 0.4s ease;
   background: var(--card-bg, #fff);
@@ -1522,8 +1522,8 @@ body.dark-theme .modal-tab.active {
   z-index: 5;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box; /* ✅ */
-  overflow: hidden;        /* ✅ */
+  box-sizing: border-box; 
+  overflow: hidden;        
 }
 
 .story-card-overlay-content {
@@ -1543,12 +1543,12 @@ body.dark-theme .modal-tab.active {
   font-size: 0.9rem;
   margin-bottom: 12px;
   color: rgba(255,255,255,0.9);
-  max-height: 60px;        /* ✅ keep it contained */
+  max-height: 60px;        
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .read-now-btn {
-  margin-top: auto;        /* ✅ push to bottom */
+  margin-top: auto;        
   align-self: flex-end;
 }
