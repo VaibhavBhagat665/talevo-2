@@ -1,49 +1,36 @@
-// Main initialization
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize application elements
     initializeApp();
 });
 
-// Initialize application
 function initializeApp() {
-    // Initialize theme toggle
     initThemeToggle();
     
-    // Initialize modals
     initModals();
     
-    // Initialize auth tabs if they exist
     initAuthTabs();
     
-    // Initialize story interactions
     initStoryInteractions();
     
-    // Animation on scroll
     initializeScrollAnimations();
 }
 
-// Theme handling
 function initThemeToggle() {
-    // Set initial theme based on user preference or saved setting
     const savedDarkMode = localStorage.getItem('darkMode');
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedDarkMode !== null) {
-        // Use saved setting if available
         const isDarkMode = savedDarkMode === 'true';
         document.body.classList.toggle('dark-mode', isDarkMode);
         document.body.classList.toggle('light-mode', !isDarkMode);
     } else if (!prefersDarkMode) {
-        // Use system preference as fallback
         document.body.classList.remove('dark-mode');
         document.body.classList.add('light-mode');
     }
     
-    // Add event listener to theme switch button
     const themeSwitch = document.getElementById('theme-switch');
     if (themeSwitch) {
         themeSwitch.addEventListener('click', toggleTheme);
-        updateThemeIcon(); // Set initial icon state
+        updateThemeIcon(); 
     }
 }
 
@@ -57,8 +44,7 @@ function toggleTheme() {
         body.classList.remove('light-mode');
         body.classList.add('dark-mode');
     }
-    
-    // Save preference to localStorage
+
     const isDarkMode = body.classList.contains('dark-mode');
     localStorage.setItem('darkMode', isDarkMode);
     
@@ -76,9 +62,8 @@ function updateThemeIcon() {
     }
 }
 
-// Modal handling
 function initModals() {
-    // Login modal
+
     const loginBtn = document.getElementById('loginBtn');
     const loginModal = document.getElementById('loginModal');
     
@@ -94,8 +79,7 @@ function initModals() {
             loginModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
-        
-        // Close when clicking outside the modal
+
         window.addEventListener('click', function(event) {
             if (event.target === loginModal) {
                 loginModal.style.display = 'none';
@@ -105,7 +89,6 @@ function initModals() {
     }
 }
 
-// Auth tab handling
 function initAuthTabs() {
     const authTabs = document.querySelectorAll('.auth-tab');
     const authForms = document.querySelectorAll('.auth-form');
@@ -113,14 +96,12 @@ function initAuthTabs() {
     if (authTabs.length > 0 && authForms.length > 0) {
         authTabs.forEach(tab => {
             tab.addEventListener('click', function() {
-                // Remove active class from all tabs and forms
+
                 authTabs.forEach(t => t.classList.remove('active'));
                 authForms.forEach(f => f.classList.remove('active'));
-                
-                // Add active class to the clicked tab
+
                 this.classList.add('active');
-                
-                // Show corresponding form
+
                 const formId = this.getAttribute('data-tab') + '-form';
                 document.getElementById(formId).classList.add('active');
             });
@@ -128,9 +109,8 @@ function initAuthTabs() {
     }
 }
 
-// Story interactions
 function initStoryInteractions() {
-    // Set up "Start Reading" button
+
     const startReadingBtn = document.querySelector('.cta-button');
     if (startReadingBtn) {
         startReadingBtn.addEventListener('click', function () {
@@ -141,21 +121,17 @@ function initStoryInteractions() {
         });
     }
 
-
-    // Make story cards clickable
     const storyCards = document.querySelectorAll('.story-card');
     storyCards.forEach(card => {
         card.addEventListener('click', function() {
             const storyTitle = this.querySelector('h3').textContent.trim();
-            // Convert the title to a kebab-case filename
+
             const storyId = storyTitle.toLowerCase().replace(/\s+/g, '-');
-            
-            // Navigate to the story page
+
             window.location.href = `stories/${storyId}.html`;
         });
     });
-    
-    // Story Choice Buttons - if we're on a story page
+
     initStoryChoiceButtons();
 }
 
@@ -165,13 +141,11 @@ function initStoryChoiceButtons() {
         choiceButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const nextChapter = this.getAttribute('data-next');
-                
-                // Hide current chapter
+
                 const currentChapter = document.querySelector('.story-chapter:not(.hidden)');
                 if (currentChapter) {
                     currentChapter.classList.add('hidden');
-                
-                    // Show next chapter
+
                     const nextChapterElement = document.getElementById(nextChapter);
                     if (nextChapterElement) {
                         nextChapterElement.classList.remove('hidden');
@@ -179,8 +153,7 @@ function initStoryChoiceButtons() {
                             top: 0,
                             behavior: 'smooth'
                         });
-                        
-                        // Update stats
+
                         updateStoryStats();
                     }
                 }
@@ -189,19 +162,17 @@ function initStoryChoiceButtons() {
     }
 }
 
-// Update story statistics
 function updateStoryStats() {
     const chapters = document.querySelectorAll('.story-chapter');
     const visibleChapterIndex = Array.from(chapters).findIndex(chapter => !chapter.classList.contains('hidden'));
     
     if (visibleChapterIndex !== -1) {
-        // Update chapter counter
+
         const chapterCounter = document.getElementById('chapter-counter');
         if (chapterCounter) {
             chapterCounter.textContent = `Chapter ${visibleChapterIndex + 1}/${chapters.length}`;
         }
-        
-        // Update paths available
+
         const pathsAvailable = document.getElementById('paths-available');
         const currentChapter = chapters[visibleChapterIndex];
         const choiceOptions = currentChapter.querySelectorAll('.choice-btn');
@@ -214,13 +185,11 @@ function updateStoryStats() {
     }
 }
 
-// Animations
 function initializeScrollAnimations() {
-    // Only for devices that can handle it
+
     if (window.innerWidth >= 768) {
         const storyCards = document.querySelectorAll('.story-card');
-        
-        // Simple appearance animation on scroll
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -229,8 +198,7 @@ function initializeScrollAnimations() {
                 }
             });
         }, { threshold: 0.1 });
-        
-        // Set initial styles and observe
+
         storyCards.forEach((card, index) => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
@@ -242,14 +210,12 @@ function initializeScrollAnimations() {
     }
 }
 
-// Helper functions
 function showNotification(message) {
-    // Create notification element
+
     const notification = document.createElement('div');
     notification.className = 'notification';
     notification.textContent = message;
-    
-    // Style the notification
+
     notification.style.position = 'fixed';
     notification.style.bottom = '20px';
     notification.style.left = '50%';
@@ -262,11 +228,9 @@ function showNotification(message) {
     notification.style.zIndex = '1000';
     notification.style.transition = 'all 0.3s ease';
     notification.style.opacity = '0';
-    
-    // Add to the DOM
+
     document.body.appendChild(notification);
-    
-    // Show and hide with animation
+
     setTimeout(() => {
         notification.style.opacity = '1';
     }, 10);
@@ -278,7 +242,7 @@ function showNotification(message) {
         }, 300);
     }, 3000);
 }
-// Story navigation: Next / Prev / Start Over / Map
+
 document.addEventListener('DOMContentLoaded', function () {
     const chapters = Array.from(document.querySelectorAll('.story-chapter'));
     const nextBtn = document.getElementById('nextBtn');
@@ -341,7 +305,6 @@ function handleSignup() {
         return;
     }
 
-    // Save to localStorage
     localStorage.setItem(`user_${username}`, password);
     alert("Account created! You can now sign in.");
 }
@@ -354,14 +317,13 @@ function handleSignin() {
 
     if (savedPassword === password) {
         alert("Login successful!");
-        // Redirect to homepage or dashboard
+
         window.location.href = "index.html";
     } else {
         alert("Invalid username or password.");
     }
 }
 
-// Check if user is already logged in
 function checkLoginStatus() {
     const loggedInUser = localStorage.getItem("loggedInUser");
     const welcomeUser = document.getElementById("welcomeUser");
@@ -384,13 +346,11 @@ function checkLoginStatus() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Initialize application elements
+
     initializeApp();
-    
-    // Check login status
+
     checkLoginStatus();
 
-    // Sign Up
     const createAccountBtn = document.getElementById("createAccountBtn");
     if (createAccountBtn) {
         createAccountBtn.addEventListener("click", function() {
@@ -403,11 +363,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
-            // Save to localStorage
             localStorage.setItem(`user_${email}`, JSON.stringify({ name, password }));
             showNotification("Account created! You can now sign in.");
-            
-            // Switch to login tab
+
             const loginTab = document.querySelector('.auth-tab[data-tab="login"]');
             if (loginTab) {
                 loginTab.click();
@@ -415,7 +373,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Sign In
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
         const signinButton = loginForm.querySelector('.btn');
@@ -449,7 +406,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Logout
     const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", function() {
@@ -460,19 +416,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// window.addEventListener('load', () => {
-//   const ghostTheme = document.querySelector('.ghost-theme');
-//   if (ghostTheme) {
-//     ghostTheme.style.backgroundImage = "url('26922.webp')";
-//   }
-// });
+
+
+
+
+
 
 
 let storyHistory = [];
 let currentChapter = document.querySelector('.story-chapter:not(.hidden)');
 let cameFromPrev = false; // Track if user clicked 'Prev'
 
-// CHOICE CLICK
 document.querySelectorAll('.choice-btn').forEach(button => {
   button.addEventListener('click', () => {
     if (currentChapter) {
@@ -490,7 +444,6 @@ document.querySelectorAll('.choice-btn').forEach(button => {
   });
 });
 
-// PREV BUTTON
 document.getElementById('prev-btn')?.addEventListener('click', () => {
   const prevId = storyHistory.pop();
   const prev = document.getElementById(prevId);
@@ -503,7 +456,6 @@ document.getElementById('prev-btn')?.addEventListener('click', () => {
   }
 });
 
-// NEXT BUTTON (only after Prev clicked)
 document.getElementById('next-btn')?.addEventListener('click', () => {
   const firstChoice = currentChapter?.querySelector('.choice-btn');
   if (firstChoice) {
@@ -511,81 +463,68 @@ document.getElementById('next-btn')?.addEventListener('click', () => {
   }
 });
 
-// Disable right-click context menu
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
 });
 
-// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C
 document.addEventListener('keydown', function(e) {
-    // F12 - Developer Tools
+
     if (e.keyCode === 123) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+Shift+I - Developer Tools
+
     if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+Shift+J - Console
+
     if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+U - View Source
+
     if (e.ctrlKey && e.keyCode === 85) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+Shift+C - Element Inspector
+
     if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+A - Select All (optional)
+
     if (e.ctrlKey && e.keyCode === 65) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+S - Save Page (optional)
+
     if (e.ctrlKey && e.keyCode === 83) {
         e.preventDefault();
         return false;
     }
-    
-    // Ctrl+P - Print (optional)
+
     if (e.ctrlKey && e.keyCode === 80) {
         e.preventDefault();
         return false;
     }
 });
 
-// Disable text selection
 document.addEventListener('selectstart', function(e) {
     e.preventDefault();
     return false;
 });
 
-// Disable drag and drop
 document.addEventListener('dragstart', function(e) {
     e.preventDefault();
     return false;
 });
 
-// Clear console periodically
 setInterval(function() {
     console.clear();
 }, 1000);
 
-// Detect if developer tools are open
 let devtools = {
     open: false,
     orientation: null
@@ -598,30 +537,27 @@ setInterval(function() {
         window.outerWidth - window.innerWidth > threshold) {
         if (!devtools.open) {
             devtools.open = true;
-            // Redirect or show warning when dev tools detected
+
             document.body.innerHTML = '<h1>Access Denied</h1><p>Developer tools are not allowed on this page.</p>';
-            // Or redirect: window.location.href = 'about:blank';
+
         }
     } else {
         devtools.open = false;
     }
 }, 500);
 
-// Disable common inspect shortcuts on mobile
 document.addEventListener('touchstart', function(e) {
     if (e.touches.length > 1) {
         e.preventDefault();
     }
 });
 
-// Disable zoom
 document.addEventListener('wheel', function(e) {
     if (e.ctrlKey) {
         e.preventDefault();
     }
 }, { passive: false });
 
-// Disable pinch zoom on mobile
 let lastTouchEnd = 0;
 document.addEventListener('touchend', function(e) {
     let now = (new Date()).getTime();
@@ -631,7 +567,6 @@ document.addEventListener('touchend', function(e) {
     lastTouchEnd = now;
 }, false);
 
-// Additional CSS to disable text selection and other interactions
 const style = document.createElement('style');
 style.innerHTML = `
     * {
@@ -652,7 +587,6 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// Disable image dragging
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -662,7 +596,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Override console methods
 (function() {
     try {
         const devtools = {
@@ -679,7 +612,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch(e) {}
 })();
 
-// Detect debugging attempts
 (function() {
     let start = Date.now();
     debugger;
@@ -688,27 +620,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 })();
 
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Hide all content inside divs with class "chapter-image"
+
     const chapterImageDivs = document.querySelectorAll('div.chapter-image');
     
     chapterImageDivs.forEach(function(div) {
-        // Hide all child elements
+
         const children = div.children;
         for (let i = 0; i < children.length; i++) {
             children[i].style.display = 'none';
         }
-        
-        // Or alternatively, clear the content entirely
-        // div.innerHTML = '';
-        
-        // Or hide the entire div itself
-        // div.style.display = 'none';
+
+
+
+
     });
 });
 
-// Alternative method using CSS injection
 function hideChapterImageContent() {
     const style = document.createElement('style');
     style.innerHTML = `
@@ -729,29 +657,24 @@ function hideChapterImageContent() {
     document.head.appendChild(style);
 }
 
-// Call the CSS method
 hideChapterImageContent();
 
-// Alternative: Hide specific types of content within chapter-image divs
 function hideSpecificContent() {
     const chapterDivs = document.querySelectorAll('div.chapter-image');
     
     chapterDivs.forEach(function(div) {
-        // Hide all images
+
         const images = div.querySelectorAll('img');
         images.forEach(img => img.style.display = 'none');
-        
-        // Hide all text content
+
         const textNodes = div.querySelectorAll('p, span, div, h1, h2, h3, h4, h5, h6');
         textNodes.forEach(node => node.style.display = 'none');
-        
-        // Hide all links
+
         const links = div.querySelectorAll('a');
         links.forEach(link => link.style.display = 'none');
     });
 }
 
-// If you want to hide content that gets loaded dynamically
 const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
         if (mutation.type === 'childList') {
@@ -760,14 +683,13 @@ const observer = new MutationObserver(function(mutations) {
                 const node = addedNodes[i];
                 if (node.nodeType === 1) { // Element node
                     if (node.classList && node.classList.contains('chapter-image') && node.tagName === 'DIV') {
-                        // Hide content in newly added div.chapter-image elements
+
                         const children = node.children;
                         for (let j = 0; j < children.length; j++) {
                             children[j].style.display = 'none';
                         }
                     }
-                    
-                    // Also check if any child elements are divs with chapter-image class
+
                     const chapterDivs = node.querySelectorAll('div.chapter-image');
                     chapterDivs.forEach(function(div) {
                         const children = div.children;
@@ -781,14 +703,11 @@ const observer = new MutationObserver(function(mutations) {
     });
 });
 
-// Start observing changes to the document
 observer.observe(document.body, {
     childList: true,
     subtree: true
 });
 
-
-// CONTROLS WHEN NAV BUTTONS SHOW
 function updateNavButtons() {
   const isFirst = currentChapter?.id === 'chapter-1';
   const isEnding = currentChapter?.classList.contains('story-ending');
@@ -800,7 +719,6 @@ function updateNavButtons() {
   document.getElementById('next-btn')?.classList.toggle('hidden', !showNext);
 }
 
-// Call this on each story page when the user reads/interacts
 function saveProgress(storyId, chapterNumber, totalChapters = 5, chapterTitle = "") {
   const progress = JSON.parse(localStorage.getItem('progress') || '{}');
   progress[storyId] = {
@@ -827,88 +745,79 @@ const urlParams = new URLSearchParams(window.location.search);
 
 
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   if (window.innerWidth <= 600) {
-//     // ✨ Story Header - tighter, floating style
-//     const storyHeader = document.querySelector('.story-header');
-//     if (storyHeader) {
-//       Object.assign(storyHeader.style, {
-//         width: '85%',
-//         maxWidth: '85%',
-//         margin: '0 auto 1rem',
-//         padding: '0.8rem',
-//         borderRadius: '8px',
-//         display: 'flex',
-//         flexDirection: 'column',
-//         textAlign: 'center',
-//         boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-//       });
-//     }
 
-//     // 🧠 Story Title - cleaner and smaller
-//     const storyTitle = document.querySelector('.story-title');
-//     if (storyTitle) {
-//       Object.assign(storyTitle.style, {
-//         width: '100%',
-//         fontSize: '1.3rem',
-//         textAlign: 'center'
-//       });
-//     }
 
-//     // 📖 Story Chapter - almost full width
-//     const storyChapter = document.querySelector('.story-chapter');
-//     if (storyChapter) {
-//       Object.assign(storyChapter.style, {
-//         width: '95%',
-//         maxWidth: '95%',
-//         margin: '1rem auto',
-//         padding: '1.5rem 1rem',
-//         borderRadius: '0',
-//         position: 'relative',
-//         left: '0',
-//         right: '0'
-//       });
-//     }
 
-//     // 📛 Chapter Title
-//     const chapterTitle = document.querySelector('.chapter-title');
-//     if (chapterTitle) {
-//       Object.assign(chapterTitle.style, {
-//         fontSize: '1.6rem',
-//         textAlign: 'center',
-//         width: '100%'
-//       });
-//     }
 
-//     // 📄 Chapter Text Paragraphs
-//     const chapterText = document.querySelector('.chapter-text');
-//     if (chapterText) {
-//       chapterText.style.width = '100%';
-//       const paragraphs = chapterText.querySelectorAll('p');
-//       paragraphs.forEach(p => {
-//         Object.assign(p.style, {
-//           width: '100%',
-//           maxWidth: 'none',
-//           paddingLeft: '0',
-//           paddingRight: '0'
-//         });
-//       });
-//     }
 
-//     // 🔘 Navigation Buttons
-//     const navButtons = document.querySelector('.nav-buttons');
-//     if (navButtons) {
-//       Object.assign(navButtons.style, {
-//         width: '100%',
-//         margin: '1rem 0',
-//         padding: '0',
-//         justifyContent: 'space-between'
-//       });
 
-//       const prevBtn = document.getElementById('prev-btn');
-//       const nextBtn = document.getElementById('next-btn');
-//       if (prevBtn) prevBtn.style.width = '45%';
-//       if (nextBtn) nextBtn.style.width = '45%';
-//     }
-//   }
-// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
