@@ -1,9 +1,9 @@
-/* Netflix Dark Series - Midnight Chronicles Theme */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 .midnight-theme {
-  /* Netflix-inspired Color Palette */
+  
   --bg-primary: #0f0f0f;
   --bg-secondary: #1a1a1a;
   --bg-card: #222222;
@@ -20,12 +20,9 @@
   --shadow-glow: rgba(229, 9, 20, 0.3);
   --gradient-overlay: linear-gradient(135deg, rgba(229, 9, 20, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
   
-  /* Typography */
+  
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-/*    background: 
-    radial-gradient(circle at 30% 0%, rgba(229, 9, 20, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 70% 100%, rgba(147, 51, 234, 0.05) 0%, transparent 50%),
-    #0f0f0f;  */
+
   background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
@@ -34,7 +31,7 @@
   line-height: 1.6;
 }
 
-/* Cinematic Grain Effect */
+
 .midnight-theme::before {
   content: '';
   position: fixed;
@@ -42,7 +39,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-/*   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="1" result="noise"/><feColorMatrix in="noise" type="saturate" values="0"/><feOpacity in="noise" result="opacity" value="0.05"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)"/></svg>'); */
+
   pointer-events: none;
   z-index: 1;
   animation: grain 8s steps(10) infinite;
@@ -61,7 +58,7 @@
   90% { transform: translate(-10%, 10%); }
 }
 
-/* Main Container */
+
 .midnight-theme .container {
   display: flex;
   justify-content: center;
@@ -74,7 +71,7 @@
   margin: 0 auto;
 }
 
-/* Story Title - Netflix Series Style */
+
 .midnight-theme .story-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.5rem, 5vw, 3rem);
@@ -98,7 +95,7 @@
   50% { background-position: 100% 50%; }
 }
 
-/* Subtitle */
+
 .midnight-theme .story-subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
@@ -110,7 +107,7 @@
   text-transform: uppercase;
 }
 
-/* Chapter Container - Card Design */
+
 .midnight-theme .story-chapter {
   max-width: 900px;
   margin: 2rem auto;
@@ -146,7 +143,7 @@
   }
 }
 
-/* Red Accent Line */
+
 .midnight-theme .story-chapter::before {
   content: '';
   position: absolute;
@@ -161,7 +158,7 @@
   border-radius: 12px 12px 0 0;
 }
 
-/* Chapter Title */
+
 .midnight-theme .chapter-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 2.2rem;
@@ -174,7 +171,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Chapter Number Badge */
+
 .midnight-theme .chapter-number {
   display: inline-block;
   background: var(--accent-red);
@@ -188,7 +185,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Chapter Text */
+
 .midnight-theme .chapter-text {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -201,7 +198,7 @@
   text-align: left;
 }
 
-/* Drop Cap - Modern Style */
+
 .midnight-theme .chapter-text p:first-of-type::first-letter {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 4rem;
@@ -216,7 +213,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Choice Section */
+
 .midnight-theme .story-choices h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.4rem;
@@ -242,7 +239,7 @@
   border-radius: 2px;
 }
 
-/* Choice Buttons - Netflix Style */
+
 .midnight-theme .choice-options {
   display: grid;
   gap: 1rem;
@@ -294,7 +291,7 @@
   transform: translateX(10px) scale(0.98);
 }
 
-/* Restart Button - Dramatic Style */
+
 .midnight-theme .restart-btn {
   padding: 1rem 2.5rem;
   font-size: 1rem;
@@ -336,7 +333,7 @@
   box-shadow: 0 0 30px var(--shadow-glow);
 }
 
-/* Navigation Buttons */
+
 .midnight-theme .nav-buttons {
   display: flex;
   justify-content: space-between;
@@ -368,7 +365,7 @@
   border-color: var(--accent-red);
 }
 
-/* Scrollbar - Netflix Style */
+
 .midnight-theme ::-webkit-scrollbar {
   width: 8px;
 }
@@ -382,7 +379,7 @@
   background: var(--bg-secondary);
 }
 
-/* Loading Animation */
+
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -392,7 +389,7 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Utility Classes */
+
 .midnight-theme .hidden {
   display: none;
 }
@@ -405,7 +402,7 @@
   color: var(--text-muted);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .midnight-theme .container {
     padding: 1rem 0.5rem;
