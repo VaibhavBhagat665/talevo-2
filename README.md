@@ -12,7 +12,7 @@ Talevo is a web-based storytelling platform where users can:
 - 📚 Browse a curated **library of interactive stories**
 - 🎭 Dive into **choice-based narratives**
 - 🌌 Enjoy **rich visuals, backgrounds, and effects**
-- 🔒 **Log in** securely to personalize your experience (optional)
+- 🔒 **Log in** securely to personalize your experience 
 
 Every story has multiple paths. You shape the journey.
 
