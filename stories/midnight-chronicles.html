@@ -74,7 +74,7 @@
       <div id="loader" class="loading-indicator">Loading story...</div>
       <div class="story-container" id="story-container" style="display: none;"></div>
 
-      <!-- Ending chapters (HTML only) -->
+      
   
     
     <div class="story-chapter hidden" id="ending-1">
@@ -128,7 +128,7 @@
   </div>
 </div>
 
-<!-- Ending 4 -->
+
 <div class="story-chapter hidden" id="ending-4">
   <div class="chapter-image">
     <img src="/api/placeholder/400/250" alt="The Escape">
@@ -146,7 +146,7 @@
   </div>
 </div>
 
-<!-- Ending 5 -->
+
 <div class="story-chapter hidden" id="ending-5">
   <div class="chapter-image">
     <img src="/api/placeholder/400/250" alt="The Eternal Guardian">
@@ -171,7 +171,7 @@
     
   <script src="script.js"></script>
   <script>
-    // Complete story loading and navigation script
+
 async function loadStoryFromJSON() {
   try {
     const response = await fetch("midnight-chronicles.json");
@@ -179,7 +179,6 @@ async function loadStoryFromJSON() {
     const container = document.getElementById("story-container");
     const loader = document.getElementById("loader");
 
-    // Clear container first
     container.innerHTML = '';
 
     storyData.forEach((chapter) => {
@@ -215,15 +214,12 @@ async function loadStoryFromJSON() {
       container.appendChild(chapterDiv);
     });
 
-    // Hide loader and show content
     loader.style.display = "none";
     container.style.display = "block";
 
-    // Initialize story functionality
     initStoryChoiceButtons();
     initRestartButtons();
-    
-    // Load saved progress if exists
+
     loadSavedProgress();
     
   } catch (error) {
@@ -250,18 +246,16 @@ function initRestartButtons() {
 }
 
 function navigateToChapter(chapterId) {
-  // Hide all chapters
+
   document.querySelectorAll(".story-chapter").forEach((chapter) => {
     chapter.classList.add("hidden");
   });
 
-  // Show target chapter
   const targetChapter = document.getElementById(chapterId);
   if (targetChapter) {
     targetChapter.classList.remove("hidden");
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Save progress
+
     saveProgress(chapterId);
   } else {
     console.error(`Chapter ${chapterId} not found`);
@@ -269,18 +263,16 @@ function navigateToChapter(chapterId) {
 }
 
 function restartStory() {
-  // Clear saved progress
+
   localStorage.removeItem("currentChapter");
   localStorage.removeItem("storyProgress");
-  
-  // Navigate to first chapter
+
   navigateToChapter("chapter-1");
 }
 
 function saveProgress(chapterId) {
   localStorage.setItem("currentChapter", chapterId);
-  
-  // Save timestamp for progress tracking
+
   const progress = {
     currentChapter: chapterId,
     timestamp: new Date().toISOString(),
@@ -296,7 +288,6 @@ function loadSavedProgress() {
   }
 }
 
-// Bookmark functionality
 function initBookmarkButton() {
   const bookmarkBtn = document.getElementById("bookmarkBtn");
   if (bookmarkBtn) {
@@ -304,8 +295,7 @@ function initBookmarkButton() {
       const currentChapter = document.querySelector(".story-chapter:not(.hidden)");
       if (currentChapter) {
         saveProgress(currentChapter.id);
-        
-        // Visual feedback
+
         const icon = bookmarkBtn.querySelector("i");
         icon.classList.remove("far");
         icon.classList.add("fas");
@@ -314,15 +304,13 @@ function initBookmarkButton() {
           icon.classList.remove("fas");
           icon.classList.add("far");
         }, 2000);
-        
-        // Show notification (optional)
+
         showNotification("Progress saved!");
       }
     });
   }
 }
 
-// Share functionality
 function initShareButton() {
   const shareBtn = document.getElementById("shareBtn");
   if (shareBtn) {
@@ -334,7 +322,7 @@ function initShareButton() {
           url: window.location.href
         });
       } else {
-        // Fallback: copy to clipboard
+
         navigator.clipboard.writeText(window.location.href).then(() => {
           showNotification("Link copied to clipboard!");
         });
@@ -343,7 +331,6 @@ function initShareButton() {
   }
 }
 
-// Notification system
 function showNotification(message) {
   const notification = document.createElement("div");
   notification.style.cssText = `
@@ -370,7 +357,6 @@ function showNotification(message) {
   }, 3000);
 }
 
-// Add CSS for notifications
 const notificationStyles = document.createElement("style");
 notificationStyles.textContent = `
   @keyframes slideIn {
@@ -385,7 +371,6 @@ notificationStyles.textContent = `
 `;
 document.head.appendChild(notificationStyles);
 
-// Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", function() {
   loadStoryFromJSON();
   initBookmarkButton();
