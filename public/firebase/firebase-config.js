@@ -16,15 +16,14 @@ import {
 } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyArx9uO2fZlXjWdcHjQVkxk9glNjqo_Grw",
+  authDomain: "talevo-f47de.firebaseapp.com",
+  projectId: "talevo-f47de",
+  storageBucket: "talevo-f47de.firebasestorage.app",
+  messagingSenderId: "277525013867",
+  appId: "1:277525013867:web:8d8977a943d7febe8e982e",
+  measurementId: "G-LLG62MEY9G"
 };
-
 
 export const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
